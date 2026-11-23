@@ -7,7 +7,7 @@ the median of each family's well-located events. Each image is placed at the fam
 (data/locations/fam{F}_3d.json) plus that median relative offset, and drawn as contours at 20/50/80%
 of its peak, transformed into E, N, depth.
 Panels: (a) map, (b) view onto the fault plane (along strike x down dip), (c) section along strike
-(edge-on view, across-plane vs down-dip). Families without an image (4, 9, 11) are shown as x.
+(edge-on view, across-plane vs down-dip). Families without an image (3, 4, 5, 9, 11) are shown as x.
 Output figures/sharpened_patches_all_families.png
 """
 import json
@@ -182,7 +182,7 @@ def main():
     cb = fig.colorbar(sm, ax=[axm, axf], fraction=0.02, pad=0.01)
     cb.set_label('depth (km)'); cb.ax.invert_yaxis()
     fig.text(0.05, 0.003, 'Contours at 20/50/80% of each patch\'s peak density after deconvolving the empirical location error '
-             '(resolution ~110 m along strike, ~90 m down dip). * = flatter than Gaussian (p<=0.05). x = too few events to image (4, 9, 11). Our absolute depths may be ~2.5 km too deep (earthquake test); Shelly locations shown for comparison in (d). Slab models: McCrory et al. 2012 (USGS DS633); Slab2 (Hayes et al. 2018); Bloch, Bostock & Audet 2023 (G3, receiver functions; t = top of low-velocity layer, m = slab Moho).',
+             '(resolution ~110 m along strike, ~90 m down dip). * = flatter than Gaussian (p<=0.05). x = too few events to image (3, 4, 5, 9, 11: <80 events relocated in both station halves). Our absolute depths may be ~2.5 km too deep (earthquake test); Shelly locations shown for comparison in (d). Slab models: McCrory et al. 2012 (USGS DS633); Slab2 (Hayes et al. 2018); Bloch, Bostock & Audet 2023 (G3, receiver functions; t = top of low-velocity layer, m = slab Moho).',
              fontsize=8, wrap=True)
     fig.savefig('figures/sharpened_patches_all_families.png', dpi=140)
     print('wrote figures/sharpened_patches_all_families.png')

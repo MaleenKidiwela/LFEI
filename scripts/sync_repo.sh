@@ -25,3 +25,14 @@ for d in "$SRC"/data/sci/*/; do
 done
 cp "$SRC/tools/spotl/LFE_INSTALL.txt" "$DST/tools/spotl/" 2>/dev/null || true
 echo "synced to $DST"; du -sh "$DST" --exclude=.git
+# sharpened patch images: tables and figures
+mkdir -p "$DST/results/patch_images" "$DST/docs/figures" "$DST/docs/figs"
+for v in ovl_incl ovl_excl; do
+  mkdir -p "$DST/results/patch_images/$v"
+  cp "$SRC/data/sci/patch_images/$v/"{real_summary.csv,real_error_models.json,time_summary.csv,synth_summary.csv} "$DST/results/patch_images/$v/" 2>/dev/null || true
+done
+cp "$SRC/data/sci/patch_images/population_structure.csv" "$DST/results/patch_images/"
+cp "$SRC"/figures/sharpened_patches_all_families.png "$SRC"/figures/cloud_density_*.png "$SRC"/figures/sci_patch_images_*.png "$DST/docs/figures/"
+# report figures so docs/report.html renders
+rsync -a --delete "$SRC/report/figs/" "$DST/docs/figs/"
+echo "added patch images + figures"; du -sh "$DST" --exclude=.git

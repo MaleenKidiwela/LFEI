@@ -20,6 +20,10 @@ is in [`docs/report.html`](docs/report.html).
 | `data/families/`, `data/catalogs/` | Shelly family locations; ComCat M≥5.5 list used for the quake-response analysis |
 | `data/relocations/station_split_AB.json` | the two azimuth-interleaved station halves used for split-station (A×B) relocation |
 | `data/patches/` | patch tensors, memory, density summaries |
+| `data/patches/sharpened/` | **sharpened (deconvolved) LFE patch images**: `sharpened_images.npz` (B_full and A_het images per family, 81×81, 25 m pixels, along-strike × down-dip) and `sharpened_patches_geo.csv` (every pixel ≥ 5 % of peak with lon, lat, depth, density); made by `scripts/export_sharpened_patches.py` |
+| `results/patch_images/` | per-family image statistics, error models, time-change and synthetic-recovery summaries (overlap events included / excluded) |
+| `docs/figures/` | sharpened-patch figure (`sharpened_patches_all_families.png`, with McCrory 2012, Slab2 and Bloch et al. 2023 slab interfaces), per-family deconvolved images, density maps |
+| `docs/figs/` | figures used by `docs/report.html` |
 | `results/<analysis>/` | summary JSON of each science analysis |
 | `tools/spotl/LFE_INSTALL.txt` | how SPOTL (ocean-tide loading) was built for the tidal-stress model |
 
