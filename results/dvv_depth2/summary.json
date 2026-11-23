@@ -1,0 +1,615 @@
+{
+ "test1_sensor_depth": {
+  "sensor_depths": [
+   {
+    "ns": "BK.BJES",
+    "depth_m": 3.0,
+    "elev_m": 1047.65,
+    "borehole": false
+   },
+   {
+    "ns": "BK.BRIC",
+    "depth_m": 3.05,
+    "elev_m": 177.45,
+    "borehole": false
+   },
+   {
+    "ns": "BK.HAYF",
+    "depth_m": 3.0,
+    "elev_m": 773.6,
+    "borehole": false
+   },
+   {
+    "ns": "BK.RBOW",
+    "depth_m": 2.05,
+    "elev_m": 1097.95,
+    "borehole": false
+   },
+   {
+    "ns": "BK.RVIT",
+    "depth_m": 2.55,
+    "elev_m": 779.25,
+    "borehole": false
+   },
+   {
+    "ns": "NC.KMPB",
+    "depth_m": 0.0,
+    "elev_m": 970.0,
+    "borehole": false
+   },
+   {
+    "ns": "NC.KMR",
+    "depth_m": 0.0,
+    "elev_m": 915.0,
+    "borehole": false
+   },
+   {
+    "ns": "PB.B045",
+    "depth_m": 217.6,
+    "elev_m": 29.4,
+    "borehole": true
+   },
+   {
+    "ns": "PB.B046",
+    "depth_m": 187.5,
+    "elev_m": 44.0,
+    "borehole": true
+   },
+   {
+    "ns": "PB.B047",
+    "depth_m": 175.3,
+    "elev_m": 80.0,
+    "borehole": true
+   },
+   {
+    "ns": "PB.B049",
+    "depth_m": 592.0,
+    "elev_m": 117.0,
+    "borehole": true
+   },
+   {
+    "ns": "PB.B932",
+    "depth_m": 412.0,
+    "elev_m": 52.0,
+    "borehole": true
+   },
+   {
+    "ns": "PB.B933",
+    "depth_m": 139.0,
+    "elev_m": 268.1,
+    "borehole": true
+   },
+   {
+    "ns": "PB.B934",
+    "depth_m": 492.0,
+    "elev_m": 331.0,
+    "borehole": true
+   },
+   {
+    "ns": "PB.B935",
+    "depth_m": 152.4,
+    "elev_m": 696.7,
+    "borehole": true
+   }
+  ],
+  "m7step": {
+   "linear_depth": {
+    "n": 12,
+    "intercept": -0.03383928308107912,
+    "intercept_se": 0.01853512924368969,
+    "slope": 0.021029851110187306,
+    "slope_se": 0.060420813515429495,
+    "sig_int": 0.03293395375800934,
+    "slope_boot_se": 0.059948416324565615,
+    "slope_boot_p16_p84": [
+     -0.02953352988845776,
+     0.06717858586799456
+    ],
+    "ratio_slope_over_intercept": -0.6214626669187896
+   },
+   "borehole_indicator": {
+    "n": 12,
+    "intercept": -0.042447477135180746,
+    "intercept_se": 0.02050506771865488,
+    "slope": 0.021341427813429913,
+    "slope_se": 0.025662941389971463,
+    "sig_int": 0.030550148939339827,
+    "slope_boot_se": 0.026114698119745688,
+    "slope_boot_p16_p84": [
+     -0.004519391274398585,
+     0.04159921198243311
+    ],
+    "ratio_slope_over_intercept": -0.5027725851754332
+   },
+   "boreholes_only_linear": {
+    "n": 6,
+    "intercept": -0.0066018593343579925,
+    "intercept_se": 0.020963038984233223,
+    "slope": -0.030312021302653796,
+    "slope_se": 0.05207768545785232,
+    "sig_int": 0.010738491800259986,
+    "slope_boot_se": 0.13652787219450999,
+    "slope_boot_p16_p84": [
+     -0.09997088814719017,
+     -0.0064857720196850885
+    ],
+    "ratio_slope_over_intercept": 4.591437013039832
+   },
+   "surface_mean": {
+    "value": -0.04977424661864229,
+    "se": 0.03167358716725032,
+    "n": 6
+   },
+   "borehole_mean": {
+    "value": -0.026085716021958263,
+    "se": 0.012346735657931958,
+    "n": 6
+   },
+   "ratio_surface_over_borehole": 1.908103522124662,
+   "exp_sensor_depth_scale_km": {
+    "map": 0.8733261623828433,
+    "p05": 0.02179578933952065,
+    "p50": 1.2893016319806119,
+    "p95": 22.61148454534834,
+    "note": "log-uniform prior 0.01-30 km; L > 30 km = no decay"
+   },
+   "stations": [
+    {
+     "sta": "BK.BRIC",
+     "depth_m": 0.0,
+     "value": -0.1668,
+     "placebo_sd": 0.0728,
+     "z": -1.9587,
+     "n_chan": 2,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "BK.HAYF",
+     "depth_m": 0.0,
+     "value": 0.0741,
+     "placebo_sd": 0.0456,
+     "z": 2.0083,
+     "n_chan": 2,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "BK.RBOW",
+     "depth_m": 0.0,
+     "value": -0.0638,
+     "placebo_sd": 0.0432,
+     "z": -1.1988,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "BK.RVIT",
+     "depth_m": 0.0,
+     "value": -0.0323,
+     "placebo_sd": 0.0763,
+     "z": -0.2791,
+     "n_chan": 2,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "NC.KMPB",
+     "depth_m": 0.0,
+     "value": -0.0707,
+     "placebo_sd": 0.03,
+     "z": -2.1965,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "NC.KMR",
+     "depth_m": 0.0,
+     "value": -0.039,
+     "placebo_sd": 0.0163,
+     "z": -2.2725,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B045",
+     "depth_m": 217.6,
+     "value": -0.0407,
+     "placebo_sd": 0.03,
+     "z": -1.246,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B046",
+     "depth_m": 187.5,
+     "value": -0.0097,
+     "placebo_sd": 0.0141,
+     "z": -1.2327,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B047",
+     "depth_m": 175.3,
+     "value": -0.005,
+     "placebo_sd": 0.0233,
+     "z": -0.3758,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B049",
+     "depth_m": 592.0,
+     "value": -0.0207,
+     "placebo_sd": 0.0133,
+     "z": -1.3569,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B932",
+     "depth_m": 412.0,
+     "value": -0.0001,
+     "placebo_sd": 0.0202,
+     "z": 0.0757,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B934",
+     "depth_m": 492.0,
+     "value": -0.0803,
+     "placebo_sd": 0.0363,
+     "z": -2.2193,
+     "n_chan": 2,
+     "sd_source": "shifted_date_placebo"
+    }
+   ],
+   "placebo_sd_ratio_decline_over_m7": 1.0
+  },
+  "decline": {
+   "linear_depth": {
+    "n": 12,
+    "intercept": -0.10092422989380559,
+    "intercept_se": 0.0267376928129738,
+    "slope": 0.10555642646412425,
+    "slope_se": 0.09473949822705541,
+    "sig_int": 0.06463522978075087,
+    "slope_boot_se": 0.08688585228629683,
+    "slope_boot_p16_p84": [
+     0.029636773977174628,
+     0.1841137478349313
+    ],
+    "ratio_slope_over_intercept": -1.0458977648399472
+   },
+   "borehole_indicator": {
+    "n": 12,
+    "intercept": -0.10882261879098268,
+    "intercept_se": 0.02890002115140229,
+    "slope": 0.05117868765522846,
+    "slope_se": 0.03908590814477091,
+    "sig_int": 0.0630464639189432,
+    "slope_boot_se": 0.03979561558818092,
+    "slope_boot_p16_p84": [
+     0.010911568181134479,
+     0.08856497911200306
+    ],
+    "ratio_slope_over_intercept": -0.4702945786806342
+   },
+   "boreholes_only_linear": {
+    "n": 6,
+    "intercept": -0.06412207945009966,
+    "intercept_se": 0.04447423926195956,
+    "slope": 0.01896839541242114,
+    "slope_se": 0.11622189387781506,
+    "sig_int": 0.04456768389770627,
+    "slope_boot_se": 0.3318714305269895,
+    "slope_boot_p16_p84": [
+     -0.10472330062911521,
+     0.11739752592404479
+    ],
+    "ratio_slope_over_intercept": -0.2958169101047714
+   },
+   "surface_mean": {
+    "value": -0.11340591234792728,
+    "se": 0.03600418621554006,
+    "n": 6
+   },
+   "borehole_mean": {
+    "value": -0.05773702235829298,
+    "se": 0.017003348244346836,
+    "n": 6
+   },
+   "ratio_surface_over_borehole": 1.9641801346140668,
+   "exp_sensor_depth_scale_km": {
+    "map": 0.6224688843995443,
+    "p05": 0.04966785243843215,
+    "p50": 1.1205713571686082,
+    "p95": 21.002800532667276,
+    "note": "log-uniform prior 0.01-30 km; L > 30 km = no decay"
+   },
+   "stations": [
+    {
+     "sta": "BK.BRIC",
+     "depth_m": 0.0,
+     "value": -0.1514,
+     "placebo_sd": 0.0446,
+     "z": -3.398,
+     "n_chan": 2,
+     "sd_source": "scaled_from_m7_placebo_x0.61"
+    },
+    {
+     "sta": "BK.HAYF",
+     "depth_m": 0.0,
+     "value": 0.0229,
+     "placebo_sd": 0.0279,
+     "z": 0.8219,
+     "n_chan": 2,
+     "sd_source": "scaled_from_m7_placebo_x0.61"
+    },
+    {
+     "sta": "BK.RBOW",
+     "depth_m": 0.0,
+     "value": -0.1168,
+     "placebo_sd": 0.0264,
+     "z": -4.4188,
+     "n_chan": 3,
+     "sd_source": "scaled_from_m7_placebo_x0.61"
+    },
+    {
+     "sta": "BK.RVIT",
+     "depth_m": 0.0,
+     "value": -0.121,
+     "placebo_sd": 0.0467,
+     "z": -2.5895,
+     "n_chan": 2,
+     "sd_source": "scaled_from_m7_placebo_x0.61"
+    },
+    {
+     "sta": "NC.KMPB",
+     "depth_m": 0.0,
+     "value": -0.2436,
+     "placebo_sd": 0.0338,
+     "z": -6.3376,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "NC.KMR",
+     "depth_m": 0.0,
+     "value": -0.0706,
+     "placebo_sd": 0.0083,
+     "z": -8.8882,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B045",
+     "depth_m": 217.6,
+     "value": -0.1248,
+     "placebo_sd": 0.0119,
+     "z": -12.1651,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B046",
+     "depth_m": 187.5,
+     "value": -0.0095,
+     "placebo_sd": 0.0157,
+     "z": 0.1876,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B047",
+     "depth_m": 175.3,
+     "value": -0.0392,
+     "placebo_sd": 0.0086,
+     "z": -1.8669,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B049",
+     "depth_m": 592.0,
+     "value": -0.0259,
+     "placebo_sd": 0.0095,
+     "z": -5.0563,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B932",
+     "depth_m": 412.0,
+     "value": -0.0749,
+     "placebo_sd": 0.0194,
+     "z": -3.5493,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B934",
+     "depth_m": 492.0,
+     "value": -0.0721,
+     "placebo_sd": 0.0129,
+     "z": -7.9483,
+     "n_chan": 2,
+     "sd_source": "shifted_date_placebo"
+    }
+   ],
+   "placebo_sd_ratio_decline_over_m7": 0.6119707482046295
+  },
+  "decline_steps": {
+   "linear_depth": {
+    "n": 12,
+    "intercept": -0.09580494144205641,
+    "intercept_se": 0.02871759693746533,
+    "slope": 0.10044010759700982,
+    "slope_se": 0.10342100485615185,
+    "sig_int": 0.0725302945606181,
+    "slope_boot_se": 0.09595177301975379,
+    "slope_boot_p16_p84": [
+     0.015860907448195644,
+     0.19061354710389009
+    ],
+    "ratio_slope_over_intercept": -1.0483812847770153
+   },
+   "borehole_indicator": {
+    "n": 12,
+    "intercept": -0.10455474837099354,
+    "intercept_se": 0.030707754859261995,
+    "slope": 0.05144444008520059,
+    "slope_se": 0.04220694686353426,
+    "sig_int": 0.07056659500087115,
+    "slope_boot_se": 0.04215520248920572,
+    "slope_boot_p16_p84": [
+     0.010698485149844497,
+     0.09228743695872164
+    ],
+    "ratio_slope_over_intercept": -0.4920335124585574
+   },
+   "boreholes_only_linear": {
+    "n": 6,
+    "intercept": -0.05221996808453128,
+    "intercept_se": 0.04248237074643751,
+    "slope": -0.0031332824967336206,
+    "slope_se": 0.11108217389109103,
+    "sig_int": 0.04349789771572432,
+    "slope_boot_se": 0.2936780654671004,
+    "slope_boot_p16_p84": [
+     -0.1342537486334252,
+     0.09717533818443157
+    ],
+    "ratio_slope_over_intercept": 0.06000161646329632
+   },
+   "surface_mean": {
+    "value": -0.10692798869114822,
+    "se": 0.04032768576712746,
+    "n": 6
+   },
+   "borehole_mean": {
+    "value": -0.05298513751631031,
+    "se": 0.016143180298161273,
+    "n": 6
+   },
+   "ratio_surface_over_borehole": 2.0180751377352335,
+   "exp_sensor_depth_scale_km": {
+    "map": 0.6224688843995443,
+    "p05": 0.0268915235607731,
+    "p50": 1.008719701774356,
+    "p95": 21.033097378893306,
+    "note": "log-uniform prior 0.01-30 km; L > 30 km = no decay"
+   },
+   "stations": [
+    {
+     "sta": "BK.BRIC",
+     "depth_m": 0.0,
+     "value": -0.1985,
+     "placebo_sd": 0.0343,
+     "z": -5.7817,
+     "n_chan": 2,
+     "sd_source": "scaled_from_m7_placebo_x0.47"
+    },
+    {
+     "sta": "BK.HAYF",
+     "depth_m": 0.0,
+     "value": 0.0214,
+     "placebo_sd": 0.0215,
+     "z": 0.9973,
+     "n_chan": 2,
+     "sd_source": "scaled_from_m7_placebo_x0.47"
+    },
+    {
+     "sta": "BK.RBOW",
+     "depth_m": 0.0,
+     "value": -0.1096,
+     "placebo_sd": 0.0204,
+     "z": -5.3813,
+     "n_chan": 3,
+     "sd_source": "scaled_from_m7_placebo_x0.47"
+    },
+    {
+     "sta": "BK.RVIT",
+     "depth_m": 0.0,
+     "value": -0.0389,
+     "placebo_sd": 0.036,
+     "z": -1.0808,
+     "n_chan": 2,
+     "sd_source": "scaled_from_m7_placebo_x0.47"
+    },
+    {
+     "sta": "NC.KMPB",
+     "depth_m": 0.0,
+     "value": -0.2419,
+     "placebo_sd": 0.0295,
+     "z": -6.9118,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "NC.KMR",
+     "depth_m": 0.0,
+     "value": -0.0741,
+     "placebo_sd": 0.0073,
+     "z": -11.6586,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B045",
+     "depth_m": 217.6,
+     "value": -0.1081,
+     "placebo_sd": 0.005,
+     "z": -26.2854,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B046",
+     "depth_m": 187.5,
+     "value": -0.0014,
+     "placebo_sd": 0.0109,
+     "z": 0.1473,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B047",
+     "depth_m": 175.3,
+     "value": -0.0369,
+     "placebo_sd": 0.0032,
+     "z": -5.9912,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B049",
+     "depth_m": 592.0,
+     "value": -0.0224,
+     "placebo_sd": 0.0067,
+     "z": -4.7859,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B932",
+     "depth_m": 412.0,
+     "value": -0.0754,
+     "placebo_sd": 0.0099,
+     "z": -4.9048,
+     "n_chan": 3,
+     "sd_source": "shifted_date_placebo"
+    },
+    {
+     "sta": "PB.B934",
+     "depth_m": 492.0,
+     "value": -0.0736,
+     "placebo_sd": 0.0033,
+     "z": -31.9609,
+     "n_chan": 2,
+     "sd_source": "shifted_date_placebo"
+    }
+   ],
+   "placebo_sd_ratio_decline_over_m7": 0.47138791220019427
+  }
+ }
+}

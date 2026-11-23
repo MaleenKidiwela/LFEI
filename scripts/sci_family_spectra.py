@@ -750,7 +750,8 @@ def run_analyse(a):
     for q in ['LO', 'HFI', 'slope', 'MID']:
         for va, vb in [('D3_dtt_pb', 'D3_dtt_surf'), ('D3_dtt_half1', 'D3_dtt_half2'), ('D3_dtt_Z', 'D3_dtt_H'),
                        ('D3_dtt', 'D3_dtt_chan'), ('D3_dtt', 'D3_none'), ('D3_dtt', 'D2_dtt'), ('D3_dtt', 'D5_dtt'),
-                       ('D3_dtt', 'D99_dtt'), ('D3_dtt', 'D3_dtt_D3d'), ('D99_dtt', 'D99_none'), ('D99_dtt', 'D6_dtt')]:
+                       ('D3_dtt', 'D99_dtt'), ('D3_dtt', 'D3_dtt_D3d'), ('D99_dtt', 'D99_none'), ('D99_dtt', 'D6_dtt'),
+                       ('D2_dtt', 'D5_dtt'), ('D3_dtt', 'D3_dtt_bc')]:
             da, db = get(va, q), get(vb, q)
             # compare within common components of the stricter solution (remove per-component offsets)
             dd_ = pd.DataFrame(dict(xa=da.x, xb=db.x, ca=da.comp, sa=da.get('se'), sb=db.get('se'))).dropna(subset=['xa', 'xb'])
@@ -891,7 +892,31 @@ def run_analyse(a):
         dm = 1.0
         for nm, dln in [('selfsim', -dm / 3), ('const_duration', 0.0), ('const_slip_area', -dm / 2)]:
             scal[f'pred_dHFI_dLO_{nm}_fc0_{fc0:g}'] = float((s_.dHFI_dlnfc * dln) / (dm / np.log(10) + s_.dLO_dlnfc * dln))
-    summ = dict(info, chi2_family_differences=chi, validation=val, scaling_moment_corner=scal,
+    # ---- 7. patch-size scaling slopes (within clusters) vs predictions
+    patch = {}
+    T['logL1'] = np.log10(T.L1_m)
+    for cv in ['logL_B', 'logL1']:
+        for q in ['HFI', 'LO', 'lnfc_fc0_3']:
+            d = T[[q, cv, 'comp_D3']].dropna()
+            d = d[d.groupby('comp_D3')[q].transform('count') >= 3].copy()
+            for c_ in [q, cv]:
+                d[c_] -= d.groupby('comp_D3')[c_].transform('mean')
+            if len(d) < 5:
+                continue
+            b = np.polyfit(d[cv], d[q], 1)[0]
+            bb = []
+            for _ in range(2000):
+                k = rng.integers(0, len(d), len(d))
+                if d[cv].values[k].std() > 0:
+                    bb.append(np.polyfit(d[cv].values[k], d[q].values[k], 1)[0])
+            patch[f'{q}_vs_{cv}'] = dict(n=len(d), slope=float(b), ci68=[float(v) for v in np.percentile(bb, [16, 84])],
+                                         ci95=[float(v) for v in np.percentile(bb, [2.5, 97.5])], sd_cov=float(d[cv].std()))
+    s3 = sens.loc[sens.fc0 == 3.0].iloc[0]
+    patch['pred_HFI_vs_logL_if_fc_1overL'] = float(-s3.dHFI_dlnfc * np.log(10))
+    patch['pred_lnfc_vs_logL_if_fc_1overL'] = float(-np.log(10))
+    patch['pred_LO_vs_logL_if_M0_L3_fc_1overL'] = float(3 - s3.dLO_dlnfc * np.log(10))
+    patch['pred_LO_vs_logL_if_M0_L2_fc_1overL'] = float(2 - s3.dLO_dlnfc * np.log(10))
+    summ = dict(info, chi2_family_differences=chi, patch_scaling=patch, validation=val, scaling_moment_corner=scal,
                 band_centres_hz=[float(v) for v in FB], usable_bands=[float(v) for v in FB[U]],
                 clusters={str(k): [int(f) for f in g.index] for k, g in T.groupby('cluster')})
     json.dump(summ, open(f'{OUTS}/summary.json', 'w'), indent=1, default=float)
@@ -922,8 +947,9 @@ def run_figs(a):
             continue
         xs = np.array([T.loc[F, f'x_{f:.2f}Hz'] for f in FB])
         es = np.array([T.loc[F, f'x_{f:.2f}Hz_se'] for f in FB])
-        ax[0].errorbar(FB * (1 + 0.01 * (F - 14) / 14), xs - xs[I_LO].mean(), yerr=es, color=cm(0.5 + 0.5 * T.loc[F, 'HFI'] / lim),
-                       lw=0.9, alpha=0.85, elinewidth=0.5)
+        kb = np.arange(1, 7)
+        ax[0].errorbar(FB[kb] * (1 + 0.012 * (F - 14) / 14), (xs - xs[I_LO].mean())[kb], yerr=es[kb],
+                       color=cm(0.5 + 0.5 * T.loc[F, 'HFI'] / lim), lw=0.9, alpha=0.85, elinewidth=0.4)
     ax[0].axvspan(EDGES[BSEL[U[0]]], EDGES[BSEL[U[-1]] + 1], color='0.92', zorder=-1)
     for fc0, ls in [(3.0, '--')]:
         for l in [-0.3, 0.3]:

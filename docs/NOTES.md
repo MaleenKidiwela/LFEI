@@ -833,6 +833,12 @@ Partly verified, rest from memory.
 - 2026-11-23 Correction (instrument check): "BRIC noise decline -0.17% (1-4 Hz)" -> fails with a reinstall offset; only the 2-8 Hz decline and the M7 drop are robust.
 - 2026-11-23 Correction (instrument check): "B933 P +13.5 ms at the M7" (centroids) -> FAILS: driven by one family (22, +219 ms, a cycle skip; +2.3 +/- 3.3 ms without it), and the whole post-M7 window lies inside B933's degraded period.
 - 2026-11-23 The report was updated (v30) to reflect the instrument-check corrections.
+- 2026-11-23 ~15:30 Issue: the per-station dv/v curve files in data/dvv/pool/ still contained the instrument-problem windows. The instrument check (sci_dvv_instrument_check.py) had corrected only the derived numbers, not the curves.
+- 2026-11-23 Fix: new scripts/dvv_cwire_pool_clean.py reruns the same per-channel inversion (dvv_cwire_pool.invert_channel) with the V2 scheme: rows in EXCL windows are dropped; channels are split at BREAKS2 (B933 2021-11-01, BRIC 2024-05-22, RVIT 2024-06-21, BJES 2024-05-23, KMPB 2023-10-17), each instrument segment inverted separately with its own per-family offsets; pairs spanning a break are dropped.
+  - 38 unaffected channels copied unchanged; 28 cleaned inversions.
+  - Outputs: data/dvv/pool_clean/ ({chan}_curve.csv or {chan}__seg{k}_curve.csv; params_by_channel.csv with column 'cleaned'; steps outside a segment set to NaN). Figure: figures/dvv_pool_channels_clean.png (original grey vs cleaned colour, excluded windows shaded).
+  - Cleaned M7 steps: BRIC HHN -0.26 +/- 0.04%, HHZ -0.22 +/- 0.04% (post-reinstall segment); KMPB HHN -0.15 +/- 0.09, HHZ -0.12 +/- 0.07, HHE -0.06 +/- 0.05; KMR -0.03 to -0.05 +/- 0.03; B045 EH1 -0.03 +/- 0.03.
+  - Use pool_clean/ for these stations. The report (v31) shows the cleaned figure and notes that its table and map still use the original curves. GitHub results/dvv_pool_clean/.
 - 2026-11-21 Caveat: S velocity model essentially Vp/1.78 at family 23 (weak S coverage).
 
 ## Files & scripts
@@ -925,3 +931,4 @@ Partly verified, rest from memory.
 - scripts/export_sharpened_patches.py (data/patches/sharpened/)
 - scripts/sync_repo.sh (GitHub staging to /home/seismic/LFEI_repo; repo MaleenKidiwela/LFEI, public)
 - scripts/sci_family_spectra.py (running)
+- scripts/dvv_cwire_pool_clean.py -> data/dvv/pool_clean/, figures/dvv_pool_channels_clean.png.
