@@ -41,10 +41,13 @@ TEMPLATES = {}   # filled in workers via initializer
 INJ = None
 
 
-def init(tpl_paths, model, min_snr, inj_path):
+def init(tpl_paths, model, min_snr, inj_path, chanset=None):
     global TEMPLATES, INJ
+    keep = set(open(chanset).read().split()) if chanset else None
     for F, p in tpl_paths.items():
         TEMPLATES[F] = load_templates(F, model, min_snr, p)
+        if keep is not None:   # fixed channel set (scan_quakes_chanset.py)
+            TEMPLATES[F] = {k: v for k, v in TEMPLATES[F].items() if k in keep}
     if inj_path:   # injection table is our own file written by scan_quakes_inject.py
         INJ = pd.read_pickle(inj_path)
 
@@ -195,20 +198,21 @@ def main():
     ap.add_argument('--cont', default='data/continuous')
     ap.add_argument('--out', default='data/scan_quakes')
     ap.add_argument('--procs', type=int, default=12)
+    ap.add_argument('--chanset', default=None, help='restrict to a fixed channel set (file of ids)')
     ap.add_argument('--inject', default=None, help='injection table (pickle); output to {tag}_inj')
     a = ap.parse_args()
     lo, hi = map(int, a.families.split('-')) if '-' in a.families else (int(a.families),) * 2
     fams = list(range(lo, hi + 1))
     paths = {F: f'data/templates/fam{F}_templates_era{a.era}.h5' for F in fams}
     out = os.path.join(a.out, a.tag + ('_inj' if a.inject else ''))
-    init(paths, a.model, a.min_snr, None)
+    init(paths, a.model, a.min_snr, None, a.chanset)
     for F in fams:
         print(f'fam {F}: {len(TEMPLATES[F])} template channels', flush=True)
     days = [d.strftime('%Y-%m-%d') for d in pd.date_range(a.start, a.end, freq='D')]
     if a.inject:
         inj = pd.read_pickle(a.inject)
         days = sorted(set(days) & set(inj['table'].day))
-    with ProcessPoolExecutor(a.procs, initializer=init, initargs=(paths, a.model, a.min_snr, a.inject)) as ex:
+    with ProcessPoolExecutor(a.procs, initializer=init, initargs=(paths, a.model, a.min_snr, a.inject, a.chanset)) as ex:
         for day, nu, nd in ex.map(scan_day, [(d, a.cont, out, bool(a.inject)) for d in days]):
             print(f'{day}: {nu:3d} channels  {nd:5d} candidate peaks', flush=True)
 

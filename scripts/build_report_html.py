@@ -94,7 +94,7 @@ figs = {k: fig(v, k) for k, v in {
     'noise_ts': 'figures/sci_noise_dvv_timeseries.png', 'noise_steps': 'figures/sci_noise_dvv_steps.png',
     'strain': 'figures/sci_strain_stacks.png',
     'sharpened': 'figures/sharpened_patches_all_families.png',
-    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'instr': 'figures/sci_dvv_instrument_check.png', 'poolclean': 'figures/dvv_pool_channels_clean.png', 'famspec': 'figures/sci_family_spectra_scaling.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
+    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'instr': 'figures/sci_dvv_instrument_check.png', 'poolclean': 'figures/dvv_pool_channels_clean.png', 'famspec': 'figures/sci_family_spectra_scaling.png', 'depth2': 'figures/sci_dvv_depth2_posterior.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
     'diprake': 'figures/sci_tidal_spotl_dip_rake.png', 'gnss_q2': 'figures/sci_gnss_q2_postseismic.png',
     'density': 'figures/cloud_density_fault_plane.png', 'density_m7': 'figures/cloud_density_m7.png',
     'tidal_fits': 'figures/sci_tidal_spotl_fits.png', 'gnss_q1': 'figures/sci_gnss_q1_rate_peaks.png',
@@ -328,6 +328,14 @@ Whether the Petrolia/Ferndale dips are partly detection loss is being tested wit
 Audet 2023), the McCrory interface corresponds to the slab Moho (~30 km) and all 27 families lie inside the low-velocity layered package
 above it (3–8 km below its top at ~20 km), the zone Shelly et al. (2026) interpret as material accreted to the southern edge of the Gorda slab.</p></div>
 </div>
+<div class="finding"><span class="eyebrow">dv/v depth</span><h3>The velocity decline sits in the top few hundred metres near the stations</h3>
+<p>Combining borehole sensor depth (8 PB sensors at 139–592 m), frequency and coda lapse time in LFE coda and ambient noise with depth-sensitivity
+kernels: half of the decline lies above ~0.1–0.3 km and 90% above ~0.2–0.7 km; the M7 drop is shallower still (half above ~50–150 m). The decline
+sits in the early coda, varies strongly between stations only 5–11 km apart, and is absent at the control station, consistent with damaged or
+fractured near-surface rock (deeper than a soil layer of tens of metres) that has not healed, possibly with near-surface fluid changes; a km-scale
+regional process is disfavoured but not excluded. Open tension: boreholes at 412–592 m decline as much as those at 175–218 m, which on its own
+suggests a deeper change unless borehole sensors also sample the near surface through surface-reflected waves. The depth estimate rests mainly on
+ambient noise at KMPB.</p></div>
 <div class="finding"><span class="eyebrow">Sources</span><h3>The M7 changed when the patches slip, not how they rupture</h3>
 <p>Source spectra of all 27 families were compared within each family on the same channel and instrument epoch (matched-filter band amplitudes,
 2–6.5 Hz, amplitude-matched, borehole and surface stations separately, 200 placebo dates). Spectral shape, S-wave duration and size do not change at
@@ -353,6 +361,7 @@ from 2024-08), B935 (from 2024-05), BRIC (Dec 2022 to its May 2024 reinstall), R
 <p class="note">In progress: our own
 matched-filter scan of continuous data around Petrolia and Ferndale (real rate change vs detection loss).</p>""")
 H.append(img('lfespec', 'LFE S-wave spectra. (a) Family 23 on its six best channels: S window vs pre-event noise; the LFE signal clearly exceeds noise only at about 2-7 Hz. (b) Median displacement spectrum of every family on borehole PB.B049 (velocity divided by f, normalised at 2.2 Hz): the falloff over 2-7 Hz lies between Brune shapes with corner 4 and 8 Hz for t* = 0.04 s; the corner frequency trades off with the unknown attenuation, so the absolute corner is not resolved.'))
+H.append(img('depth2', 'Depth extent of the dv/v decline: posterior depth distributions from the joint inversion of sensor-depth, frequency and lapse-time observations (LFE coda and ambient noise) for uniform, exponential and two-layer models.'))
 H.append(img('spectra', 'Source-spectral indices (mid- and high-frequency ratios, low-frequency size proxy, S-envelope width) before and after each quake and in the first weeks after the M7, pooled over 27 families, compared with 200 random placebo dates: no change.'))
 H.append(img('famspec', 'Relative source spectra between families (within clusters of neighbouring families): high-frequency falloff and typical amplitude versus patch size, recurrence interval and depth, with permutation nulls.'))
 H.append(img('sws', 'Shear-wave splitting through time (delay along the reference fast direction and fast-direction change) per station; shaded windows are instrument problems found by this analysis; dashed lines mark the three quakes.'))

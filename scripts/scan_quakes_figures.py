@@ -21,8 +21,10 @@ import pandas as pd  # noqa: E402
 sys.path.insert(0, os.path.dirname(__file__))
 from scan_quakes_analysis import QUAKES, catalog  # noqa: E402
 
-TAGS = [t for t in ['petrolia', 'ferndale', 'm7'] if os.path.exists(f'data/scan_quakes/{t}_summary.json')]
-NAME = {'petrolia': 'Petrolia M6.2 2021-12-20', 'ferndale': 'Ferndale M6.4 2022-12-20', 'm7': 'M7.0 2024-12-05'}
+SUFFIX = os.environ.get('SCAN_SUFFIX', '_fc')     # '_fc' = fixed channel set (primary); '' = all channels
+TAGS = [t + SUFFIX for t in ['petrolia', 'ferndale', 'm7'] if os.path.exists(f'data/scan_quakes/{t}{SUFFIX}_summary.json')]
+NAME0 = {'petrolia': 'Petrolia M6.2 2021-12-20', 'ferndale': 'Ferndale M6.4 2022-12-20', 'm7': 'M7.0 2024-12-05'}
+NAME = {t: NAME0[t.split('_')[0]] for t in TAGS}
 COL = {'cat': '#444444', 'fixed8': '#1f77b4', 'daily': '#ff7f0e', 'neg': '#d62728', 'hourly': '#2ca02c'}
 
 
@@ -46,7 +48,7 @@ def fig_threshold():
             a.legend(fontsize=7, ncol=2, loc='upper right')
     ax[-1, 0].set_xlabel('days since mainshock')
     fig.tight_layout()
-    fig.savefig('figures/sci_scan_quakes_threshold.png', dpi=150)
+    fig.savefig(f'figures/sci_scan_quakes_threshold{SUFFIX}.png', dpi=150)
 
 
 def fig_rates():
@@ -82,7 +84,7 @@ def fig_rates():
             a.legend(fontsize=7, ncol=2, loc='upper left')
     ax[-1, 0].set_xlabel('days since mainshock')
     fig.tight_layout()
-    fig.savefig('figures/sci_scan_quakes_rates.png', dpi=150)
+    fig.savefig(f'figures/sci_scan_quakes_rates{SUFFIX}.png', dpi=150)
 
 
 def fig_ratios():
@@ -99,7 +101,7 @@ def fig_ratios():
             xs = np.arange(3) + i * 3.6 + (j - 1.5) * w
             ax[0].bar(xs, val, w, color=col, label=lab if i == 0 else None)
     ax[0].set_xticks([k + i * 3.6 for i in range(len(TAGS)) for k in range(3)])
-    ax[0].set_xticklabels([f'{k}\n{tag}' if k == '2d' else k for tag in TAGS for k in wins], fontsize=8)
+    ax[0].set_xticklabels([f'{k}\n{tag.split("_")[0]}' if k == '2d' else k for tag in TAGS for k in wins], fontsize=8)
     ax[0].axhline(1, color='0.5', lw=0.5)
     ax[0].set_ylabel('post / pre rate ratio')
     ax[0].legend(fontsize=7)
@@ -126,7 +128,7 @@ def fig_ratios():
     ax[1].set_ylim(0, 1)
     ax[1].legend(fontsize=7)
     fig.tight_layout()
-    fig.savefig('figures/sci_scan_quakes_ratios.png', dpi=150)
+    fig.savefig(f'figures/sci_scan_quakes_ratios{SUFFIX}.png', dpi=150)
 
 
 if __name__ == '__main__':

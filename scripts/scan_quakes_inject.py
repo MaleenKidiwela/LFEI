@@ -37,6 +37,7 @@ def main():
     ap.add_argument('--days-before', type=int, default=2)
     ap.add_argument('--days-after', type=int, default=3)
     ap.add_argument('--per-day', type=int, default=12)
+    ap.add_argument('--extra', default='', help='extra day offsets, e.g. 5,10,20')
     ap.add_argument('--ndonor', type=int, default=6)
     ap.add_argument('--cont', default='data/continuous')
     ap.add_argument('--seed', type=int, default=1)
@@ -120,6 +121,8 @@ def main():
     rows = []
     days = pd.date_range(Q.normalize() - pd.Timedelta(days=a.days_before),
                          Q.normalize() + pd.Timedelta(days=a.days_after), freq='D')
+    if a.extra:   # extra later days (offsets in days from the quake day), appended after the contiguous block
+        days = days.append(pd.DatetimeIndex([Q.normalize() + pd.Timedelta(days=int(x)) for x in a.extra.split(',')]))
     for d in days:
         for F in range(1, 28):
             ids = [k for k, v in donors.items() if v['fam'] == F]

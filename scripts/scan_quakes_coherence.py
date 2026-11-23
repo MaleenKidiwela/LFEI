@@ -44,8 +44,9 @@ def main():
     ap.add_argument('--tag', required=True)
     ap.add_argument('--rule', default='fixed8')
     a = ap.parse_args()
-    Q = pd.Timestamp(QUAKES[a.tag][0])
-    era = QUAKES[a.tag][1]
+    base = a.tag.split('_')[0]
+    Q = pd.Timestamp(QUAKES[base][0])
+    era = QUAKES[base][1]
     D = pd.read_csv(f'data/scan_quakes/{a.tag}_detections.csv')
     D = D[D.rule == a.rule].copy()
     D['t'] = pd.to_datetime(D.t, format='mixed')
@@ -89,7 +90,7 @@ def main():
                          median_abs_cc=float(np.median(np.abs(v))), frac_strong=float(np.mean(r.sign * v > 0.2))))
     res = pd.DataFrame(rows)
     try:
-        cat = ncsn(a.tag, Q - pd.Timedelta(days=35), Q + pd.Timedelta(days=52))
+        cat = ncsn(base, Q - pd.Timedelta(days=35), Q + pd.Timedelta(days=52))
         eq = np.array([(e.preferred_origin() or e.origins[0]).time.timestamp for e in cat])
         mags = np.array([e.magnitudes[0].mag if e.magnitudes else np.nan for e in cat])
 

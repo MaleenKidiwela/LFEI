@@ -87,7 +87,8 @@ def main():
     ap.add_argument('--post', type=float, default=30.0)
     a = ap.parse_args()
     tag = a.tag
-    Q = pd.Timestamp(QUAKES[tag][0])
+    base = tag.split('_')[0]
+    Q = pd.Timestamp(QUAKES[base][0])
     qs = ep([Q])[0]
     D, H, R, days = load(tag)
     t_lo = max(Q - pd.Timedelta(days=a.pre), pd.Timestamp(days[0]))
@@ -125,12 +126,32 @@ def main():
             '6h': (Q, Q + pd.Timedelta(hours=6))}
     pre_w = (t_lo, Q)
     cat_pre = cnt(cw, *pre_w)
+    # aftershock-coda association: an NCSN earthquake (within 1.4 deg) 15-65 s BEFORE the detection
+    from obspy import read_events
+    evc = read_events(f'data/scan_quakes/ncsn_{base}.xml')
+    eqt = np.sort(np.array([(e.preferred_origin() or e.origins[0]).time.timestamp for e in evc]))
+
+    def eqassoc(ts):
+        ts = np.asarray(ts, float)
+        return np.searchsorted(eqt, ts - 15) > np.searchsorted(eqt, ts - 65)
+
+    def eq_prob_random(t0, t1):
+        r = np.linspace(ep([t0])[0], ep([t1])[0], 20000, endpoint=False)
+        return float(eqassoc(r).mean())
+    cpre = cw[(cw.t >= t_lo) & (cw.t < Q)]
+    cat_pre_clean = (len(cpre) - eqassoc(cpre.ts.values).sum()) / (1 - eq_prob_random(t_lo, Q))
     out['catalog'] = dict(pre=cat_pre, pre_rate=cat_pre / T_pre)
     for k, (t0, t1) in wins.items():
         dur = (t1 - t0).total_seconds() / 86400
         n = cnt(cw, t0, t1)
-        out['catalog'][k] = dict(n=n, ratio=(n / dur) / (cat_pre / T_pre),
-                                 nfam=int(cw[(cw.t >= t0) & (cw.t < t1)].idnum.nunique()))
+        cc_ = cw[(cw.t >= t0) & (cw.t < t1)]
+        pr = eq_prob_random(t0, t1)
+        na = int(eqassoc(cc_.ts.values).sum())
+        nclean = (n - na) / max(1 - pr, 1e-9)       # genuine-LFE estimate: remove aftershock-coda associates
+        out['catalog'][k] = dict(n=n, ratio=(n / dur) / (cat_pre / T_pre), nfam=int(cc_.idnum.nunique()),
+                                 n_eqassoc=na, p_eqassoc_random=pr, n_clean=nclean,
+                                 ratio_clean=(nclean / dur) / (cat_pre_clean / T_pre),
+                                 nfam_clean=int(cc_[~eqassoc(cc_.ts.values)].idnum.nunique()))
 
     fam_rows = []
     dets_all = []
@@ -157,7 +178,11 @@ def main():
             npos, nneg = cnt(pos, t0, t1), cnt(neg, t0, t1)
             pw = pos[(pos.t >= t0) & (pos.t < t1)]
             nw = neg[(neg.t >= t0) & (neg.t < t1)]
+            pr = eq_prob_random(t0, t1)
+            na_p, na_n = int(eqassoc(pw.ts.values).sum()), int(eqassoc(nw.ts.values).sum())
             r[k] = dict(pos=npos, neg=nneg, neg_all=cnt(n_all, t0, t1), catmatch=int(pw.catany.sum()),
+                        pos_eqassoc=na_p, neg_eqassoc=na_n, p_eqassoc_random=pr,
+                        net_clean=((npos - na_p) - (nneg - na_n)) / max(1 - pr, 1e-9),
                         ratio=(npos / dur) / max(r['pre_pos_rate'], 1e-9),
                         ratio_fa_corr=((npos - nneg) / dur) / max(net_pre, 1e-9),
                         neg_ratio=(nneg / dur) / max(r['pre_neg_rate'], 1e-9),
@@ -216,7 +241,7 @@ def main():
     out['threshold'] = th
 
     # injection test
-    inj_pk = f'data/scan_quakes/inject/{tag}_inject.pkl'
+    inj_pk = f'data/scan_quakes/inject/{base}_inject.pkl'
     if os.path.exists(inj_pk) and glob.glob(f'data/scan_quakes/{tag}_inj/det_*.csv'):
         tab = pd.read_pickle(inj_pk)['table']   # our own file (scan_quakes_inject.py)
         DI, HI, _, idays = load(f'{tag}_inj')
@@ -242,39 +267,65 @@ def main():
         I['ccrel'] = I.ccsum / I.b
         I.to_csv(f'data/scan_quakes/{tag}_injection.csv', index=False)
         bins = {'pre': (-1e9, 0), 'h0_6': (0, 6), 'h6_24': (6, 24), 'h0_24': (0, 24), 'h24_48': (24, 48),
-                'h0_48': (0, 48), 'h48_96': (48, 96)}
+                'h0_48': (0, 48), 'h48_96': (48, 96), 'd4_7': (96, 168), 'd7_14': (168, 336), 'd14_30': (336, 1e9)}
+        cols = ['det_fixed8', 'det_fixed10', 'det_fixed12', 'det_daily', 'det_hourly']
         inj = {}
         for k, (h0, h1) in bins.items():
             x = I[(I.h >= h0) & (I.h < h1)]
-            inj[k] = dict(n=len(x), **{c: float(x[c].mean()) for c in
-                                       ['det_fixed8', 'det_fixed10', 'det_fixed12', 'det_daily', 'det_hourly']},
-                          ccrel_median=float(x.ccrel.median()))
+            if len(x):
+                inj[k] = dict(n=len(x), **{c: float(x[c].mean()) for c in cols},
+                              ccrel_median=float(x.ccrel.median()))
         out['injection'] = inj
-        # efficiency-corrected fixed-threshold ratios: weight each detection by 1/relative efficiency
-        out['corrected'] = {}
-        for rn in ('fixed8', 'fixed10'):
-            col = 'det_' + rn
-            e0 = inj['pre'][col]
-            eb = [(0, 6, inj['h0_6'][col]), (6, 24, inj['h6_24'][col]),
-                  (24, 48, inj['h24_48'][col]), (48, 1e9, inj['h48_96'][col])]
+        # relative efficiency e(h) (piecewise; a missing bin takes the previous bin's value)
+        seq = [(0, 6, 'h0_6'), (6, 24, 'h6_24'), (24, 48, 'h24_48'), (48, 96, 'h48_96'),
+               (96, 168, 'd4_7'), (168, 336, 'd7_14'), (336, 1e9, 'd14_30')]
 
-            def wsum(x):
-                hh_ = (x.ts.values - qs) / 3600
-                wts = np.ones(len(x))
-                for h0, h1, e in eb:
-                    wts[(hh_ >= h0) & (hh_ < h1)] = min(e0 / max(e, 0.02), 20.0)
-                return wts.sum()
+        def eff_fun(col):
+            e0 = inj['pre'][col]
+            pieces, last = [], 1.0
+            for h0, h1, k in seq:
+                if k in inj:
+                    last = inj[k][col] / max(e0, 1e-9)
+                pieces.append((h0, h1, last))
+            return pieces
+
+        def mean_eff(pieces, h0w, h1w):
+            hs = np.linspace(h0w, h1w, 2000, endpoint=False)
+            e = np.ones_like(hs)
+            for a0, a1, v in pieces:
+                e[(hs >= a0) & (hs < a1)] = v
+            return float(e.mean())
+        # observed net (positive - reversed false alarms) vs expected under "no rate change, only detection loss"
+        out['corrected'] = {}
+        for rn in ('fixed8', 'fixed10', 'daily'):
+            pieces = eff_fun('det_' + rn)
             X = D[rules[rn]]
             pos_ = dedup(X[X.sign == 1].copy())
             pos_['catany'] = near(pos_.ts.values, cw.ts.values)
             neg_ = fa_filter(dedup(X[X.sign == -1].copy()), pos_, cw)
             net_pre = (out[rn]['pre_pos'] - out[rn]['pre_neg']) / T_pre
-            corr = {}
+            # pre-quake sliding windows (1-h steps) of net counts, for an empirical (clustering-aware) p-value
+            pts, nts = np.sort(pos_.ts.values), np.sort(neg_.ts.values)
+            t_lo_s = ep([t_lo])[0]
+            res = {}
             for k, (t0, t1) in wins.items():
                 dur = (t1 - t0).total_seconds() / 86400
-                corr[k] = (wsum(pos_[(pos_.t >= t0) & (pos_.t < t1)]) -
-                           wsum(neg_[(neg_.t >= t0) & (neg_.t < t1)])) / dur / net_pre
-            out['corrected'][rn] = corr
+                h0w, h1w = (t0 - Q).total_seconds() / 3600, (t1 - Q).total_seconds() / 3600
+                me = mean_eff(pieces, h0w, h1w)
+                O = int(((pos_.t >= t0) & (pos_.t < t1)).sum() - ((neg_.t >= t0) & (neg_.t < t1)).sum())
+                E = net_pre * dur * me
+                r_ = dict(mean_rel_eff=me, observed_net=O, expected_if_unchanged=E,
+                          ratio_eff_corr=O / max(E, 1e-9),
+                          catalog_ratio_eff_corr=out['catalog'][k]['ratio'] / max(me, 1e-9))
+                wl = dur * 86400
+                starts = np.arange(t_lo_s, qs - wl + 1, 3600.0)
+                if len(starts) >= 5 and dur <= 7:
+                    npw = (np.searchsorted(pts, starts + wl) - np.searchsorted(pts, starts)) - \
+                          (np.searchsorted(nts, starts + wl) - np.searchsorted(nts, starts))
+                    r_['p_empirical'] = float(np.mean(npw * me <= max(O, 0)))   # FA noise can make O < 0
+                    r_['pre_window_net_q05_q50'] = [float(np.quantile(npw * me, 0.05)), float(np.median(npw * me))]
+                res[k] = r_
+            out['corrected'][rn] = res
     json.dump(out, open(f'data/scan_quakes/{tag}_summary.json', 'w'), indent=1, default=float)
     print(json.dumps(out, indent=1, default=float))
 

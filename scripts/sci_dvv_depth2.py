@@ -330,13 +330,21 @@ def noise_measure(name):
     for inj in (0, 1):
         S = sub
         if inj:
+            # band-limited stretch: 8x FFT upsampling, then interpolation at t (1 + INJ) (linear interpolation on
+            # the 20-Hz grid would under-stretch 4-8 Hz by up to ~50 %)
+            from scipy.signal import resample
             S = sub.copy()
+            lu = lags[0] + np.arange(L * 8) / (nd.FS * 8)
             for i in np.where(post)[0]:
-                # stretch each trace: cur(t) = orig(t (1 + INJ))  -> dv/v = INJ
-                for ib in range(len(NBANDS)):
-                    for ip in range(6):
-                        x = sub[i, ib, ip]
-                        S[i, ib, ip] = np.interp(lags * (1 + INJ), lags, x) if np.isfinite(x).all() else np.nan
+                x = sub[i].astype(float)
+                bad = ~np.isfinite(x).all(axis=-1)
+                xu = resample(np.nan_to_num(x), L * 8, axis=-1)
+                y = np.empty_like(x)
+                for ib in range(x.shape[0]):
+                    for ip in range(x.shape[1]):
+                        y[ib, ip] = np.interp(lags * (1 + INJ), lu, xu[ib, ip])
+                y[bad] = np.nan
+                S[i] = y
         ref = np.nanmean(S[np.asarray(days <= pd.Timestamp(nd.REF_END))], axis=0)
         labs, S10, N10 = nd.stack_groups(days, S, k10, 5)
         t10 = pd.Timestamp(nd.START) + pd.to_timedelta(labs * 10 + 5, unit='D')
@@ -373,6 +381,12 @@ def noise_series(D):
     q = D[(D.inj == 0) & (D.win == 'full') & (D.t <= '2021-11-30')].groupby(['sta', 'band', 'pair']).cc.median()
     good = set(q[q >= 0.3].index)
     D = D[[(s, b, p) in good for s, b, p in zip(D.sta, D.band, D.pair)]]
+    # injected rows get the weights (errors) of the matching non-injected rows (paired recovery)
+    key = ['sta', 'band', 'win', 'pair', 't']
+    e0 = D[D.inj == 0].set_index(key).err
+    D = D.copy()
+    m1 = (D.inj == 1).values
+    D.loc[m1, 'err'] = e0.reindex(pd.MultiIndex.from_frame(D.loc[m1, key])).values
     rows = []
     for cmb, prs in NCOMBOS.items():
         d = D[D.pair.isin(prs) & np.isfinite(D.dvv) & np.isfinite(D.err)]
@@ -798,7 +812,7 @@ SHAPE_CFGS = ['b24_early', 'b24_late', 'b48_early', 'b48_late']
 NOISE_OBS = [(b, w) for b in ['1-2Hz', '2-4Hz', '4-8Hz'] for w in ['early', 'late']]
 BAND_F = {'b24': (2.0, 4.0), 'b48': (4.0, 8.0), 'b28': (2.0, 8.0), '1-2Hz': (1.0, 2.0), '2-4Hz': (2.0, 4.0),
           '4-8Hz': (4.0, 8.0), '1-4Hz': (1.0, 4.0), '2-8Hz': (2.0, 8.0)}
-ALPHA = np.linspace(0, 1, 11)
+ALPHA = np.linspace(0, 0.9, 10)       # surface-wave energy fraction at a surface sensor (1 excluded: no body waves at all)
 NOISE_STA_FULL = {'KMPB': 'NC.KMPB', 'BRIC': 'BK.BRIC', 'B045': 'PB.B045', 'HAYF': 'BK.HAYF'}
 
 
@@ -875,14 +889,20 @@ def load_obs(kind):
         Pm = np.array([r[npc].values[0] for r in rows]).T
         sd = np.nanstd(Pm, axis=0, ddof=1)
         rec = np.array([r['rec_D' if kind == 'D' else 'rec_m7'].values[0] for r in rows])
-        nl.append(dict(sta=NOISE_STA_FULL[sta], d=BORE_D.get(NOISE_STA_FULL[sta], 0.0), obs=NOISE_OBS, y=y / np.where(np.abs(rec) > 0.3, rec, 1.0),
-                       y_raw=y, rec=rec, C=shrink_cov(Pm, sd) / np.outer(np.where(np.abs(rec) > 0.3, rec, 1.0), np.where(np.abs(rec) > 0.3, rec, 1.0)), sd=sd))
+        # observables whose injection recovery is < 0.7 (low-CC late windows) are dropped (unreliable stretching)
+        keep = np.abs(rec - 1) < 0.2
+        if keep.sum() < 3:
+            continue
+        rr = rec[keep]
+        C = shrink_cov(Pm, sd)[np.ix_(keep, keep)] / np.outer(rr, rr)
+        nl.append(dict(sta=NOISE_STA_FULL[sta], d=BORE_D.get(NOISE_STA_FULL[sta], 0.0), obs=[o for o, k in zip(NOISE_OBS, keep) if k],
+                       y=y[keep] / rr, y_raw=y, rec=rec, C=C, sd=sd[keep] / rr, dropped=[o for o, k in zip(NOISE_OBS, keep) if not k]))
     blocks['noise'] = nl
     return blocks
 
 
 class Kern:
-    def __init__(self, vel='ref', lfe_l='20', lstar=5.0, sw='RL', bh_shift=False):
+    def __init__(self, vel='ref', lfe_l='20', lstar=5.0, sw='RL', bh_shift=False, bh_r1=False):
         Z = np.load(f'{OUT}/kernels.npz')
         self.zg = Z['ZG']
         self.zc = 0.5 * (self.zg[1:] + self.zg[:-1])
@@ -897,7 +917,7 @@ class Kern:
             self.Ksw, self.amp = R, aR
         else:
             self.Ksw, self.amp = L, aL
-        self.Z, self.vel, self.lfe_l, self.lstar, self.bh = Z, vel, lfe_l, lstar, bh_shift
+        self.Z, self.vel, self.lfe_l, self.lstar, self.bh, self.bh_r1 = Z, vel, lfe_l, lstar, bh_shift, bh_r1
 
     def fidx(self, band):
         f1, f2 = BAND_F[band]
@@ -921,7 +941,7 @@ def obs_components(K, typ, band, win, d, M):
     """Gsw (nf, nshape), r (nf,), Gbw (nshape,) for one observable."""
     fi = K.fidx(band)
     Gsw = K.Ksw[fi] @ M.T
-    r = K.r_at(d)[fi] if d > 0 else np.ones(len(fi))
+    r = K.r_at(d)[fi] if (d > 0 and not K.bh_r1) else np.ones(len(fi))
     Kb = K.lfe_body(win, d) if typ == 'lfe' else K.noise_body(win, d)
     return Gsw, r, Kb @ M.T
 
@@ -934,21 +954,53 @@ def G_of_alpha(comp, alpha):
     return (ae[:, :, None] * Gsw[None] + (1 - ae)[:, :, None] * Gbw[None, None]).mean(axis=1)
 
 
+def agrid(Amax):
+    """amplitude grid (%): log-uniform |A| in [1e-3, Amax], both signs, equal prior mass per node.  A log-uniform
+    (scale-invariant) amplitude prior makes the shape inference depend on RATIOS between observables, not on how well
+    a model's absolute sensitivity happens to match the data scale (a Gaussian prior would favour insensitive models)."""
+    a = np.geomspace(1e-3, Amax, 120)
+    return np.r_[-a[::-1], a]
+
+
 def loglik_block(y, C, G, sigA):
-    """y (n,), C (n,n), G (..., n, nshape) -> log marginal likelihood (..., nshape), amplitude ~ N(0, sigA^2)."""
+    """y (n,), C (n,n), G (..., n, nshape) -> log marginal likelihood (..., nshape) over the amplitude grid."""
     Ci = np.linalg.inv(C)
     yCy = y @ Ci @ y
-    CiY = Ci @ y
-    gCy = np.einsum('...ns,n->...s', G, CiY)
+    gCy = np.einsum('...ns,n->...s', G, Ci @ y)
     gCg = np.einsum('...ns,nm,...ms->...s', G, Ci, G)
-    s2 = sigA ** 2
-    return -0.5 * (yCy - s2 * gCy ** 2 / (1 + s2 * gCg)) - 0.5 * np.log1p(s2 * gCg) - 0.5 * np.linalg.slogdet(C)[1]
+    A = agrid(sigA).reshape((-1,) + (1,) * gCy.ndim)
+    chi = yCy - 2 * A * gCy[None] + A ** 2 * gCg[None]
+    mx = (-0.5 * chi).max(axis=0)
+    return np.log(np.exp(-0.5 * chi - mx).mean(axis=0)) + mx - 0.5 * np.linalg.slogdet(C)[1]
+
+
+def chi2_min(y, C, Gs, sigA):
+    """minimum over candidate G matrices (list of (n, nshape)) of the residual chi2 at the best amplitude (|A| <= Amax)."""
+    Ci = np.linalg.inv(C)
+    yCy = y @ Ci @ y
+    best = np.inf
+    for G in Gs:
+        gCy = G.T @ Ci @ y
+        gCg = np.einsum('ns,nm,ms->s', G, Ci, G)
+        A = np.clip(gCy / np.maximum(gCg, 1e-30), -sigA, sigA)
+        chi = yCy - 2 * A * gCy + A ** 2 * gCg
+        best = min(best, float(chi.min()))
+    return best
+
+
+def inflate(y, C, Gs, sigA, npar=3):
+    """Birge-ratio inflation: scale C so that the best model (over shapes and alphas) has chi2/dof = 1 (if > 1)."""
+    dof = max(len(y) - npar, 1)
+    c2 = chi2_min(y, C, Gs, sigA)
+    f = max(1.0, c2 / dof)
+    return C * f, f, c2
 
 
 def amp_post(y, C, g, sigA):
     Ci = np.linalg.inv(C)
-    prec = g @ Ci @ g + 1 / sigA ** 2
-    return float((g @ Ci @ y) / prec), float(1 / np.sqrt(prec))
+    gg = g @ Ci @ g
+    A = float(np.clip((g @ Ci @ y) / max(gg, 1e-30), -sigA, sigA))
+    return A, float(1 / np.sqrt(max(gg, 1e-30)))
 
 
 def shapes(param):
@@ -983,25 +1035,24 @@ def shapes(param):
 
 
 def t1_loglik(b, Gt, sigA, tau_grid):
-    """cross-station block: Gt (nsta, ns); multiplicative site scatter tau (plug-in amplitude), marginal over tau."""
+    """cross-station block: Gt (nsta, ns); y_s = A0 g_s (1 + eta_s) + e_s, eta ~ N(0, tau^2) (multiplicative site
+    scatter); A0 on the log-uniform grid, tau marginalised (uniform over tau_grid)."""
     y, s2 = b['y'], b['s'] ** 2
-    gCy = (Gt * (y / s2)[:, None]).sum(0)
-    gCg = (Gt ** 2 / s2[:, None]).sum(0)
-    A0 = gCy / (gCg + 1 / sigA ** 2)
-    lt = []
+    A = agrid(sigA)[:, None, None]                                       # (nA, 1, 1)
+    out = []
     for tau in tau_grid:
-        v = s2[:, None] + (tau * A0[None, :] * Gt) ** 2
-        yCy = (y[:, None] ** 2 / v).sum(0)
-        gy = (Gt * y[:, None] / v).sum(0)
-        gg = (Gt ** 2 / v).sum(0)
-        S2 = sigA ** 2
-        lt.append(-0.5 * (yCy - S2 * gy ** 2 / (1 + S2 * gg)) - 0.5 * np.log1p(S2 * gg) - 0.5 * np.log(v).sum(0))
-    lt = np.array(lt)
-    mx = lt.max(0)
-    return np.log(np.mean(np.exp(lt - mx), axis=0)) + mx
+        pred = A * Gt[None]                                              # (nA, nsta, ns)
+        v = s2[None, :, None] + (tau * pred) ** 2
+        ll = -0.5 * (((y[None, :, None] - pred) ** 2) / v + np.log(v)).sum(axis=1)   # (nA, ns)
+        mx = ll.max(0)
+        out.append(np.log(np.exp(ll - mx).mean(0)) + mx)
+    out = np.array(out)
+    mx = out.max(0)
+    return np.log(np.exp(out - mx).mean(0)) + mx
 
 
-def invert_one(blocks, K, M, use=('t1', 'lfe', 'noise'), sigA=5.0, tie=False, order_noise=False, tau_grid=(0, 0.25, 0.5, 1.0)):
+def invert_one(blocks, K, M, use=('t1', 'lfe', 'noise'), sigA=10.0, tie=False, order_noise=False, tau_grid=(0, 0.25, 0.5, 1.0),
+               inflate_err=True):
     """log posterior over shapes (marginal over alphas, amplitudes, site scatter)."""
     ns = len(M)
     na = len(ALPHA)
@@ -1027,22 +1078,29 @@ def invert_one(blocks, K, M, use=('t1', 'lfe', 'noise'), sigA=5.0, tie=False, or
             wins = [c.split('_')[1] for c in blk['cfgs']]
             GA = [G_of_alpha(obs_components(K, 'lfe', c[:3], w, blk['d'], M), ALPHA) for c, w in zip(blk['cfgs'], wins)]
             y, C = blk['y'] / np.where(np.abs(blk['rec']) > 0.3, blk['rec'], 1.0), blk['C']
+            allG = [np.array([GA[o][i if w == 'early' else j] for o, w in enumerate(wins)]) for i in range(na) for j in range(na)]
+            if inflate_err:
+                C, fi, c2 = inflate(y, C, allG, sigA)
+                detail['inflation_lfe_' + blk['sta']] = (fi, c2, len(y))
             ll = np.zeros((na, na, ns))
             for i in range(na):
                 for j in range(na):
-                    G = np.array([GA[o][i if w == 'early' else j] for o, w in enumerate(wins)])
-                    ll[i, j] = loglik_block(y, C, G, sigA)
+                    ll[i, j] = loglik_block(y, C, allG[i * na + j], sigA)
             lfe_terms.append(ll)
             detail['lfe_' + blk['sta']] = ll
     noise_terms = []
     if 'noise' in use:
         for blk in blocks['noise']:
             GA = [G_of_alpha(obs_components(K, 'noise', b_, w_, blk['d'], M), ALPHA) for b_, w_ in blk['obs']]
+            allG = [np.array([GA[o][i if w_ == 'early' else j] for o, (b_, w_) in enumerate(blk['obs'])]) for i in range(na) for j in range(na)]
+            C = blk['C']
+            if inflate_err:
+                C, fi, c2 = inflate(blk['y'], C, allG, sigA)
+                detail['inflation_noise_' + blk['sta']] = (fi, c2, len(blk['y']))
             ll = np.zeros((na, na, ns))
             for i in range(na):
                 for j in range(na):
-                    G = np.array([GA[o][i if w_ == 'early' else j] for o, (b_, w_) in enumerate(blk['obs'])])
-                    ll[i, j] = loglik_block(blk['y'], blk['C'], G, sigA)
+                    ll[i, j] = loglik_block(blk['y'], C, allG[i * na + j], sigA)
             noise_terms.append(ll)
             detail['noise_' + blk['sta']] = ll
 
@@ -1057,7 +1115,10 @@ def invert_one(blocks, K, M, use=('t1', 'lfe', 'noise'), sigA=5.0, tie=False, or
         mx = T.max(axis=(0, 1))
         return np.log(np.exp(T - mx).sum(axis=(0, 1)) / mask.sum()) + mx
     if tie and 'lfe' in use and 'noise' in use:
-        LL = (marg([detail['t1']]) if 't1' in detail else 0.0) + tied_loglik(blocks, K, M, sigA, order_noise)
+        b2 = dict(blocks)
+        b2['lfe'] = [dict(b, C=b['C'] * detail.get('inflation_lfe_' + b['sta'], (1.0,))[0]) for b in blocks['lfe']]
+        b2['noise'] = [dict(b, C=b['C'] * detail.get('inflation_noise_' + b['sta'], (1.0,))[0]) for b in blocks['noise']]
+        LL = (marg([detail['t1']]) if 't1' in detail else 0.0) + tied_loglik(b2, K, M, sigA, order_noise)
     else:
         LL = marg(lfe_terms) + marg(noise_terms, order_noise)
     return LL, detail
@@ -1139,8 +1200,9 @@ VARIANTS_INV = {
     'lfe_l50': dict(lfe_l='50'), 'lfe_l100': dict(lfe_l='100'), 'lfe_shallowscat': dict(lfe_l='10/5km/100'),
     'noise_lstar1': dict(lstar=1.0), 'noise_lstar20': dict(lstar=20.0),
     'rayleigh_only': dict(sw='R'), 'love_only': dict(sw='L'), 'bh_shift': dict(bh_shift=True),
-    'sigA20': dict(sigA=20.0), 'sigA2': dict(sigA=2.0), 'noise_alpha_ordered': dict(order_noise=True),
-    'tied_amplitudes': dict(tie=True),
+    'bh_full_surface_waves': dict(bh_r1=True),
+    'Amax50': dict(sigA=50.0), 'Amax3': dict(sigA=3.0), 'noise_alpha_ordered': dict(order_noise=True),
+    'tied_amplitudes': dict(tie=True), 'no_error_inflation': dict(inflate_err=False),
     'only_t1': dict(use=('t1',)), 'only_lfe_shape': dict(use=('lfe',)), 'only_noise': dict(use=('noise',)),
     'lfe_all': dict(use=('t1', 'lfe')), 'no_t1': dict(use=('lfe', 'noise')),
 }
@@ -1149,13 +1211,23 @@ VARIANTS_INV = {
 def inv_job(args):
     kind, param, vname, opts = args
     blocks = load_obs(kind)
-    kk = {k: opts[k] for k in ['vel', 'lfe_l', 'lstar', 'sw', 'bh_shift'] if k in opts}
+    kk = {k: opts[k] for k in ['vel', 'lfe_l', 'lstar', 'sw', 'bh_shift', 'bh_r1'] if k in opts}
     K = Kern(**kk)
     M, P = shapes(param)
-    io = {k: opts[k] for k in ['use', 'sigA', 'tie', 'order_noise'] if k in opts}
+    io = {k: opts[k] for k in ['use', 'sigA', 'tie', 'order_noise', 'inflate_err'] if k in opts}
     LL, detail = invert_one(blocks, K, M, **io)
     st, w = post_stats(LL, P)
-    return (kind, param, vname), dict(stats=st, w=w, LL=LL, P=P)
+    per_block = {}
+    if vname in ('reference', 'bh_full_surface_waves'):
+        for k, T in detail.items():
+            if k.startswith('inflation'):
+                continue
+            mx = T.max(axis=(0, 1))
+            lb = np.log(np.exp(T - mx).mean(axis=(0, 1))) + mx
+            sb, _ = post_stats(lb, P)
+            per_block[k] = {kk: sb[kk] for kk in ['z50', 'z90', 'P_z50_lt_0.2km', 'P_z50_0.2_1km', 'P_z50_ge_1km']}
+    infl = {k: v for k, v in detail.items() if k.startswith('inflation')}
+    return (kind, param, vname), dict(stats=st, w=w, LL=LL, P=P, per_block=per_block, inflation=infl)
 
 
 def stage_invert(args):
@@ -1164,7 +1236,7 @@ def stage_invert(args):
         for param in ['uniform', 'exponential', 'twolayer']:
             for vname, opts in VARIANTS_INV.items():
                 if param == 'twolayer' and vname not in ('reference', 'tied_amplitudes', 'only_noise', 'lfe_all', 'vel_soft',
-                                                          'vel_thin', 'lfe_shallowscat', 'sigA20'):
+                                                          'vel_thin', 'lfe_shallowscat', 'Amax50'):
                     continue
                 if opts.get('tie') and param == 'twolayer':
                     continue
@@ -1192,8 +1264,73 @@ def stage_invert(args):
         rows.append(row)
     T = pd.DataFrame(rows).sort_values(['kind', 'param', 'variant'])
     T.to_csv(f'{OUT}/inversion_summary.csv', index=False, float_format='%.4g')
+    pb = {f'{k[0]}|{k[1]}|{k[2]}': dict(per_block=r['per_block'], inflation={kk: list(v) for kk, v in r['inflation'].items()})
+          for k, r in res.items() if r['per_block']}
+    summary_update('inversion_per_block', pb)
+    summary_update('inversion_main', {f'{k[0]}|{k[1]}|{k[2]}': r['stats'] for k, r in res.items()
+                                      if k[2] in ('reference', 'tied_amplitudes', 'only_noise', 'lfe_all', 'only_t1', 'only_lfe_shape')})
     print(T[['kind', 'param', 'variant', 'z50_p05', 'z50_p50', 'z50_p95', 'z90_p05', 'z90_p50', 'z90_p95', 'P_z50_lt_0.2km', 'P_z50_ge_1km', 'logZ']].round(3).to_string())
 
+
+
+def diagnose(kind, param='uniform', opts=None, shapes_to_show=(0.05, 0.1, 0.2, 0.5, 1.0, 3.0, 10.0)):
+    """observed vs predicted per block at selected shapes (best alphas per block, posterior-mean amplitude)."""
+    opts = opts or {}
+    blocks = load_obs(kind)
+    kk = {k: opts[k] for k in ['vel', 'lfe_l', 'lstar', 'sw', 'bh_shift', 'bh_r1'] if k in opts}
+    K = Kern(**kk)
+    M, P = shapes(param)
+    sigA = opts.get('sigA', 10.0)
+    pcol = 'H' if param == 'uniform' else 'D'
+    out = []
+    for hv in shapes_to_show:
+        k = int(np.argmin(np.abs(np.log(P[pcol].values / hv))))
+        Mk = M[k:k + 1]
+        # t1
+        b = blocks['t1']
+        comps = [obs_components(K, 'lfe', 'b28', 'full', d, Mk) for d in b['d']]
+        best = None
+        for a in ALPHA:
+            g = np.array([G_of_alpha(c, np.array([a]))[0, 0] for c in comps])
+            A, Ase = amp_post(b['y'], np.diag(b['s'] ** 2), g, sigA)
+            chi = float(np.sum((b['y'] - A * g) ** 2 / b['s'] ** 2))
+            if best is None or chi < best[0]:
+                best = (chi, a, A, g)
+        out.append(dict(shape=f'{pcol}={P[pcol].values[k]:.3f}', block='t1', alpha=best[1], A=best[2], chi2=best[0], n=len(b['y']),
+                        obs=np.round(b['y'], 3).tolist(), pred=np.round(best[2] * best[3], 3).tolist(), sta=list(b['sta'])))
+        for blk in blocks['lfe'] + blocks['noise']:
+            typ = 'lfe' if 'cfgs' in blk else 'noise'
+            items = blk['cfgs'] if typ == 'lfe' else blk['obs']
+            comps = [obs_components(K, 'lfe', c[:3], c.split('_')[1], blk['d'], Mk) if typ == 'lfe'
+                     else obs_components(K, 'noise', c[0], c[1], blk['d'], Mk) for c in items]
+            wins = [c.split('_')[1] if typ == 'lfe' else c[1] for c in items]
+            best = None
+            Ci = np.linalg.inv(blk['C'])
+            for aE in ALPHA:
+                for aL in ALPHA:
+                    g = np.array([G_of_alpha(c, np.array([aE if w == 'early' else aL]))[0, 0] for c, w in zip(comps, wins)])
+                    A, _ = amp_post(blk['y'], blk['C'], g, sigA)
+                    r = blk['y'] - A * g
+                    chi = float(r @ Ci @ r)
+                    if best is None or chi < best[0]:
+                        best = (chi, (aE, aL), A, g)
+            out.append(dict(shape=f'{pcol}={P[pcol].values[k]:.3f}', block=f'{typ}_{blk["sta"]}', alpha=best[1], A=best[2], chi2=best[0],
+                            n=len(blk['y']), obs=np.round(blk['y'], 3).tolist(), pred=np.round(best[2] * best[3], 3).tolist(),
+                            items=[str(x) for x in items]))
+    return out
+
+
+def stage_diagnose(args):
+    res = {}
+    for kind in ['D', 'm7']:
+        for param in ['uniform', 'exponential']:
+            for vn in ['reference', 'bh_full_surface_waves']:
+                d = diagnose(kind, param, VARIANTS_INV[vn])
+                res[f'{kind}_{param}_{vn}'] = d
+                for r in d:
+                    print(kind, param, vn, r['shape'], r['block'], 'alpha', r['alpha'], 'A %.3f chi2 %.1f/%d' % (r['A'], r['chi2'], r['n']),
+                          'obs', r['obs'], 'pred', r['pred'], flush=True)
+    jdump(res, f'{OUT}/inversion_diagnostics.json')
 
 # ================================================================================================ station tables
 def stage_tables(args):
@@ -1437,4 +1574,4 @@ if __name__ == '__main__':
     ap.add_argument('stage')
     ap.add_argument('--nboot', type=int, default=60)
     a = ap.parse_args()
-    {'depthreg': stage_depthreg, 'noise': stage_noise, 'noisefit': stage_noisefit, 'lfefit': stage_lfefit, 'kernels': stage_kernels, 'invert': stage_invert, 'tables': stage_tables, 'figs': stage_figs}[a.stage](a)
+    {'depthreg': stage_depthreg, 'noise': stage_noise, 'noisefit': stage_noisefit, 'lfefit': stage_lfefit, 'kernels': stage_kernels, 'invert': stage_invert, 'tables': stage_tables, 'figs': stage_figs, 'diagnose': stage_diagnose}[a.stage](a)
