@@ -25,6 +25,7 @@ is in [`docs/report.html`](docs/report.html).
 | `docs/figures/` | sharpened-patch figure (`sharpened_patches_all_families.png`, with McCrory 2012, Slab2 and Bloch et al. 2023 slab interfaces), per-family deconvolved images, density maps |
 | `docs/figs/` | figures used by `docs/report.html` |
 | `results/<analysis>/` | summary JSON of each science analysis |
+| `results/dvv_pool/` | per-station-channel dv/v curves (all 27 families pooled; `<NET.STA.LOC.CHA>_curve.csv`: time, segment, dv/v %, error %) and per-channel fit parameters (`params_by_channel.csv`) |
 | `tools/spotl/LFE_INSTALL.txt` | how SPOTL (ocean-tide loading) was built for the tidal-stress model |
 
 Not included (size or licence): raw and continuous waveforms, per-family HDF5 waveform sets, derived intermediate data

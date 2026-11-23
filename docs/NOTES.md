@@ -15,7 +15,7 @@
   - New: only the M7 lowered pore pressure at the LFE fault (undrained dp) and only it silenced the system; frictional state unchanged (tidal sensitivity, sizes, no healing; moment repaid in 60-90 d; sigma_eff >~6 kPa, rough); resolved small patches ~560x350 m along strike in Shelly's plane; inter-family coupling (~9x at 10 min, stronger along strike) and inward sweeps at 80-100 km/d, unchanged by the M7; an annual LFE-rate cycle of 5-7% peaking Aug-Sep, in phase with dv/v; the 18-yr LFE-coda dv/v record (annual cycle, shaking-scaled coseismic drops, non-healing decline since 2021).
   - Confirms: M7 cessation (Shelly & Materna 2026); NNE-dipping ~45 deg plane; strong linear tidal modulation (Shelly et al. 2026).
   - Not supported: healing; source migration at the M7/since 2020 and inter-family migration >1 m/yr; a deep velocity change (only the early-coda 60-d transient remains, 2.5 sigma, confounded); in-patch fronts (overlap pull ~50 m), tidal location shifts, a propagating restart; remote triggering (needs a waveform check; SUPERSEDED 2026-11-23: waveform check supports it, tentative).
-- Round 3 complete (strain stack: null; ambient-noise dv/v: confirms decline; density maps). Round 4 (started 2026-11-23 07:50): DONE 2026-11-23: GNSS (no robust detection) and patch images (deconvolution). SPOTL ocean loading DONE 2026-11-23 (right-lateral decisive; no single static (B, mu) explains both tides and the M7). Source spectra DONE 2026-11-23 (no source change). Still running: SWS. Matched-filter scan around Petrolia/Ferndale (item 6): NEXT. Priority raised 2026-11-23 because Lu, Ide & Ren claim tremor ceased after all three M6+ quakes, while the LFE catalog shows only a 1-2 d dip at Petrolia and a 50% drop at Ferndale; the scan tests detection loss.
+- Round 4 done (2026-11-23): GNSS, patch images, SPOTL tides + poroelastic test, source spectra, SWS, dv/v instrument check. Running: inter-family spectral ratios vs patch size (scripts/sci_family_spectra.py) and our own matched-filter scan around Petrolia/Ferndale (data/scan_quakes/). Report v30 published; GitHub synced (commit 9891578).
 - Blocked on user: the Science supplement (tidal-stress method) -> papers/ (Lu, Ide & Ren 2026 GRL received and read 2026-11-23 10:20) (Shelly et al. 2026 Science main text received and read 2026-11-23) (Shelly & Materna 2026 GRL received and read 2026-11-23; strike 293/dip 40 confirmed by it). (SPOTL install and heavy compute were authorised 2026-11-23.)
 - Open items: waveform check of remote-triggering detections; full texts of Shelly & Materna and Lu et al. if the user provides PDFs; a tidal-stress model (pygtide/SPOTL not installed) for Coulomb-phase interpretation; a three-way station split for patch breathing; the early-coda transient vs source-location test.
 - Resolved: injection under-recovery (~70%) explained (lapse/frequency-dependent recovery: late coda and 4-8 Hz recover only 33-47% vs 70-78% for early coda and 2-4 Hz); optional: correct step amplitudes by band-specific recovery factors.
@@ -533,6 +533,21 @@ All stages ran without error. Preliminary; to be superseded by the full run.
   - INTERPRETATION: the M7 changed WHEN the patches slip, not HOW they rupture. No change in source spectra, duration or size at any quake, at restart, or over 18 yr.
   - Caveats: absolute fc not resolved (2-6.5 Hz band; Brune assumed for stress-drop conversion); envelope widths are path-dominated; small restart samples; the 18-yr null uses 27 split points.
   - Disk: /home is ~92% full; raw/ (3.3 GB) can be deleted.
+- 2026-11-23 ~14:30 DV/V INSTRUMENT CHECK (scripts/sci_dvv_instrument_check.py; outputs data/sci/dvv_instrument_check/: claims_table.csv, summary.json, decline_per_station.csv, decline_model_per_channel.csv; figures figures/sci_dvv_instrument_check{,_noise}.png).
+  - Method: all dv/v claims re-run with the SWS-flagged instrument windows excluded on all components (B045: EH1 only). B933's problem also affects EHZ (reference CC 0.32 inside the window vs 0.62 outside). Variants: V0 original (reproduces the existing bins); V1 windows excluded; V2 = V1 + free offsets at the ends of the B933, BRIC, RVIT and BJES windows and at the KMPB 2023-10-17 maintenance; V3 = V2 + free offsets at the RBOW, HAYF and HALS epochs.
+  - Borehole decline -0.056% (z -4.8; V2 model -0.069%, z -8.9): SURVIVES.
+  - Surface decline V1 -0.122% (z -8.2); free-offset model -0.080% (z -5.9): SURVIVES, ~20% smaller.
+  - Surface/borehole ratio: 2.1x originally -> 1.5x connected, 1.2x with free offsets. WEAKENS: drop "surface ~2x borehole".
+  - Largest decliners (free offsets): KMPB -0.27, BRIC -0.15, RVIT -0.12, RBOW -0.12, B045 -0.12. The borehole B045 is as large as most surface stations.
+  - Onset: hinge 2021-07 (bootstrap 2020-09 to 2022-02); 2021H2 z +0.3 borehole, -1.0 surface; no significant pre-Petrolia slope. Unchanged.
+  - M7 surface step -0.046% (z -2.7); per-channel long-record surface -0.065 to -0.090% (z -3.4 to -4.8). SURVIVES. M7 borehole -0.018% (z -2.1), marginal.
+  - Ferndale: surface z -1.6, borehole z -2.0, marginal. Cannot be measured at RVIT, BRIC or BJES, whose instrument problems began with Ferndale (RVIT on the day itself; plausibly shaking-induced). Petrolia: not significant.
+  - Annual cycle z 8.6-9.5, peak days 252/262: SURVIVES unchanged.
+  - BRIC ambient noise, with a free offset at the 2024-05-21 reinstall: 1-4 Hz decline -0.08 +/- 0.04 (vertical-only +0.06): FAILS. 2-8 Hz decline -0.27 (vertical-only -0.26 +/- 0.05): SURVIVES. M7 step vertical-only 2-8 Hz -0.76 (z -10.9); -0.60 (z -7.0) against a post-reinstall reference: SURVIVES.
+  - KMPB noise decline: free offset -0.36 +/- 0.05; vertical-only -0.41: SURVIVES.
+  - B045 noise: decline vertical-only -0.36 and M7 vertical 2-8 Hz -0.43 (z -4.1) SURVIVE. The Ferndale step is not on the vertical (WEAKENS).
+  - Metadata epochs: none within 120 d of any quake; the closest are the BK reinstalls of 2024-05-21 to 06-20, ~6.5 months before the M7. Jump tests at all epochs since 2008 give |z| < 1.9.
+  - With B933 removed, the only P-delay change at the M7 with |z| > 3 is KMR -2.9 +/- 0.7 ms.
 - 2026-11-22 FINAL location reminder: 40.050N -123.561W, 30.5 km (likely ~28 km after depth-bias correction), 0.59 km from Shelly.
 - 2026-11-22 FINDING (from family_report on family 23): bin trend since 2020 in depth = -2.0 +/- 1.5 m/yr (only ~1.3 sigma); the 'shallowing 15-25 m since 2020' should be called marginal.
 - 2026-11-22 dv/v transient re-fit with script for family 23 (tau fixed at 60 d): A = -0.067 +/- 0.022% (-3.1 sigma), BUT only 3 bins fall within 120 d after the M7.
@@ -814,6 +829,10 @@ Partly verified, rest from memory.
 - 2026-11-23 Correction: the ~03:00 ocean-load note (slip sense undecidable, mu' and a*sigma unconverged, sigma_eff reading from tides) is SUPERSEDED by the SPOTL layered-Earth refit (~12:00): right-lateral decisive, mu' 0.092+/-0.013, a*sigma 0.63 kPa (rigidity-dependent); tidal a*sigma no longer ~0.46 and the "tides and M7 give the same friction" statement is replaced by: no single static (B, mu) explains both.
 - 2026-11-23 Correction: the ~13:00 statement "LFEs lie just above the modelled plate interface, in the overriding plate / accreted material, not on the megathrust" is model-dependent: McCrory's interface coincides with the Bloch 2023 slab Moho, and relative to Bloch's top of the low-velocity layer the LFEs lie 3.3-8.0 km below (inside the layered package above the Moho). See the 13:30 finding.
 - 2026-11-23 Issue/fix: the source-spectra analyse stage deadlocked (fork-pool worker for family 6 hung at load; parent waited on imap_unordered with 0% CPU for 2 h). Main agent killed it at ~11:45. The script now runs in-process at --procs 1, otherwise a spawn-context pool with a 1-h per-family limit.
+- 2026-11-23 Correction (instrument check): "surface decline ~2x borehole" -> only ~1.2-1.5x once the instrument breaks get free offsets.
+- 2026-11-23 Correction (instrument check): "BRIC noise decline -0.17% (1-4 Hz)" -> fails with a reinstall offset; only the 2-8 Hz decline and the M7 drop are robust.
+- 2026-11-23 Correction (instrument check): "B933 P +13.5 ms at the M7" (centroids) -> FAILS: driven by one family (22, +219 ms, a cycle skip; +2.3 +/- 3.3 ms without it), and the whole post-M7 window lies inside B933's degraded period.
+- 2026-11-23 The report was updated (v30) to reflect the instrument-check corrections.
 - 2026-11-21 Caveat: S velocity model essentially Vp/1.78 at family 23 (weak S coverage).
 
 ## Files & scripts
@@ -898,3 +917,11 @@ Partly verified, rest from memory.
   - Family x station: no family (source-side) effect for any quake (p_family 0.15-0.99); station effects at Ferndale/M7 dphi (p 0.012) come from single stations (BRIC post-reinstall, B933), i.e. receiver/instrument.
   - Half-splits: odd/even half-series correlate only where instrument problems exist (B933 0.79 before exclusion, RVIT 0.78); at clean stations r = -0.3..0.4, consistent with noise-dominated series.
   - VERDICT: no detectable change of fast direction or delay time at Petrolia, Ferndale or the M7, during the post-2021 dv/v decline, or seasonally, at the ~1-2 ms / ~1-2 deg level; nothing differs between borehole and surface. All large apparent SWS changes are instrument epochs (several begin before the M7).
+- scripts/sci_dvv_instrument_check.py (data/sci/dvv_instrument_check/)
+- scripts/sci_sws.py (data/sci/sws/)
+- scripts/sci_source_spectra.py (data/sci/source_spectra/)
+- scripts/plot_lfe_spectra.py (figures/lfe_spectra.png: absolute LFE displacement spectra; signal above noise only 2-7 Hz; falloff between Brune fc 4-8 Hz for t* 0.04 s, corner not resolved because it trades off with attenuation)
+- scripts/plot_sharpened_patches.py
+- scripts/export_sharpened_patches.py (data/patches/sharpened/)
+- scripts/sync_repo.sh (GitHub staging to /home/seismic/LFEI_repo; repo MaleenKidiwela/LFEI, public)
+- scripts/sci_family_spectra.py (running)

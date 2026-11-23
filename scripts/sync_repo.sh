@@ -36,3 +36,6 @@ cp "$SRC"/figures/sci_dvv_instrument_check*.png "$SRC"/figures/lfe_spectra.png "
 # report figures so docs/report.html renders
 rsync -a --delete "$SRC/report/figs/" "$DST/docs/figs/"
 echo "added patch images + figures"; du -sh "$DST" --exclude=.git
+# per-station-channel dv/v curves (all families pooled) and per-channel parameters
+mkdir -p "$DST/results/dvv_pool"; rsync -a --delete "$SRC/data/dvv/pool/" "$DST/results/dvv_pool/"
+cp "$SRC"/figures/dvv_pool_channels.png "$SRC"/figures/dvv_pool_map.png "$DST/docs/figures/"

@@ -340,6 +340,25 @@ def stat_cols(Y):
     return out
 
 
+def components(A_idx, B_idx, nF=27):
+    """Connected components of the family graph defined by the observed pairs (-1 = no data)."""
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import connected_components
+    G = coo_matrix((np.ones(len(A_idx)), (A_idx, B_idx)), shape=(nF, nF))
+    _, lab = connected_components(G, directed=False)
+    have = np.zeros(nF, bool)
+    have[A_idx] = True
+    have[B_idx] = True
+    lab = np.where(have, lab, -1)
+    # relabel by component size (0 = largest)
+    u, cnt = np.unique(lab[lab >= 0], return_counts=True)
+    order = u[np.argsort(-cnt)]
+    out = np.full(nF, -1)
+    for j, c in enumerate(order):
+        out[lab == c] = j
+    return out
+
+
 def solve_ls(A_idx, B_idx, y, se, X=None, nF=27, tau2=None, huber=2.0, iters=6, fix=None):
     """Weighted LSQ y = x_A - x_B + X g; sum(x over families with data) = 0. Returns x, g, tau2, info.
     tau2 (extra path scatter) is estimated so that the robust chi2/dof = 1 unless given."""
@@ -353,8 +372,11 @@ def solve_ls(A_idx, B_idx, y, se, X=None, nF=27, tau2=None, huber=2.0, iters=6, 
     have = np.zeros(nF, bool)
     have[A_idx] = True
     have[B_idx] = True
-    C = np.zeros((1, nF + k))
-    C[0, :nF] = have
+    comp = components(A_idx, B_idx, nF)
+    ucomp = [c for c in np.unique(comp) if c >= 0]
+    C = np.zeros((len(ucomp), nF + k))          # one sum-to-zero constraint per connected component
+    for j, c in enumerate(ucomp):
+        C[j, :nF] = comp == c
     est_tau = tau2 is None
     t2 = np.median(se ** 2) if est_tau else tau2
     hw = np.ones(n)
@@ -362,7 +384,7 @@ def solve_ls(A_idx, B_idx, y, se, X=None, nF=27, tau2=None, huber=2.0, iters=6, 
         w = hw / (se ** 2 + t2)
         sw = np.sqrt(w)
         Gw = np.vstack([G * sw[:, None], 1e3 * C])
-        yw = np.r_[y * sw, 0.0]
+        yw = np.r_[y * sw, np.zeros(len(ucomp))]
         keep = np.r_[have, np.ones(k, bool)]
         sol = np.full(nF + k, np.nan)
         sol[keep] = np.linalg.lstsq(Gw[:, keep], yw, rcond=None)[0]
@@ -379,7 +401,7 @@ def solve_ls(A_idx, B_idx, y, se, X=None, nF=27, tau2=None, huber=2.0, iters=6, 
             t2 = 0.5 * (lo_ + hi_)
         z = np.abs(res) / np.sqrt(se ** 2 + t2)
         hw = np.where(z > huber, huber / np.maximum(z, 1e-9), 1.0)
-    return sol[:nF], sol[nF:], t2, dict(res=res, w=hw / (se ** 2 + t2), have=have)
+    return sol[:nF], sol[nF:], t2, dict(res=res, w=hw / (se ** 2 + t2), have=have, comp=comp)
 
 
 def solve_stat(O, ys, ses, mask, path, tau2=None, nboot_ev=None, Yboot=None, sta_boot=0, rng=None):
@@ -390,7 +412,7 @@ def solve_stat(O, ys, ses, mask, path, tau2=None, nboot_ev=None, Yboot=None, sta
     Bi = O.B.values[m] - 1
     X = O.loc[m, path].values if path else None
     x, g, t2, info = solve_ls(Ai, Bi, ys[m], ses[m], X, tau2=tau2)
-    out = dict(x=x, g=g, tau2=t2, nobs=int(m.sum()), have=info['have'])
+    out = dict(x=x, g=g, tau2=t2, nobs=int(m.sum()), have=info['have'], comp=info['comp'])
     if Yboot is not None:
         xb = []
         for r in range(Yboot.shape[1]):
@@ -419,7 +441,17 @@ def solve_stat(O, ys, ses, mask, path, tau2=None, nboot_ev=None, Yboot=None, sta
     return out
 
 
+_BB = {}
+
+
 def brune_band(fc, edges=EDGES[np.r_[BSEL, BSEL[-1] + 1]]):
+    key = round(float(fc), 9)
+    if key not in _BB:
+        _BB[key] = _brune_band(fc, edges)
+    return _BB[key]
+
+
+def _brune_band(fc, edges):
     """0.5*log10 band-mean POWER of a velocity omega^-2 source (f^2/(1+(f/fc)^2)^2), per stored band,
     minus the same for fc -> infinity (so it is the corner-only effect)."""
     out = []
@@ -471,6 +503,7 @@ def covariates(L, xinfo):
         iet = np.diff(tf)
         ep = np.r_[True, iet > 12 * 3600]
         C.loc[F, 'n_cat'] = len(tf)
+        C.loc[F, 'log_ncat'] = np.log10(len(tf))
         C.loc[F, 'rate_per_yr'] = len(tf) / span
         C.loc[F, 'median_iet_h'] = np.median(iet) / 3600
         C.loc[F, 'episodes'] = ep.sum()
@@ -541,10 +574,11 @@ def run_solve(a):
     QK = ['LO', 'MID', 'HFI', 'slope'] + [f'b{j}' for j in range(NB)]
     variants = []
     # main variant definition
-    for Dcut in [2.0, 3.0, 5.0, 99.0]:
+    for Dcut in [2.0, 3.0, 5.0, 6.0, 99.0]:
         for pth in ['none', 'dtt']:
             variants.append(dict(name=f'D{Dcut:g}_{pth}', D=Dcut, path=pth, sel='all'))
-    for sel in ['pb', 'surf', 'Z', 'H', 'chan', 'half1', 'half2', 'D3d']:
+    Sbc = {k: 2 * v[:, 0] - v[:, 3:].mean(1) for k, v in S.items()}        # bootstrap bias-corrected (log of noisy means)
+    for sel in ['pb', 'surf', 'Z', 'H', 'chan', 'half1', 'half2', 'D3d', 'bc']:
         variants.append(dict(name=f'D3_dtt_{sel}', D=3.0, path='dtt', sel=sel))
     variants.append(dict(name='D3_dtt_dlog', D=3.0, path='dtt_dlog', sel='all'))
     MAIN = 'D3_dtt'
@@ -573,14 +607,15 @@ def run_solve(a):
                 pth = ['dtt', 'dlogtt']
             elif V['path'] == 'dtt_dlog':
                 pth = ['dtt']
-            full = (V['name'] == MAIN) or (q in ['LO', 'HFI', 'slope', 'MID'] and V['sel'] in ['all', 'pb', 'surf'])
-            r = solve_stat(O_, S_[q][:, rep], se_[q], m, pth,
+            full = (V['name'] == MAIN) or (q in ['LO', 'HFI', 'slope', 'MID'] and (V['sel'] in ['pb', 'surf'] or V['name'] in ['D99_dtt', 'D6_dtt']))
+            ys_ = Sbc[q] if V['sel'] == 'bc' else S_[q][:, rep]
+            r = solve_stat(O_, ys_, se_[q], m, pth,
                            Yboot=S_[q][:, 3:] if full else None,
                            sta_boot=200 if full else 0, rng=rng)
             for F in FAMS:
                 i = F - 1
                 row = dict(variant=V['name'], D=V['D'], path=V['path'], sel=V['sel'], stat=q, family=F,
-                           x=r['x'][i], nobs=r['nobs'], tau=np.sqrt(r['tau2']),
+                           x=r['x'][i], comp=r['comp'][i], nobs=r['nobs'], tau=np.sqrt(r['tau2']),
                            g=r['g'][0] if len(r['g']) else np.nan)
                 if 'sd_ev' in r:
                     row.update(sd_ev=r['sd_ev'][i], sd_sta=r['sd_sta'][i],
@@ -635,121 +670,190 @@ def run_solve(a):
         sH = float(sens.loc[sens.fc0 == fc0, 'dHFI_dlnfc'].iloc[0])
         T[f'dlnfc_lin_HFI_fc0_{fc0:g}'] = T.HFI / sH
         T[f'dlnfc_lin_HFI_fc0_{fc0:g}_se'] = T.HFI_se / sH
-    # chi2 of family differences vs noise
-    chi = {}
-    for q in ['LO', 'HFI', 'slope', 'MID']:
-        ok = T[q + '_se'].notna() & T[q].notna()
-        z = (T.loc[ok, q] - np.average(T.loc[ok, q], weights=1 / T.loc[ok, q + '_se'] ** 2)) / T.loc[ok, q + '_se']
-        c2 = float((z ** 2).sum())
-        chi[q] = dict(chi2=c2, dof=int(ok.sum() - 1), p=float(stats.chi2.sf(c2, ok.sum() - 1)),
-                      sd_obs=float(T.loc[ok, q].std()), median_se=float(T.loc[ok, q + '_se'].median()),
-                      sd_intrinsic=float(np.sqrt(max(T.loc[ok, q].var() - (T.loc[ok, q + '_se'] ** 2).mean(), 0))))
     C = covariates(L, T)
-    mean_tt = pd.Series({F: np.nanmean(A[F]['tt']) for F in FAMS})
-    C['mean_tt_s'] = mean_tt
+    C['mean_tt_s'] = pd.Series({F: np.nanmean(A[F]['tt']) for F in FAMS})
+    T['comp_D3'] = Rdf[(Rdf.variant == MAIN) & (Rdf.stat == 'HFI')].set_index('family').comp
     T = T.join(C)
     T.round(5).to_csv(f'{OUTS}/family_spectra.csv')
+    json.dump(dict(n_obs=int(len(O)), n_pairs=int(O.groupby(['A', 'B']).ngroups), n_stations=int(O.sta.nunique()),
+                   n_obs_chan=int(len(Oc)), main_variant=MAIN, runtime_s=time.time() - t0),
+              open(f'{OUTS}/solve_info.json', 'w'), indent=1)
+    log('solve done', f'{time.time() - t0:.0f} s')
+    run_analyse(a)
 
-    # ---------------- validation
+
+def within(df, col, comp='comp_D3', minsize=3):
+    """Demean a column within D<3 km components (components with >= minsize members), else NaN."""
+    g = df.groupby(comp)[col]
+    size = df.groupby(comp)[col].transform('count')
+    return (df[col] - g.transform('mean')).where(size >= minsize)
+
+
+def perm_within(groups, rng):
+    p = np.arange(len(groups))
+    for g in np.unique(groups):
+        k = np.where(groups == g)[0]
+        p[k] = rng.permutation(k)
+    return p
+
+
+def run_analyse(a):
+    OUTS = OUT if a.mode == 'w' else f'{OUT}/plain'
+    rng = np.random.default_rng(11)
+    T = pd.read_csv(f'{OUTS}/family_spectra.csv').set_index('family')
+    Rdf = pd.read_csv(f'{OUTS}/family_solutions_all_variants.csv')
+    O = pd.read_csv(f'{OUTS}/pair_channel_obs.csv.gz')
+    sens = pd.read_csv(f'{OUTS}/brune_sensitivity_sp.csv')
+    info = json.load(open(f'{OUTS}/solve_info.json'))
+    MAIN = info['main_variant']
+    T['slip_rel'] = T.LO - np.log10(T.Barea_m2)       # log10 (amplitude proxy / area), relative
+    # global (cluster-linking) solution: all pairs + dtt path term
+    for vn, tag in [('D99_dtt', 'G'), ('D6_dtt', 'G6')]:
+        for q in ['LO', 'HFI', 'slope', 'MID']:
+            d = Rdf[(Rdf.variant == vn) & (Rdf.stat == q)].set_index('family')
+            T[f'{q}_{tag}'] = d.x
+            if 'se' in d:
+                T[f'{q}_{tag}_se'] = d.se
+    T['cluster'] = T.comp_D3.map({0: 'central', 1: 'south(3,11,14)', 2: 'west(8,19,26)', 3: 'east(23,27)'}).fillna('isolated')
+    # ---- 1. are families different beyond noise? (within D<3 components)
+    chi = {}
+    for q in ['LO', 'HFI', 'slope', 'MID']:
+        ok = T[q].notna() & T[q + '_se'].notna()
+        d = T[ok]
+        c2, dof, parts = 0.0, 0, {}
+        for c, g in d.groupby('comp_D3'):
+            if len(g) < 2:
+                continue
+            wm = np.average(g[q], weights=1 / g[q + '_se'] ** 2)
+            z2 = ((g[q] - wm) / g[q + '_se']) ** 2
+            c2 += z2.sum()
+            dof += len(g) - 1
+            parts[int(c)] = dict(n=len(g), chi2=float(z2.sum()), sd=float(g[q].std()))
+        dev = within(T, q)[ok]
+        var_int = max(np.nanvar(dev, ddof=1) - np.nanmean(T.loc[ok, q + '_se'] ** 2), 0)
+        chi[q] = dict(chi2=float(c2), dof=int(dof), p=float(stats.chi2.sf(c2, dof)), sd_within=float(np.nanstd(dev, ddof=1)),
+                      median_se=float(T.loc[ok, q + '_se'].median()), sd_intrinsic=float(np.sqrt(var_int)), by_comp=parts)
+        # global solution, all families
+        if f'{q}_G_se' in T:
+            okg = T[f'{q}_G'].notna() & T[f'{q}_G_se'].notna()
+            g = T[okg]
+            wm = np.average(g[f'{q}_G'], weights=1 / g[f'{q}_G_se'] ** 2)
+            z2 = ((g[f'{q}_G'] - wm) / g[f'{q}_G_se']) ** 2
+            chi[q + '_global'] = dict(chi2=float(z2.sum()), dof=int(len(g) - 1), p=float(stats.chi2.sf(z2.sum(), len(g) - 1)),
+                                      sd=float(g[f'{q}_G'].std()), median_se=float(g[f'{q}_G_se'].median()))
+    # ---- 2. validation (agreement between independent subsets)
     val = {}
 
     def get(vn, q):
-        d = Rdf[(Rdf.variant == vn) & (Rdf.stat == q)].set_index('family')
-        return d
+        return Rdf[(Rdf.variant == vn) & (Rdf.stat == q)].set_index('family')
 
     for q in ['LO', 'HFI', 'slope', 'MID']:
-        for va, vb in [('D3_dtt_pb', 'D3_dtt_surf'), ('D3_dtt_half1', 'D3_dtt_half2'), ('D3_dtt_Z', 'D3_dtt_H'), ('D3_dtt', 'D3_dtt_chan'),
-                       ('D3_dtt', 'D3_none'), ('D3_dtt', 'D2_dtt'), ('D3_dtt', 'D5_dtt'), ('D3_dtt', 'D99_dtt'),
-                       ('D3_dtt', 'D3_dtt_D3d'), ('D3_dtt', 'D99_none')]:
+        for va, vb in [('D3_dtt_pb', 'D3_dtt_surf'), ('D3_dtt_half1', 'D3_dtt_half2'), ('D3_dtt_Z', 'D3_dtt_H'),
+                       ('D3_dtt', 'D3_dtt_chan'), ('D3_dtt', 'D3_none'), ('D3_dtt', 'D2_dtt'), ('D3_dtt', 'D5_dtt'),
+                       ('D3_dtt', 'D99_dtt'), ('D3_dtt', 'D3_dtt_D3d'), ('D99_dtt', 'D99_none'), ('D99_dtt', 'D6_dtt')]:
             da, db = get(va, q), get(vb, q)
-            ok = da.x.notna() & db.x.notna()
-            xa, xb = da.x[ok], db.x[ok]
-            dd = dict(n=int(ok.sum()), pearson=float(stats.pearsonr(xa, xb)[0]),
-                      spearman=float(stats.spearmanr(xa, xb)[0]), p_spearman=float(stats.spearmanr(xa, xb)[1]),
-                      rms_diff=float(np.sqrt(np.mean((xa - xb) ** 2))), slope_tls=float(np.std(xb) / np.std(xa)))
-            if 'se' in da and 'se' in db and da.se.notna().any() and db.se.notna().any():
-                okk = ok & da.se.notna() & db.se.notna()
-                z = (da.x[okk] - db.x[okk]) / np.sqrt(da.se[okk] ** 2 + db.se[okk] ** 2)
-                dd.update(chi2_diff=float((z ** 2).sum()), p_diff=float(stats.chi2.sf((z ** 2).sum(), okk.sum())))
-            val[f'{q}:{va}~{vb}'] = dd
-    # path coefficients
-    gq = Rdf[(Rdf.family == 1) & Rdf.path.isin(['dtt'])][['variant', 'stat', 'g', 'tau', 'nobs']]
-    gq.to_csv(f'{OUTS}/path_terms.csv', index=False)
-
-    # ---------------- azimuthal consistency: residuals of the main HFI solution by station
-    m3 = (O.D < 3).values
-    xm = M['HFI'].values
-    gm = float(Rdf[(Rdf.variant == MAIN) & (Rdf.stat == 'HFI')].g.iloc[0])
-    resid = S['HFI'][:, 0] - (xm[O.A.values - 1] - xm[O.B.values - 1]) - gm * O.dtt.values
-    sres = pd.DataFrame(dict(sta=O.sta, r=resid, se=se['HFI']))[m3].groupby('sta').apply(
-        lambda g: pd.Series(dict(n=len(g), mean_res=np.average(g.r, weights=1 / (g.se ** 2 + 0.02 ** 2)),
-                                 med_res=g.r.median())))
+            # compare within common components of the stricter solution (remove per-component offsets)
+            dd_ = pd.DataFrame(dict(xa=da.x, xb=db.x, ca=da.comp, sa=da.get('se'), sb=db.get('se'))).dropna(subset=['xa', 'xb'])
+            for col in ['xa', 'xb']:
+                gm = dd_.groupby('ca')[col].transform('mean')
+                sz = dd_.groupby('ca')[col].transform('count')
+                dd_[col] = (dd_[col] - gm).where(sz >= 2)
+            dd_ = dd_.dropna(subset=['xa', 'xb'])
+            if len(dd_) < 5:
+                continue
+            r = dict(n=int(len(dd_)), pearson=float(stats.pearsonr(dd_.xa, dd_.xb)[0]),
+                     p_pearson=float(stats.pearsonr(dd_.xa, dd_.xb)[1]),
+                     spearman=float(stats.spearmanr(dd_.xa, dd_.xb)[0]),
+                     rms_diff=float(np.sqrt(np.mean((dd_.xa - dd_.xb) ** 2))),
+                     sd_a=float(dd_.xa.std()), sd_b=float(dd_.xb.std()))
+            if dd_.sa.notna().all() and dd_.sb.notna().all():
+                z = (dd_.xa - dd_.xb) / np.sqrt(dd_.sa ** 2 + dd_.sb ** 2)
+                r.update(chi2_diff=float((z ** 2).sum()), p_diff=float(stats.chi2.sf((z ** 2).sum(), len(z) - 1)))
+                # chi2 of each solution about zero (signal) for context
+            val[f'{q}:{va}~{vb}'] = r
+    # ---- 3. station residuals of the main HFI solution (azimuthal consistency)
+    xm = get(MAIN, 'HFI').x
+    gm = float(get(MAIN, 'HFI').g.iloc[0])
+    O3 = O[O.D < 3].copy()
+    O3['res'] = O3.y_HFI - (xm.reindex(O3.A).values - xm.reindex(O3.B).values) - gm * O3.dtt
+    sres = O3.groupby('sta').apply(lambda g: pd.Series(dict(
+        n=len(g), mean_res=np.average(g.res, weights=1 / (g.se_HFI ** 2 + 0.03 ** 2)),
+        se=1 / np.sqrt(np.sum(1 / (g.se_HFI ** 2 + 0.03 ** 2))), chi2=np.sum(g.res ** 2 / (g.se_HFI ** 2 + 0.03 ** 2)))))
     sres.to_csv(f'{OUTS}/station_residuals_HFI.csv')
-
-    # ---------------- scaling tests
-    close = np.array([(i, j) for i in range(27) for j in range(i + 1, 27) if Dm[i, j] < 3])
-    cov_list = ['L1_m', 'area_res_m2', 'Bstd_s_m', 'Bstd_d_m', 'logL_B', 'LO', 'rate_per_yr', 'median_iet_h',
-                'episode_recur_d', 'events_per_episode', 'slip_rel', 'depth_km', 'along_km', 'across_km',
-                'mean_tt_s', 'dep3d_km']
-    T['slip_rel'] = T.LO - np.log10(T.Barea_m2)       # log10 (M0 proxy / area) relative
-    T['logM0_rel'] = T.LO
-    sc_rows = []
-    targets = ['HFI', 'slope', 'MID', 'lnfc_fc0_3', 'LO']
-    for tq in targets:
-        for cv in cov_list:
-            if cv == tq:
+    # ---- 4. scaling tests
+    covs = ['L1_m', 'logL_B', 'Bstd_s_m', 'Bstd_d_m', 'LO', 'rate_per_yr', 'median_iet_h', 'episode_recur_d',
+            'events_per_episode', 'log_ncat', 'slip_rel', 'depth_km', 'along_km', 'across_km', 'mean_tt_s', 'dep3d_km']
+    conf = ['depth_km', 'along_km', 'mean_tt_s']
+    rows = []
+    for tq in ['HFI', 'slope', 'MID', 'lnfc_fc0_3', 'LO']:
+        for scope in ['within', 'global']:
+            tcol = tq if scope == 'within' else (tq + '_G' if tq + '_G' in T else None)
+            if tcol is None:
                 continue
-            d = T[[tq, cv, 'depth_km', 'along_km', 'mean_tt_s'] + ([tq + '_se'] if tq + '_se' in T else [])].dropna()
-            if len(d) < 6:
-                continue
-            x, y = d[tq].values, d[cv].values
-            rho = stats.spearmanr(x, y)[0]
-            idx = np.array(d.index) - 1
-            # global permutation null
-            nul = np.array([stats.spearmanr(x, rng.permutation(y))[0] for _ in range(2000)])
-            p_perm = float((np.abs(nul) >= abs(rho)).mean())
-            # local (close-pair swap) permutation null: covariates move only between families < 3 km apart
-            pos = {f: k for k, f in enumerate(idx)}
-            cp = [(pos[i], pos[j]) for i, j in close if i in pos and j in pos]
-            if len(cp) >= 3:
-                nl = []
-                for _ in range(1000):
-                    pp = local_perm(len(idx), cp, rng)
-                    nl.append(stats.spearmanr(x, y[pp])[0])
-                nl = np.array(nl)
-                p_local = float((np.abs(nl) >= abs(rho)).mean())
-                frac_moved = float(np.mean([np.mean(local_perm(len(idx), cp, rng) != np.arange(len(idx))) for _ in range(50)]))
-            else:
-                p_local, frac_moved = np.nan, np.nan
-            # measurement-error MC for the rho CI
-            if tq + '_se' in d:
-                rmc = [stats.spearmanr(x + rng.normal(0, d[tq + '_se'].values), y)[0] for _ in range(500)]
-                ci = np.percentile(rmc, [16, 84])
-            else:
-                ci = [np.nan, np.nan]
-            Z = d[['depth_km', 'along_km', 'mean_tt_s']].values
-            pz = [c for c in ['depth_km', 'along_km', 'mean_tt_s'] if c != cv]
-            rp = rank_partial(x, y, d[pz].values)
-            # partial-correlation null by global permutation of the covariate
-            npn = np.array([rank_partial(x, rng.permutation(y), d[pz].values) for _ in range(1000)])
-            sc_rows.append(dict(target=tq, covariate=cv, n=len(d), spearman=rho, rho_lo=ci[0], rho_hi=ci[1],
-                                p_perm=p_perm, p_local=p_local, local_frac_moved=frac_moved,
-                                partial_rho=rp, p_partial=float((np.abs(npn) >= abs(rp)).mean()),
-                                partial_on='+'.join(pz)))
-    SC = pd.DataFrame(sc_rows)
+            for cv in covs:
+                if cv == tq:
+                    continue
+                cvc = cv + '_G' if (scope == 'global' and cv + '_G' in T) else cv
+                d = T[list(dict.fromkeys([tcol, cvc, 'comp_D3'] + conf))].dropna().copy()
+                if scope == 'within':
+                    d = d[d.groupby('comp_D3')[tcol].transform('count') >= 3]
+                    for c_ in dict.fromkeys([tcol, cvc] + conf):
+                        d[c_] = d[c_] - d.groupby('comp_D3')[c_].transform('mean')
+                if len(d) < 6 or d[cvc].std() == 0:
+                    continue
+                x, y = d[tcol].values, d[cvc].values
+                grp = d.comp_D3.values
+                rho = stats.spearmanr(x, y)[0]
+                nul = np.array([stats.spearmanr(x, y[rng.permutation(len(y))])[0] for _ in range(2000)])
+                nlc = np.array([stats.spearmanr(x, y[perm_within(grp, rng)])[0] for _ in range(2000)])
+                pz = [c for c in conf if c != cv and d[c].std() > 0]
+                rp = rank_partial(x, y, d[pz].values) if pz else np.nan
+                npn = np.array([rank_partial(x, y[perm_within(grp, rng)], d[pz].values) for _ in range(500)]) if pz else np.array([np.nan])
+                se_col = tcol + '_se' if tcol + '_se' in T else None
+                if se_col:
+                    sev = T.loc[d.index, se_col].values
+                    rmc = [stats.spearmanr(x + rng.normal(0, sev), y)[0] for _ in range(300)]
+                    ci = np.percentile(rmc, [16, 84])
+                else:
+                    ci = [np.nan, np.nan]
+                rows.append(dict(target=tq, scope=scope, covariate=cv, n=len(d), spearman=rho, rho_noise_lo=ci[0],
+                                 rho_noise_hi=ci[1], p_perm_global=float((np.abs(nul) >= abs(rho)).mean()),
+                                 p_perm_within_cluster=float((np.abs(nlc) >= abs(rho)).mean()),
+                                 partial_rho=rp, p_partial_within_cluster=float((np.abs(npn) >= abs(rp)).mean()),
+                                 partial_on='+'.join(pz)))
+    SC = pd.DataFrame(rows)
     SC.round(4).to_csv(f'{OUTS}/scaling_tests.csv', index=False)
-
-    # ---------------- pair-level (model-free) scaling: close pairs, channel-averaged contrasts
+    # ---- 4b. robustness of the within-cluster correlations across independent subsets / variants
+    rob = []
+    stat_of = {'HFI': 'HFI', 'slope': 'slope', 'MID': 'MID', 'LO': 'LO'}
+    for vn in ['D3_dtt', 'D3_none', 'D2_dtt', 'D5_dtt', 'D3_dtt_pb', 'D3_dtt_surf', 'D3_dtt_half1', 'D3_dtt_half2',
+               'D3_dtt_Z', 'D3_dtt_H', 'D3_dtt_D3d', 'D3_dtt_bc', 'D99_dtt']:
+        for q in ['HFI', 'slope', 'MID']:
+            d0 = get(vn, q)
+            if d0.empty:
+                continue
+            for cv in ['episode_recur_d', 'rate_per_yr', 'median_iet_h', 'log_ncat', 'logL_B', 'L1_m', 'LO', 'along_km', 'depth_km']:
+                d = pd.DataFrame(dict(x=d0.x, c=d0.comp, y=T[cv], lncat=T.log_ncat)).dropna()
+                if vn != 'D99_dtt':
+                    d = d[d.groupby('c').x.transform('count') >= 3]
+                    for c_ in ['x', 'y', 'lncat']:
+                        d[c_] = d[c_] - d.groupby('c')[c_].transform('mean')
+                if len(d) < 6 or d.y.std() == 0:
+                    continue
+                rho = stats.spearmanr(d.x, d.y)[0]
+                nl = np.array([stats.spearmanr(d.x, d.y.values[perm_within(d.c.values, rng)])[0] for _ in range(1000)])
+                rp = rank_partial(d.x.values, d.y.values, d[['lncat']].values) if cv != 'log_ncat' else np.nan
+                rob.append(dict(variant=vn, target=q, covariate=cv, n=len(d), spearman=rho,
+                                p_within_cluster=float((np.abs(nl) >= abs(rho)).mean()), partial_rho_given_logncat=rp))
+    ROB = pd.DataFrame(rob)
+    ROB.round(4).to_csv(f'{OUTS}/scaling_robustness.csv', index=False)
+    # ---- 5. pair-level, model-free (close pairs, channel-averaged; sign-flip null)
+    PP = O3.groupby(['A', 'B']).apply(lambda g: pd.Series({
+        **{q: np.average(g['y_' + q], weights=1 / (g['se_' + q] ** 2 + 0.03 ** 2)) for q in ['HFI', 'LO', 'slope']},
+        **{q + '_se': 1 / np.sqrt(np.sum(1 / (g['se_' + q] ** 2 + 0.03 ** 2))) for q in ['HFI', 'LO', 'slope']},
+        'nsta': len(g), 'D': g.D.iloc[0], 'dtt_mean': g.dtt.mean()})).reset_index()
     pr = []
-    Om = O[O.D < 3].copy()
-    for q in ['HFI', 'LO', 'slope']:
-        Om[q] = S[q][(O.D < 3).values, 0]
-        Om[q + '_se'] = se[q][(O.D < 3).values]
-    gp = Om.groupby(['A', 'B'])
-    PP = gp.apply(lambda g: pd.Series({**{q: np.average(g[q], weights=1 / (g[q + '_se'] ** 2 + 0.03 ** 2))
-                                           for q in ['HFI', 'LO', 'slope']},
-                                        'nchan': len(g), 'D': g.D.iloc[0]})).reset_index()
-    for cv in ['L1_m', 'logL_B', 'rate_per_yr', 'episode_recur_d', 'depth_km', 'along_km']:
+    for cv in ['L1_m', 'logL_B', 'LO', 'rate_per_yr', 'episode_recur_d', 'log_ncat', 'slip_rel', 'depth_km', 'along_km']:
         dc = T[cv].reindex(PP.A).values - T[cv].reindex(PP.B).values
         for q in ['HFI', 'slope']:
             ok = np.isfinite(dc) & np.isfinite(PP[q].values)
@@ -757,52 +861,42 @@ def run_solve(a):
                 continue
             dx, dcv = PP[q].values[ok], dc[ok]
             r0 = stats.spearmanr(dx, dcv)[0]
-            fl = []
-            for _ in range(2000):
-                sgn = rng.choice([-1, 1], ok.sum())
-                fl.append(stats.spearmanr(dx, dcv * sgn)[0])
+            fl = np.array([stats.spearmanr(dx, dcv * rng.choice([-1, 1], ok.sum()))[0] for _ in range(2000)])
             pr.append(dict(target=q, covariate=cv, npairs=int(ok.sum()), spearman_pairs=r0,
                            p_signflip=float((np.abs(fl) >= abs(r0)).mean())))
-    PRdf = pd.DataFrame(pr)
-    PRdf.round(4).to_csv(f'{OUTS}/pair_scaling_tests.csv', index=False)
+    pd.DataFrame(pr).round(4).to_csv(f'{OUTS}/pair_scaling_tests.csv', index=False)
     PP.round(5).to_csv(f'{OUTS}/close_pair_contrasts.csv', index=False)
-
-    # ---------------- moment vs corner (within-population scaling): regress dln fc on LO (ln M0 proxy)
+    # ---- 6. size vs falloff (moment-corner scaling), independent station groups for size and shape
     scal = {}
-    for fc0 in [3.0, 4.0]:
-        col = f'lnfc_fc0_{fc0:g}'
-        d = T[[col, 'LO', 'HFI', 'HFI_se', 'LO_se']].dropna()
-        # Brune-fit moment proxy: m from the fit is ~LO + corner correction; use LO (2-3 Hz) and also m_fit
-        b, a0 = np.polyfit(d.LO * np.log(10), d[col], 1)
-        scal[f'dlnfc_dlnLO_fc0_{fc0:g}'] = float(b)
-    # Brune-consistent joint view: predicted HFI-LO relation for self-similar (fc ~ M0^-1/3) and constant
-    # duration, using the SP sensitivity table at fc0=3,4 Hz
-    for fc0 in [3.0, 4.0]:
+    pb, sf = get('D3_dtt_pb', 'LO').x, get('D3_dtt_surf', 'LO').x
+    hpb, hsf = get('D3_dtt_pb', 'HFI').x, get('D3_dtt_surf', 'HFI').x
+    cmp_ = T.comp_D3
+    for name, sx, sy in [('LOpb_vs_HFIsurf', pb, hsf), ('LOsurf_vs_HFIpb', sf, hpb), ('LO_vs_HFI_same', T.LO, T.HFI)]:
+        d = pd.DataFrame(dict(x=sx, y=sy, c=cmp_)).dropna()
+        d = d[d.groupby('c').x.transform('count') >= 3]
+        d['x'] -= d.groupby('c').x.transform('mean')
+        d['y'] -= d.groupby('c').y.transform('mean')
+        if len(d) < 5:
+            continue
+        b = np.polyfit(d.x, d.y, 1)[0]
+        bb = []
+        for _ in range(2000):
+            k = rng.integers(0, len(d), len(d))
+            bb.append(np.polyfit(d.x.values[k], d.y.values[k], 1)[0])
+        scal[name] = dict(n=len(d), ols_slope=float(b), ci68=[float(v) for v in np.percentile(bb, [16, 84])],
+                          spearman=float(stats.spearmanr(d.x, d.y)[0]), p=float(stats.spearmanr(d.x, d.y)[1]),
+                          sd_x=float(d.x.std()))
+    for fc0 in [2.0, 3.0, 4.0, 6.0]:
         s_ = sens[sens.fc0 == fc0].iloc[0]
-        # if ln M0 changes by dm (natural), self-similar: dlnfc = -dm/3; LO changes by dm/ln10 + dLO_dlnfc*dlnfc
         dm = 1.0
-        dln = -dm / 3
-        scal[f'pred_selfsim_dHFI_dLO_fc0_{fc0:g}'] = float((s_.dHFI_dlnfc * dln) /
-                                                           (dm / np.log(10) + s_.dLO_dlnfc * dln))
-    d = T[['HFI', 'LO', 'HFI_se', 'LO_se']].dropna()
-    # errors-in-variables: Deming-like via bootstrap over families with measurement noise
-    bb = []
-    for _ in range(2000):
-        k = rng.integers(0, len(d), len(d))
-        bb.append(np.polyfit(d.LO.values[k], d.HFI.values[k], 1)[0])
-    scal['obs_dHFI_dLO_ols'] = float(np.polyfit(d.LO, d.HFI, 1)[0])
-    scal['obs_dHFI_dLO_ci68'] = [float(v) for v in np.percentile(bb, [16, 84])]
-    # attenuation correction of the OLS slope for noise in LO
-    rel = 1 - (d.LO_se ** 2).mean() / d.LO.var()
-    scal['LO_reliability'] = float(rel)
-    scal['obs_dHFI_dLO_disattenuated'] = float(scal['obs_dHFI_dLO_ols'] / max(rel, 0.05))
-    # correlated-noise check: LO and HFI share the LO band, so noise in LO enters HFI with slope -1
-    summ = dict(n_obs=int(len(O)), n_pairs=int(O.groupby(['A', 'B']).ngroups), n_stations=int(O.sta.nunique()),
-                chi2_family_differences=chi, validation=val, scaling_moment_corner=scal,
+        for nm, dln in [('selfsim', -dm / 3), ('const_duration', 0.0), ('const_slip_area', -dm / 2)]:
+            scal[f'pred_dHFI_dLO_{nm}_fc0_{fc0:g}'] = float((s_.dHFI_dlnfc * dln) / (dm / np.log(10) + s_.dLO_dlnfc * dln))
+    summ = dict(info, chi2_family_differences=chi, validation=val, scaling_moment_corner=scal,
                 band_centres_hz=[float(v) for v in FB], usable_bands=[float(v) for v in FB[U]],
-                main_variant=MAIN, runtime_s=time.time() - t0)
+                clusters={str(k): [int(f) for f in g.index] for k, g in T.groupby('cluster')})
     json.dump(summ, open(f'{OUTS}/summary.json', 'w'), indent=1, default=float)
-    log('solve done', f'{time.time() - t0:.0f} s')
+    T.round(5).to_csv(f'{OUTS}/family_spectra.csv')
+    log('analyse done')
 
 
 # ------------------------------------------------------------------------------------------- figs
@@ -816,108 +910,125 @@ def run_figs(a):
     Rdf = pd.read_csv(f'{OUTS}/family_solutions_all_variants.csv')
     SC = pd.read_csv(f'{OUTS}/scaling_tests.csv')
     summ = json.load(open(f'{OUTS}/summary.json'))
-    # --- 1: spectra + map
-    fig, ax = plt.subplots(1, 3, figsize=(16, 5.2))
+    sens = pd.read_csv(f'{OUTS}/brune_sensitivity_sp.csv').set_index('fc0')
+    ccol = {'central': 'k', 'south(3,11,14)': 'tab:orange', 'west(8,19,26)': 'tab:blue', 'east(23,27)': 'tab:green',
+            'isolated': '0.6'}
+    # --- 1: spectra, ranking, map
+    fig, ax = plt.subplots(1, 3, figsize=(17, 5.4))
     cm = plt.get_cmap('coolwarm')
-    v = T.HFI
-    nv = (v - v.min()) / (v.max() - v.min())
+    lim = np.nanmax(np.abs(T.HFI))
     for F in T.index:
+        if not np.isfinite(T.loc[F, 'HFI']):
+            continue
         xs = np.array([T.loc[F, f'x_{f:.2f}Hz'] for f in FB])
         es = np.array([T.loc[F, f'x_{f:.2f}Hz_se'] for f in FB])
-        ax[0].errorbar(FB, xs - T.loc[F, 'LO'], yerr=es, color=cm(nv[F]), lw=1, alpha=0.8, capsize=0)
-    ax[0].axvspan(FB[U[0]] / 1.12, FB[U[-1]] * 1.12, color='0.9', zorder=-1)
-    for fc0, ls in [(3.0, '--'), (4.0, ':')]:
-        for l in [-0.5, 0.5]:
+        ax[0].errorbar(FB * (1 + 0.01 * (F - 14) / 14), xs - xs[I_LO].mean(), yerr=es, color=cm(0.5 + 0.5 * T.loc[F, 'HFI'] / lim),
+                       lw=0.9, alpha=0.85, elinewidth=0.5)
+    ax[0].axvspan(EDGES[BSEL[U[0]]], EDGES[BSEL[U[-1]] + 1], color='0.92', zorder=-1)
+    for fc0, ls in [(3.0, '--')]:
+        for l in [-0.3, 0.3]:
             d = brune_band(fc0 * np.exp(l)) - brune_band(fc0)
-            ax[0].plot(FB, d - d[I_LO].mean(), 'k', ls=ls, lw=0.8)
+            ax[0].plot(FB, d - d[I_LO].mean(), color='k', ls=ls, lw=1)
     ax[0].set_xscale('log')
-    ax[0].set_xlabel('Hz')
-    ax[0].set_ylabel('relative log10 amplitude (normalised at 2-3 Hz)')
-    ax[0].set_title('Per-family relative S spectra (D<3 km pairs, dtt path term)\n'
-                    'black: Brune fc x e^{+-0.5} around 3 Hz (--) / 4 Hz (:)', fontsize=9)
-    ax[0].set_ylim(-0.6, 0.6)
-    o = T.sort_values('HFI')
-    ax[1].errorbar(np.arange(len(o)), o.HFI, yerr=o.HFI_se, fmt='o', color='k', ms=4)
+    ax[0].set_xlabel('frequency (Hz)')
+    ax[0].set_ylabel('relative log10 amplitude, normalised at 2-3 Hz')
+    ax[0].set_title('Per-family S spectra relative to cluster mean (shaded: usable band)\n'
+                    'dashed: Brune fc changed by e^{+-0.3} (+-35%) around 3 Hz', fontsize=9)
+    ax[0].set_ylim(-0.35, 0.35)
+    o = T.dropna(subset=['HFI']).sort_values('HFI')
+    for k, F in enumerate(o.index):
+        ax[1].errorbar(k, o.loc[F, 'HFI'], yerr=o.loc[F, 'HFI_se'], fmt='o', ms=4, color=ccol[o.loc[F, 'cluster']])
     ax[1].set_xticks(np.arange(len(o)))
     ax[1].set_xticklabels(o.index, fontsize=7)
-    ax[1].axhline(0, color='0.6')
+    ax[1].axhline(0, color='0.6', lw=0.6)
     ax2 = ax[1].twinx()
-    sH = summ_s = pd.read_csv(f'{OUTS}/brune_sensitivity_sp.csv').set_index('fc0').loc[3.0, 'dHFI_dlnfc']
+    sH = sens.loc[3.0, 'dHFI_dlnfc']
     yl = ax[1].get_ylim()
     ax2.set_ylim(np.array(yl) / sH)
-    ax2.set_ylabel('implied dln fc (Brune, fc0=3 Hz)')
-    ax[1].set_xlabel('family (sorted)')
-    ax[1].set_ylabel('HFI = log10 A(4.9-6.1 Hz) - log10 A(2-3 Hz), relative')
-    c = chi = summ['chi2_family_differences']['HFI']
-    ax[1].set_title(f"HFI chi2 {c['chi2']:.0f}/{c['dof']} (p={c['p']:.1g}); intrinsic sd {c['sd_intrinsic']:.3f}", fontsize=9)
-    sc = ax[2].scatter(T.along_km, T.depth_km, c=T.HFI, cmap='coolwarm', s=60 + 300 * (T.LO - T.LO.min()),
-                       edgecolor='k', vmin=-max(abs(T.HFI)), vmax=max(abs(T.HFI)))
+    ax2.set_ylabel('implied d ln fc (Brune, fc0 = 3 Hz)')
+    ax[1].set_xlabel('family (sorted); colour = D<3 km cluster')
+    ax[1].set_ylabel('HFI = log10 A(4.9-6.1 Hz) - log10 A(2-3.1 Hz), rel. to cluster mean')
+    c = summ['chi2_family_differences']['HFI']
+    ax[1].set_title(f"HFI within clusters: chi2 {c['chi2']:.0f}/{c['dof']} (p={c['p']:.2g}); "
+                    f"intrinsic sd {c['sd_intrinsic']:.3f} (~{c['sd_intrinsic'] / sH * 100:.0f}% in fc)", fontsize=9)
+    sc = ax[2].scatter(T.along_km, T.depth_km, c=T.HFI, cmap='coolwarm', vmin=-lim, vmax=lim,
+                       s=30 + 400 * ((T.LO_G - np.nanmin(T.LO_G)) / (np.nanmax(T.LO_G) - np.nanmin(T.LO_G))).fillna(0), edgecolor='k')
     for F in T.index:
-        ax[2].annotate(str(F), (T.along_km[F], T.depth_km[F]), fontsize=7, xytext=(3, 3), textcoords='offset points')
+        ax[2].annotate(str(F), (T.along_km[F], T.depth_km[F]), fontsize=7, xytext=(4, 3), textcoords='offset points')
     ax[2].invert_yaxis()
-    ax[2].set_xlabel('along strike (km, + WNW, az 293)')
+    ax[2].set_xlabel('along strike (km, + toward az 293 / WNW)')
     ax[2].set_ylabel('Shelly depth (km)')
-    ax[2].set_title('HFI (colour) and LO size (marker size)', fontsize=9)
+    ax[2].set_title('colour: HFI (within cluster); size: LO (global solution, path-dependent)', fontsize=9)
     plt.colorbar(sc, ax=ax[2], label='HFI')
     fig.tight_layout()
     fig.savefig(f'{FIG}/sci_family_spectra_spectra{sfx}.png', dpi=130)
     plt.close(fig)
-    # --- 2: validation
-    pairs = [('D3_dtt_pb', 'D3_dtt_surf', 'borehole (PB)', 'surface'),
+    # --- 2: validation (values demeaned within the stricter solution's components)
+    pairs = [('D3_dtt_pb', 'D3_dtt_surf', 'borehole PB only', 'surface only'),
              ('D3_dtt_half1', 'D3_dtt_half2', 'even events', 'odd events'),
-             ('D3_dtt_Z', 'D3_dtt_H', 'vertical', 'horizontal'),
-             ('D3_dtt', 'D3_none', 'with dtt term', 'no path term'),
-             ('D2_dtt', 'D99_dtt', 'D<2 km', 'all pairs'),
-             ('D3_dtt', 'D3_dtt_D3d', 'D<3 km (Shelly)', 'D<3 km (ours 3D)')]
-    fig, axs = plt.subplots(2, 6, figsize=(22, 7.5))
+             ('D3_dtt_Z', 'D3_dtt_H', 'vertical channels', 'horizontal channels'),
+             ('D3_dtt', 'D3_none', 'D<3 km, dtt path term', 'D<3 km, no path term'),
+             ('D2_dtt', 'D5_dtt', 'D<2 km', 'D<5 km'),
+             ('D3_dtt', 'D99_dtt', 'D<3 km (main)', 'all pairs + dtt (global)')]
+    fig, axs = plt.subplots(2, 6, figsize=(23, 7.8))
     for row, q in enumerate(['HFI', 'LO']):
         for k, (va, vb, la, lb) in enumerate(pairs):
-            ax = axs[row, k]
+            axx = axs[row, k]
             da = Rdf[(Rdf.variant == va) & (Rdf.stat == q)].set_index('family')
             db = Rdf[(Rdf.variant == vb) & (Rdf.stat == q)].set_index('family')
-            xe = da.se if 'se' in da and da.se.notna().any() else None
-            ye = db.se if 'se' in db and db.se.notna().any() else None
-            ax.errorbar(da.x, db.x, xerr=xe, yerr=ye, fmt='o', ms=3, color='k', elinewidth=0.6)
-            lim = np.nanmax(np.abs(np.r_[da.x, db.x])) * 1.15
-            ax.plot([-lim, lim], [-lim, lim], 'r-', lw=0.7)
-            ax.set_xlim(-lim, lim)
-            ax.set_ylim(-lim, lim)
+            d = pd.DataFrame(dict(xa=da.x, xb=db.x, c=da.comp, sa=da.get('se'), sb=db.get('se'))).dropna(subset=['xa', 'xb'])
+            d = d[d.groupby('c').xa.transform('count') >= 2]
+            d['xa'] -= d.groupby('c').xa.transform('mean')
+            d['xb'] -= d.groupby('c').xb.transform('mean')
+            axx.errorbar(d.xa, d.xb, xerr=d.sa if d.sa.notna().all() else None, yerr=d.sb if d.sb.notna().all() else None,
+                         fmt='o', ms=3, color='k', elinewidth=0.5)
+            m = np.nanmax(np.abs(np.r_[d.xa, d.xb])) * 1.15
+            axx.plot([-m, m], [-m, m], 'r-', lw=0.7)
+            axx.set_xlim(-m, m)
+            axx.set_ylim(-m, m)
             vv = summ['validation'].get(f'{q}:{va}~{vb}', {})
-            ax.set_title(f"{q}: r={vv.get('pearson', np.nan):.2f}, rho={vv.get('spearman', np.nan):.2f}", fontsize=9)
-            ax.set_xlabel(la)
-            ax.set_ylabel(lb)
+            axx.set_title(f"{q}: r={vv.get('pearson', np.nan):.2f} (p={vv.get('p_pearson', np.nan):.2g})", fontsize=9)
+            axx.set_xlabel(la, fontsize=8)
+            axx.set_ylabel(lb, fontsize=8)
+    fig.suptitle('Validation: per-family relative indices from independent subsets (demeaned within D<3 km clusters)', fontsize=10)
     fig.tight_layout()
-    fig.savefig(f'{FIG}/sci_family_spectra_validation{sfx}.png', dpi=120)
+    fig.savefig(f'{FIG}/sci_family_spectra_validation{sfx}.png', dpi=110)
     plt.close(fig)
-    # --- 3: scaling
-    cvs = [('L1_m', 'patch L1 (m, resolved)'), ('logL_B', 'log10 sqrt(B_full std_s*std_d)'),
-           ('LO', 'LO size (log10 amp, rel.)'), ('episode_recur_d', 'episode recurrence (d)'),
-           ('slip_rel', 'slip proxy log10(A/area)'), ('depth_km', 'depth (km, Shelly)'),
-           ('along_km', 'along strike (km)'), ('mean_tt_s', 'mean S travel time (s)')]
-    fig, axs = plt.subplots(2, 4, figsize=(18, 8))
-    for ax, (cv, lab) in zip(axs.flat, cvs):
-        d = T[['HFI', 'HFI_se', cv]].dropna()
-        ax.errorbar(d[cv], d.HFI, yerr=d.HFI_se, fmt='o', ms=4, color='k', elinewidth=0.6)
+    # --- 3: scaling (within-cluster demeaned)
+    cvs = [('logL_B', 'log10 sqrt(std_s*std_d) deconvolved patch (m)'), ('L1_m', 'AxB patch length L1 (m, resolved)'),
+           ('LO', 'LO size (log10 amp of A=1 event)'), ('episode_recur_d', 'episode recurrence interval (d)'),
+           ('rate_per_yr', 'event rate (/yr)'), ('log_ncat', 'log10 catalog events'),
+           ('depth_km', 'depth (km)'), ('along_km', 'along strike (km)')]
+    fig, axs = plt.subplots(2, 4, figsize=(19, 8.5))
+    for axx, (cv, lab) in zip(axs.flat, cvs):
+        d = T[['HFI', 'HFI_se', cv, 'comp_D3', 'cluster']].dropna()
+        d = d[d.groupby('comp_D3').HFI.transform('count') >= 3]
+        for c_ in ['HFI', cv]:
+            d[c_] = d[c_] - d.groupby('comp_D3')[c_].transform('mean')
+        for cl, g in d.groupby('cluster'):
+            axx.errorbar(g[cv], g.HFI, yerr=g.HFI_se, fmt='o', ms=4, color=ccol[cl], elinewidth=0.5, label=cl)
         for F in d.index:
-            ax.annotate(str(F), (d.loc[F, cv], d.loc[F, 'HFI']), fontsize=6, xytext=(2, 2), textcoords='offset points')
-        s = SC[(SC.target == 'HFI') & (SC.covariate == cv)]
-        if len(s):
-            s = s.iloc[0]
-            ax.set_title(f"rho={s.spearman:.2f} p={s.p_perm:.3f} p_loc={s.p_local:.3f}\n"
-                         f"partial={s.partial_rho:.2f} (p={s.p_partial:.3f})", fontsize=9)
-        ax.set_xlabel(lab)
-        ax.set_ylabel('HFI (rel. falloff)')
+            axx.annotate(str(F), (d.loc[F, cv], d.loc[F, 'HFI']), fontsize=6, xytext=(2, 2), textcoords='offset points')
+        srow = SC[(SC.target == 'HFI') & (SC.covariate == cv) & (SC.scope == 'within')]
+        if len(srow):
+            r = srow.iloc[0]
+            axx.set_title(f"rho={r.spearman:.2f}, p(within-cluster perm)={r.p_perm_within_cluster:.3f}\n"
+                          f"partial (depth/along/tt) {r.partial_rho:.2f}, p={r.p_partial_within_cluster:.3f}", fontsize=9)
+        axx.set_xlabel(lab + ', minus cluster mean', fontsize=8)
+        axx.set_ylabel('HFI minus cluster mean')
+        axx.axhline(0, color='0.7', lw=0.5)
+    axs.flat[0].legend(fontsize=7)
     fig.tight_layout()
-    fig.savefig(f'{FIG}/sci_family_spectra_scaling{sfx}.png', dpi=120)
+    fig.savefig(f'{FIG}/sci_family_spectra_scaling{sfx}.png', dpi=110)
     plt.close(fig)
     log('figs done')
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('stage', choices=['sc', 'accum', 'solve', 'figs'])
+    ap.add_argument('stage', choices=['sc', 'accum', 'solve', 'analyse', 'figs'])
     ap.add_argument('--procs', type=int, default=6)
     ap.add_argument('--fams', type=int, nargs='*')
     ap.add_argument('--mode', default='w', choices=['w', 'u'])
     a = ap.parse_args()
-    {'sc': run_sc, 'accum': run_accum, 'solve': run_solve, 'figs': run_figs}[a.stage](a)
+    {'sc': run_sc, 'accum': run_accum, 'solve': run_solve, 'analyse': run_analyse, 'figs': run_figs}[a.stage](a)
