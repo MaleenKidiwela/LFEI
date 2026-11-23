@@ -1,0 +1,482 @@
+{
+ "diprake_body_only_local": {
+  "max_slope": {
+   "dip": 35.0,
+   "rake": 180.0,
+   "slope_per_kPa": 1.049782053694663,
+   "dLL_pos": 1922.4653273654403
+  },
+  "max_dLL": {
+   "dip": 55.0,
+   "rake": 190.0,
+   "dLL_pos": 2082.6756552190345,
+   "slope_per_kPa": 0.7537972709291788,
+   "beta": 1.0047910317996909
+  },
+  "d40_r180": {
+   "slope_per_kPa": 0.9367483757148002,
+   "dLL_pos": 1922.4653273654403,
+   "beta": 1.1886897460186825
+  },
+  "RL_best_slope": {
+   "dip": 35.0,
+   "rake": 180.0,
+   "slope_per_kPa": 1.049782053694663
+  },
+  "LL_best_slope": {
+   "dip": 35.0,
+   "rake": 330.0,
+   "slope_per_kPa": -0.13763709426619572
+  },
+  "normal_best_slope": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "slope_per_kPa": 0.14156936872840936
+  },
+  "reverse_best_slope": {
+   "dip": 55.0,
+   "rake": 120.0,
+   "slope_per_kPa": 0.032342699125016285
+  },
+  "RL_best_dLL": {
+   "dip": 55.0,
+   "rake": 190.0,
+   "dLL_pos": 2082.6756552190345
+  },
+  "LL_best_dLL": {
+   "dip": 35.0,
+   "rake": 0.0,
+   "dLL_pos": 0.0
+  },
+  "normal_best_dLL": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "dLL_pos": 213.62253186965245
+  },
+  "reverse_best_dLL": {
+   "dip": 55.0,
+   "rake": 120.0,
+   "dLL_pos": 15.641594993445324
+  }
+ },
+ "diprake_body_only_mu30": {
+  "max_slope": {
+   "dip": 35.0,
+   "rake": 180.0,
+   "slope_per_kPa": 1.9104384336899556,
+   "dLL_pos": 1922.4653273654403
+  },
+  "max_dLL": {
+   "dip": 55.0,
+   "rake": 190.0,
+   "dLL_pos": 2095.634164752584,
+   "slope_per_kPa": 1.3775442041311288,
+   "beta": 1.8409998325018062
+  },
+  "d40_r180": {
+   "slope_per_kPa": 1.7047348955564448,
+   "dLL_pos": 1922.4653273654403,
+   "beta": 2.1632286135344487
+  },
+  "RL_best_slope": {
+   "dip": 35.0,
+   "rake": 180.0,
+   "slope_per_kPa": 1.9104384336899556
+  },
+  "LL_best_slope": {
+   "dip": 35.0,
+   "rake": 330.0,
+   "slope_per_kPa": -0.2684031549842956
+  },
+  "normal_best_slope": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "slope_per_kPa": 0.27839594968806763
+  },
+  "reverse_best_slope": {
+   "dip": 55.0,
+   "rake": 120.0,
+   "slope_per_kPa": 0.06471936528428913
+  },
+  "RL_best_dLL": {
+   "dip": 55.0,
+   "rake": 190.0,
+   "dLL_pos": 2095.634164752584
+  },
+  "LL_best_dLL": {
+   "dip": 35.0,
+   "rake": 0.0,
+   "dLL_pos": 0.0
+  },
+  "normal_best_dLL": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "dLL_pos": 226.5059759246942
+  },
+  "reverse_best_dLL": {
+   "dip": 55.0,
+   "rake": 120.0,
+   "dLL_pos": 17.810672700754367
+  }
+ },
+ "diprake_total_fes2004": {
+  "max_slope": {
+   "dip": 35.0,
+   "rake": 180.0,
+   "slope_per_kPa": 1.5510160555745922,
+   "dLL_pos": 1629.5470414306328
+  },
+  "max_dLL": {
+   "dip": 55.0,
+   "rake": 190.0,
+   "dLL_pos": 2169.8769648024754,
+   "slope_per_kPa": 0.6190880113664056,
+   "beta": 0.8012762949238428
+  },
+  "d40_r180": {
+   "slope_per_kPa": 1.1790717803371167,
+   "dLL_pos": 1793.423732659954,
+   "beta": 1.586932667536619
+  },
+  "RL_best_slope": {
+   "dip": 35.0,
+   "rake": 180.0,
+   "slope_per_kPa": 1.5510160555745922
+  },
+  "LL_best_slope": {
+   "dip": 35.0,
+   "rake": 330.0,
+   "slope_per_kPa": 0.05011674954669862
+  },
+  "normal_best_slope": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "slope_per_kPa": 0.2833430213577059
+  },
+  "reverse_best_slope": {
+   "dip": 35.0,
+   "rake": 120.0,
+   "slope_per_kPa": -0.10776544325305158
+  },
+  "RL_best_dLL": {
+   "dip": 55.0,
+   "rake": 190.0,
+   "dLL_pos": 2169.8769648024754
+  },
+  "LL_best_dLL": {
+   "dip": 35.0,
+   "rake": 330.0,
+   "dLL_pos": 16.780894710711436
+  },
+  "normal_best_dLL": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "dLL_pos": 1203.5609214735741
+  },
+  "reverse_best_dLL": {
+   "dip": 35.0,
+   "rake": 60.0,
+   "dLL_pos": 0.0
+  }
+ },
+ "diprake_total_homog_RB5_body30": {
+  "max_slope": {
+   "dip": 35.0,
+   "rake": 350.0,
+   "slope_per_kPa": 2.529934566564004,
+   "dLL_pos": 1692.0289283264428
+  },
+  "max_dLL": {
+   "dip": 55.0,
+   "rake": 200.0,
+   "dLL_pos": 2188.0783919648093,
+   "slope_per_kPa": 0.6987302310311863,
+   "beta": 0.8726704726266822
+  },
+  "d40_r180": {
+   "slope_per_kPa": 2.2568883525459684,
+   "dLL_pos": 454.9991843744938,
+   "beta": 3.443092269959572
+  },
+  "RL_best_slope": {
+   "dip": 45.0,
+   "rake": 180.0,
+   "slope_per_kPa": 2.3032374097717674
+  },
+  "LL_best_slope": {
+   "dip": 35.0,
+   "rake": 350.0,
+   "slope_per_kPa": 2.529934566564004
+  },
+  "normal_best_slope": {
+   "dip": 55.0,
+   "rake": 300.0,
+   "slope_per_kPa": 0.5443812492131702
+  },
+  "reverse_best_slope": {
+   "dip": 35.0,
+   "rake": 70.0,
+   "slope_per_kPa": -0.3357386438039134
+  },
+  "RL_best_dLL": {
+   "dip": 55.0,
+   "rake": 200.0,
+   "dLL_pos": 2188.0783919648093
+  },
+  "LL_best_dLL": {
+   "dip": 35.0,
+   "rake": 350.0,
+   "dLL_pos": 1692.0289283264428
+  },
+  "normal_best_dLL": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "dLL_pos": 2010.0146924087603
+  },
+  "reverse_best_dLL": {
+   "dip": 35.0,
+   "rake": 60.0,
+   "dLL_pos": 0.0
+  }
+ },
+ "diprake_total_layered_body30": {
+  "max_slope": {
+   "dip": 40.0,
+   "rake": 180.0,
+   "slope_per_kPa": 2.433280805434427,
+   "dLL_pos": 1407.0173462852254
+  },
+  "max_dLL": {
+   "dip": 55.0,
+   "rake": 200.0,
+   "dLL_pos": 2217.42009123732,
+   "slope_per_kPa": 0.7977201184674267,
+   "beta": 1.0033187500899328
+  },
+  "d40_r180": {
+   "slope_per_kPa": 2.433280805434427,
+   "dLL_pos": 1407.0173462852254,
+   "beta": 3.4210519671341437
+  },
+  "RL_best_slope": {
+   "dip": 40.0,
+   "rake": 180.0,
+   "slope_per_kPa": 2.433280805434427
+  },
+  "LL_best_slope": {
+   "dip": 35.0,
+   "rake": 350.0,
+   "slope_per_kPa": 0.8683751022537023
+  },
+  "normal_best_slope": {
+   "dip": 55.0,
+   "rake": 300.0,
+   "slope_per_kPa": 0.5632373123335078
+  },
+  "reverse_best_slope": {
+   "dip": 35.0,
+   "rake": 100.0,
+   "slope_per_kPa": -0.39522164984890756
+  },
+  "RL_best_dLL": {
+   "dip": 55.0,
+   "rake": 200.0,
+   "dLL_pos": 2217.42009123732
+  },
+  "LL_best_dLL": {
+   "dip": 35.0,
+   "rake": 330.0,
+   "dLL_pos": 476.0237725705665
+  },
+  "normal_best_dLL": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "dLL_pos": 1958.7018557740084
+  },
+  "reverse_best_dLL": {
+   "dip": 35.0,
+   "rake": 60.0,
+   "dLL_pos": 0.0
+  }
+ },
+ "diprake_total_primary": {
+  "max_slope": {
+   "dip": 35.0,
+   "rake": 180.0,
+   "slope_per_kPa": 1.5470044600121287,
+   "dLL_pos": 1636.6187218727428
+  },
+  "max_dLL": {
+   "dip": 55.0,
+   "rake": 190.0,
+   "dLL_pos": 2173.2021796007466,
+   "slope_per_kPa": 0.6168911497283249,
+   "beta": 0.797711551710714
+  },
+  "d40_r180": {
+   "slope_per_kPa": 1.1770011007903876,
+   "dLL_pos": 1795.7397741691966,
+   "beta": 1.5809120700556551
+  },
+  "RL_best_slope": {
+   "dip": 35.0,
+   "rake": 180.0,
+   "slope_per_kPa": 1.5470044600121287
+  },
+  "LL_best_slope": {
+   "dip": 35.0,
+   "rake": 330.0,
+   "slope_per_kPa": 0.04999777663718933
+  },
+  "normal_best_slope": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "slope_per_kPa": 0.2838288121826422
+  },
+  "reverse_best_slope": {
+   "dip": 35.0,
+   "rake": 120.0,
+   "slope_per_kPa": -0.1059291406442814
+  },
+  "RL_best_dLL": {
+   "dip": 55.0,
+   "rake": 190.0,
+   "dLL_pos": 2173.2021796007466
+  },
+  "LL_best_dLL": {
+   "dip": 35.0,
+   "rake": 330.0,
+   "dLL_pos": 16.69671870759339
+  },
+  "normal_best_dLL": {
+   "dip": 55.0,
+   "rake": 240.0,
+   "dLL_pos": 1210.5778572779673
+  },
+  "reverse_best_dLL": {
+   "dip": 35.0,
+   "rake": 60.0,
+   "dLL_pos": 0.0
+  }
+ },
+ "poro_body_only_local": {
+  "best": {
+   "B": 0.3,
+   "mu": 0.2,
+   "beta": 1.2914963495123237,
+   "dLL_pos": 2143.917126627988
+  },
+  "B1_mu06": {
+   "beta": 0.45257980302106754,
+   "dLL": 760.2190969013027,
+   "dLL_pos": 760.2190969013027
+  },
+  "best_at_B1": {
+   "mu": 0.0,
+   "beta": 1.188689746018683,
+   "dLL_pos": 1922.4653273654112
+  },
+  "dLL_best_minus_B1mu06": 1383.6980297266855,
+  "max_mu_with_beta_pos_at_B1": 0.8
+ },
+ "poro_fes2004": {
+  "best": {
+   "B": 0.0,
+   "mu": 0.1,
+   "beta": 1.5818629167805303,
+   "dLL_pos": 2003.9847185836989
+  },
+  "B1_mu06": {
+   "beta": -0.38017353674030535,
+   "dLL": 166.40172175725456,
+   "dLL_pos": 0.0
+  },
+  "best_at_B1": {
+   "mu": 0.0,
+   "beta": 1.5869326675366184,
+   "dLL_pos": 1793.423732659925
+  },
+  "dLL_best_minus_B1mu06": 2003.9847185836989,
+  "max_mu_with_beta_pos_at_B1": 0.4
+ },
+ "poro_homog_RB1_body30": {
+  "best": {
+   "B": 0.0,
+   "mu": 0.15,
+   "beta": 2.259311012989795,
+   "dLL_pos": 2131.25415112864
+  },
+  "B1_mu06": {
+   "beta": -1.8020791526630817,
+   "dLL": 1745.6734136307205,
+   "dLL_pos": 0.0
+  },
+  "best_at_B1": {
+   "mu": 0.0,
+   "beta": 2.327989131896047,
+   "dLL_pos": 1870.183896497998
+  },
+  "dLL_best_minus_B1mu06": 2131.25415112864,
+  "max_mu_with_beta_pos_at_B1": 0.25
+ },
+ "poro_layered_RL1": {
+  "best": {
+   "B": 0.1,
+   "mu": 0.15,
+   "beta": 1.3863042275813648,
+   "dLL_pos": 2089.662288700987
+  },
+  "B1_mu06": {
+   "beta": -0.2047466635739084,
+   "dLL": 51.27098519177525,
+   "dLL_pos": 0.0
+  },
+  "best_at_B1": {
+   "mu": 0.0,
+   "beta": 1.3781140973629737,
+   "dLL_pos": 1832.8248670003377
+  },
+  "dLL_best_minus_B1mu06": 2089.662288700987,
+  "max_mu_with_beta_pos_at_B1": 0.5
+ },
+ "poro_layered_body30": {
+  "best": {
+   "B": 0.0,
+   "mu": 0.1,
+   "beta": 3.1321372644076653,
+   "dLL_pos": 1695.3652506255894
+  },
+  "B1_mu06": {
+   "beta": -1.5017374423226424,
+   "dLL": 1727.3071486939443,
+   "dLL_pos": 0.0
+  },
+  "best_at_B1": {
+   "mu": 0.0,
+   "beta": 3.421051967134141,
+   "dLL_pos": 1407.0173462851672
+  },
+  "dLL_best_minus_B1mu06": 1695.3652506255894,
+  "max_mu_with_beta_pos_at_B1": 0.15
+ },
+ "poro_primary": {
+  "best": {
+   "B": 0.0,
+   "mu": 0.1,
+   "beta": 1.5836723380011515,
+   "dLL_pos": 2015.21273043775
+  },
+  "B1_mu06": {
+   "beta": -0.3743981034671669,
+   "dLL": 165.90645376450266,
+   "dLL_pos": 0.0
+  },
+  "best_at_B1": {
+   "mu": 0.0,
+   "beta": 1.5809120700556558,
+   "dLL_pos": 1795.7397741691675
+  },
+  "dLL_best_minus_B1mu06": 2015.21273043775,
+  "max_mu_with_beta_pos_at_B1": 0.4
+ }
+}

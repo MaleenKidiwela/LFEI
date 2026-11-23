@@ -1,0 +1,65 @@
+{
+ "strainmeter_mean_resid": {
+  "fes2004": {
+   "iso_resid_frac_dth0": 0.29528682146076923,
+   "iso_resid_frac": 0.2110502843645934,
+   "gen_resid_frac": 0.024511309030164814
+  },
+  "nao99b": {
+   "iso_resid_frac_dth0": 0.30078587242679095,
+   "iso_resid_frac": 0.2117462660981701,
+   "gen_resid_frac": 0.02611138735728038
+  },
+  "usawest+tpxo72": {
+   "iso_resid_frac_dth0": 0.29768371238833513,
+   "iso_resid_frac": 0.21298327119184915,
+   "gen_resid_frac": 0.02561429236553775
+  },
+  "hamtide11a": {
+   "iso_resid_frac_dth0": 0.30076477035453586,
+   "iso_resid_frac": 0.21359638642347784,
+   "gen_resid_frac": 0.025517995611354986
+  },
+  "tpxo72atlas": {
+   "iso_resid_frac_dth0": 0.2988053084072265,
+   "iso_resid_frac": 0.21517645960599296,
+   "gen_resid_frac": 0.02564549373836641
+  },
+  "dtu10": {
+   "iso_resid_frac_dth0": 0.2983142875300587,
+   "iso_resid_frac": 0.21705975894173696,
+   "gen_resid_frac": 0.02525405046253887
+  },
+  "tpxo72": {
+   "iso_resid_frac_dth0": 0.2996806629434794,
+   "iso_resid_frac": 0.21969495522025148,
+   "gen_resid_frac": 0.024412066912632948
+  },
+  "eot11a": {
+   "iso_resid_frac_dth0": 0.30049526768267015,
+   "iso_resid_frac": 0.21975601543762815,
+   "gen_resid_frac": 0.024757703021378093
+  },
+  "got4p7": {
+   "iso_resid_frac_dth0": 0.3100205910557601,
+   "iso_resid_frac": 0.2235201717018788,
+   "gen_resid_frac": 0.027192571229649593
+  },
+  "body_only": {
+   "iso_resid_frac_dth0": 0.49050197540148377,
+   "iso_resid_frac": 0.3599646075314187,
+   "gen_resid_frac": 0.03331962621632216
+  }
+ },
+ "noaa_M2_rms_cm": {
+  "dtu10": 5.66705395810428,
+  "eot11a": 5.876622375518246,
+  "fes2004": 5.828685977291413,
+  "got4p7": 5.532532445151282,
+  "hamtide11a": 4.024611311602512,
+  "nao99b": 6.375567253170882,
+  "tpxo72": 5.5626409386400715,
+  "tpxo72atlas": 5.938264067997802,
+  "usawest+tpxo72": 1.8178116874140695
+ }
+}

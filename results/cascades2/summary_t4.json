@@ -1,0 +1,1421 @@
+{
+ "t4_remote": {
+  "n_quakes": 793,
+  "stack": {
+   "all|all_tele|events|0.5h": {
+    "n_quakes": 793,
+    "obs": 620,
+    "expected": 572.091,
+    "null_ci95": [
+     368.0,
+     807.0249999999999
+    ],
+    "ratio": 1.0837436701503782,
+    "p_upper": 0.3148425787106447,
+    "p_lower": 0.6891554222888556,
+    "frac_quakes_active": 0.14754098360655737,
+    "frac_ctrl_active": 0.12407734342160572
+   },
+   "all|all_tele|onsets|0.5h": {
+    "n_quakes": 793,
+    "obs": 260,
+    "expected": 203.9475,
+    "null_ci95": [
+     145.0,
+     276.0
+    ],
+    "ratio": 1.2748378872013633,
+    "p_upper": 0.05247376311844078,
+    "p_lower": 0.9510244877561219,
+    "frac_quakes_active": 0.13871374527112232,
+    "frac_ctrl_active": 0.11664985287936108
+   },
+   "all|all_tele|events|1h": {
+    "n_quakes": 793,
+    "obs": 1460,
+    "expected": 1150.6145,
+    "null_ci95": [
+     826.975,
+     1528.0499999999997
+    ],
+    "ratio": 1.268887190279629,
+    "p_upper": 0.05647176411794103,
+    "p_lower": 0.9445277361319341,
+    "frac_quakes_active": 0.2509457755359395,
+    "frac_ctrl_active": 0.21075662042875157
+   },
+   "all|all_tele|onsets|1h": {
+    "n_quakes": 793,
+    "obs": 599,
+    "expected": 404.6295,
+    "null_ci95": [
+     311.975,
+     510.0
+    ],
+    "ratio": 1.480366606982437,
+    "p_upper": 0.0004997501249375312,
+    "p_lower": 1.0,
+    "frac_quakes_active": 0.24337957124842372,
+    "frac_ctrl_active": 0.2032072299285414
+   },
+   "all|all_tele|events|3h": {
+    "n_quakes": 793,
+    "obs": 3757,
+    "expected": 3166.0405,
+    "null_ci95": [
+     2568.9,
+     3804.149999999999
+    ],
+    "ratio": 1.1866556981820036,
+    "p_upper": 0.03498250874562719,
+    "p_lower": 0.9660169915042479,
+    "frac_quakes_active": 0.5346784363177806,
+    "frac_ctrl_active": 0.45779319041614125
+   },
+   "all|all_tele|onsets|3h": {
+    "n_quakes": 793,
+    "obs": 1549,
+    "expected": 1140.0475,
+    "null_ci95": [
+     981.975,
+     1310.0
+    ],
+    "ratio": 1.3587153166863664,
+    "p_upper": 0.0004997501249375312,
+    "p_lower": 1.0,
+    "frac_quakes_active": 0.532156368221942,
+    "frac_ctrl_active": 0.45319461958806223
+   },
+   "all|all_tele|events|6h": {
+    "n_quakes": 793,
+    "obs": 7426,
+    "expected": 6519.576,
+    "null_ci95": [
+     5673.9,
+     7413.3499999999985
+    ],
+    "ratio": 1.1390311271775957,
+    "p_upper": 0.025487256371814093,
+    "p_lower": 0.9750124937531235,
+    "frac_quakes_active": 0.7313997477931904,
+    "frac_ctrl_active": 0.689281210592686
+   },
+   "all|all_tele|onsets|6h": {
+    "n_quakes": 793,
+    "obs": 2806,
+    "expected": 2325.02,
+    "null_ci95": [
+     2091.975,
+     2569.0
+    ],
+    "ratio": 1.206871338741172,
+    "p_upper": 0.0004997501249375312,
+    "p_lower": 1.0,
+    "frac_quakes_active": 0.7301387137452712,
+    "frac_ctrl_active": 0.6869777217318201
+   },
+   "all|all_tele|events|12h": {
+    "n_quakes": 793,
+    "obs": 13763,
+    "expected": 13076.9235,
+    "null_ci95": [
+     11877.975,
+     14263.05
+    ],
+    "ratio": 1.0524646718320252,
+    "p_upper": 0.13393303348325838,
+    "p_lower": 0.8670664667666167,
+    "frac_quakes_active": 0.9003783102143758,
+    "frac_ctrl_active": 0.8889281210592686
+   },
+   "all|all_tele|onsets|12h": {
+    "n_quakes": 793,
+    "obs": 5106,
+    "expected": 4666.5275,
+    "null_ci95": [
+     4355.975,
+     4989.075
+    ],
+    "ratio": 1.094175487018988,
+    "p_upper": 0.001999000499750125,
+    "p_lower": 0.9985007496251874,
+    "frac_quakes_active": 0.9003783102143758,
+    "frac_ctrl_active": 0.8884447246742329
+   },
+   "all|all_tele|events|24h": {
+    "n_quakes": 793,
+    "obs": 28111,
+    "expected": 26320.014,
+    "null_ci95": [
+     24666.2,
+     27992.05
+    ],
+    "ratio": 1.068046544352142,
+    "p_upper": 0.01899050474762619,
+    "p_lower": 0.9815092453773113,
+    "frac_quakes_active": 0.9899117276166457,
+    "frac_ctrl_active": 0.9809037410676755
+   },
+   "all|all_tele|onsets|24h": {
+    "n_quakes": 793,
+    "obs": 10126,
+    "expected": 9371.7395,
+    "null_ci95": [
+     8954.0,
+     9793.05
+    ],
+    "ratio": 1.0804824440542762,
+    "p_upper": 0.0004997501249375312,
+    "p_lower": 1.0,
+    "frac_quakes_active": 0.9899117276166457,
+    "frac_ctrl_active": 0.9809037410676755
+   },
+   "all|top30_pgv|events|0.5h": {
+    "n_quakes": 30,
+    "obs": 59,
+    "expected": 21.42,
+    "null_ci95": [
+     1.0,
+     83.0
+    ],
+    "ratio": 2.754435107376284,
+    "p_upper": 0.10594702648675662,
+    "p_lower": 0.8960519740129935,
+    "frac_quakes_active": 0.3333333333333333,
+    "frac_ctrl_active": 0.11677777777777777
+   },
+   "all|top30_pgv|onsets|0.5h": {
+    "n_quakes": 30,
+    "obs": 36,
+    "expected": 7.87,
+    "null_ci95": [
+     0.0,
+     25.0
+    ],
+    "ratio": 4.5743329097839895,
+    "p_upper": 0.0024987506246876563,
+    "p_lower": 0.9980009995002499,
+    "frac_quakes_active": 0.3333333333333333,
+    "frac_ctrl_active": 0.10355555555555555
+   },
+   "all|top30_pgv|events|1h": {
+    "n_quakes": 30,
+    "obs": 78,
+    "expected": 35.9115,
+    "null_ci95": [
+     4.0,
+     118.02499999999986
+    ],
+    "ratio": 2.1720061818637486,
+    "p_upper": 0.12343828085957022,
+    "p_lower": 0.8790604697651174,
+    "frac_quakes_active": 0.43333333333333335,
+    "frac_ctrl_active": 0.2018888888888889
+   },
+   "all|top30_pgv|onsets|1h": {
+    "n_quakes": 30,
+    "obs": 51,
+    "expected": 14.414,
+    "null_ci95": [
+     2.0,
+     37.0
+    ],
+    "ratio": 3.5382267240183154,
+    "p_upper": 0.001999000499750125,
+    "p_lower": 0.9985007496251874,
+    "frac_quakes_active": 0.43333333333333335,
+    "frac_ctrl_active": 0.18866666666666668
+   },
+   "all|top30_pgv|events|3h": {
+    "n_quakes": 30,
+    "obs": 180,
+    "expected": 95.37,
+    "null_ci95": [
+     23.0,
+     218.02499999999986
+    ],
+    "ratio": 1.887385970430953,
+    "p_upper": 0.07646176911544228,
+    "p_lower": 0.9255372313843079,
+    "frac_quakes_active": 0.6333333333333333,
+    "frac_ctrl_active": 0.41133333333333333
+   },
+   "all|top30_pgv|onsets|3h": {
+    "n_quakes": 30,
+    "obs": 116,
+    "expected": 36.3915,
+    "null_ci95": [
+     13.0,
+     72.0
+    ],
+    "ratio": 3.1875575340395423,
+    "p_upper": 0.0004997501249375312,
+    "p_lower": 1.0,
+    "frac_quakes_active": 0.6333333333333333,
+    "frac_ctrl_active": 0.403
+   },
+   "all|top30_pgv|events|6h": {
+    "n_quakes": 30,
+    "obs": 294,
+    "expected": 228.8375,
+    "null_ci95": [
+     89.0,
+     435.17499999999905
+    ],
+    "ratio": 1.284754465504998,
+    "p_upper": 0.21839080459770116,
+    "p_lower": 0.784607696151924,
+    "frac_quakes_active": 0.7666666666666667,
+    "frac_ctrl_active": 0.6442222222222223
+   },
+   "all|top30_pgv|onsets|6h": {
+    "n_quakes": 30,
+    "obs": 156,
+    "expected": 82.3615,
+    "null_ci95": [
+     42.0,
+     133.0
+    ],
+    "ratio": 1.8940888643358849,
+    "p_upper": 0.005497251374312844,
+    "p_lower": 0.9955022488755623,
+    "frac_quakes_active": 0.7666666666666667,
+    "frac_ctrl_active": 0.6421111111111111
+   },
+   "all|top30_pgv|events|12h": {
+    "n_quakes": 30,
+    "obs": 427,
+    "expected": 495.098,
+    "null_ci95": [
+     266.975,
+     753.0
+    ],
+    "ratio": 0.8624555138578625,
+    "p_upper": 0.6876561719140429,
+    "p_lower": 0.3168415792103948,
+    "frac_quakes_active": 0.8666666666666667,
+    "frac_ctrl_active": 0.8764444444444445
+   },
+   "all|top30_pgv|onsets|12h": {
+    "n_quakes": 30,
+    "obs": 213,
+    "expected": 176.4675,
+    "null_ci95": [
+     116.0,
+     251.0
+    ],
+    "ratio": 1.2070211228696501,
+    "p_upper": 0.1584207896051974,
+    "p_lower": 0.8500749625187406,
+    "frac_quakes_active": 0.8666666666666667,
+    "frac_ctrl_active": 0.8764444444444445
+   },
+   "all|top30_pgv|events|24h": {
+    "n_quakes": 30,
+    "obs": 715,
+    "expected": 940.1965,
+    "null_ci95": [
+     644.0,
+     1273.0249999999999
+    ],
+    "ratio": 0.7604793253325236,
+    "p_upper": 0.9325337331334332,
+    "p_lower": 0.06896551724137931,
+    "frac_quakes_active": 1.0,
+    "frac_ctrl_active": 0.9822222222222222
+   },
+   "all|top30_pgv|onsets|24h": {
+    "n_quakes": 30,
+    "obs": 359,
+    "expected": 344.3375,
+    "null_ci95": [
+     261.0,
+     434.0
+    ],
+    "ratio": 1.0425817693396742,
+    "p_upper": 0.3618190904547726,
+    "p_lower": 0.6461769115442278,
+    "frac_quakes_active": 1.0,
+    "frac_ctrl_active": 0.9822222222222222
+   },
+   "all|pgv_gt_100um_s|events|0.5h": {
+    "n_quakes": 86,
+    "obs": 96,
+    "expected": 56.8275,
+    "null_ci95": [
+     9.0,
+     147.02499999999986
+    ],
+    "ratio": 1.6893229510360301,
+    "p_upper": 0.16491754122938532,
+    "p_lower": 0.8385807096451774,
+    "frac_quakes_active": 0.23255813953488372,
+    "frac_ctrl_active": 0.12414728682170542
+   },
+   "all|pgv_gt_100um_s|onsets|0.5h": {
+    "n_quakes": 86,
+    "obs": 57,
+    "expected": 21.6385,
+    "null_ci95": [
+     6.0,
+     48.0
+    ],
+    "ratio": 2.634193682556554,
+    "p_upper": 0.004997501249375313,
+    "p_lower": 0.9970014992503748,
+    "frac_quakes_active": 0.22093023255813954,
+    "frac_ctrl_active": 0.11430232558139534
+   },
+   "all|pgv_gt_100um_s|events|1h": {
+    "n_quakes": 86,
+    "obs": 171,
+    "expected": 106.0775,
+    "null_ci95": [
+     33.0,
+     227.02499999999986
+    ],
+    "ratio": 1.6120289411043813,
+    "p_upper": 0.13043478260869565,
+    "p_lower": 0.8730634682658671,
+    "frac_quakes_active": 0.3488372093023256,
+    "frac_ctrl_active": 0.21406976744186046
+   },
+   "all|pgv_gt_100um_s|onsets|1h": {
+    "n_quakes": 86,
+    "obs": 100,
+    "expected": 41.2825,
+    "null_ci95": [
+     18.0,
+     76.0
+    ],
+    "ratio": 2.422333918730697,
+    "p_upper": 0.001999000499750125,
+    "p_lower": 0.9985007496251874,
+    "frac_quakes_active": 0.3372093023255814,
+    "frac_ctrl_active": 0.205968992248062
+   },
+   "all|pgv_gt_100um_s|events|3h": {
+    "n_quakes": 86,
+    "obs": 398,
+    "expected": 285.3955,
+    "null_ci95": [
+     131.0,
+     485.0749999999996
+    ],
+    "ratio": 1.3945559758300323,
+    "p_upper": 0.11444277861069466,
+    "p_lower": 0.888055972013993,
+    "frac_quakes_active": 0.6511627906976745,
+    "frac_ctrl_active": 0.4461627906976744
+   },
+   "all|pgv_gt_100um_s|onsets|3h": {
+    "n_quakes": 86,
+    "obs": 231,
+    "expected": 113.304,
+    "null_ci95": [
+     65.0,
+     172.02499999999986
+    ],
+    "ratio": 2.0387629739461977,
+    "p_upper": 0.0004997501249375312,
+    "p_lower": 1.0,
+    "frac_quakes_active": 0.6511627906976745,
+    "frac_ctrl_active": 0.4414341085271318
+   },
+   "all|pgv_gt_100um_s|events|6h": {
+    "n_quakes": 86,
+    "obs": 633,
+    "expected": 689.1935,
+    "null_ci95": [
+     423.975,
+     998.0
+    ],
+    "ratio": 0.9184648433277447,
+    "p_upper": 0.6201899050474763,
+    "p_lower": 0.3823088455772114,
+    "frac_quakes_active": 0.7674418604651163,
+    "frac_ctrl_active": 0.6836434108527132
+   },
+   "all|pgv_gt_100um_s|onsets|6h": {
+    "n_quakes": 86,
+    "obs": 325,
+    "expected": 251.104,
+    "null_ci95": [
+     178.0,
+     339.0
+    ],
+    "ratio": 1.2942844399133426,
+    "p_upper": 0.047976011994003,
+    "p_lower": 0.9545227386306847,
+    "frac_quakes_active": 0.7674418604651163,
+    "frac_ctrl_active": 0.6822868217054263
+   },
+   "all|pgv_gt_100um_s|events|12h": {
+    "n_quakes": 86,
+    "obs": 1183,
+    "expected": 1409.754,
+    "null_ci95": [
+     1007.975,
+     1839.0249999999999
+    ],
+    "ratio": 0.8391534977024361,
+    "p_upper": 0.856071964017991,
+    "p_lower": 0.14492753623188406,
+    "frac_quakes_active": 0.9069767441860465,
+    "frac_ctrl_active": 0.8958139534883721
+   },
+   "all|pgv_gt_100um_s|onsets|12h": {
+    "n_quakes": 86,
+    "obs": 549,
+    "expected": 508.2265,
+    "null_ci95": [
+     403.0,
+     629.0
+    ],
+    "ratio": 1.0802270247615975,
+    "p_upper": 0.22588705647176413,
+    "p_lower": 0.784607696151924,
+    "frac_quakes_active": 0.9069767441860465,
+    "frac_ctrl_active": 0.8958139534883721
+   },
+   "all|pgv_gt_100um_s|events|24h": {
+    "n_quakes": 86,
+    "obs": 2620,
+    "expected": 2766.205,
+    "null_ci95": [
+     2245.9,
+     3315.0999999999995
+    ],
+    "ratio": 0.9471459996637993,
+    "p_upper": 0.6871564217891054,
+    "p_lower": 0.3148425787106447,
+    "frac_quakes_active": 1.0,
+    "frac_ctrl_active": 0.98
+   },
+   "all|pgv_gt_100um_s|onsets|24h": {
+    "n_quakes": 86,
+    "obs": 1082,
+    "expected": 1005.3965,
+    "null_ci95": [
+     871.0,
+     1151.0249999999999
+    ],
+    "ratio": 1.0761923281014008,
+    "p_upper": 0.14192903548225888,
+    "p_lower": 0.8615692153923038,
+    "frac_quakes_active": 1.0,
+    "frac_ctrl_active": 0.98
+   },
+   "all|KS_randPIT_onsets_1h": 0.0004634129905554729,
+   "all|mean_randPIT_onsets_1h": 0.5201766821252652,
+   "all|spearman_PIT_vs_pgv_1h": [
+    0.09684981410964533,
+    0.006344351752596486
+   ],
+   "all|KS_randPIT_onsets_6h": 8.428765468724502e-05,
+   "all|mean_randPIT_onsets_6h": 0.5399999064042383,
+   "all|spearman_PIT_vs_pgv_6h": [
+    0.08260286402149389,
+    0.019995876024625565
+   ],
+   "thin|all_tele|events|0.5h": {
+    "n_quakes": 793,
+    "obs": 356,
+    "expected": 333.9075,
+    "null_ci95": [
+     198.0,
+     495.02499999999986
+    ],
+    "ratio": 1.0661635333138668,
+    "p_upper": 0.3713143428285857,
+    "p_lower": 0.632183908045977,
+    "frac_quakes_active": 0.0605296343001261,
+    "frac_ctrl_active": 0.05609079445145019
+   },
+   "thin|all_tele|onsets|0.5h": {
+    "n_quakes": 793,
+    "obs": 136,
+    "expected": 121.8245,
+    "null_ci95": [
+     74.0,
+     177.02499999999986
+    ],
+    "ratio": 1.1163600096860649,
+    "p_upper": 0.28835582208895555,
+    "p_lower": 0.7211394302848576,
+    "frac_quakes_active": 0.05926860025220681,
+    "frac_ctrl_active": 0.053413198823034885
+   },
+   "thin|all_tele|events|1h": {
+    "n_quakes": 793,
+    "obs": 812,
+    "expected": 671.344,
+    "null_ci95": [
+     444.0,
+     936.0249999999999
+    ],
+    "ratio": 1.2095140494292047,
+    "p_upper": 0.13193403298350825,
+    "p_lower": 0.8705647176411794,
+    "frac_quakes_active": 0.09331651954602774,
+    "frac_ctrl_active": 0.09649852879361076
+   },
+   "thin|all_tele|onsets|1h": {
+    "n_quakes": 793,
+    "obs": 308,
+    "expected": 247.261,
+    "null_ci95": [
+     167.0,
+     338.0
+    ],
+    "ratio": 1.2456473119497211,
+    "p_upper": 0.09095452273863068,
+    "p_lower": 0.9130434782608695,
+    "frac_quakes_active": 0.09331651954602774,
+    "frac_ctrl_active": 0.09345102984447247
+   },
+   "thin|all_tele|events|3h": {
+    "n_quakes": 793,
+    "obs": 1971,
+    "expected": 1822.942,
+    "null_ci95": [
+     1428.9,
+     2253.0249999999996
+    ],
+    "ratio": 1.0812192598557715,
+    "p_upper": 0.22988505747126436,
+    "p_lower": 0.7711144427786107,
+    "frac_quakes_active": 0.22824716267339218,
+    "frac_ctrl_active": 0.2318032786885246
+   },
+   "thin|all_tele|onsets|3h": {
+    "n_quakes": 793,
+    "obs": 738,
+    "expected": 669.008,
+    "null_ci95": [
+     527.975,
+     810.0
+    ],
+    "ratio": 1.10312582211274,
+    "p_upper": 0.16841579210394803,
+    "p_lower": 0.8345827086456772,
+    "frac_quakes_active": 0.22824716267339218,
+    "frac_ctrl_active": 0.22934426229508198
+   },
+   "thin|all_tele|events|6h": {
+    "n_quakes": 793,
+    "obs": 4195,
+    "expected": 3772.1465,
+    "null_ci95": [
+     3208.975,
+     4374.025
+    ],
+    "ratio": 1.112098907081154,
+    "p_upper": 0.08545727136431784,
+    "p_lower": 0.9150424787606197,
+    "frac_quakes_active": 0.43253467843631777,
+    "frac_ctrl_active": 0.41343001261034046
+   },
+   "thin|all_tele|onsets|6h": {
+    "n_quakes": 793,
+    "obs": 1508,
+    "expected": 1382.5695,
+    "null_ci95": [
+     1179.975,
+     1590.0
+    ],
+    "ratio": 1.0907227448602042,
+    "p_upper": 0.1184407796101949,
+    "p_lower": 0.8830584707646177,
+    "frac_quakes_active": 0.43253467843631777,
+    "frac_ctrl_active": 0.41112652374947456
+   },
+   "thin|all_tele|events|12h": {
+    "n_quakes": 793,
+    "obs": 7843,
+    "expected": 7596.4565,
+    "null_ci95": [
+     6775.0,
+     8418.05
+    ],
+    "ratio": 1.0324550663852283,
+    "p_upper": 0.2698650674662669,
+    "p_lower": 0.7316341829085458,
+    "frac_quakes_active": 0.6544766708701135,
+    "frac_ctrl_active": 0.665910046237915
+   },
+   "thin|all_tele|onsets|12h": {
+    "n_quakes": 793,
+    "obs": 2782,
+    "expected": 2770.3855,
+    "null_ci95": [
+     2516.975,
+     3042.0249999999996
+    ],
+    "ratio": 1.0041923768370864,
+    "p_upper": 0.46276861569215394,
+    "p_lower": 0.5402298850574713,
+    "frac_quakes_active": 0.6544766708701135,
+    "frac_ctrl_active": 0.6642202606137032
+   },
+   "thin|all_tele|events|24h": {
+    "n_quakes": 793,
+    "obs": 16130,
+    "expected": 15147.8615,
+    "null_ci95": [
+     14064.625,
+     16248.05
+    ],
+    "ratio": 1.0648367758049544,
+    "p_upper": 0.0399800099950025,
+    "p_lower": 0.9610194902548725,
+    "frac_quakes_active": 0.9369482976040353,
+    "frac_ctrl_active": 0.9078268179907524
+   },
+   "thin|all_tele|onsets|24h": {
+    "n_quakes": 793,
+    "obs": 5733,
+    "expected": 5504.5,
+    "null_ci95": [
+     5168.925,
+     5854.0
+    ],
+    "ratio": 1.0415114905986012,
+    "p_upper": 0.09645177411294353,
+    "p_lower": 0.9055472263868066,
+    "frac_quakes_active": 0.9369482976040353,
+    "frac_ctrl_active": 0.9071080285834384
+   },
+   "thin|top30_pgv|events|0.5h": {
+    "n_quakes": 30,
+    "obs": 23,
+    "expected": 12.0105,
+    "null_ci95": [
+     0.0,
+     57.0
+    ],
+    "ratio": 1.9149910494983555,
+    "p_upper": 0.16491754122938532,
+    "p_lower": 0.8520739630184908,
+    "frac_quakes_active": 0.16666666666666666,
+    "frac_ctrl_active": 0.059666666666666666
+   },
+   "thin|top30_pgv|onsets|0.5h": {
+    "n_quakes": 30,
+    "obs": 15,
+    "expected": 5.158,
+    "null_ci95": [
+     0.0,
+     20.0
+    ],
+    "ratio": 2.908103916246607,
+    "p_upper": 0.095952023988006,
+    "p_lower": 0.9120439780109945,
+    "frac_quakes_active": 0.16666666666666666,
+    "frac_ctrl_active": 0.057
+   },
+   "thin|top30_pgv|events|1h": {
+    "n_quakes": 30,
+    "obs": 26,
+    "expected": 21.8785,
+    "null_ci95": [
+     0.0,
+     75.02499999999986
+    ],
+    "ratio": 1.188381287565418,
+    "p_upper": 0.3213393303348326,
+    "p_lower": 0.6896551724137931,
+    "frac_quakes_active": 0.16666666666666666,
+    "frac_ctrl_active": 0.09077777777777778
+   },
+   "thin|top30_pgv|onsets|1h": {
+    "n_quakes": 30,
+    "obs": 18,
+    "expected": 8.9415,
+    "null_ci95": [
+     0.0,
+     29.0
+    ],
+    "ratio": 2.0130850528434827,
+    "p_upper": 0.1454272863568216,
+    "p_lower": 0.8740629685157422,
+    "frac_quakes_active": 0.16666666666666666,
+    "frac_ctrl_active": 0.08811111111111111
+   },
+   "thin|top30_pgv|events|3h": {
+    "n_quakes": 30,
+    "obs": 55,
+    "expected": 56.54,
+    "null_ci95": [
+     7.0,
+     143.04999999999973
+    ],
+    "ratio": 0.9727626459143969,
+    "p_upper": 0.4617691154422789,
+    "p_lower": 0.551224387806097,
+    "frac_quakes_active": 0.26666666666666666,
+    "frac_ctrl_active": 0.1981111111111111
+   },
+   "thin|top30_pgv|onsets|3h": {
+    "n_quakes": 30,
+    "obs": 35,
+    "expected": 21.521,
+    "null_ci95": [
+     4.0,
+     51.0
+    ],
+    "ratio": 1.6263184796245527,
+    "p_upper": 0.14442778610694654,
+    "p_lower": 0.8700649675162418,
+    "frac_quakes_active": 0.26666666666666666,
+    "frac_ctrl_active": 0.19544444444444445
+   },
+   "thin|top30_pgv|events|6h": {
+    "n_quakes": 30,
+    "obs": 120,
+    "expected": 134.874,
+    "null_ci95": [
+     40.0,
+     276.0
+    ],
+    "ratio": 0.8897192935628809,
+    "p_upper": 0.5487256371814093,
+    "p_lower": 0.4577711144427786,
+    "frac_quakes_active": 0.43333333333333335,
+    "frac_ctrl_active": 0.3748888888888889
+   },
+   "thin|top30_pgv|onsets|6h": {
+    "n_quakes": 30,
+    "obs": 59,
+    "expected": 51.418,
+    "null_ci95": [
+     16.0,
+     95.0
+    ],
+    "ratio": 1.1474580886071026,
+    "p_upper": 0.335832083958021,
+    "p_lower": 0.6806596701649176,
+    "frac_quakes_active": 0.43333333333333335,
+    "frac_ctrl_active": 0.37222222222222223
+   },
+   "thin|top30_pgv|events|12h": {
+    "n_quakes": 30,
+    "obs": 189,
+    "expected": 292.936,
+    "null_ci95": [
+     142.975,
+     476.02499999999986
+    ],
+    "ratio": 0.6451921238768878,
+    "p_upper": 0.888055972013993,
+    "p_lower": 0.11594202898550725,
+    "frac_quakes_active": 0.6333333333333333,
+    "frac_ctrl_active": 0.6585555555555556
+   },
+   "thin|top30_pgv|onsets|12h": {
+    "n_quakes": 30,
+    "obs": 90,
+    "expected": 110.5245,
+    "null_ci95": [
+     60.0,
+     173.0
+    ],
+    "ratio": 0.8142990920565123,
+    "p_upper": 0.7436281859070465,
+    "p_lower": 0.2703648175912044,
+    "frac_quakes_active": 0.6333333333333333,
+    "frac_ctrl_active": 0.6585555555555556
+   },
+   "thin|top30_pgv|events|24h": {
+    "n_quakes": 30,
+    "obs": 321,
+    "expected": 551.743,
+    "null_ci95": [
+     364.0,
+     770.0249999999999
+    ],
+    "ratio": 0.5817926099651468,
+    "p_upper": 0.991504247876062,
+    "p_lower": 0.008995502248875561,
+    "frac_quakes_active": 0.9,
+    "frac_ctrl_active": 0.9005555555555556
+   },
+   "thin|top30_pgv|onsets|24h": {
+    "n_quakes": 30,
+    "obs": 151,
+    "expected": 207.2465,
+    "null_ci95": [
+     142.0,
+     276.0
+    ],
+    "ratio": 0.7286009655169087,
+    "p_upper": 0.9475262368815592,
+    "p_lower": 0.05897051474262868,
+    "frac_quakes_active": 0.9,
+    "frac_ctrl_active": 0.9005555555555556
+   },
+   "thin|pgv_gt_100um_s|events|0.5h": {
+    "n_quakes": 86,
+    "obs": 37,
+    "expected": 35.0735,
+    "null_ci95": [
+     2.0,
+     101.02499999999986
+    ],
+    "ratio": 1.0549275093731734,
+    "p_upper": 0.3933033483258371,
+    "p_lower": 0.6191904047976012,
+    "frac_quakes_active": 0.10465116279069768,
+    "frac_ctrl_active": 0.053488372093023255
+   },
+   "thin|pgv_gt_100um_s|onsets|0.5h": {
+    "n_quakes": 86,
+    "obs": 22,
+    "expected": 13.599,
+    "null_ci95": [
+     1.0,
+     38.0
+    ],
+    "ratio": 1.6177660122067798,
+    "p_upper": 0.1924037981009495,
+    "p_lower": 0.8270864567716142,
+    "frac_quakes_active": 0.10465116279069768,
+    "frac_ctrl_active": 0.050387596899224806
+   },
+   "thin|pgv_gt_100um_s|events|1h": {
+    "n_quakes": 86,
+    "obs": 67,
+    "expected": 63.946,
+    "null_ci95": [
+     12.0,
+     151.02499999999986
+    ],
+    "ratio": 1.0477590466956495,
+    "p_upper": 0.41329335332333833,
+    "p_lower": 0.5982008995502249,
+    "frac_quakes_active": 0.13953488372093023,
+    "frac_ctrl_active": 0.09302325581395349
+   },
+   "thin|pgv_gt_100um_s|onsets|1h": {
+    "n_quakes": 86,
+    "obs": 36,
+    "expected": 24.455,
+    "null_ci95": [
+     5.975000000000001,
+     55.0
+    ],
+    "ratio": 1.4720915968104684,
+    "p_upper": 0.18140929535232383,
+    "p_lower": 0.8355822088955522,
+    "frac_quakes_active": 0.13953488372093023,
+    "frac_ctrl_active": 0.08992248062015504
+   },
+   "thin|pgv_gt_100um_s|events|3h": {
+    "n_quakes": 86,
+    "obs": 147,
+    "expected": 163.711,
+    "null_ci95": [
+     68.0,
+     299.0
+    ],
+    "ratio": 0.8979237803201984,
+    "p_upper": 0.5827086456771614,
+    "p_lower": 0.42528735632183906,
+    "frac_quakes_active": 0.27906976744186046,
+    "frac_ctrl_active": 0.21050387596899225
+   },
+   "thin|pgv_gt_100um_s|onsets|3h": {
+    "n_quakes": 86,
+    "obs": 72,
+    "expected": 63.4555,
+    "null_ci95": [
+     27.0,
+     110.0
+    ],
+    "ratio": 1.1346534185374002,
+    "p_upper": 0.3353323338330835,
+    "p_lower": 0.6841579210394803,
+    "frac_quakes_active": 0.27906976744186046,
+    "frac_ctrl_active": 0.2074031007751938
+   },
+   "thin|pgv_gt_100um_s|events|6h": {
+    "n_quakes": 86,
+    "obs": 273,
+    "expected": 391.7685,
+    "null_ci95": [
+     218.0,
+     595.0249999999999
+    ],
+    "ratio": 0.6968400981702204,
+    "p_upper": 0.895552223888056,
+    "p_lower": 0.10694652673663169,
+    "frac_quakes_active": 0.4418604651162791,
+    "frac_ctrl_active": 0.4017829457364341
+   },
+   "thin|pgv_gt_100um_s|onsets|6h": {
+    "n_quakes": 86,
+    "obs": 117,
+    "expected": 150.106,
+    "null_ci95": [
+     87.0,
+     223.02499999999986
+    ],
+    "ratio": 0.779449189239604,
+    "p_upper": 0.8415792103948025,
+    "p_lower": 0.16391804097951024,
+    "frac_quakes_active": 0.4418604651162791,
+    "frac_ctrl_active": 0.39868217054263566
+   },
+   "thin|pgv_gt_100um_s|events|12h": {
+    "n_quakes": 86,
+    "obs": 559,
+    "expected": 832.612,
+    "null_ci95": [
+     565.0,
+     1118.0499999999997
+    ],
+    "ratio": 0.6713811475212944,
+    "p_upper": 0.9780109945027486,
+    "p_lower": 0.022488755622188907,
+    "frac_quakes_active": 0.6395348837209303,
+    "frac_ctrl_active": 0.6674418604651163
+   },
+   "thin|pgv_gt_100um_s|onsets|12h": {
+    "n_quakes": 86,
+    "obs": 227,
+    "expected": 307.1825,
+    "null_ci95": [
+     216.975,
+     410.02499999999986
+    ],
+    "ratio": 0.7389743881894314,
+    "p_upper": 0.967016491754123,
+    "p_lower": 0.034482758620689655,
+    "frac_quakes_active": 0.6395348837209303,
+    "frac_ctrl_active": 0.6661627906976744
+   },
+   "thin|pgv_gt_100um_s|events|24h": {
+    "n_quakes": 86,
+    "obs": 1355,
+    "expected": 1594.9,
+    "null_ci95": [
+     1267.925,
+     1950.1499999999992
+    ],
+    "ratio": 0.8495830459589943,
+    "p_upper": 0.9165417291354323,
+    "p_lower": 0.08495752123938032,
+    "frac_quakes_active": 0.9069767441860465,
+    "frac_ctrl_active": 0.9050775193798449
+   },
+   "thin|pgv_gt_100um_s|onsets|24h": {
+    "n_quakes": 86,
+    "obs": 513,
+    "expected": 591.992,
+    "null_ci95": [
+     475.0,
+     715.0
+    ],
+    "ratio": 0.8665657644022217,
+    "p_upper": 0.9045477261369316,
+    "p_lower": 0.09795102448775612,
+    "frac_quakes_active": 0.9069767441860465,
+    "frac_ctrl_active": 0.9050775193798449
+   },
+   "thin|KS_randPIT_onsets_1h": 0.20128300958242928,
+   "thin|mean_randPIT_onsets_1h": 0.5053639188018102,
+   "thin|spearman_PIT_vs_pgv_1h": [
+    0.043872112941592406,
+    0.21716739296665183
+   ],
+   "thin|KS_randPIT_onsets_6h": 0.004484968677851529,
+   "thin|mean_randPIT_onsets_6h": 0.5110767569092798,
+   "thin|spearman_PIT_vs_pgv_6h": [
+    0.03935936267451699,
+    0.26827217239579726
+   ]
+  },
+  "top20_pgv": [
+   {
+    "name": "Tohoku2011",
+    "time": "2011-03-11T05:46:24.120Z",
+    "mag": 9.1,
+    "dist_km": 7682.224,
+    "pgv_proxy_um_s": 3505.424,
+    "all_events_obs_6h": 13,
+    "all_events_exp_6h": 2.993,
+    "all_events_pctl_6h": 0.937,
+    "all_onsets_obs_6h": 12,
+    "all_onsets_exp_6h": 1.443,
+    "all_onsets_pctl_6h": 1.0
+   },
+   {
+    "name": "Kamchatka2025",
+    "time": "2025-07-29T23:24:52.483Z",
+    "mag": 8.8,
+    "dist_km": 5728.935,
+    "pgv_proxy_um_s": 2859.212,
+    "all_events_obs_6h": 19,
+    "all_events_exp_6h": 7.92,
+    "all_events_pctl_6h": 0.86,
+    "all_onsets_obs_6h": 7,
+    "all_onsets_exp_6h": 2.333,
+    "all_onsets_pctl_6h": 0.86
+   },
+   {
+    "name": "HaidaGwaii2012",
+    "time": "2012-10-28T03:04:08.820Z",
+    "mag": 7.8,
+    "dist_km": 1554.735,
+    "pgv_proxy_um_s": 2491.72,
+    "all_events_obs_6h": 75,
+    "all_events_exp_6h": 9.513,
+    "all_events_pctl_6h": 1.0,
+    "all_onsets_obs_6h": 24,
+    "all_onsets_exp_6h": 2.763,
+    "all_onsets_pctl_6h": 1.0
+   },
+   {
+    "name": "Chignik2021",
+    "time": "2021-07-29T06:15:49.188Z",
+    "mag": 8.2,
+    "dist_km": 3029.579,
+    "pgv_proxy_um_s": 2068.019,
+    "all_events_obs_6h": 31,
+    "all_events_exp_6h": 11.83,
+    "all_events_pctl_6h": 0.97,
+    "all_onsets_obs_6h": 17,
+    "all_onsets_exp_6h": 4.33,
+    "all_onsets_pctl_6h": 0.97
+   },
+   {
+    "name": "Ridgecrest2019",
+    "time": "2019-07-06T03:19:53.040Z",
+    "mag": 7.1,
+    "dist_km": 711.729,
+    "pgv_proxy_um_s": 1818.891,
+    "all_events_obs_6h": 4,
+    "all_events_exp_6h": 14.587,
+    "all_events_pctl_6h": 0.453,
+    "all_onsets_obs_6h": 4,
+    "all_onsets_exp_6h": 4.607,
+    "all_onsets_pctl_6h": 0.704
+   },
+   {
+    "name": "GulfAlaska2018",
+    "time": "2018-01-23T09:31:40.890Z",
+    "mag": 7.9,
+    "dist_km": 2570.388,
+    "pgv_proxy_um_s": 1361.605,
+    "all_events_obs_6h": 5,
+    "all_events_exp_6h": 12.423,
+    "all_events_pctl_6h": 0.743,
+    "all_onsets_obs_6h": 4,
+    "all_onsets_exp_6h": 3.953,
+    "all_onsets_pctl_6h": 0.623
+   },
+   {
+    "name": "",
+    "time": "2017-09-08T04:49:19.180Z",
+    "mag": 8.2,
+    "dist_km": 4005.857,
+    "pgv_proxy_um_s": 1300.692,
+    "all_events_obs_6h": 15,
+    "all_events_exp_6h": 8.703,
+    "all_events_pctl_6h": 0.857,
+    "all_onsets_obs_6h": 10,
+    "all_onsets_exp_6h": 3.263,
+    "all_onsets_pctl_6h": 0.857
+   },
+   {
+    "name": "Maule2010",
+    "time": "2010-02-27T06:34:11.530Z",
+    "mag": 8.8,
+    "dist_km": 9931.377,
+    "pgv_proxy_um_s": 1147.132,
+    "all_events_obs_6h": 5,
+    "all_events_exp_6h": 7.443,
+    "all_events_pctl_6h": 0.67,
+    "all_onsets_obs_6h": 3,
+    "all_onsets_exp_6h": 3.083,
+    "all_onsets_pctl_6h": 0.607
+   },
+   {
+    "name": "",
+    "time": "2010-04-04T22:40:42.360Z",
+    "mag": 7.2,
+    "dist_km": 1141.774,
+    "pgv_proxy_um_s": 1044.879,
+    "all_events_obs_6h": 0,
+    "all_events_exp_6h": 13.49,
+    "all_events_pctl_6h": 0.206,
+    "all_onsets_obs_6h": 0,
+    "all_onsets_exp_6h": 4.4,
+    "all_onsets_pctl_6h": 0.16
+   },
+   {
+    "name": "",
+    "time": "2013-01-05T08:58:14.957Z",
+    "mag": 7.5,
+    "dist_km": 1879.51,
+    "pgv_proxy_um_s": 911.454,
+    "all_events_obs_6h": 3,
+    "all_events_exp_6h": 13.677,
+    "all_events_pctl_6h": 0.54,
+    "all_onsets_obs_6h": 3,
+    "all_onsets_exp_6h": 3.567,
+    "all_onsets_pctl_6h": 0.644
+   },
+   {
+    "name": "",
+    "time": "2013-05-24T05:44:48.980Z",
+    "mag": 8.3,
+    "dist_km": 6073.669,
+    "pgv_proxy_um_s": 820.579,
+    "all_events_obs_6h": 5,
+    "all_events_exp_6h": 5.84,
+    "all_events_pctl_6h": 0.78,
+    "all_onsets_obs_6h": 5,
+    "all_onsets_exp_6h": 2.28,
+    "all_onsets_pctl_6h": 0.873
+   },
+   {
+    "name": "",
+    "time": "2020-07-22T06:12:44.810Z",
+    "mag": 7.8,
+    "dist_km": 3061.45,
+    "pgv_proxy_um_s": 809.114,
+    "all_events_obs_6h": 26,
+    "all_events_exp_6h": 7.55,
+    "all_events_pctl_6h": 0.95,
+    "all_onsets_obs_6h": 13,
+    "all_onsets_exp_6h": 2.223,
+    "all_onsets_pctl_6h": 0.95
+   },
+   {
+    "name": "",
+    "time": "2020-05-15T11:03:27.176Z",
+    "mag": 6.5,
+    "dist_km": 540.678,
+    "pgv_proxy_um_s": 721.059,
+    "all_events_obs_6h": 0,
+    "all_events_exp_6h": 1.757,
+    "all_events_pctl_6h": 0.408,
+    "all_onsets_obs_6h": 0,
+    "all_onsets_exp_6h": 1.02,
+    "all_onsets_pctl_6h": 0.36
+   },
+   {
+    "name": "",
+    "time": "2014-06-23T20:53:09.700Z",
+    "mag": 7.9,
+    "dist_km": 4515.516,
+    "pgv_proxy_um_s": 534.361,
+    "all_events_obs_6h": 9,
+    "all_events_exp_6h": 4.653,
+    "all_events_pctl_6h": 0.857,
+    "all_onsets_obs_6h": 9,
+    "all_onsets_exp_6h": 2.207,
+    "all_onsets_pctl_6h": 0.92
+   },
+   {
+    "name": "",
+    "time": "2020-10-19T20:54:38.950Z",
+    "mag": 7.6,
+    "dist_km": 3108.819,
+    "pgv_proxy_um_s": 497.669,
+    "all_events_obs_6h": 15,
+    "all_events_exp_6h": 9.323,
+    "all_events_pctl_6h": 0.823,
+    "all_onsets_obs_6h": 10,
+    "all_onsets_exp_6h": 3.277,
+    "all_onsets_pctl_6h": 0.953
+   },
+   {
+    "name": "",
+    "time": "2022-09-19T18:05:08.217Z",
+    "mag": 7.6,
+    "dist_km": 3112.521,
+    "pgv_proxy_um_s": 496.687,
+    "all_events_obs_6h": 0,
+    "all_events_exp_6h": 4.503,
+    "all_events_pctl_6h": 0.408,
+    "all_onsets_obs_6h": 0,
+    "all_onsets_exp_6h": 1.21,
+    "all_onsets_pctl_6h": 0.24
+   },
+   {
+    "name": "",
+    "time": "2018-10-22T06:16:26.450Z",
+    "mag": 6.8,
+    "dist_km": 1123.465,
+    "pgv_proxy_um_s": 427.287,
+    "all_events_obs_6h": 7,
+    "all_events_exp_6h": 9.01,
+    "all_events_pctl_6h": 0.577,
+    "all_onsets_obs_6h": 6,
+    "all_onsets_exp_6h": 4.083,
+    "all_onsets_pctl_6h": 0.763
+   },
+   {
+    "name": "Sumatra2012",
+    "time": "2012-04-11T08:38:36.720Z",
+    "mag": 8.6,
+    "dist_km": 14005.276,
+    "pgv_proxy_um_s": 409.077,
+    "all_events_obs_6h": 8,
+    "all_events_exp_6h": 14.38,
+    "all_events_pctl_6h": 0.73,
+    "all_onsets_obs_6h": 3,
+    "all_onsets_exp_6h": 5.217,
+    "all_onsets_pctl_6h": 0.552
+   },
+   {
+    "name": "",
+    "time": "2015-09-16T22:54:32.860Z",
+    "mag": 8.3,
+    "dist_km": 9593.591,
+    "pgv_proxy_um_s": 384.203,
+    "all_events_obs_6h": 32,
+    "all_events_exp_6h": 3.633,
+    "all_events_pctl_6h": 1.0,
+    "all_onsets_obs_6h": 9,
+    "all_onsets_exp_6h": 1.487,
+    "all_onsets_pctl_6h": 1.0
+   },
+   {
+    "name": "",
+    "time": "2012-04-12T07:15:48.500Z",
+    "mag": 7.0,
+    "dist_km": 1587.701,
+    "pgv_proxy_um_s": 381.393,
+    "all_events_obs_6h": 1,
+    "all_events_exp_6h": 2.807,
+    "all_events_pctl_6h": 0.524,
+    "all_onsets_obs_6h": 1,
+    "all_onsets_exp_6h": 1.59,
+    "all_onsets_pctl_6h": 0.407
+   }
+  ],
+  "named": [
+   {
+    "name": "Maule2010",
+    "time": "2010-02-27T06:34:11.530Z",
+    "mag": 8.8,
+    "dist_km": 9931.377,
+    "pgv_proxy_um_s": 1147.132,
+    "all_events_obs_6h": 5,
+    "all_events_exp_6h": 7.443,
+    "all_events_pctl_6h": 0.67,
+    "all_onsets_obs_6h": 3,
+    "all_onsets_exp_6h": 3.083,
+    "all_onsets_pctl_6h": 0.607
+   },
+   {
+    "name": "Tohoku2011",
+    "time": "2011-03-11T05:46:24.120Z",
+    "mag": 9.1,
+    "dist_km": 7682.224,
+    "pgv_proxy_um_s": 3505.424,
+    "all_events_obs_6h": 13,
+    "all_events_exp_6h": 2.993,
+    "all_events_pctl_6h": 0.937,
+    "all_onsets_obs_6h": 12,
+    "all_onsets_exp_6h": 1.443,
+    "all_onsets_pctl_6h": 1.0
+   },
+   {
+    "name": "Sumatra2012",
+    "time": "2012-04-11T08:38:36.720Z",
+    "mag": 8.6,
+    "dist_km": 14005.276,
+    "pgv_proxy_um_s": 409.077,
+    "all_events_obs_6h": 8,
+    "all_events_exp_6h": 14.38,
+    "all_events_pctl_6h": 0.73,
+    "all_onsets_obs_6h": 3,
+    "all_onsets_exp_6h": 5.217,
+    "all_onsets_pctl_6h": 0.552
+   },
+   {
+    "name": "HaidaGwaii2012",
+    "time": "2012-10-28T03:04:08.820Z",
+    "mag": 7.8,
+    "dist_km": 1554.735,
+    "pgv_proxy_um_s": 2491.72,
+    "all_events_obs_6h": 75,
+    "all_events_exp_6h": 9.513,
+    "all_events_pctl_6h": 1.0,
+    "all_onsets_obs_6h": 24,
+    "all_onsets_exp_6h": 2.763,
+    "all_onsets_pctl_6h": 1.0
+   },
+   {
+    "name": "GulfAlaska2018",
+    "time": "2018-01-23T09:31:40.890Z",
+    "mag": 7.9,
+    "dist_km": 2570.388,
+    "pgv_proxy_um_s": 1361.605,
+    "all_events_obs_6h": 5,
+    "all_events_exp_6h": 12.423,
+    "all_events_pctl_6h": 0.743,
+    "all_onsets_obs_6h": 4,
+    "all_onsets_exp_6h": 3.953,
+    "all_onsets_pctl_6h": 0.623
+   },
+   {
+    "name": "Ridgecrest2019",
+    "time": "2019-07-06T03:19:53.040Z",
+    "mag": 7.1,
+    "dist_km": 711.729,
+    "pgv_proxy_um_s": 1818.891,
+    "all_events_obs_6h": 4,
+    "all_events_exp_6h": 14.587,
+    "all_events_pctl_6h": 0.453,
+    "all_onsets_obs_6h": 4,
+    "all_onsets_exp_6h": 4.607,
+    "all_onsets_pctl_6h": 0.704
+   },
+   {
+    "name": "Chignik2021",
+    "time": "2021-07-29T06:15:49.188Z",
+    "mag": 8.2,
+    "dist_km": 3029.579,
+    "pgv_proxy_um_s": 2068.019,
+    "all_events_obs_6h": 31,
+    "all_events_exp_6h": 11.83,
+    "all_events_pctl_6h": 0.97,
+    "all_onsets_obs_6h": 17,
+    "all_onsets_exp_6h": 4.33,
+    "all_onsets_pctl_6h": 0.97
+   },
+   {
+    "name": "Turkey2023",
+    "time": "2023-02-06T01:17:34.342Z",
+    "mag": 7.8,
+    "dist_km": 11197.079,
+    "pgv_proxy_um_s": 94.002,
+    "all_events_obs_6h": 0,
+    "all_events_exp_6h": 11.207,
+    "all_events_pctl_6h": 0.029,
+    "all_onsets_obs_6h": 0,
+    "all_onsets_exp_6h": 3.49,
+    "all_onsets_pctl_6h": 0.008
+   },
+   {
+    "name": "Kamchatka2025",
+    "time": "2025-07-29T23:24:52.483Z",
+    "mag": 8.8,
+    "dist_km": 5728.935,
+    "pgv_proxy_um_s": 2859.212,
+    "all_events_obs_6h": 19,
+    "all_events_exp_6h": 7.92,
+    "all_events_pctl_6h": 0.86,
+    "all_onsets_obs_6h": 7,
+    "all_onsets_exp_6h": 2.333,
+    "all_onsets_pctl_6h": 0.86
+   }
+  ],
+  "note": "control windows = same quake time shifted by k*12.42h with time-of-day offset <=1 h, 3-60 d; 300 per quake"
+ }
+}

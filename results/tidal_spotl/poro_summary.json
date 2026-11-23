@@ -1,0 +1,222 @@
+{
+ "sign_tests": {
+  "isotropic_B1_dseff": 0.0,
+  "bouss_below_load_mean_Pa": -0.16916979462945336,
+  "bouss_below_load_pore_pressure_B1_Pa": 0.16916979462945336,
+  "dose_response_check_dsn_eff": [
+   -3.3432478544504574,
+   -3.343247854450457
+  ],
+  "dose_response_check_dCFS_ud_mu0.6": [
+   0.0708332819020474,
+   0.0708332819020477
+  ]
+ },
+ "M2_amplitudes_kPa": {
+  "primary": {
+   "tau": 0.21614629028408203,
+   "sn": 0.5475659554499326,
+   "mean": 0.6588107910913521,
+   "sn_minus_mean": 0.23740557852411165,
+   "phase_tau": -29.667972451216638,
+   "phase_sn": 98.94860054224559,
+   "phase_mean": 78.83856732261347
+  },
+  "layered_RL1": {
+   "tau": 0.250754003476637,
+   "sn": 0.528574459105025,
+   "mean": 0.6498727754752751,
+   "sn_minus_mean": 0.23562114592171013,
+   "phase_tau": -29.390375950109764,
+   "phase_sn": 94.95701510912606,
+   "phase_mean": 75.11068144187067
+  },
+  "layered_body30": {
+   "tau": 0.08602534611875197,
+   "sn": 0.18711717657879712,
+   "mean": 0.3731031958868974,
+   "sn_minus_mean": 0.3132733693868132,
+   "phase_tau": -35.315560225457524,
+   "phase_sn": 89.7845216396876,
+   "phase_mean": 32.80005834256639
+  },
+  "fes2004": {
+   "tau": 0.21547926660845848,
+   "sn": 0.5489021074391143,
+   "mean": 0.6579446461557349,
+   "sn_minus_mean": 0.23589840718415697,
+   "phase_tau": -29.0713793933351,
+   "phase_sn": 99.09705586663674,
+   "phase_mean": 79.05116090870624
+  },
+  "homog_RB1_body30": {
+   "tau": 0.14942719100153495,
+   "sn": 0.2613497786776112,
+   "mean": 0.4184160428507019,
+   "sn_minus_mean": 0.38078084395952816,
+   "phase_tau": -26.88211392762689,
+   "phase_sn": 93.18649960471389,
+   "phase_mean": 29.91962155011983
+  },
+  "body_only_local": {
+   "tau": 0.29037102065495307,
+   "sn": 0.7771268835112868,
+   "mean": 1.018448172664415,
+   "sn_minus_mean": 0.28234519722627044,
+   "phase_tau": -25.95741180131736,
+   "phase_sn": 103.27835746711807,
+   "phase_mean": 112.72865547797115
+  }
+ },
+ "overdispersion_phi": 7.923073668217815,
+ "primary": {
+  "best_B": 0.0,
+  "best_mu": 0.1,
+  "best_dLL": 2015.21273043775,
+  "best_beta": 1.5836723380011515,
+  "a_sigma_best": 0.6314437500765849,
+  "dLL_B1_mu06": 0.0,
+  "beta_B1_mu06": -0.3743981034671669,
+  "delta_LL_best_minus_B1mu06": 2015.21273043775,
+  "delta_LL_over_phi": 254.34734231002602,
+  "boot_best_B_median": NaN,
+  "boot_best_B_95": [
+   NaN,
+   NaN
+  ],
+  "boot_best_mu_median": NaN,
+  "boot_best_mu_95": [
+   NaN,
+   NaN
+  ],
+  "boot_dLL_best_minus_B1mu06_95": [
+   NaN,
+   NaN
+  ],
+  "boot_frac_B1mu06_within_best_le0": 0.0
+ },
+ "primary_profile_over_B": [
+  {
+   "B": 0.0,
+   "mu": 0.1,
+   "dLL": 2015.21273043775,
+   "beta": 1.5836723380011515,
+   "mu_times_1_minus_B": 0.1
+  },
+  {
+   "B": 0.1,
+   "mu": 0.1,
+   "dLL": 2012.9545333306887,
+   "beta": 1.6319097737695807,
+   "mu_times_1_minus_B": 0.09000000000000001
+  },
+  {
+   "B": 0.2,
+   "mu": 0.15,
+   "dLL": 2001.462388046668,
+   "beta": 1.6309573723964268,
+   "mu_times_1_minus_B": 0.12
+  },
+  {
+   "B": 0.3,
+   "mu": 0.15,
+   "dLL": 2001.9206777714426,
+   "beta": 1.7134905531019835,
+   "mu_times_1_minus_B": 0.105
+  },
+  {
+   "B": 0.4,
+   "mu": 0.2,
+   "dLL": 1988.3953444017388,
+   "beta": 1.8023062860494607,
+   "mu_times_1_minus_B": 0.12
+  },
+  {
+   "B": 0.5,
+   "mu": 0.25,
+   "dLL": 1955.269048237882,
+   "beta": 1.9559752553567282,
+   "mu_times_1_minus_B": 0.125
+  },
+  {
+   "B": 0.6,
+   "mu": 0.3,
+   "dLL": 1836.709837335744,
+   "beta": 2.1392576985175795,
+   "mu_times_1_minus_B": 0.12
+  },
+  {
+   "B": 0.7,
+   "mu": 0.0,
+   "dLL": 1795.7397741691675,
+   "beta": 1.5809120700556558,
+   "mu_times_1_minus_B": 0.0
+  },
+  {
+   "B": 0.8,
+   "mu": 0.0,
+   "dLL": 1795.7397741691675,
+   "beta": 1.5809120700556558,
+   "mu_times_1_minus_B": 0.0
+  },
+  {
+   "B": 0.9,
+   "mu": 0.0,
+   "dLL": 1795.7397741691675,
+   "beta": 1.5809120700556558,
+   "mu_times_1_minus_B": 0.0
+  },
+  {
+   "B": 1.0,
+   "mu": 0.0,
+   "dLL": 1795.7397741691675,
+   "beta": 1.5809120700556558,
+   "mu_times_1_minus_B": 0.0
+  }
+ ],
+ "m7_note": "M7 stresses from scripts/sci_dose_response.py (Okada, mu 30 GPa homogeneous half-space, USGS FFM, family centroids); M7 cessation needs CFS_poro < 0 at most families.",
+ "joint": {
+  "tide_best_among_M7_consistent": {
+   "B": 0.6,
+   "mu": 0.7,
+   "tide_dLL": 1445.7862520171911,
+   "tide_dLL_minus_best": -569.4264784205589,
+   "tide_dLL_minus_best_over_phi": -71.86939087853305,
+   "m7_mu_crit_median": 0.680414420756562,
+   "tide_beta": 2.8772017606088935,
+   "m7_cfs_median": -0.06289453669802825,
+   "m7_frac_families_negative": 0.9259259259259259,
+   "m7_pred_rate_ratio_median": 0.8344685100356737,
+   "m7_obs_ratio30_median": 0.4506172839506173,
+   "m7_corr_cfs_vs_gap": 0.22422389090192285
+  },
+  "tide_global_best": {
+   "B": 0.0,
+   "mu": 0.1,
+   "tide_dLL": 2015.21273043775,
+   "tide_dLL_minus_best": 0.0,
+   "tide_dLL_minus_best_over_phi": 0.0,
+   "m7_mu_crit_median": 1.780833810649593,
+   "tide_beta": 1.5836723380011515,
+   "m7_cfs_median": 2.0418683109842783,
+   "m7_frac_families_negative": 0.0,
+   "m7_pred_rate_ratio_median": 25.372105501442647,
+   "m7_obs_ratio30_median": 0.4506172839506173,
+   "m7_corr_cfs_vs_gap": -0.18191493437696335
+  },
+  "B1_mu06": {
+   "B": 1.0,
+   "mu": 0.6,
+   "tide_dLL": 0.0,
+   "tide_dLL_minus_best": -2015.21273043775,
+   "tide_dLL_minus_best_over_phi": -254.34734231002602,
+   "m7_mu_crit_median": 0.4817990665459732,
+   "tide_beta": -0.3743981034671669,
+   "m7_cfs_median": -0.527160478709467,
+   "m7_frac_families_negative": 1.0,
+   "m7_pred_rate_ratio_median": 1.2181921110006217,
+   "m7_obs_ratio30_median": 0.4506172839506173,
+   "m7_corr_cfs_vs_gap": 0.2745440743871982
+  }
+ }
+}

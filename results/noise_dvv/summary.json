@@ -1,0 +1,1211 @@
+{
+ "stations": {
+  "KMPB": {
+   "n_ref_days": 1063,
+   "coda_s": [
+    2.0,
+    20.0
+   ],
+   "line_thr": 3.0,
+   "notched_frac": {
+    "1-4Hz": 0.686,
+    "2-8Hz": 0.58
+   },
+   "notched_lines_hz": [
+    [
+     0.97,
+     1.12
+    ],
+    [
+     1.22,
+     1.37
+    ],
+    [
+     1.67,
+     1.98
+    ],
+    [
+     2.05,
+     2.25
+    ],
+    [
+     2.35,
+     2.79
+    ],
+    [
+     2.9,
+     3.15
+    ],
+    [
+     3.24,
+     3.49
+    ],
+    [
+     3.65,
+     3.71
+    ],
+    [
+     3.79,
+     4.06
+    ],
+    [
+     4.35,
+     4.59
+    ],
+    [
+     4.85,
+     5.13
+    ],
+    [
+     5.15,
+     5.24
+    ],
+    [
+     5.64,
+     5.84
+    ],
+    [
+     6.01,
+     6.43
+    ],
+    [
+     6.8,
+     7.1
+    ],
+    [
+     7.23,
+     7.51
+    ],
+    [
+     7.72,
+     7.84
+    ]
+   ],
+   "notch_applied": true,
+   "pair_ref_cc": {
+    "1-4Hz": {
+     "ZZ": 0.947,
+     "NN": 0.95,
+     "EE": 0.905,
+     "EN": 0.78,
+     "EZ": 0.791,
+     "NZ": 0.889
+    },
+    "2-8Hz": {
+     "ZZ": 0.756,
+     "NN": 0.805,
+     "EE": 0.769,
+     "EN": 0.79,
+     "EZ": 0.8,
+     "NZ": 0.812
+    }
+   }
+  },
+  "BRIC": {
+   "n_ref_days": 995,
+   "coda_s": [
+    2.0,
+    20.0
+   ],
+   "line_thr": 3.0,
+   "notched_frac": {
+    "1-4Hz": 0.24,
+    "2-8Hz": 0.283
+   },
+   "notched_lines_hz": [
+    [
+     0.97,
+     1.19
+    ],
+    [
+     2.23,
+     2.29
+    ],
+    [
+     3.01,
+     3.09
+    ],
+    [
+     3.27,
+     3.4
+    ],
+    [
+     3.48,
+     3.57
+    ],
+    [
+     3.8,
+     3.87
+    ],
+    [
+     3.93,
+     4.03
+    ],
+    [
+     4.33,
+     4.47
+    ],
+    [
+     4.79,
+     4.95
+    ],
+    [
+     4.96,
+     5.06
+    ],
+    [
+     5.65,
+     5.74
+    ],
+    [
+     5.96,
+     6.02
+    ],
+    [
+     6.43,
+     6.51
+    ],
+    [
+     6.89,
+     7.04
+    ],
+    [
+     7.53,
+     7.79
+    ],
+    [
+     7.96,
+     8.03
+    ]
+   ],
+   "notch_applied": true,
+   "pair_ref_cc": {
+    "1-4Hz": {
+     "ZZ": 0.963,
+     "NN": 0.955,
+     "EE": 0.962,
+     "EN": 0.739,
+     "EZ": 0.807,
+     "NZ": 0.823
+    },
+    "2-8Hz": {
+     "ZZ": 0.885,
+     "NN": 0.746,
+     "EE": 0.676,
+     "EN": 0.576,
+     "EZ": 0.648,
+     "NZ": 0.732
+    }
+   }
+  },
+  "HAYF": {
+   "n_ref_days": 742,
+   "coda_s": [
+    2.0,
+    20.0
+   ],
+   "line_thr": 3.0,
+   "notched_frac": {
+    "1-4Hz": 0.14,
+    "2-8Hz": 0.155
+   },
+   "notched_lines_hz": [
+    [
+     1.09,
+     1.26
+    ],
+    [
+     3.63,
+     3.86
+    ],
+    [
+     4.31,
+     4.48
+    ],
+    [
+     5.59,
+     5.66
+    ],
+    [
+     7.0,
+     7.14
+    ],
+    [
+     7.26,
+     7.54
+    ]
+   ],
+   "notch_applied": true,
+   "pair_ref_cc": {
+    "1-4Hz": {
+     "ZZ": 0.927,
+     "NN": 0.911,
+     "EE": 0.935,
+     "EN": 0.734,
+     "EZ": 0.723,
+     "NZ": 0.74
+    },
+    "2-8Hz": {
+     "ZZ": 0.432,
+     "NN": 0.617,
+     "EE": 0.419,
+     "EN": 0.459,
+     "EZ": 0.455,
+     "NZ": 0.473
+    }
+   }
+  },
+  "B045": {
+   "n_ref_days": 1055,
+   "coda_s": [
+    2.0,
+    20.0
+   ],
+   "line_thr": 3.0,
+   "notched_frac": {
+    "1-4Hz": 0.47,
+    "2-8Hz": 0.497
+   },
+   "notched_lines_hz": [
+    [
+     0.97,
+     1.07
+    ],
+    [
+     2.38,
+     2.77
+    ],
+    [
+     2.89,
+     3.14
+    ],
+    [
+     3.23,
+     3.51
+    ],
+    [
+     3.58,
+     3.97
+    ],
+    [
+     4.13,
+     4.35
+    ],
+    [
+     4.41,
+     4.56
+    ],
+    [
+     4.61,
+     4.7
+    ],
+    [
+     4.9,
+     5.1
+    ],
+    [
+     5.4,
+     5.54
+    ],
+    [
+     5.68,
+     5.92
+    ],
+    [
+     6.67,
+     7.07
+    ],
+    [
+     7.2,
+     7.27
+    ],
+    [
+     7.69,
+     7.78
+    ]
+   ],
+   "notch_applied": true,
+   "pair_ref_cc": {
+    "1-4Hz": {
+     "ZZ": 0.898,
+     "NN": 0.953,
+     "EE": 0.901,
+     "EN": 0.878,
+     "EZ": 0.878,
+     "NZ": 0.832
+    },
+    "2-8Hz": {
+     "ZZ": 0.544,
+     "NN": 0.598,
+     "EE": 0.738,
+     "EN": 0.502,
+     "EZ": 0.468,
+     "NZ": 0.448
+    }
+   }
+  }
+ },
+ "params": {
+  "window_utc": "09-11",
+  "fs": 20.0,
+  "seg_s": 120.0,
+  "bands": [
+   "1-4Hz",
+   "2-8Hz"
+  ],
+  "coda_s": [
+   2.0,
+   20.0
+  ],
+  "ref_end": "2021-11-30",
+  "min_pair_cc": 0.3,
+  "step_window_days": 30,
+  "mbb_block_days": 5,
+  "nboot": 200,
+  "events": {
+   "Petrolia": "2021-12-20",
+   "Ferndale": "2022-12-20",
+   "M7": "2024-12-05"
+  }
+ },
+ "steps": [
+  {
+   "sta": "KMPB",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "Petrolia",
+   "step_pct": -0.1264779983,
+   "se_mbb_pct": 0.0429866514,
+   "placebo_sd_pct": 0.0500416303,
+   "n_placebo": 204,
+   "z_placebo": -2.5274555899,
+   "frac_placebo_le": 0.0196078431,
+   "same_season": "2019:-0.013;2020:-0.034;2023:+0.028;2025:-0.100"
+  },
+  {
+   "sta": "KMPB",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "Petrolia",
+   "step_pct": -0.0890808738,
+   "se_mbb_pct": 0.0557451123,
+   "placebo_sd_pct": 0.0449002507,
+   "n_placebo": 204,
+   "z_placebo": -1.9839727496,
+   "frac_placebo_le": 0.0392156863,
+   "same_season": "2019:+0.015;2020:-0.029;2023:-0.050;2025:-0.006"
+  },
+  {
+   "sta": "KMPB",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "Ferndale",
+   "step_pct": -0.1313639957,
+   "se_mbb_pct": 0.0371386357,
+   "placebo_sd_pct": 0.0500416303,
+   "n_placebo": 204,
+   "z_placebo": -2.6250942435,
+   "frac_placebo_le": 0.0147058824,
+   "same_season": "2019:-0.013;2020:-0.034;2023:+0.028;2025:-0.100"
+  },
+  {
+   "sta": "KMPB",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "Ferndale",
+   "step_pct": -0.2917699115,
+   "se_mbb_pct": 0.0508626725,
+   "placebo_sd_pct": 0.0449002507,
+   "n_placebo": 204,
+   "z_placebo": -6.4981800106,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:+0.015;2020:-0.029;2023:-0.050;2025:-0.006"
+  },
+  {
+   "sta": "KMPB",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "M7",
+   "step_pct": -0.0762157402,
+   "se_mbb_pct": 0.0379399952,
+   "placebo_sd_pct": 0.0500416303,
+   "n_placebo": 204,
+   "z_placebo": -1.5230467055,
+   "frac_placebo_le": 0.0588235294,
+   "same_season": "2019:-0.066;2020:-0.011;2023:+0.028;2025:-0.033"
+  },
+  {
+   "sta": "KMPB",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "M7",
+   "step_pct": -0.0632385826,
+   "se_mbb_pct": 0.0728293512,
+   "placebo_sd_pct": 0.0449002507,
+   "n_placebo": 204,
+   "z_placebo": -1.4084238207,
+   "frac_placebo_le": 0.0784313725,
+   "same_season": "2019:-0.079;2020:-0.017;2023:-0.039;2025:+0.025"
+  },
+  {
+   "sta": "BRIC",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "Petrolia",
+   "step_pct": -0.0916507335,
+   "se_mbb_pct": 0.0974984007,
+   "placebo_sd_pct": 0.0912248827,
+   "n_placebo": 192,
+   "z_placebo": -1.0046681435,
+   "frac_placebo_le": 0.1614583333,
+   "same_season": "2019:-0.039;2020:-0.109;2025:-0.192"
+  },
+  {
+   "sta": "BRIC",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "Petrolia",
+   "step_pct": -0.2480511125,
+   "se_mbb_pct": 0.0425823741,
+   "placebo_sd_pct": 0.0536578243,
+   "n_placebo": 192,
+   "z_placebo": -4.6228320956,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.015;2020:+0.013;2025:-0.274"
+  },
+  {
+   "sta": "BRIC",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "Ferndale",
+   "step_pct": -0.1828219045,
+   "se_mbb_pct": 0.0568817212,
+   "placebo_sd_pct": 0.0912248827,
+   "n_placebo": 192,
+   "z_placebo": -2.0040793597,
+   "frac_placebo_le": 0.0208333333,
+   "same_season": "2019:-0.039;2020:-0.109;2025:-0.192"
+  },
+  {
+   "sta": "BRIC",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "Ferndale",
+   "step_pct": -0.1760887362,
+   "se_mbb_pct": 0.077982029,
+   "placebo_sd_pct": 0.0536578243,
+   "n_placebo": 192,
+   "z_placebo": -3.2816972801,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.015;2020:+0.013;2025:-0.274"
+  },
+  {
+   "sta": "BRIC",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "M7",
+   "step_pct": -0.2855902862,
+   "se_mbb_pct": 0.0688698673,
+   "placebo_sd_pct": 0.0912248827,
+   "n_placebo": 192,
+   "z_placebo": -3.1306182894,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.064;2020:-0.128;2025:+0.052"
+  },
+  {
+   "sta": "BRIC",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "M7",
+   "step_pct": -0.6409917716,
+   "se_mbb_pct": 0.0766547161,
+   "placebo_sd_pct": 0.0536578243,
+   "n_placebo": 192,
+   "z_placebo": -11.9459143091,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.051;2020:+0.038;2025:-0.150"
+  },
+  {
+   "sta": "HAYF",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "Petrolia",
+   "step_pct": -0.0424957369,
+   "se_mbb_pct": 0.0754508269,
+   "placebo_sd_pct": 0.0783399393,
+   "n_placebo": 140,
+   "z_placebo": -0.5424530234,
+   "frac_placebo_le": 0.2785714286,
+   "same_season": "2019:-0.118;2020:+0.072;2023:+0.026;2025:+0.064"
+  },
+  {
+   "sta": "HAYF",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "Petrolia",
+   "step_pct": -0.1762615682,
+   "se_mbb_pct": 0.125487797,
+   "placebo_sd_pct": 0.0400769973,
+   "n_placebo": 140,
+   "z_placebo": -4.398073209,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.133;2020:+0.024;2023:-0.030;2025:+0.267"
+  },
+  {
+   "sta": "HAYF",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "Ferndale",
+   "step_pct": -0.0095798772,
+   "se_mbb_pct": 0.0676805822,
+   "placebo_sd_pct": 0.0783399393,
+   "n_placebo": 140,
+   "z_placebo": -0.1222859926,
+   "frac_placebo_le": 0.4785714286,
+   "same_season": "2019:-0.118;2020:+0.072;2023:+0.026;2025:+0.064"
+  },
+  {
+   "sta": "HAYF",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "Ferndale",
+   "step_pct": 0.0963826468,
+   "se_mbb_pct": 0.2273949797,
+   "placebo_sd_pct": 0.0400769973,
+   "n_placebo": 140,
+   "z_placebo": 2.4049368281,
+   "frac_placebo_le": 0.9928571429,
+   "same_season": "2019:-0.133;2020:+0.024;2023:-0.030;2025:+0.267"
+  },
+  {
+   "sta": "HAYF",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "M7",
+   "step_pct": 0.1156220307,
+   "se_mbb_pct": 0.0836606981,
+   "placebo_sd_pct": 0.0783399393,
+   "n_placebo": 140,
+   "z_placebo": 1.4759014584,
+   "frac_placebo_le": 0.9428571429,
+   "same_season": "2019:-0.105;2020:-0.133;2023:+0.013;2025:-0.030"
+  },
+  {
+   "sta": "HAYF",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "M7",
+   "step_pct": 0.1652664254,
+   "se_mbb_pct": 0.2942521416,
+   "placebo_sd_pct": 0.0400769973,
+   "n_placebo": 140,
+   "z_placebo": 4.1237227466,
+   "frac_placebo_le": 1.0,
+   "same_season": "2019:-0.018;2020:-0.099;2023:+0.109;2025:+0.121"
+  },
+  {
+   "sta": "B045",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "Petrolia",
+   "step_pct": -0.2011116073,
+   "se_mbb_pct": 0.0315934342,
+   "placebo_sd_pct": 0.0515982702,
+   "n_placebo": 204,
+   "z_placebo": -3.8976424322,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.071;2020:+0.096;2023:-0.026;2025:-0.043"
+  },
+  {
+   "sta": "B045",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "Petrolia",
+   "step_pct": -0.1359171971,
+   "se_mbb_pct": 0.0351500889,
+   "placebo_sd_pct": 0.049057012,
+   "n_placebo": 204,
+   "z_placebo": -2.7705967342,
+   "frac_placebo_le": 0.0098039216,
+   "same_season": "2019:-0.124;2020:-0.060;2023:-0.069;2025:+0.006"
+  },
+  {
+   "sta": "B045",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "Ferndale",
+   "step_pct": -0.2575396765,
+   "se_mbb_pct": 0.0636465409,
+   "placebo_sd_pct": 0.0515982702,
+   "n_placebo": 204,
+   "z_placebo": -4.9912463246,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.071;2020:+0.096;2023:-0.026;2025:-0.043"
+  },
+  {
+   "sta": "B045",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "Ferndale",
+   "step_pct": -0.4307339623,
+   "se_mbb_pct": 0.1754745366,
+   "placebo_sd_pct": 0.049057012,
+   "n_placebo": 204,
+   "z_placebo": -8.7802730956,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.124;2020:-0.060;2023:-0.069;2025:+0.006"
+  },
+  {
+   "sta": "B045",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "event": "M7",
+   "step_pct": -0.3414885627,
+   "se_mbb_pct": 0.0799469822,
+   "placebo_sd_pct": 0.0515982702,
+   "n_placebo": 204,
+   "z_placebo": -6.6182172668,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.151;2020:+0.033;2023:+0.022;2025:-0.053"
+  },
+  {
+   "sta": "B045",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "event": "M7",
+   "step_pct": -0.7449663922,
+   "se_mbb_pct": 0.2670683934,
+   "placebo_sd_pct": 0.049057012,
+   "n_placebo": 204,
+   "z_placebo": -15.1857270228,
+   "frac_placebo_le": 0.0,
+   "same_season": "2019:-0.064;2020:-0.014;2023:+0.054;2025:-0.136"
+  }
+ ],
+ "longterm": [
+  {
+   "sta": "KMPB",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "n_10d": 246,
+   "D_2021_2025_pct": -0.2717216496,
+   "D_se_pct": 0.0434521654,
+   "z_D": -6.2533511777,
+   "placebo_D_2019_2020": 0.0431953259,
+   "placebo_D_2020_2021": -0.0681854076,
+   "late_minus_ref_pct": -0.3296398514,
+   "sd10_ref_pct": 0.0743361085,
+   "fit_amp_pct": 0.0367690903,
+   "fit_peak_doy": 165.942149204,
+   "pre_amp_pct": 0.0362261577,
+   "pre_peak_doy": 142.3874788168,
+   "fit_step_Petrolia": -0.1224888633,
+   "fit_step_Ferndale": -0.0591672194,
+   "fit_step_M7": -0.1473493516,
+   "fit_step_Petrolia_se": 0.0247371963,
+   "fit_step_Ferndale_se": 0.0280050948,
+   "fit_step_M7_se": 0.0250718524,
+   "lfe_D_2021_2025_pct": -0.2407569549,
+   "annual_means": "2019:-0.023(n36);2020:+0.020(n37);2021:-0.048(n37);2022:-0.130(n36);2023:-0.239(n13);2024:-0.194(n36);2025:-0.320(n37);2026:-0.391(n14)"
+  },
+  {
+   "sta": "KMPB",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "n_10d": 246,
+   "D_2021_2025_pct": -0.325115054,
+   "D_se_pct": 0.0903449253,
+   "z_D": -3.5985978491,
+   "placebo_D_2019_2020": 0.0451164088,
+   "placebo_D_2020_2021": -0.033501584,
+   "late_minus_ref_pct": -0.3739951795,
+   "sd10_ref_pct": 0.0596847534,
+   "fit_amp_pct": 0.0320518051,
+   "fit_peak_doy": 89.6352676585,
+   "pre_amp_pct": 0.0140226999,
+   "pre_peak_doy": 213.5815602562,
+   "fit_step_Petrolia": 0.0389206978,
+   "fit_step_Ferndale": -0.1288666092,
+   "fit_step_M7": -0.273772973,
+   "fit_step_Petrolia_se": 0.051663336,
+   "fit_step_Ferndale_se": 0.0571908198,
+   "fit_step_M7_se": 0.0509544274,
+   "lfe_D_2021_2025_pct": -0.2407569549,
+   "annual_means": "2019:-0.030(n36);2020:+0.015(n37);2021:-0.018(n37);2022:+0.040(n36);2023:-0.092(n13);2024:-0.092(n36);2025:-0.343(n37);2026:-0.483(n14)"
+  },
+  {
+   "sta": "BRIC",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "n_10d": 255,
+   "D_2021_2025_pct": -0.1728940143,
+   "D_se_pct": 0.0652012512,
+   "z_D": -2.6516977989,
+   "placebo_D_2019_2020": -0.0067458718,
+   "placebo_D_2020_2021": -0.0127359998,
+   "late_minus_ref_pct": -0.1668346886,
+   "sd10_ref_pct": 0.1246705483,
+   "fit_amp_pct": 0.1521114121,
+   "fit_peak_doy": 202.3564385205,
+   "pre_amp_pct": 0.1281745638,
+   "pre_peak_doy": 201.0958852582,
+   "fit_step_Petrolia": -0.004840593,
+   "fit_step_Ferndale": -0.0866317556,
+   "fit_step_M7": -0.0570852028,
+   "fit_step_Petrolia_se": 0.0258594465,
+   "fit_step_Ferndale_se": 0.0279207323,
+   "fit_step_M7_se": 0.0263527879,
+   "lfe_D_2021_2025_pct": -0.1854749139,
+   "annual_means": "2019:+0.015(n30);2020:+0.008(n36);2021:-0.005(n37);2022:-0.011(n36);2023:-0.084(n31);2024:-0.111(n30);2025:-0.178(n37);2026:-0.116(n18)"
+  },
+  {
+   "sta": "BRIC",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "n_10d": 255,
+   "D_2021_2025_pct": -0.2791172031,
+   "D_se_pct": 0.0479554985,
+   "z_D": -5.8203378536,
+   "placebo_D_2019_2020": 0.0375864166,
+   "placebo_D_2020_2021": -0.0070944546,
+   "late_minus_ref_pct": -0.2653198661,
+   "sd10_ref_pct": 0.0806951137,
+   "fit_amp_pct": 0.0886115394,
+   "fit_peak_doy": 227.2132660268,
+   "pre_amp_pct": 0.0594010901,
+   "pre_peak_doy": 254.6011634604,
+   "fit_step_Petrolia": -0.0575285467,
+   "fit_step_Ferndale": -0.0638083895,
+   "fit_step_M7": -0.1366425701,
+   "fit_step_Petrolia_se": 0.0359128244,
+   "fit_step_Ferndale_se": 0.0384579632,
+   "fit_step_M7_se": 0.0343152858,
+   "lfe_D_2021_2025_pct": -0.1854749139,
+   "annual_means": "2019:-0.033(n30);2020:+0.005(n36);2021:-0.002(n37);2022:-0.063(n36);2023:-0.136(n31);2024:-0.150(n30);2025:-0.281(n37);2026:-0.249(n18)"
+  },
+  {
+   "sta": "HAYF",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "n_10d": 234,
+   "D_2021_2025_pct": -0.0081917277,
+   "D_se_pct": 0.0246746789,
+   "z_D": -0.3319892309,
+   "placebo_D_2019_2020": null,
+   "placebo_D_2020_2021": 0.0012930083,
+   "late_minus_ref_pct": -0.0311925514,
+   "sd10_ref_pct": 0.0995786834,
+   "fit_amp_pct": 0.0347573431,
+   "fit_peak_doy": 238.3317695131,
+   "pre_amp_pct": 0.0484533259,
+   "pre_peak_doy": 257.0208753858,
+   "fit_step_Petrolia": -0.0380494205,
+   "fit_step_Ferndale": 0.0097676609,
+   "fit_step_M7": 0.0097364612,
+   "fit_step_Petrolia_se": 0.0161447579,
+   "fit_step_Ferndale_se": 0.0160267385,
+   "fit_step_M7_se": 0.0142804971,
+   "lfe_D_2021_2025_pct": 0.0034891431,
+   "annual_means": "2019:+0.078(n4);2020:+0.001(n37);2021:+0.002(n37);2022:-0.028(n36);2023:-0.020(n37);2024:-0.010(n36);2025:-0.006(n29);2026:-0.051(n18)"
+  },
+  {
+   "sta": "HAYF",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "n_10d": 234,
+   "D_2021_2025_pct": 0.0354672245,
+   "D_se_pct": 0.031225328,
+   "z_D": 1.1358479416,
+   "placebo_D_2019_2020": null,
+   "placebo_D_2020_2021": -0.0389726769,
+   "late_minus_ref_pct": -0.0201625257,
+   "sd10_ref_pct": 0.0968186808,
+   "fit_amp_pct": 0.0388835777,
+   "fit_peak_doy": 345.3697734973,
+   "pre_amp_pct": 0.043390344,
+   "pre_peak_doy": 271.7683322617,
+   "fit_step_Petrolia": -0.0313970889,
+   "fit_step_Ferndale": 0.0222825494,
+   "fit_step_M7": -0.00618376,
+   "fit_step_Petrolia_se": 0.0373105794,
+   "fit_step_Ferndale_se": 0.0383363901,
+   "fit_step_M7_se": 0.0356746367,
+   "lfe_D_2021_2025_pct": 0.0034891431,
+   "annual_means": "2019:-0.013(n4);2020:+0.050(n37);2021:+0.011(n37);2022:+0.012(n36);2023:+0.004(n37);2024:+0.034(n36);2025:+0.047(n29);2026:-0.043(n18)"
+  },
+  {
+   "sta": "B045",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "n_10d": 256,
+   "D_2021_2025_pct": -0.318190804,
+   "D_se_pct": 0.0351648736,
+   "z_D": -9.0485411018,
+   "placebo_D_2019_2020": 0.0498441709,
+   "placebo_D_2020_2021": 0.0076959508,
+   "late_minus_ref_pct": -0.2932448409,
+   "sd10_ref_pct": 0.0741075496,
+   "fit_amp_pct": 0.0667487811,
+   "fit_peak_doy": 275.4636067841,
+   "pre_amp_pct": 0.0488930945,
+   "pre_peak_doy": 316.0803344255,
+   "fit_step_Petrolia": -0.038922689,
+   "fit_step_Ferndale": -0.065612223,
+   "fit_step_M7": -0.1785002751,
+   "fit_step_Petrolia_se": 0.0256438155,
+   "fit_step_Ferndale_se": 0.0261584362,
+   "fit_step_M7_se": 0.0223924925,
+   "lfe_D_2021_2025_pct": -0.1341645947,
+   "annual_means": "2019:-0.037(n36);2020:+0.013(n37);2021:+0.020(n37);2022:-0.032(n31);2023:-0.116(n37);2024:-0.112(n29);2025:-0.298(n33);2026:-0.281(n16)"
+  },
+  {
+   "sta": "B045",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "n_10d": 256,
+   "D_2021_2025_pct": -0.575357113,
+   "D_se_pct": 0.0326572564,
+   "z_D": -17.6180480698,
+   "placebo_D_2019_2020": 0.0717054964,
+   "placebo_D_2020_2021": 0.0035400232,
+   "late_minus_ref_pct": -0.538750416,
+   "sd10_ref_pct": 0.0814718252,
+   "fit_amp_pct": 0.0591896721,
+   "fit_peak_doy": 292.247233984,
+   "pre_amp_pct": 0.0498853036,
+   "pre_peak_doy": 354.447739597,
+   "fit_step_Petrolia": 0.0312967795,
+   "fit_step_Ferndale": -0.120361241,
+   "fit_step_M7": -0.4500396893,
+   "fit_step_Petrolia_se": 0.0495684411,
+   "fit_step_Ferndale_se": 0.0511024892,
+   "fit_step_M7_se": 0.047524537,
+   "lfe_D_2021_2025_pct": -0.1341645947,
+   "annual_means": "2019:-0.053(n36);2020:+0.018(n37);2021:+0.022(n37);2022:+0.033(n31);2023:-0.102(n37);2024:-0.121(n29);2025:-0.554(n33);2026:-0.521(n16)"
+  }
+ ],
+ "noise_vs_lfe": [
+  {
+   "sta": "B045",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "n_months": 89,
+   "r_monthly": 0.7369584656,
+   "r_deseason": 0.6763664025,
+   "noise_annual_amp_pct": 0.0452008614,
+   "noise_annual_peak_doy": 313.8641092882,
+   "lfe_annual_amp_pct": 0.0424606277,
+   "lfe_annual_peak_doy": 274.6719744395,
+   "noise_mstep_Petrolia": -0.1302765799,
+   "noise_mstep_Ferndale": -0.256109245,
+   "noise_mstep_M7": -0.3856769908,
+   "lfe_mstep_Petrolia": -0.0242171785,
+   "lfe_mstep_Ferndale": -0.1967339422,
+   "lfe_mstep_M7": -0.1635651577
+  },
+  {
+   "sta": "B045",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "n_months": 89,
+   "r_monthly": 0.6071400047,
+   "r_deseason": 0.5694401701,
+   "noise_annual_amp_pct": 0.0404025833,
+   "noise_annual_peak_doy": 353.9039138629,
+   "lfe_annual_amp_pct": 0.0424606277,
+   "lfe_annual_peak_doy": 274.6719744395,
+   "noise_mstep_Petrolia": -0.0416777416,
+   "noise_mstep_Ferndale": -0.3434615084,
+   "noise_mstep_M7": -0.5814592593,
+   "lfe_mstep_Petrolia": -0.0242171785,
+   "lfe_mstep_Ferndale": -0.1967339422,
+   "lfe_mstep_M7": -0.1635651577
+  },
+  {
+   "sta": "BRIC",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "n_months": 86,
+   "r_monthly": 0.6062843149,
+   "r_deseason": 0.5184941659,
+   "noise_annual_amp_pct": 0.1246944874,
+   "noise_annual_peak_doy": 200.9165482669,
+   "lfe_annual_amp_pct": 0.0676072127,
+   "lfe_annual_peak_doy": 247.1510716281,
+   "noise_mstep_Petrolia": -0.0715694076,
+   "noise_mstep_Ferndale": -0.2770157605,
+   "noise_mstep_M7": -0.2188721539,
+   "lfe_mstep_Petrolia": -0.0692161643,
+   "lfe_mstep_Ferndale": -0.1002755063,
+   "lfe_mstep_M7": -0.3551090684
+  },
+  {
+   "sta": "BRIC",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "n_months": 86,
+   "r_monthly": 0.7474331838,
+   "r_deseason": 0.6854343891,
+   "noise_annual_amp_pct": 0.0521866067,
+   "noise_annual_peak_doy": 255.8749502643,
+   "lfe_annual_amp_pct": 0.0676072127,
+   "lfe_annual_peak_doy": 247.1510716281,
+   "noise_mstep_Petrolia": -0.1864239396,
+   "noise_mstep_Ferndale": -0.1602483912,
+   "noise_mstep_M7": -0.4929502217,
+   "lfe_mstep_Petrolia": -0.0692161643,
+   "lfe_mstep_Ferndale": -0.1002755063,
+   "lfe_mstep_M7": -0.3551090684
+  },
+  {
+   "sta": "HAYF",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "n_months": 78,
+   "r_monthly": 0.2052610948,
+   "r_deseason": 0.3675901504,
+   "noise_annual_amp_pct": 0.0532149395,
+   "noise_annual_peak_doy": 258.351991982,
+   "lfe_annual_amp_pct": 0.0513276567,
+   "lfe_annual_peak_doy": 308.0785558845,
+   "noise_mstep_Petrolia": -0.0261892938,
+   "noise_mstep_Ferndale": -0.0190766404,
+   "noise_mstep_M7": -0.01215962,
+   "lfe_mstep_Petrolia": -0.034611297,
+   "lfe_mstep_Ferndale": -0.0968929587,
+   "lfe_mstep_M7": -0.008182302
+  },
+  {
+   "sta": "HAYF",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "n_months": 78,
+   "r_monthly": 0.1987568191,
+   "r_deseason": 0.0666444038,
+   "noise_annual_amp_pct": 0.0184887911,
+   "noise_annual_peak_doy": 286.2512406451,
+   "lfe_annual_amp_pct": 0.0513276567,
+   "lfe_annual_peak_doy": 308.0785558845,
+   "noise_mstep_Petrolia": -0.1171413793,
+   "noise_mstep_Ferndale": -0.3591833421,
+   "noise_mstep_M7": 0.0113408774,
+   "lfe_mstep_Petrolia": -0.034611297,
+   "lfe_mstep_Ferndale": -0.0968929587,
+   "lfe_mstep_M7": -0.008182302
+  },
+  {
+   "sta": "KMPB",
+   "band": "1-4Hz",
+   "combo": "ALL",
+   "n_months": 82,
+   "r_monthly": 0.6493256799,
+   "r_deseason": 0.7161221741,
+   "noise_annual_amp_pct": 0.0363164163,
+   "noise_annual_peak_doy": 142.6026756526,
+   "lfe_annual_amp_pct": 0.0555523878,
+   "lfe_annual_peak_doy": 271.2697816147,
+   "noise_mstep_Petrolia": -0.0397841618,
+   "noise_mstep_Ferndale": -0.1129717165,
+   "noise_mstep_M7": -0.0736133934,
+   "lfe_mstep_Petrolia": -0.1470414314,
+   "lfe_mstep_Ferndale": -0.0950643969,
+   "lfe_mstep_M7": -0.1696000604
+  },
+  {
+   "sta": "KMPB",
+   "band": "2-8Hz",
+   "combo": "ALL",
+   "n_months": 82,
+   "r_monthly": 0.5609645489,
+   "r_deseason": 0.6400747971,
+   "noise_annual_amp_pct": 0.0107020955,
+   "noise_annual_peak_doy": 213.8097469107,
+   "lfe_annual_amp_pct": 0.0555523878,
+   "lfe_annual_peak_doy": 271.2697816147,
+   "noise_mstep_Petrolia": 0.000812647,
+   "noise_mstep_Ferndale": -0.2374206715,
+   "noise_mstep_M7": -0.0548412794,
+   "lfe_mstep_Petrolia": -0.1470414314,
+   "lfe_mstep_Ferndale": -0.0950643969,
+   "lfe_mstep_M7": -0.1696000604
+  }
+ ],
+ "robustness_ALL": {
+  "B045 1-4Hz": {
+   "D_2021_2025_pct": {
+    "min": -0.393,
+    "max": -0.229,
+    "by_variant": {
+     "default": -0.318,
+     "no_notch": -0.229,
+     "coda_2-10s": -0.393,
+     "strict_notch": -0.259
+    }
+   },
+   "step_M7_pct": {
+    "min": -0.347,
+    "max": -0.294,
+    "by_variant": {
+     "default": -0.341,
+     "no_notch": -0.294,
+     "coda_2-10s": -0.347,
+     "strict_notch": -0.298
+    }
+   }
+  },
+  "B045 2-8Hz": {
+   "D_2021_2025_pct": {
+    "min": -0.634,
+    "max": -0.122,
+    "by_variant": {
+     "default": -0.575,
+     "no_notch": -0.122,
+     "coda_2-10s": -0.634,
+     "strict_notch": -0.361
+    }
+   },
+   "step_M7_pct": {
+    "min": -0.934,
+    "max": -0.502,
+    "by_variant": {
+     "default": -0.745,
+     "no_notch": -0.502,
+     "coda_2-10s": -0.892,
+     "strict_notch": -0.934
+    }
+   }
+  },
+  "BRIC 1-4Hz": {
+   "D_2021_2025_pct": {
+    "min": -0.186,
+    "max": -0.076,
+    "by_variant": {
+     "default": -0.173,
+     "no_notch": -0.117,
+     "coda_2-10s": -0.186,
+     "strict_notch": -0.076
+    }
+   },
+   "step_M7_pct": {
+    "min": -0.286,
+    "max": -0.005,
+    "by_variant": {
+     "default": -0.286,
+     "no_notch": -0.202,
+     "coda_2-10s": -0.278,
+     "strict_notch": -0.005
+    }
+   }
+  },
+  "BRIC 2-8Hz": {
+   "D_2021_2025_pct": {
+    "min": -0.377,
+    "max": -0.137,
+    "by_variant": {
+     "default": -0.279,
+     "no_notch": -0.377,
+     "coda_2-10s": -0.314,
+     "strict_notch": -0.137
+    }
+   },
+   "step_M7_pct": {
+    "min": -0.757,
+    "max": -0.258,
+    "by_variant": {
+     "default": -0.641,
+     "no_notch": -0.757,
+     "coda_2-10s": -0.74,
+     "strict_notch": -0.258
+    }
+   }
+  },
+  "HAYF 1-4Hz": {
+   "D_2021_2025_pct": {
+    "min": -0.024,
+    "max": 0.017,
+    "by_variant": {
+     "default": -0.008,
+     "no_notch": 0.017,
+     "coda_2-10s": -0.024,
+     "strict_notch": -0.02
+    }
+   },
+   "step_M7_pct": {
+    "min": 0.116,
+    "max": 0.319,
+    "by_variant": {
+     "default": 0.116,
+     "no_notch": 0.179,
+     "coda_2-10s": 0.319,
+     "strict_notch": 0.125
+    }
+   }
+  },
+  "HAYF 2-8Hz": {
+   "D_2021_2025_pct": {
+    "min": -0.043,
+    "max": 0.035,
+    "by_variant": {
+     "default": 0.035,
+     "no_notch": -0.011,
+     "coda_2-10s": 0.023,
+     "strict_notch": -0.043
+    }
+   },
+   "step_M7_pct": {
+    "min": -0.125,
+    "max": 0.165,
+    "by_variant": {
+     "default": 0.165,
+     "no_notch": -0.125,
+     "coda_2-10s": 0.052,
+     "strict_notch": 0.131
+    }
+   }
+  },
+  "KMPB 1-4Hz": {
+   "D_2021_2025_pct": {
+    "min": -0.953,
+    "max": -0.111,
+    "by_variant": {
+     "default": -0.272,
+     "no_notch": -0.953,
+     "coda_2-10s": -0.403,
+     "strict_notch": -0.111
+    }
+   },
+   "step_M7_pct": {
+    "min": -0.076,
+    "max": -0.013,
+    "by_variant": {
+     "default": -0.076,
+     "no_notch": -0.069,
+     "coda_2-10s": -0.075,
+     "strict_notch": -0.013
+    }
+   }
+  },
+  "KMPB 2-8Hz": {
+   "D_2021_2025_pct": {
+    "min": -0.491,
+    "max": -0.042,
+    "by_variant": {
+     "default": -0.325,
+     "no_notch": -0.491,
+     "coda_2-10s": -0.343,
+     "strict_notch": -0.042
+    }
+   },
+   "step_M7_pct": {
+    "min": -0.166,
+    "max": 0.003,
+    "by_variant": {
+     "default": -0.063,
+     "no_notch": -0.166,
+     "coda_2-10s": -0.095,
+     "strict_notch": 0.003
+    }
+   }
+  }
+ }
+}

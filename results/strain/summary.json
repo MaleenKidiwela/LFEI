@@ -1,0 +1,247 @@
+{
+ "episodes": {
+  "n_selected": 200,
+  "rank": "thin catalogue, top 200 by n_events (then n_fam, dur_h), t0 >= 2008-11-01",
+  "n_events_median": 83.5,
+  "n_fam_median": 21.0,
+  "dur_h_median": 3.8812499999668866,
+  "min_n_events": 71,
+  "M0_lfe_median_Nm": 31290672515408.523,
+  "n_tele_flag": 65
+ },
+ "greens_nanostrain_per_m3": {
+  "B045": {
+   "areal": 7.454010883450851e-07,
+   "gam1": -5.950666866025107e-07,
+   "gam2": -2.531327509473972e-06,
+   "dist_km": 52.41785111206216,
+   "gauges": [
+    -9.153465111144215e-07,
+    1.1701001141047284e-06,
+    8.633480295273211e-07,
+    -4.2469902575964323e-07
+   ]
+  },
+  "B933": {
+   "areal": -2.2116589702330247e-07,
+   "gam1": 3.6787399225412394e-06,
+   "gam2": 2.6460278010028563e-06,
+   "dist_km": 29.27643364482906,
+   "gauges": [
+    1.681493999018764e-06,
+    1.9403709999584305e-07,
+    -2.20727994454956e-06,
+    -4.15202997019146e-07
+   ]
+  },
+  "B934": {
+   "areal": -7.556007705068303e-08,
+   "gam1": 2.3488128459682613e-07,
+   "gam2": -1.131646753351584e-06,
+   "dist_km": 24.619707373315393,
+   "gauges": [
+    5.061922055768173e-07,
+    -1.4085213872790623e-07,
+    -4.786801824249353e-07,
+    6.529206167722363e-08
+   ]
+  },
+  "B935": {
+   "areal": 2.759237211883572e-07,
+   "gam1": -9.939461099498136e-07,
+   "gam2": 2.1313388123908756e-06,
+   "dist_km": 46.76551812692959,
+   "gauges": [
+    -9.046790118785901e-08,
+    1.2510961618856478e-06,
+    -7.467426789152538e-07,
+    -9.75172440697291e-07
+   ]
+  }
+ },
+ "null_windows": {
+  "n_total": 32000,
+  "n_clean": 16874,
+  "note": "step values winsorised at +-4 robust sigma (clean-null sigma per station/component)"
+ },
+ "station_qc": {
+  "B045": {
+   "n_windows": 200,
+   "n_valid_areal": 190,
+   "n_clean": 123,
+   "baro_areal_nstrain_per_hPa": -37.76699365336842,
+   "M2_gauge_amp_nstrain": [
+    19.86508637095337,
+    0.7193768178034751,
+    7.683017811788689,
+    9.891657263420612
+   ],
+   "dist_km": 52.41785111206216
+  },
+  "B933": {
+   "n_windows": 200,
+   "n_valid_areal": 197,
+   "n_clean": 130,
+   "baro_areal_nstrain_per_hPa": -25.906802341968675,
+   "M2_gauge_amp_nstrain": [
+    5.413541863923052,
+    6.010541305424531,
+    7.877527475175735,
+    3.8446452005294938
+   ],
+   "dist_km": 29.27643364482906
+  },
+  "B934": {
+   "n_windows": 200,
+   "n_valid_areal": 126,
+   "n_clean": 77,
+   "baro_areal_nstrain_per_hPa": -14.743756680382315,
+   "M2_gauge_amp_nstrain": [
+    4.989079945851069,
+    16.427033409462915,
+    10.249789474310653,
+    3.6326743685902914
+   ],
+   "dist_km": 24.619707373315393
+  },
+  "B935": {
+   "n_windows": 200,
+   "n_valid_areal": 183,
+   "n_clean": 106,
+   "baro_areal_nstrain_per_hPa": -8.03303239257944,
+   "M2_gauge_amp_nstrain": [
+    5.052789133102459,
+    7.251783474739176,
+    10.949171466955628,
+    4.615114621144572
+   ],
+   "dist_km": 46.76551812692959
+  }
+ },
+ "joint_potency": {
+  "clean": {
+   "n_episodes": 132,
+   "potency_stack_m3": 49789.884086968705,
+   "M0_stack_Nm": 1493696522609061.2,
+   "boot95_m3": [
+    -72662.89592300418,
+    170581.38087541325
+   ],
+   "null_mean_m3": 18900.354378243348,
+   "null95_m3": [
+    -143868.8656261545,
+    174315.60601226136
+   ],
+   "p_two_sided": 0.7045,
+   "upper95_abs_potency_m3": 189275.21765214344,
+   "single_episode_sigma_m3_median": 625637.2799940682
+  },
+  "all": {
+   "n_episodes": 200,
+   "potency_stack_m3": 33200.74550534864,
+   "M0_stack_Nm": 996022365160459.2,
+   "boot95_m3": [
+    -73473.69032658315,
+    139931.69427025938
+   ],
+   "null_mean_m3": 12825.48641202104,
+   "null95_m3": [
+    -123673.09106947487,
+    148903.3952346009
+   ],
+   "p_two_sided": 0.7555,
+   "upper95_abs_potency_m3": 156785.67141528561,
+   "single_episode_sigma_m3_median": 625064.0180917147
+  },
+  "clean_1d": {
+   "n_episodes": 132,
+   "potency_stack_m3": -43710.23706651933,
+   "M0_stack_Nm": -1311307111995580.0,
+   "boot95_m3": [
+    -258919.54230522993,
+    176851.7276893873
+   ],
+   "null_mean_m3": 13405.353467807296,
+   "null95_m3": [
+    -240629.20815434252,
+    262655.79108370026
+   ],
+   "p_two_sided": 0.65,
+   "upper95_abs_potency_m3": 309527.27801588504,
+   "single_episode_sigma_m3_median": 964665.8681944271
+  },
+  "all_1d": {
+   "n_episodes": 200,
+   "potency_stack_m3": -102200.88132854976,
+   "M0_stack_Nm": -3066026439856493.0,
+   "boot95_m3": [
+    -277398.6785677126,
+    68108.14823568829
+   ],
+   "null_mean_m3": 13671.297393621333,
+   "null95_m3": [
+    -197910.31700186167,
+    225071.7012282535
+   ],
+   "p_two_sided": 0.288,
+   "upper95_abs_potency_m3": 327446.00360492704,
+   "single_episode_sigma_m3_median": 964090.8920327047
+  }
+ },
+ "slip_conversion_square_patch": {
+  "L1km": {
+   "slip_upper95_mm": 189.27521765214345,
+   "slip_upper95_1d_ramp_mm": 309.52727801588503,
+   "slip_stack_mm": 49.789884086968705,
+   "slip_stack_boot95_mm": [
+    -72.66289592300417,
+    170.58138087541326
+   ],
+   "lfe_slip_median_mm": 1.043022417180284,
+   "lfe_slip_mean_mm": 1.0600003749708318
+  },
+  "L3km": {
+   "slip_upper95_mm": 21.03057973912705,
+   "slip_upper95_1d_ramp_mm": 34.39191977954278,
+   "slip_stack_mm": 5.532209342996523,
+   "slip_stack_boot95_mm": [
+    -8.07365510255602,
+    18.953486763934805
+   ],
+   "lfe_slip_median_mm": 0.11589137968669823,
+   "lfe_slip_mean_mm": 0.11777781944120352
+  },
+  "L5km": {
+   "slip_upper95_mm": 7.571008706085738,
+   "slip_upper95_1d_ramp_mm": 12.381091120635402,
+   "slip_stack_mm": 1.991595363478748,
+   "slip_stack_boot95_mm": [
+    -2.906515836920167,
+    6.82325523501653
+   ],
+   "lfe_slip_median_mm": 0.04172089668721136,
+   "lfe_slip_mean_mm": 0.042400014998833266
+  }
+ },
+ "detection_limit": {
+  "upper95_potency_m3": 189275.21765214344,
+  "upper95_M0_Nm": 5678256529564303.0,
+  "upper95_Mw": 4.436143339321298,
+  "upper95_potency_1d_ramp_m3": 309527.27801588504,
+  "upper95_Mw_1d_ramp": 4.578546788840513,
+  "lfe_M0_per_episode_median_Nm": 31290672515408.523,
+  "lfe_M0_per_episode_mean_Nm": 31800011249124.953,
+  "lfe_Mw_equiv_median": 2.9302765982195935,
+  "ratio_upper_to_lfe_median": 181.4680245932122,
+  "single_episode_sigma_potency_m3": 625637.2799940682,
+  "single_episode_sigma_Mw": 4.98298257974183,
+  "loading_budget": {
+   "note": "if 2.5 cm/yr on a 15x5 km array-wide zone were released only in thin-catalogue episodes",
+   "episodes_per_yr": 149.76269711799893,
+   "potency_per_episode_m3": 12519.806574548242
+  },
+  "assumptions": "median LFE Mw 1.5 (M0 2.24e+11 N m), M0 proportional to relative amplitude A (per-family median 1), mu 30 GPa; point source at 40.06N -123.625E 28 km, strike 293.0 dip 40.0 rake 180.0 (Okada half-space, nu 0.25); unit-coupling (uncalibrated) gauge-to-tensor conversion; upper bound = |stack - null mean| + 95th pct of |null|."
+ },
+ "tide_pressure_method": "per window: LS fit over t0+-15 d with the core t0+-2 d masked: Legendre deg-3 trend + M2,S2,N2,K1,O1 + barometric (RDO, 30-min interpolated); tides+pressure predicted into the core and removed; core model a + b t + c ramp(t0..t0+dur) gives the step c (and a 1-day ramp variant). Offsets outside the core removed; windows with offsets inside the core rejected. Body-tide model not used: it lacks ocean loading at these coastal sites.",
+ "sign_convention": "gauge strain linearised as (R/(1-R))*(G/D), R=counts/1e8, G/D=1e-4/0.087 (UNAVCO), extension positive; areal = eEE+eNN, gam1 = eEE-eNN, gam2 = 2eEN from e_i = eA/2 - g1 cos(2th)/2 + g2 sin(2th)/2 (th = gauge az E of N), unit coupling (no in-situ calibration)."
+}

@@ -1,0 +1,10 @@
+SPOTL 3.3.0.2 (D. C. Agnew, SIO/IGPP), installed 2026-11-23 for the LFE project (user space, no sudo).
+Source: https://igppweb.ucsd.edu/~agnew/Spotl/spotl.tar.gz (+ spotlman.pdf, manpages.pdf), kept in tools/spotl_dl/.
+Build: cd src; make all FTN=gfortran FFLAGS="-O2 -std=legacy -fno-f2c -fno-automatic -fno-range-check -fno-backslash" CC=gcc CFLAGS="-c -O2"
+       (gfortran/gcc 8.5, /usr/bin; Makefile not edited).
+Install: ocean models converted with bin/modcon (zcat instead of gzcat), land-sea with bin/mapcon, links in working/ from install.rest.
+Symlinks bin/*spotl -> bin/* so the example scripts run.  Extra helper bin/ocpts built from scripts/sci_tidal_spotl_ocpts.f
+(SPOTL ocmodl at arbitrary points):  gfortran -O2 -std=legacy -fno-f2c -fno-automatic -fno-range-check -fno-backslash \
+   ../../../scripts/sci_tidal_spotl_ocpts.f seadens.f ocst.a mapst.a -o ../bin/ocpts   (from src/)
+Tests: working/ex1-ex6 run with rc 0; ex4 == ex5 (two scripting routes); our Python nloadf re-implementation matches nloadf to
+4 decimals (data/sci/tidal_spotl/spotl_tests.json).  Programs must run in working/ (hard-wired file names).

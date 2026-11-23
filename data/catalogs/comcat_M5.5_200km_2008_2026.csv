@@ -1,0 +1,15 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-01-10T00:27:39.320Z,40.652,-124.6925,28.737,6.5,mw,51,220,0.3225,0.2,nc,nc71338066,2024-02-25T07:18:33.872Z,"The 2010 Eureka, California Earthquake",earthquake,0.55,1.31,,8,reviewed,nc,nc
+2010-02-04T20:20:21.970Z,40.4123333,-124.9613333,23.048,5.88,mw,41,233,0.4802,0.19,nc,nc71348851,2022-08-05T23:49:31.575Z,"61 km WSW of Ferndale, California",earthquake,1.42,7.41,,7,reviewed,nc,nc
+2012-02-13T21:07:02.770Z,41.1431667,-123.7903333,27.358,5.6,mw,41,72,0.1766,0.27,nc,nc71734741,2022-08-06T09:06:40.577Z,"26 km NNW of Willow Creek, California",earthquake,0.43,1.19,,4,reviewed,nc,nc
+2014-03-10T05:18:13.430Z,40.8286667,-125.1338333,16.441,6.8,mw,112,229,0.6568,0.15,nc,nc72182046,2022-09-24T19:42:07.982Z,"77 km WNW of Indianola, California",earthquake,0.64,1.88,,5,reviewed,nc,nc
+2015-01-28T21:08:53.710Z,40.3178333,-124.6066667,16.881,5.72,mw,52,230,0.2459,0.13,nc,nc72387946,2023-01-22T07:44:02.853Z,"40 km SW of Ferndale, California",earthquake,0.54,0.33,,13,reviewed,nc,nc
+2016-09-03T03:27:57.250Z,40.3208333,-125.6876667,28.57,5.64,mw,21,313,1.041,0.28,nc,nc72689331,2022-05-03T17:57:58.170Z,"124 km WSW of Ferndale, California",earthquake,3.32,31.61,,6,reviewed,nc,nc
+2019-06-23T03:53:02.890Z,40.2735,-124.3003333,9.44,5.58,mw,34,159,0.03116,0.17,nc,nc73201181,2025-12-22T18:11:57.978Z,"6km SSW of Petrolia, CA",earthquake,0.34,0.21,,6,reviewed,nc,nc
+2020-03-09T02:59:08.860Z,40.3916667,-125.0936667,3.19,5.77,mw,40,277,0.5832,0.29,nc,nc73351710,2025-12-22T18:30:45.658Z,"69km W of Petrolia, CA",earthquake,0.99,1.38,,4,reviewed,nc,nc
+2021-12-20T20:10:20.310Z,40.2978333,-124.626,16.51,5.65,ml,63,234,0.217,0.18,nc,nc71127029,2025-12-22T22:23:19.403Z,"29km W of Petrolia, CA",earthquake,0.9,0.42,0.146,3,reviewed,nc,nc
+2021-12-20T20:10:31.310Z,40.3901667,-124.298,27.04,6.2,mw,33,170,0.06557,0.13,nc,nc73666231,2025-12-22T22:24:46.020Z,"7km N of Petrolia, CA",earthquake,0.46,0.34,,0,reviewed,nc,nc
+2022-12-20T10:34:24.770Z,40.525,-124.423,17.91,6.4,mw,38,214,0.0818,0.18,nc,nc73821036,2026-01-07T06:38:39.444Z,"15km WSW of Ferndale, CA",earthquake,0.67,0.4,,0,reviewed,nc,nc
+2023-05-21T18:44:01.400Z,40.3775,-125.5628333,10,5.58,mw,127,245,0.937,0.29,nc,nc73890906,2025-05-06T15:40:17.359Z,"108km W of Petrolia, CA",earthquake,1.35,31.61,,4,reviewed,nc,nc
+2024-12-05T18:44:21.110Z,40.374,-125.02166666667,10,7,mw,172,229,0.5261,0.23,nc,nc75095651,2026-11-21T00:43:33.426Z,"2024 Offshore Cape Mendocino, California Earthquake",earthquake,0.63,31.61,0.018,303,reviewed,nc,nc
+2026-06-24T15:10:40.760Z,39.362333333333,-123.22883333333,8.85,5.59,mw,87,42,0.06242,0.12,nc,nc75382936,2026-11-18T15:20:49.733Z,"11 km N of Redwood Valley, CA",earthquake,0.12,0.34,,20,reviewed,nc,nc

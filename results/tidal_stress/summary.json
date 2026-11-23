@@ -1,0 +1,1102 @@
+{
+ "validation": {
+  "moon_meeus47a": {
+   "lam": 133.16265468685742,
+   "lam_ref": 133.162655,
+   "beta": -3.2285720589058533,
+   "beta_ref": -3.229126,
+   "dist_km": 368409.6848164317,
+   "dist_ref": 368409.7
+  },
+  "sun_meeus25a": {
+   "lam": 199.9098726633356,
+   "lam_ref": 199.90988,
+   "R_au": 0.9976619500056293,
+   "R_ref": 0.99766
+  },
+  "gmst_meeus12a": {
+   "gmst": 197.693195090862,
+   "ref": 197.693195
+  },
+  "boussinesq_point_load": {
+   "szz": -354.17189355756403,
+   "szz_ref": -354.1718973879311,
+   "sxz": -212.50313262018906,
+   "sxz_ref": -212.50313843275865
+  },
+  "areal_strain_formula_maxrel": 6.278901627594862e-16,
+  "equilibrium_tide_site": {
+   "M2": {
+    "model_m": 0.14253510484416623,
+    "textbook_m": 0.14195746656829003
+   },
+   "S2": {
+    "model_m": 0.06630737666580579,
+    "textbook_m": 0.0661014240058449
+   },
+   "N2": {
+    "model_m": 0.027277536168042776,
+    "textbook_m": 0.027179605560241328
+   },
+   "K2": {
+    "model_m": 0.017988059732203777,
+    "textbook_m": 0.017986176324877142
+   },
+   "K1": {
+    "model_m": 0.13974466923417284,
+    "textbook_m": 0.13946548922439927
+   },
+   "O1": {
+    "model_m": 0.09934519725692291,
+    "textbook_m": 0.09902330508177354
+   },
+   "P1": {
+    "model_m": 0.046277844858351985,
+    "textbook_m": 0.04614828461652623
+   },
+   "Q1": {
+    "model_m": 0.018991238448977023,
+    "textbook_m": 0.01897041966944536
+   }
+  },
+  "greenwich_eq_phase_deg_expect0": {
+   "M2": 0.02,
+   "S2": 0.06,
+   "N2": 0.1,
+   "K1": 0.03,
+   "O1": 360.0,
+   "P1": 0.03,
+   "Q1": 0.04
+  },
+  "gravity_uGal": {
+   "M2": 50.90824405506267,
+   "S2": 23.687981913828885,
+   "O1": 35.48760438507033,
+   "K1": 49.9172853810476,
+   "max": 110.58936793429763,
+   "min": -199.88601100208845,
+   "expected_M2": 50.711636683739236
+  }
+ },
+ "ocean_load": {
+  "note": "ROUGH: uniform ocean tide west of an approximate coastline, Boussinesq half-space, no SAL/ocean-bottom topography; constants (amp m, Greenwich phase deg) assumed: {\"M2\": [0.7, 220.0], \"K1\": [0.37, 235.0], \"O1\": [0.23, 220.0]}",
+  "centroid": {
+   "lat": 40.06243492592593,
+   "lon": -123.62698362962963,
+   "depth": 26.78251851851851
+  },
+  "kPa_per_m_tide": {
+   "tau": 0.4574665251947057,
+   "sn": -0.4203551172781801,
+   "sss": -1.9976554733041656,
+   "mean": -1.6316449536141544
+  },
+  "kPa_per_m_tide_cut300km": {
+   "tau": 0.24843255805692102,
+   "sn": -0.2506666801266966,
+   "sss": -2.1410644633265887,
+   "mean": -1.5372349519184036
+  },
+  "coast_distance_km": 41.98850855555476
+ },
+ "n_units": 43772,
+ "LL_null": -186591.1853299035,
+ "mu_profile_best": {
+  "OL_M2": {
+   "mu_best": 1.2,
+   "beta": 0.26819487844054113,
+   "a_sigma_kPa": 3.728631977667315,
+   "mu_95_profile": [
+    1.2,
+    1.2
+   ],
+   "dLL_best": 367.63008516604896,
+   "dLL_mu0": 21.381265333038755,
+   "dLL_mu0p4": 221.66646994516486
+  },
+  "OL_M2K1O1": {
+   "mu_best": -0.4,
+   "beta": -1.3765324012427376,
+   "a_sigma_kPa": -0.7264631033001454,
+   "mu_95_profile": [
+    -0.45,
+    -0.4
+   ],
+   "dLL_best": 1825.7507383885095,
+   "dLL_mu0": 915.9830497013754,
+   "dLL_mu0p4": 1.7749919523485005
+  },
+  "body": {
+   "mu_best": 0.1,
+   "beta": 2.3799607449929554,
+   "a_sigma_kPa": 0.4201749974674309,
+   "mu_95_profile": [
+    0.1,
+    0.1
+   ],
+   "dLL_best": 2138.2179686205636,
+   "dLL_mu0": 1922.4653273654112,
+   "dLL_mu0p4": 1268.3788094825577
+  },
+  "body_d45": {
+   "mu_best": 0.1,
+   "beta": 2.1626613375153667,
+   "a_sigma_kPa": 0.46239324791780745,
+   "mu_95_profile": [
+    0.1,
+    0.1
+   ],
+   "dLL_best": 2140.0258704622393,
+   "dLL_mu0": 1922.4653273654112,
+   "dLL_mu0p4": 1147.8919204229023
+  }
+ },
+ "ocean_load_profile_best": {
+  "ocean": "M2",
+  "dphase": 0,
+  "scale": 0.25,
+  "dLL_tau_sn": 2227.6931290349457,
+  "beta_tau": 3.2476053977039667,
+  "beta_sn": 0.053789882164293,
+  "mu_eff": 0.01656293655698505,
+  "dLL_tau_only": 2219.1271365039283,
+  "beta_tau_only": 3.255624498340467
+ },
+ "ocean_load_profile_best_tau_only": {
+  "ocean": "M2",
+  "dphase": 0,
+  "scale": 0.25,
+  "dLL_tau_sn": 2227.6931290349457,
+  "beta_tau": 3.2476053977039667,
+  "beta_sn": 0.053789882164293,
+  "mu_eff": 0.01656293655698505,
+  "dLL_tau_only": 2219.1271365039283,
+  "beta_tau_only": 3.255624498340467
+ },
+ "strike_scan_best": {
+  "strike": 20.0,
+  "beta": -2.163736065157649,
+  "dLL": 1963.6201247796416
+ },
+ "phase_lag": {
+  "tau": {
+   "phase_lag_deg": -3.1582370239457163,
+   "phase_lag_se_deg": 2.485691124834493,
+   "beta_amp": 2.160863056813432,
+   "a_sigma_amp_kPa": 0.462778053818308,
+   "dLL_quadrature_model": 1928.489367623115,
+   "time_lag_best_h": -0.3333333333333333,
+   "time_lag_95_h": [
+    -0.3333333333333333,
+    -0.3333333333333333
+   ]
+  },
+  "sn": {
+   "phase_lag_deg": -33.32885831559748,
+   "phase_lag_se_deg": 18.83324367315448,
+   "beta_amp": 0.10596454357768201,
+   "a_sigma_amp_kPa": 9.437118929001999,
+   "dLL_quadrature_model": 40.339052535709925,
+   "time_lag_best_h": -6.0,
+   "time_lag_95_h": [
+    -6.0,
+    -6.0
+   ]
+  },
+  "cfs0.4": {
+   "phase_lag_deg": -9.817080161080302,
+   "phase_lag_se_deg": 2.941007925980309,
+   "beta_amp": 1.2972918820902197,
+   "a_sigma_amp_kPa": 0.7708365509763171,
+   "dLL_quadrature_model": 1309.4909004628134,
+   "time_lag_best_h": 0.3333333333333333,
+   "time_lag_95_h": [
+    0.3333333333333333,
+    0.3333333333333333
+   ]
+  },
+  "tau_OL": {
+   "phase_lag_deg": 58.8474637624008,
+   "phase_lag_se_deg": 13.018203102347732,
+   "beta_amp": 0.41186013782796005,
+   "a_sigma_amp_kPa": 2.4280087052700265,
+   "dLL_quadrature_model": 81.45480412367033,
+   "time_lag_best_h": 4.0,
+   "time_lag_95_h": [
+    4.0,
+    4.0
+   ]
+  },
+  "sn_OL": {
+   "phase_lag_deg": -23.428717466469266,
+   "phase_lag_se_deg": 4.774653984979609,
+   "beta_amp": 0.4841971655897828,
+   "a_sigma_amp_kPa": 2.0652743780148666,
+   "dLL_quadrature_model": 548.5750894382363,
+   "time_lag_best_h": 6.0,
+   "time_lag_95_h": [
+    6.0,
+    6.0
+   ]
+  }
+ },
+ "linear_vs_exp": {
+  "tau": {
+   "gamma_per_kPa": 2.0787713701616646,
+   "dLL_linear": 1778.073064034077,
+   "dLL_exp": 1922.4653273654112,
+   "beta_exp": 2.1632286135344496,
+   "gmax": 2.1881803896438576
+  },
+  "cfs0.1": {
+   "gamma_per_kPa": 1.9521386408762784,
+   "dLL_linear": 1885.5265314925346,
+   "dLL_exp": 2138.2179686205636,
+   "beta_exp": 2.3799607449929554,
+   "gmax": 2.1690429343069755
+  }
+ },
+ "bootstrap": {
+  "tau": {
+   "beta_mean": 2.1520274245281437,
+   "beta_sd": 0.0929235199540986,
+   "a_sigma_2p5_97p5": [
+    0.42786117802772844,
+    0.504022299336586
+   ]
+  },
+  "sn": {
+   "beta_mean": 0.08964743893919856,
+   "beta_sd": 0.03558427907101493,
+   "a_sigma_2p5_97p5": [
+    6.665362979409164,
+    34.607809435631246
+   ]
+  },
+  "cfs0.4": {
+   "beta_mean": 1.2631059050897573,
+   "beta_sd": 0.0695643584426848,
+   "a_sigma_2p5_97p5": [
+    0.7270512360860566,
+    0.8938711702275616
+   ]
+  },
+  "tau_OL": {
+   "beta_mean": 0.21485027261115333,
+   "beta_sd": 0.10292409526684576,
+   "a_sigma_2p5_97p5": [
+    2.3290023853414232,
+    32.752695088403534
+   ]
+  },
+  "mu_eff_tau+sn": {
+   "median": 0.11113542833698721,
+   "p2p5": 0.0837063278335824,
+   "p97p5": 0.13938504520726594
+  }
+ },
+ "nulls": {
+  "tau": {
+   "beta_onestep": 1.8288978711419528,
+   "z_poisson": 57.44443054381893,
+   "dayshift_null_sd": 0.08725800610742457,
+   "dayshift_null_95abs": 0.21090061102616325,
+   "dayshift_p": 0.000999000999000999,
+   "dayshift_z": 20.959656915496907,
+   "scramble_null_sd": 0.4991388628825114,
+   "scramble_null_95abs": 0.9487482692954251,
+   "scramble_p": 0.00398406374501992,
+   "scramble_z": 3.664106338224446
+  },
+  "sn": {
+   "beta_onestep": 0.08000125356317321,
+   "z_poisson": 7.1319169603554515,
+   "dayshift_null_sd": 0.030615592547582105,
+   "dayshift_null_95abs": 0.0684255525014865,
+   "dayshift_p": 0.026973026973026972,
+   "dayshift_z": 2.613088524706388,
+   "scramble_null_sd": 0.17556856550383618,
+   "scramble_null_95abs": 0.3252918500232407,
+   "scramble_p": 0.6653386454183267,
+   "scramble_z": 0.45566957463934615
+  },
+  "cfs0.4": {
+   "beta_onestep": 1.1213927940850466,
+   "z_poisson": 48.046930978808234,
+   "dayshift_null_sd": 0.0643412955149943,
+   "dayshift_null_95abs": 0.16972745831953961,
+   "dayshift_p": 0.000999000999000999,
+   "dayshift_z": 17.42881900510868,
+   "scramble_null_sd": 0.38969738983448793,
+   "scramble_null_95abs": 0.7438733056114054,
+   "scramble_p": 0.00398406374501992,
+   "scramble_z": 2.8775989353208753
+  },
+  "tau_OL": {
+   "beta_onestep": 0.18925724521592674,
+   "z_poisson": 6.1622136865757415,
+   "dayshift_null_sd": 0.08547376084388511,
+   "dayshift_null_95abs": 0.19360763605944264,
+   "dayshift_p": 0.055944055944055944,
+   "dayshift_z": 2.214214553652303,
+   "scramble_null_sd": 0.413014058662483,
+   "scramble_null_95abs": 0.7727381225374872,
+   "scramble_p": 0.6812749003984063,
+   "scramble_z": 0.45823438995956467
+  }
+ },
+ "dLL_tau_minus_sn_bootstrap": {
+  "obs": 1894.4406762721774,
+  "sd": 188.60652071594038,
+  "frac_le0": 0.0
+ },
+ "family": {
+  "n_fam": 26,
+  "tau_beta_wmean": 2.0899465981926406,
+  "tau_beta_chi2_const": 998.7784996222961,
+  "dof": 25,
+  "a_sigma_tau_median_kPa": 0.5266242654294307,
+  "a_sigma_tau_IQR": [
+   0.4224901990614964,
+   0.8510734154647417
+  ],
+  "n_tau_beta_pos": 25,
+  "n_dayshift_p05": 24,
+  "lag_circmean_deg": 8.952322768970275,
+  "mu_eff_median": 0.25675487466124347,
+  "correlations": {
+   "tau_beta_vs_depth_km": {
+    "spearman": -0.006838775959071756,
+    "p": 0.9735499198243439,
+    "slope": -0.14993555025307037,
+    "slope_se": 0.021649703133615947,
+    "slope_se_scaled": 0.13626818648267655,
+    "chi2_red": 39.61731706337212
+   },
+   "cfs0.4_beta_vs_depth_km": {
+    "spearman": -0.5139340133242425,
+    "p": 0.007237846686252142,
+    "slope": -0.12452315510691508,
+    "slope_se": 0.015051846822954877,
+    "slope_se_scaled": 0.04838591099767963,
+    "chi2_red": 10.333757467367393
+   },
+   "tau_phase_lag_deg_vs_depth_km": {
+    "spearman": -0.4417849269560354,
+    "p": 0.02384806819778861,
+    "slope": -0.7177348305735165,
+    "slope_se": 0.45996157575571606,
+    "slope_se_scaled": 1.9032917425859452,
+    "chi2_red": 17.122517572447524
+   },
+   "tau_beta_vs_along_strike_km": {
+    "spearman": -0.44752136752136745,
+    "p": 0.02188092186861391,
+    "slope": -0.10476870846609285,
+    "slope_se": 0.009164274108866726,
+    "slope_se_scaled": 0.05511535300276334,
+    "chi2_red": 36.170044678802554
+   },
+   "cfs0.4_beta_vs_along_strike_km": {
+    "spearman": 0.6779487179487179,
+    "p": 0.00014146238598260926,
+    "slope": 0.058084973559682014,
+    "slope_se": 0.005776464404591577,
+    "slope_se_scaled": 0.01730288534522987,
+    "chi2_red": 8.972487397648832
+   },
+   "tau_phase_lag_deg_vs_along_strike_km": {
+    "spearman": 0.6485470085470085,
+    "p": 0.00033906958882653555,
+    "slope": 0.5432184503013422,
+    "slope_se": 0.1359850633292419,
+    "slope_se_scaled": 0.5533618731050515,
+    "chi2_red": 16.55907410764871
+   },
+   "tau_beta_vs_horiz_downdip_km": {
+    "spearman": 0.20205128205128203,
+    "p": 0.322246254676485,
+    "slope": 0.11554806813914278,
+    "slope_se": 0.02610898139630028,
+    "slope_se_scaled": 0.16677016150680943,
+    "chi2_red": 40.799687916516454
+   },
+   "cfs0.4_beta_vs_horiz_downdip_km": {
+    "spearman": -0.6225641025641024,
+    "p": 0.0006827107582302814,
+    "slope": -0.19185427239846273,
+    "slope_se": 0.019574421461979578,
+    "slope_se_scaled": 0.059316591041897335,
+    "chi2_red": 9.18278672807587
+   },
+   "tau_phase_lag_deg_vs_horiz_downdip_km": {
+    "spearman": -0.5842735042735042,
+    "p": 0.0017233336842651073,
+    "slope": -5.100139532883585,
+    "slope_se": 0.6697689472940568,
+    "slope_se_scaled": 2.577343633546451,
+    "chi2_red": 14.807939653198039
+   },
+   "tau_beta_vs_lon": {
+    "spearman": 0.4666666666666667,
+    "p": 0.016248326208227505,
+    "slope": 8.93786355710899,
+    "slope_se": 0.7913716670115608,
+    "slope_se_scaled": 4.768030352256878,
+    "chi2_red": 36.30086951898676
+   },
+   "cfs0.4_beta_vs_lon": {
+    "spearman": -0.6936752136752136,
+    "p": 8.506631335357429e-05,
+    "slope": -5.415491994955314,
+    "slope_se": 0.5062810950269231,
+    "slope_se_scaled": 1.4689219372432538,
+    "chi2_red": 8.418098671524914
+   },
+   "tau_phase_lag_deg_vs_lon": {
+    "spearman": -0.6929914529914529,
+    "p": 8.702485505294675e-05,
+    "slope": -54.57554192260509,
+    "slope_se": 12.145951857017824,
+    "slope_se_scaled": 49.16144954154375,
+    "chi2_red": 16.38272905251388
+   }
+  }
+ },
+ "network_fits": [
+  {
+   "model": "tau",
+   "covariates": "tau",
+   "LL": -184668.7200025381,
+   "beta_0": 2.1632286135344496,
+   "se_day_0": 0.09906455091742637,
+   "se_week_0": 0.09894054765807916,
+   "se_poisson_0": 0.03554578411697071,
+   "dLL": 1922.4653273654112,
+   "a_sigma_kPa": 0.4622719918474649,
+   "a_sigma_lo": 0.4242407630541816,
+   "a_sigma_hi": 0.5077933224389601,
+   "std_X_kPa": 0.15130657714147702,
+   "rate_mod_amp": 0.46288725521647933,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "sn",
+   "covariates": "sn",
+   "LL": -186563.16067881027,
+   "beta_0": 0.08790742546148549,
+   "se_day_0": 0.03376519901842124,
+   "se_week_0": 0.03382383163881341,
+   "se_poisson_0": 0.011709610515798384,
+   "dLL": 28.024651093233842,
+   "a_sigma_kPa": 11.37560330939422,
+   "a_sigma_lo": 6.4849944971836315,
+   "a_sigma_hi": 46.269058709475715,
+   "std_X_kPa": 0.4301571221985913,
+   "rate_mod_amp": 0.053477078939826714,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "sss",
+   "covariates": "sss",
+   "LL": -186590.72610202752,
+   "beta_0": 0.004962449983457629,
+   "se_day_0": 0.015748149164480498,
+   "se_week_0": 0.01545363390288219,
+   "se_poisson_0": 0.005175943553180967,
+   "dLL": 0.4592278759810142,
+   "a_sigma_kPa": 201.513366045705,
+   "a_sigma_lo": 28.36752890662103,
+   "a_sigma_hi": null,
+   "std_X_kPa": 0.95171225439261,
+   "rate_mod_amp": 0.006679082405548398,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "mean",
+   "covariates": "mean",
+   "LL": -186581.32255575573,
+   "beta_0": 0.03425377016375664,
+   "se_day_0": 0.02286906222586902,
+   "se_week_0": 0.022671756544489566,
+   "se_poisson_0": 0.0076957760011984976,
+   "dLL": 9.862774147768505,
+   "a_sigma_kPa": 29.193866696112877,
+   "a_sigma_lo": 12.708028360645775,
+   "a_sigma_hi": null,
+   "std_X_kPa": 0.6460944185245066,
+   "rate_mod_amp": 0.031298200363865325,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "cfs0.0",
+   "covariates": "cfs0.0",
+   "LL": -184668.7200025381,
+   "beta_0": 2.1632286135344496,
+   "se_day_0": 0.09906455091742637,
+   "se_week_0": 0.09894054765807916,
+   "se_poisson_0": 0.03554578411697071,
+   "dLL": 1922.4653273654112,
+   "a_sigma_kPa": 0.4622719918474649,
+   "a_sigma_lo": 0.4242407630541816,
+   "a_sigma_hi": 0.5077933224389601,
+   "std_X_kPa": 0.15130657714147702,
+   "rate_mod_amp": 0.46288725521647933,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "cfs0.1",
+   "covariates": "cfs0.1",
+   "LL": -184452.96736128294,
+   "beta_0": 2.3799607449929554,
+   "se_day_0": 0.10746845655286892,
+   "se_week_0": 0.10760430611023189,
+   "se_poisson_0": 0.03799478589799126,
+   "dLL": 2138.2179686205636,
+   "a_sigma_kPa": 0.4201749974674309,
+   "a_sigma_lo": 0.3859714530117326,
+   "a_sigma_hi": 0.46102998695195613,
+   "std_X_kPa": 0.14976458135748494,
+   "rate_mod_amp": 0.5040735488676983,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "cfs0.2",
+   "covariates": "cfs0.2",
+   "LL": -184600.36373628624,
+   "beta_0": 2.168529492020395,
+   "se_day_0": 0.1035212037130045,
+   "se_week_0": 0.10422243779383061,
+   "se_poisson_0": 0.036346406489824894,
+   "dLL": 1990.8215936172637,
+   "a_sigma_kPa": 0.461141987544892,
+   "a_sigma_lo": 0.4214420493389262,
+   "a_sigma_hi": 0.5090992547045847,
+   "std_X_kPa": 0.1602057501079758,
+   "rate_mod_amp": 0.49131319787009914,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "cfs0.3",
+   "covariates": "cfs0.3",
+   "LL": -184965.25608449528,
+   "beta_0": 1.698160173783047,
+   "se_day_0": 0.0865791446169295,
+   "se_week_0": 0.08749853806261143,
+   "se_poisson_0": 0.03117506167020447,
+   "dLL": 1625.929245408217,
+   "a_sigma_kPa": 0.5888726019126143,
+   "a_sigma_lo": 0.534857374939681,
+   "a_sigma_hi": 0.655023390450917,
+   "std_X_kPa": 0.1805631133473809,
+   "rate_mod_amp": 0.4336333579297172,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "cfs0.4",
+   "covariates": "cfs0.4",
+   "LL": -185322.80652042094,
+   "beta_0": 1.264910973841088,
+   "se_day_0": 0.06996235832850536,
+   "se_week_0": 0.07072128272886874,
+   "se_poisson_0": 0.02587405782582324,
+   "dLL": 1268.3788094825577,
+   "a_sigma_kPa": 0.7905694714335137,
+   "a_sigma_lo": 0.7124919202043701,
+   "a_sigma_hi": 0.8878650741572557,
+   "std_X_kPa": 0.20794445515882973,
+   "rate_mod_amp": 0.3719823232898928,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "cfs0.5",
+   "covariates": "cfs0.5",
+   "LL": -185598.16603907244,
+   "beta_0": 0.9498887331455479,
+   "se_day_0": 0.05784732775253711,
+   "se_week_0": 0.05839910244705938,
+   "se_poisson_0": 0.021694589779572816,
+   "dLL": 993.0192908310564,
+   "a_sigma_kPa": 1.0527548807622016,
+   "a_sigma_lo": 0.9395397049307309,
+   "a_sigma_hi": 1.196993402959834,
+   "std_X_kPa": 0.23995720025969097,
+   "rate_mod_amp": 0.32234543215856626,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "cfs0.6",
+   "covariates": "cfs0.6",
+   "LL": -185797.75154201378,
+   "beta_0": 0.7315442301932624,
+   "se_day_0": 0.049241926257579054,
+   "se_week_0": 0.04964116246242828,
+   "se_poisson_0": 0.018544629784463133,
+   "dLL": 793.4337878897204,
+   "a_sigma_kPa": 1.366971344625076,
+   "a_sigma_lo": 1.2065041548991977,
+   "a_sigma_hi": 1.5766714388004723,
+   "std_X_kPa": 0.27498858608531335,
+   "rate_mod_amp": 0.284492128872178,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "tau+sn",
+   "covariates": "tau+sn",
+   "LL": -184451.15483062918,
+   "beta_0": 2.3792161311589672,
+   "se_day_0": 0.10796249847204906,
+   "se_week_0": 0.10808406485482558,
+   "se_poisson_0": 0.03808106057028327,
+   "dLL": 2140.0304992743186,
+   "a_sigma_kPa": null,
+   "a_sigma_lo": null,
+   "a_sigma_hi": null,
+   "std_X_kPa": null,
+   "rate_mod_amp": null,
+   "beta_1": 0.2605834236126985,
+   "se_day_1": 0.035989945746860014,
+   "se_week_1": 0.036254774346352596,
+   "se_poisson_1": 0.012453627435329545,
+   "mu_eff": 0.1095249062075595,
+   "mu_eff_se_week": 0.014582983048451825,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "tau+sn+sss",
+   "covariates": "tau+sn+sss",
+   "LL": -184446.72534144073,
+   "beta_0": 2.358616227171743,
+   "se_day_0": 0.10875972888338331,
+   "se_week_0": 0.10962056508833824,
+   "se_poisson_0": 0.03863410768722467,
+   "dLL": 2144.459988462768,
+   "a_sigma_kPa": null,
+   "a_sigma_lo": null,
+   "a_sigma_hi": null,
+   "std_X_kPa": null,
+   "rate_mod_amp": null,
+   "beta_1": 0.3343493995991104,
+   "se_day_1": 0.0758082561249127,
+   "se_week_1": 0.07606017192437127,
+   "se_poisson_1": 0.027743784357064052,
+   "mu_eff": 0.14175659259329124,
+   "mu_eff_se_week": 0.03306350762966599,
+   "beta_2": -0.03565670022966087,
+   "se_day_2": 0.033003134984905466,
+   "se_week_2": 0.03256068658541617,
+   "se_poisson_2": 0.011962889206088081
+  },
+  {
+   "model": "tau45",
+   "covariates": "tau45",
+   "LL": -184668.7200025381,
+   "beta_0": 1.9664590790177916,
+   "se_day_0": 0.09005353587760813,
+   "se_week_0": 0.08994081208427188,
+   "se_poisson_0": 0.03231250246057745,
+   "dLL": 1922.4653273654112,
+   "a_sigma_kPa": 0.5085282529751296,
+   "a_sigma_lo": 0.46669151036943146,
+   "a_sigma_hi": 0.5586045784437831,
+   "std_X_kPa": 0.16644674714100105,
+   "rate_mod_amp": 0.46288725521647867,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "sn45",
+   "covariates": "sn45",
+   "LL": -186563.16067881027,
+   "beta_0": 0.07264246122670626,
+   "se_day_0": 0.027901933740311087,
+   "se_week_0": 0.02795038491302031,
+   "se_poisson_0": 0.009676257988540455,
+   "dLL": 28.024651093233842,
+   "a_sigma_kPa": 13.76605339512313,
+   "a_sigma_lo": 7.8477402988891045,
+   "a_sigma_hi": 55.99196063832,
+   "std_X_kPa": 0.5205496140664553,
+   "rate_mod_amp": 0.05347707893982616,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "tau45+sn45",
+   "covariates": "tau45+sn45",
+   "LL": -184451.15483062918,
+   "beta_0": 2.1628001464065516,
+   "se_day_0": 0.09814211682736887,
+   "se_week_0": 0.09825262540497301,
+   "se_poisson_0": 0.03461716751920518,
+   "dLL": 2140.0304992743186,
+   "a_sigma_kPa": null,
+   "a_sigma_lo": null,
+   "a_sigma_hi": null,
+   "std_X_kPa": null,
+   "rate_mod_amp": null,
+   "beta_1": 0.21533358697214405,
+   "se_day_1": 0.02974035725358614,
+   "se_week_1": 0.029959198849382734,
+   "se_poisson_1": 0.01029107772584169,
+   "mu_eff": 0.0995624063230791,
+   "mu_eff_se_week": 0.01325649967616517,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "tau_OL",
+   "covariates": "tau_OL",
+   "LL": -186569.80406457046,
+   "beta_0": 0.2132184536228172,
+   "se_day_0": 0.09305515891908417,
+   "se_week_0": 0.09358176353422487,
+   "se_poisson_0": 0.03262076344086415,
+   "dLL": 21.381265333038755,
+   "a_sigma_kPa": 4.690025572406585,
+   "a_sigma_lo": 2.52118609306207,
+   "a_sigma_hi": 33.55907730884433,
+   "std_X_kPa": 0.15680372106196847,
+   "rate_mod_amp": 0.047282034081237496,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "sn_OL",
+   "covariates": "sn_OL",
+   "LL": -186130.93388867666,
+   "beta_0": 0.4358893946671075,
+   "se_day_0": 0.03829219994355004,
+   "se_week_0": 0.03837557564659297,
+   "se_poisson_0": 0.014368594947410057,
+   "dLL": 460.2514412268356,
+   "a_sigma_kPa": 2.2941599686400003,
+   "a_sigma_lo": 1.9565431307778907,
+   "a_sigma_hi": 2.7725925183807725,
+   "std_X_kPa": 0.36237741253714717,
+   "rate_mod_amp": 0.22338418354126635,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "tau_OL+sn_OL",
+   "covariates": "tau_OL+sn_OL",
+   "LL": -186103.06992947476,
+   "beta_0": -0.26730811575259983,
+   "se_day_0": 0.09953224037930014,
+   "se_week_0": 0.09927513430601174,
+   "se_poisson_0": 0.03575167746249737,
+   "dLL": 488.1154004287382,
+   "a_sigma_kPa": null,
+   "a_sigma_lo": null,
+   "a_sigma_hi": null,
+   "std_X_kPa": null,
+   "rate_mod_amp": null,
+   "beta_1": 0.48873028788684114,
+   "se_day_1": 0.04257683871852466,
+   "se_week_1": 0.042410488976600776,
+   "se_poisson_1": 0.016043037126138367,
+   "mu_eff": -1.8283406267364248,
+   "mu_eff_se_week": 0.6296625751127505,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "tau_OLd",
+   "covariates": "tau_OLd",
+   "LL": -185675.20228020212,
+   "beta_0": -1.3743938589042202,
+   "se_day_0": 0.09255092018253583,
+   "se_week_0": 0.09056796564827695,
+   "se_poisson_0": 0.03189042326256695,
+   "dLL": 915.9830497013754,
+   "a_sigma_kPa": -0.7275934722214797,
+   "a_sigma_lo": null,
+   "a_sigma_hi": null,
+   "std_X_kPa": 0.1552455187691628,
+   "rate_mod_amp": -0.30174860897345396,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "sn_OLd",
+   "covariates": "sn_OLd",
+   "LL": -185658.66544079178,
+   "beta_0": 0.539548478956845,
+   "se_day_0": 0.03380245209908738,
+   "se_week_0": 0.03413966703563342,
+   "se_poisson_0": 0.012709751296773831,
+   "dLL": 932.5198891117179,
+   "a_sigma_kPa": 1.8534015737258405,
+   "a_sigma_lo": 1.648907312865923,
+   "a_sigma_hi": 2.1157988044690157,
+   "std_X_kPa": 0.4212753724271074,
+   "rate_mod_amp": 0.32144860219500393,
+   "beta_1": null,
+   "se_day_1": null,
+   "se_week_1": null,
+   "se_poisson_1": null,
+   "mu_eff": null,
+   "mu_eff_se_week": null,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  },
+  {
+   "model": "tau_OLd+sn_OLd",
+   "covariates": "tau_OLd+sn_OLd",
+   "LL": -184764.25945425505,
+   "beta_0": -1.3442451132240378,
+   "se_day_0": 0.09021343956945045,
+   "se_week_0": 0.08813559454125205,
+   "se_poisson_0": 0.031564102014525405,
+   "dLL": 1826.9258756484487,
+   "a_sigma_kPa": null,
+   "a_sigma_lo": null,
+   "a_sigma_hi": null,
+   "std_X_kPa": null,
+   "rate_mod_amp": null,
+   "beta_1": 0.5654603113271084,
+   "se_day_1": 0.03797016535062229,
+   "se_week_1": 0.03833000314990285,
+   "se_poisson_1": 0.013500186361842368,
+   "mu_eff": -0.4206526813929851,
+   "mu_eff_se_week": 0.04010954561255719,
+   "beta_2": null,
+   "se_day_2": null,
+   "se_week_2": null,
+   "se_poisson_2": null
+  }
+ ],
+ "assumptions": [
+  "Degree-2 potential only (degree-3 lunar ~1.7% omitted); spherical Earth, Love h=0.6, Shida l=0.08 (no latitude/frequency dependence, no FCN).",
+  "Body-tide stress = plane stress at the surface (sigma_zz=sigma_xz=sigma_yz=0), assumed constant with depth to ~28 km (first-order; tidal sigma_zz at 25 km is not zero in reality, order 0.3 kPa).",
+  "mu=30 GPa, nu=0.25; no pore-pressure coupling (drained), no poroelastic B.",
+  "Fault strike 293, dip 40 NE (Shelly et al. 2026), rake 180 = right-lateral; LL = sign flip of tau. With body-tide-only plane stress the dip-slip shear is collinear with sigma_n, and dip only rescales tau (sin d) and sigma_n (sin^2 d).",
+  "Ocean loading NOT in the primary model; rough Boussinesq estimate with assumed uniform ocean constants {\"M2\": [0.7, 220.0], \"K1\": [0.37, 235.0], \"O1\": [0.23, 220.0]} (amplitude/phase uncertain by ~0.1 m / ~30 deg); no SAL, no ocean pore-pressure diffusion.",
+  "Event times UTC; TT-UTC=67.6 s constant; UT1=UTC.",
+  "LFE units as in sci_tides.py (meancc>=0.137, then first event per family burst with gap>1 h), 2008-01-01 to 2026-06-30.",
+  "Conditional likelihood (day fixed effects + 24 h time-of-day term) removes slow rate changes and the cultural-noise detection cycle; S2 stress is absorbed by the time-of-day term."
+ ],
+ "ocean_load_fine_profile": {
+  "M2": {
+   "best": {
+    "ocean": "M2",
+    "dphase": -20,
+    "scale": 0.2,
+    "dLL_tau_sn": 2256.2028286054847,
+    "beta_tau": 3.072015086261844,
+    "beta_sn": 0.1695626583680465,
+    "se_tau": 0.13548809656664146,
+    "se_sn": 0.03678793257675535,
+    "mu_eff": 0.055195906793015594,
+    "dLL_tau_only": 2166.108273889753,
+    "beta_tau_only": 2.9995921311664904,
+    "a_sigma_tau_only_kPa": 0.3333786582548198
+   },
+   "scale_range_dLL3": [
+    0.2,
+    0.2
+   ],
+   "dphase_range_dLL3": [
+    -20,
+    -20
+   ],
+   "mu_eff_range_dLL3": [
+    0.055195906793015594,
+    0.055195906793015594
+   ],
+   "a_sigma_tau_only_range": [
+    0.3333786582548198,
+    0.3333786582548198
+   ],
+   "dLL_scale0": 2140.0304992743186,
+   "dLL_max_scale_dphase0": {
+    "0.6": 1028.5490069078514
+   }
+  },
+  "M2+K1+O1": {
+   "best": {
+    "ocean": "M2+K1+O1",
+    "dphase": -40,
+    "scale": 0.0,
+    "dLL_tau_sn": 2140.0304992743186,
+    "beta_tau": 2.3792161311589672,
+    "beta_sn": 0.2605834236126985,
+    "se_tau": 0.10808406485482558,
+    "se_sn": 0.036254774346352596,
+    "mu_eff": 0.1095249062075595,
+    "dLL_tau_only": 1922.4653273654112,
+    "beta_tau_only": 2.1632286135344496,
+    "a_sigma_tau_only_kPa": 0.4622719918474649
+   },
+   "scale_range_dLL3": [
+    0.0,
+    0.0
+   ],
+   "dphase_range_dLL3": [
+    -40,
+    40
+   ],
+   "mu_eff_range_dLL3": [
+    0.1095249062075595,
+    0.1095249062075595
+   ],
+   "a_sigma_tau_only_range": [
+    0.4622719918474649,
+    0.4622719918474649
+   ],
+   "dLL_scale0": 2140.0304992743186,
+   "dLL_max_scale_dphase0": {
+    "1.5": 2012.5740953141358
+   }
+  }
+ }
+}
