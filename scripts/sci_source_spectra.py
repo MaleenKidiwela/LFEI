@@ -788,7 +788,8 @@ def run_analyse(a):
 
 # ----------------------------------------------------------------------------------------- pooling
 STATS = [f'{q}_{g}' for q in QS + ['dD'] for g in GROUPS]
-PMAP = {('step', 'raw'): ('step', 'raw'), ('step', 'amp'): ('step', 'amp'), ('step', 'aboveT'): ('step', 'raw'),
+# ('step', 'aboveT') has no matching placebo (much smaller sets) -> not pooled/z-scored
+PMAP = {('step', 'raw'): ('step', 'raw'), ('step', 'amp'): ('step', 'amp'),
         ('step', 'noise'): ('step', 'noise'), ('late60_240', 'raw'): ('step', 'raw'),
         ('burst', 'amp_year'): ('burst', 'perm'), ('burst', 'raw'): ('burst', 'perm')}
 for _w in (14, 30, 60):
@@ -949,11 +950,11 @@ def run_pool(a):
         Ss = S[S.src == src].sort_values('cls')
         if Ss[['LO', 'MID', 'HFI']].isna().any().any():
             continue
-        for fc0 in (2.0, 3.0, 4.0, 6.0, 8.0):
+        for fc0 in (3.0, 5.0, 8.0):
             beta, chi = fit_beta(Ss.LO.values, Ss.MID.values, Ss.HFI.values, Ss.se_LO.values, Ss.se_MID.values,
                                  Ss.se_HFI.values, fc0)
             bb = []
-            for k in range(100):          # family bootstrap
+            for k in range(40):           # family bootstrap
                 fs = rng.choice(fams, len(fams))
                 sub = pd.concat([sc[(sc.F == F) & (sc.variant == src)] for F in fs])
                 vals = []
@@ -1063,7 +1064,7 @@ def run_pool(a):
     # ---- 4. Brune sensitivity table
     sens = []
     for fc0 in (2.0, 3.0, 4.0, 6.0, 8.0):
-        d = brune_pred(0, 0, fc0 * 1.1) - brune_pred(0, 0, fc0)     # +10% corner at fixed moment (dln fc=0.0953)
+        d = brune_band(fc0 * 1.1) - brune_band(fc0)                 # +10% corner at fixed moment (dln fc=0.0953)
         sens.append(dict(fc0=fc0, dHFI_dlnfc=float((d[B_HI] - d[B_LO]) / np.log(1.1)),
                          dMID_dlnfc=float((d[B_MID] - d[B_LO]) / np.log(1.1)),
                          dLO_dlnfc=float(d[B_LO] / np.log(1.1))))
@@ -1186,7 +1187,7 @@ def run_figs(a):
     # ---- Fig 4: scaling
     fig, axs = plt.subplots(1, 3, figsize=(15, 4.6))
     cols = plt.cm.viridis(np.linspace(0, 0.9, 5))
-    Ss = S[S.src == 'A_pb']
+    Ss = S[S.src == 'LO_pb']
     for c in range(5):
         r = Ss[Ss.cls == c]
         if len(r):
@@ -1200,7 +1201,8 @@ def run_figs(a):
     axs[0].set_title('Amplitude classes (PB-selected, surface-measured)\nnormalised at 2-3 Hz; grey: self-similar, fc0 3/5 Hz, +-0.4')
     axs[0].legend(fontsize=7)
     axs[0].set_xlabel('Hz')
-    for src, mk, g in (('A_pb', 'o', 'surf'), ('A_nc', 's', 'pb'), ('A', '^', 'all')):
+    for src, mk, g in (('LO_pb', 'v', 'surf'), ('LO_surf', 'v', 'pb'), ('A_pb', 'o', 'surf'), ('A_nc', 's', 'pb'),
+                       ('HI_pb', '^', 'surf'), ('HI_surf', '^', 'pb')):
         r = S[S.src == src]
         axs[1].errorbar(r.LO, r.HFI, xerr=r.se_LO, yerr=r.se_HFI, fmt=mk, label=f'{src} classes ({g})')
         if 'dD' in r:

@@ -625,9 +625,37 @@ def stage_measure(a):
 YR = 365.25 * 86400
 T_MID = epoch_s(['2017-01-01'])[0]
 QNAME = ['pet', 'fer', 'm7']
-# known instrument problems excluded from the time-series fits (NOTES 2026-11-22: B045 EH1 2009-2010
-# shifted by ~half a period, probably an undocumented polarity reversal; SWS sees it as ddt -50 ms, dphi +30 deg)
-EXCLUDE = {'PB.B045': ('2000-01-01', '2011-01-01')}
+# Instrument-problem windows excluded from the time-series fits; a free offset is fitted across each
+# window (nuisance). Identified from the SWS series themselves and cross-checked with metadata / NOTES:
+#  B045 EH1 2009-2010 ~half-period shift (NOTES 2026-11-22: undocumented polarity reversal)
+#  B933 2017-01..2021-11 ddt pinned at the search edge, dpol +20 deg (component malfunction); and from 2024-08
+#  (ddt bootstrap error x15, dphi +25 deg: degradation starting 4 months BEFORE the M7)
+#  B935 from 2024-05: bootstrap phi errors jump 4 -> 20 deg (data quality loss, 7 months BEFORE the M7)
+#  B047 2008-2009 start-up; KMPB before the 2010-11-02 epoch; KMR before 2009-09-16 and from the 2025-09-17
+#  sensor swap / 2026-03 posthole; BRIC 2022-12-01..2024-05-22 (degraded, sparse, reinstalled 2024-05-21,
+#  az 97/7 -> 90/0); RVIT 2022-12-20 (Ferndale) .. 2024-06-21 reinstall (ddt -42 ms from the Ferndale day
+#  until the reinstall, then back); BJES 2022-12-20 .. 2024-05-23 reinstall (ddt +40 ms in that window).
+EXCLUDE = {'PB.B045': [('2000-01-01', '2011-01-01')],
+           'PB.B933': [('2017-01-01', '2021-11-01'), ('2024-08-01', '2030-01-01')],
+           'PB.B935': [('2024-05-01', '2030-01-01')],
+           'PB.B047': [('2000-01-01', '2009-03-01')],
+           'NC.KMPB': [('2000-01-01', '2010-11-03')],
+           'NC.KMR': [('2000-01-01', '2009-09-17'), ('2025-09-17', '2030-01-01')],
+           'BK.BRIC': [('2022-12-01', '2024-05-22')],
+           'BK.RVIT': [('2022-12-20T10:34', '2024-06-21')],
+           'BK.BJES': [('2022-12-20T10:34', '2024-05-23')]}
+
+
+def apply_exclude(sta, t):
+    """Returns keep mask and list of break epochs (ends of interior exclusion windows)."""
+    keep = np.ones(len(t), bool)
+    brk = []
+    for a0, a1 in EXCLUDE.get(sta, []):
+        x0, x1 = epoch_s([pd.Timestamp(a0), pd.Timestamp(a1)])
+        keep &= ~((t >= x0) & (t < x1))
+        if np.any(t < x0) and np.any(t >= x1):
+            brk.append(x1)
+    return keep, brk
 
 
 def design(t, steps, period=1.0, extra=()):
@@ -653,7 +681,10 @@ def robust_wls(G, y, e, iters=5, c=2.5):
         u = np.abs(r) / (c * s)
         w = w0 * np.where(u <= 1, 1, 1 / u)
     Gw = G * w[:, None]
-    C = np.linalg.inv(G.T @ Gw)
+    try:
+        C = np.linalg.inv(G.T @ Gw)
+    except np.linalg.LinAlgError:
+        return None, None, None
     dof = max(len(y) - G.shape[1], 1)
     chi = np.sum(w * (y - G @ m) ** 2) / dof
     return m, C * max(chi, 1.0), chi
@@ -663,7 +694,7 @@ def valid_steps(t, qs=QT, need=3, span=YR):
     return [q for q in qs if np.sum((t < q) & (t > q - span)) >= need and np.sum((t >= q) & (t < q + span)) >= need]
 
 
-def series_tests(t, y, e, placebo_dates, rng=None, epochs=()):
+def series_tests(t, y, e, placebo_dates, rng=None, epochs=(), breaks=()):
     """Fit y(t) = c + trend + annual + steps at mainshocks (+ placebo / epoch steps). Returns dict."""
     out = {}
     ok = np.isfinite(y) & np.isfinite(e) & (e > 0)
@@ -672,6 +703,8 @@ def series_tests(t, y, e, placebo_dates, rng=None, epochs=()):
         return None
     e = np.maximum(e, np.median(e) * 0.3)
     qs = valid_steps(t)
+    nq = len(qs)
+    qs = list(qs) + [b for b in breaks if np.sum(t < b) >= 3 and np.sum(t >= b) >= 3]   # nuisance offsets
     G = design(t, qs)
     m, C, chi = robust_wls(G, y, e)
     if m is None:
@@ -679,14 +712,14 @@ def series_tests(t, y, e, placebo_dates, rng=None, epochs=()):
     out.update(n=len(t), t0=t.min(), t1=t.max(), chi2=chi, trend=m[1], se_trend=np.sqrt(C[1, 1]),
                ann_amp=np.hypot(m[2], m[3]), ann_peak_doy=(np.degrees(np.arctan2(m[3], m[2])) % 360) / 360 * 365.25
                + pd.Timestamp('2017-01-01').dayofyear - 1)
-    for j, q in enumerate(qs):
+    for j, q in enumerate(qs[:nq]):
         name = QNAME[list(QT).index(q)]
         out[f'step_{name}'] = m[4 + j]
         out[f'se_step_{name}'] = np.sqrt(C[4 + j, 4 + j])
     # placebo steps (common dates across stations): +one extra step, real steps kept
     pl = {}
     for d in placebo_dates:
-        if np.any(np.abs(d - QT) < 0.25 * YR):
+        if np.any(np.abs(d - QT) < 0.25 * YR) or any(abs(d - b) < 0.15 * YR for b in qs[nq:]):
             continue
         if np.sum((t < d) & (t > d - YR)) < 3 or np.sum((t >= d) & (t < d + YR)) < 3:
             continue
@@ -840,13 +873,12 @@ def stage_analyze(a):
             continue
         ep = meta_epochs(sta)
         g = g[g.nfam_rel > 0]
-        if sta in EXCLUDE:
-            x0, x1 = epoch_s(list(EXCLUDE[sta]))
-            g = g[(g.t < x0) | (g.t >= x1)]
+        keep, brk = apply_exclude(sta, g.t.values)
+        g = g[keep]
         if len(g) < 12:
             continue
         for ob, (y, e) in obs_columns(g).items():
-            r = series_tests(g.t.values, np.asarray(y, float), np.asarray(e, float), pdates, epochs=ep)
+            r = series_tests(g.t.values, np.asarray(y, float), np.asarray(e, float), pdates, epochs=ep, breaks=brk)
             if r is None:
                 continue
             plac_store[(sta, b, ob)] = r.pop('placebo')
@@ -857,7 +889,7 @@ def stage_analyze(a):
                 for hn in ('h0', 'h1'):
                     yh = g[f'{col}_{hn}'].values * sc_
                     eh = np.asarray(e, float) * np.sqrt(2)
-                    rh = series_tests(g.t.values, np.asarray(yh, float), eh, [], epochs=())
+                    rh = series_tests(g.t.values, np.asarray(yh, float), eh, [], epochs=(), breaks=brk)
                     if rh is not None:
                         hh[hn] = rh
                         hh[hn + '_y'] = yh
@@ -936,13 +968,12 @@ def stage_analyze(a):
             for (sta, F), g in Fb.groupby(['sta', 'family']):
                 g = g.sort_values('t')
                 g = g[g.n >= 15]
-                if sta in EXCLUDE:
-                    x0, x1 = epoch_s(list(EXCLUDE[sta]))
-                    g = g[(g.t < x0) | (g.t >= x1)]
+                keep, brk = apply_exclude(sta, g.t.values)
+                g = g[keep]
                 if len(g) < 24:
                     continue
                 y, e = obs_columns(g, g.phi_ref.iloc[0], g.dt_ref.iloc[0], pooled=False)[ob]
-                r = series_tests(g.t.values, np.asarray(y, float), np.asarray(e, float), pdates[::3])
+                r = series_tests(g.t.values, np.asarray(y, float), np.asarray(e, float), pdates[::3], breaks=brk)
                 if r is None or 'placebo_sd' not in r:
                     continue
                 d = dict(sta=sta, family=F, placebo_sd=r['placebo_sd'])
@@ -1047,6 +1078,9 @@ def make_figures(P, R, REF, TS, NET, plt):
             ax.plot(tt, yy, c='tab:orange', lw=1.2)
             for q in qd:
                 ax.axvline(q, c='r', lw=0.7, ls='--')
+            for a0, a1 in EXCLUDE.get(s, []):
+                ax.axvspan(max(pd.Timestamp(a0), pd.Timestamp('2008-01-01')), min(pd.Timestamp(a1), pd.Timestamp('2026-08-01')),
+                           color='0.85', zorder=0)
             lim = np.nanpercentile(np.abs(np.asarray(y, float)), 97) * 1.2
             ax.set_ylim(-lim, lim)
             ax.text(0.01, 0.85, f'{s} {ob}' + (' (ms)' if 'dt' in ob else ' (deg)'), transform=ax.transAxes, fontsize=7)

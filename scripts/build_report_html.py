@@ -94,7 +94,7 @@ figs = {k: fig(v, k) for k, v in {
     'noise_ts': 'figures/sci_noise_dvv_timeseries.png', 'noise_steps': 'figures/sci_noise_dvv_steps.png',
     'strain': 'figures/sci_strain_stacks.png',
     'sharpened': 'figures/sharpened_patches_all_families.png',
-    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
+    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
     'diprake': 'figures/sci_tidal_spotl_dip_rake.png', 'gnss_q2': 'figures/sci_gnss_q2_postseismic.png',
     'density': 'figures/cloud_density_fault_plane.png', 'density_m7': 'figures/cloud_density_m7.png',
     'tidal_fits': 'figures/sci_tidal_spotl_fits.png', 'gnss_q1': 'figures/sci_gnss_q1_rate_peaks.png',
@@ -329,8 +329,26 @@ Whether the Petrolia/Ferndale dips are partly detection loss is being tested wit
 Audet 2023), the McCrory interface corresponds to the slab Moho (~30 km) and all 27 families lie inside the low-velocity layered package
 above it (3–8 km below its top at ~20 km), the zone Shelly et al. (2026) interpret as material accreted to the southern edge of the Gorda slab.</p></div>
 </div>
-<p class="note">In progress: shear-wave splitting through time, LFE source spectra (corner frequency) through time, and our own matched-filter
-scan of continuous data around Petrolia and Ferndale.</p>""")
+<div class="finding"><span class="eyebrow">Sources</span><h3>The M7 changed when the patches slip, not how they rupture</h3>
+<p>Source spectra of all 27 families were compared within each family on the same channel and instrument epoch (matched-filter band amplitudes,
+2–6.5 Hz, amplitude-matched, borehole and surface stations separately, 200 placebo dates). Spectral shape, S-wave duration and size do not change at
+the M7, Ferndale or Petrolia (all |z| &lt; 1.7; 7 of 142 tests exceed |z| = 2, as expected by chance): corner frequency is unchanged within about
+±20%, i.e. stress drop at fixed moment by less than ~2×. Restart events after the M7 look larger only because post-quake noise lets mainly larger
+events be detected; size-matched, their spectra are ordinary. No source change over 18 years that both station groups agree on. Duration barely
+grows with size (2–4%), favouring near-constant duration, though self-similar scaling is not excluded. Individual LFEs genuinely differ in spectral
+shape (up to ±0.2 log10, reproduced on independent stations). Tentative: LFEs within bursts have slightly shorter S envelopes (−8 ms, z −4).</p></div>
+<div class="finding"><span class="eyebrow">Anisotropy</span><h3>Shear-wave splitting did not change; it exposed instrument problems instead</h3>
+<p>Monthly S-wave splitting from isolated LFEs at 28 stations (Silver–Chan, 2–8 and 2–5 Hz, bootstrap, half-splits; precision ~1–2 ms in delay and
+1–2° in fast direction; an injection test recovers rotations fully and delay changes at about half size). No change at Petrolia, Ferndale or the
+M7 (network |z| ≤ 1.5; delay bound ~1–2 ms), no counterpart of the post-2021 dv/v decline, no coherent annual cycle, and no difference between
+borehole and surface stations. The method proved a sensitive check of horizontal components: it found instrument problems at B933 (2017–2021, and
+from 2024-08), B935 (from 2024-05), BRIC (Dec 2022 to its May 2024 reinstall), RVIT and BJES (until their 2024 reinstalls), KMR and KMPB. A check of
+the dv/v results with these windows excluded is in progress. Absolute splitting values are ambiguous (delays near half a period).</p></div>
+</div>
+<p class="note">In progress: dv/v results re-checked with the instrument-problem windows found by the splitting analysis excluded; our own
+matched-filter scan of continuous data around Petrolia and Ferndale (real rate change vs detection loss).</p>""")
+H.append(img('spectra', 'Source-spectral indices (mid- and high-frequency ratios, low-frequency size proxy, S-envelope width) before and after each quake and in the first weeks after the M7, pooled over 27 families, compared with 200 random placebo dates: no change.'))
+H.append(img('sws', 'Shear-wave splitting through time (delay along the reference fast direction and fast-direction change) per station; shaded windows are instrument problems found by this analysis; dashed lines mark the three quakes.'))
 H.append(img('tidal_fits', 'Tidal fits with the converged ocean load (log-likelihood gain over a constant rate). Top left: fit vs effective friction mu\' for several load models (solid right-lateral, dashed left-lateral; right-lateral wins in every model). Top right: fit vs ocean-load scale factor and phase shift; the best fit is at scale 0, i.e. body tide only (the open issue). Bottom left: strike scan at dip 40 deg, right-lateral (dashed line = 293 deg). Bottom right: phase of the LFE rate relative to right-lateral shear per constituent (0 = in phase with right-lateral shear, +-180 = left-lateral).'))
 H.append(img('poro', 'Poroelastic test. Left/centre: tidal fit quality over Skempton B and intrinsic friction (yellow = best; the Shelly & Materna point B=1, mu=0.6 is the red star). Right: fraction of families for which the M7 discourages slip. The regions allowed by the tides and required by the M7 do not overlap.'))
 H.append(img('diprake', 'Shelly et al. (2026) tidal test repeated with the converged ocean load: the right-lateral optimum on 293° holds; a secondary left-lateral peak appears only when the ocean load is too strong relative to the body tide.'))
