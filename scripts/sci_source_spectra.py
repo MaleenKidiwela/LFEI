@@ -769,8 +769,13 @@ def run_analyse(a):
     todo = [F for F in fams if a.force or not os.path.exists(f'{OUT}/fam/fam{F}_rows.csv')]
     sizes = {F: os.path.getsize(f'{OUT}/raw/fam{F}.h5') for F in todo}
     todo = sorted(todo, key=lambda F: -sizes[F])
-    with Pool(a.procs, maxtasksperchild=1) as p:
-        for out in p.imap_unordered(analyse_family, todo):
+    import multiprocessing as mp
+    if a.procs <= 1:      # in-process (no pool: a dead worker cannot hang the parent)
+        it = map(analyse_family, todo)
+    else:                 # spawn context (no fork of HDF5/thread state); dead workers -> timeout
+        p = mp.get_context('spawn').Pool(a.procs, maxtasksperchild=1)
+        it = (r.get(timeout=3600) for r in [p.apply_async(analyse_family, (F,)) for F in todo])
+    for out in it:
             F = out['F']
             pd.DataFrame(out['rows']).to_csv(f'{OUT}/fam/fam{F}_rows.csv', index=False)
             pd.DataFrame(out['prow']).to_csv(f'{OUT}/fam/fam{F}_placebo.csv', index=False)
