@@ -7,8 +7,8 @@ SRC=/home/seismic/LFE
 DST=${1:-/home/seismic/LFEI_repo}
 mkdir -p "$DST"/{scripts,docs,data/stations,data/locations,data/families,data/catalogs,data/relocations,data/patches,results,tools/spotl}
 rsync -a --delete --exclude '__pycache__' --exclude '*.pyc' "$SRC/scripts/" "$DST/scripts/"
-# lab notebook, with a line about another machine user removed
-grep -v 'ajm76' "$SRC/NOTES.md" > "$DST/docs/NOTES.md"
+# lab notebook, minus the line naming another user of the shared machine
+grep -v 'Machine context: user' "$SRC/NOTES.md" > "$DST/docs/NOTES.md"
 cp "$SRC/report/index.html" "$DST/docs/report.html" 2>/dev/null || true
 rsync -a "$SRC/data/stations/" "$DST/data/stations/"
 rsync -a "$SRC/data/locations/" "$DST/data/locations/"
