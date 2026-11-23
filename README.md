@@ -26,6 +26,7 @@ is in [`docs/report.html`](docs/report.html).
 | `docs/figs/` | figures used by `docs/report.html` |
 | `results/<analysis>/` | summary JSON of each science analysis |
 | `results/dvv_pool/` | per-station-channel dv/v curves (all 27 families pooled; `<NET.STA.LOC.CHA>_curve.csv`: time, segment, dv/v %, error %) and per-channel fit parameters (`params_by_channel.csv`) |
+| `results/dvv_pool_clean/` | **instrument-cleaned** per-station curves (use these): windows with instrument problems removed; channels split at sensor reinstalls into `<chan>__seg<k>_curve.csv`, each segment with its own level (`scripts/dvv_cwire_pool_clean.py`) |
 | `tools/spotl/LFE_INSTALL.txt` | how SPOTL (ocean-tide loading) was built for the tidal-stress model |
 
 Not included (size or licence): raw and continuous waveforms, per-family HDF5 waveform sets, derived intermediate data

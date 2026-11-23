@@ -64,18 +64,19 @@ def fig_rates():
             return np.histogram(d, edges)[0]
         cc = c[(c.t >= t0) & (c.t < t1)]
         pre = edges[:-1] < 0
+        fa = D.fa.astype(str) == 'True'
+        npos = hist(D[(D.rule == 'fixed10') & (D.sign == 1)].t)
         for lab, n, col, ls in [('catalog', hist(cc.t), COL['cat'], '-'),
-                                ('scan fixed 8xMAD0 (+)', hist(D[(D.rule == 'fixed8') & (D.sign == 1)].t), COL['fixed8'], '-'),
+                                ('scan fixed 10xMAD0 (+)', npos, COL['fixed8'], '-'),
                                 ('scan daily 8xMAD (+)', hist(D[(D.rule == 'daily') & (D.sign == 1)].t), COL['daily'], '-')]:
             a.step(edges[:-1], n / max(n[pre].mean(), 1e-9), where='post', color=col, lw=1, ls=ls, label=lab)
-        nn = hist(D[(D.rule == 'fixed8') & (D.sign == -1)].t)
-        npos = hist(D[(D.rule == 'fixed8') & (D.sign == 1)].t)
+        nn = hist(D[(D.rule == 'fixed10') & (D.sign == -1) & fa].t)
         a.step(edges[:-1], nn / max(npos[pre].mean(), 1e-9), where='post', color=COL['neg'], lw=0.8,
-               label='scan fixed, reversed (false alarms)')
+               label='scan fixed 10x, reversed false alarms')
         a.axvline(0, color='b', lw=0.8)
         a.axhline(1, color='0.5', lw=0.5)
         a.set_ylabel('daily rate / pre-quake')
-        a.set_ylim(0, 2.5)
+        a.set_ylim(0, 3)
         a.set_title(NAME[tag], fontsize=10, loc='left')
         if i == 0:
             a.legend(fontsize=7, ncol=2, loc='upper left')
@@ -92,9 +93,9 @@ def fig_ratios():
         s = json.load(open(f'data/scan_quakes/{tag}_summary.json'))
         for j, (lab, val, col) in enumerate([
                 ('catalog', [s['catalog'][k]['ratio'] for k in wins], COL['cat']),
-                ('scan fixed8 (FA-corr.)', [s['fixed8'][k]['ratio_fa_corr'] for k in wins], COL['fixed8']),
-                ('scan fixed8 / inj. eff.', [s.get('corrected', {}).get('fixed8', {}).get(k, np.nan) for k in wins], '#9467bd'),
-                ('scan daily 8xMAD', [s['daily'][k]['ratio'] for k in wins], COL['daily'])]):
+                ('scan fixed 10xMAD0 (FA-corr.)', [s['fixed10'][k]['ratio_fa_corr'] for k in wins], COL['fixed8']),
+                ('scan fixed 10x / inj. efficiency', [s.get('corrected', {}).get('fixed10', {}).get(k, np.nan) for k in wins], '#9467bd'),
+                ('scan daily 8xMAD (FA-corr.)', [s['daily'][k]['ratio_fa_corr'] for k in wins], COL['daily'])]):
             xs = np.arange(3) + i * 3.6 + (j - 1.5) * w
             ax[0].bar(xs, val, w, color=col, label=lab if i == 0 else None)
     ax[0].set_xticks([k + i * 3.6 for i in range(len(TAGS)) for k in range(3)])
@@ -113,7 +114,7 @@ def fig_ratios():
             k = (I.h >= a0) & (I.h < a1)
             if k.sum() < 5:
                 continue
-            p_ = I.det_fixed8[k].mean()
+            p_ = I.det_fixed10[k].mean()
             se = np.sqrt(p_ * (1 - p_) / k.sum())
             x.append((a0 + a1) / 2)
             y.append(p_)
@@ -121,7 +122,7 @@ def fig_ratios():
         ax[1].errorbar(x, y, yerr=lo, marker='o', ms=3, lw=1, capsize=2, label=NAME[tag])
     ax[1].axvline(0, color='b', lw=0.8)
     ax[1].set_xlabel('hours since mainshock')
-    ax[1].set_ylabel('injected-event detection efficiency (fixed 8xMAD0)')
+    ax[1].set_ylabel('injected-event detection efficiency (fixed 10xMAD0)')
     ax[1].set_ylim(0, 1)
     ax[1].legend(fontsize=7)
     fig.tight_layout()

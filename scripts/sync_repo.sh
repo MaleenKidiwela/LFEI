@@ -39,3 +39,6 @@ echo "added patch images + figures"; du -sh "$DST" --exclude=.git
 # per-station-channel dv/v curves (all families pooled) and per-channel parameters
 mkdir -p "$DST/results/dvv_pool"; rsync -a --delete "$SRC/data/dvv/pool/" "$DST/results/dvv_pool/"
 cp "$SRC"/figures/dvv_pool_channels.png "$SRC"/figures/dvv_pool_map.png "$DST/docs/figures/"
+# instrument-cleaned per-station dv/v curves
+mkdir -p "$DST/results/dvv_pool_clean"; rsync -a --delete "$SRC/data/dvv/pool_clean/" "$DST/results/dvv_pool_clean/"
+cp "$SRC"/figures/dvv_pool_channels_clean.png "$DST/docs/figures/"

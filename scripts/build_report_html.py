@@ -94,7 +94,7 @@ figs = {k: fig(v, k) for k, v in {
     'noise_ts': 'figures/sci_noise_dvv_timeseries.png', 'noise_steps': 'figures/sci_noise_dvv_steps.png',
     'strain': 'figures/sci_strain_stacks.png',
     'sharpened': 'figures/sharpened_patches_all_families.png',
-    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'instr': 'figures/sci_dvv_instrument_check.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
+    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'instr': 'figures/sci_dvv_instrument_check.png', 'poolclean': 'figures/dvv_pool_channels_clean.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
     'diprake': 'figures/sci_tidal_spotl_dip_rake.png', 'gnss_q2': 'figures/sci_gnss_q2_postseismic.png',
     'density': 'figures/cloud_density_fault_plane.png', 'density_m7': 'figures/cloud_density_m7.png',
     'tidal_fits': 'figures/sci_tidal_spotl_fits.png', 'gnss_q1': 'figures/sci_gnss_q1_rate_peaks.png',
@@ -436,6 +436,7 @@ for s, r in sta.iterrows():
     H.append(f'<tr><td>{s}</td><td>{r.type.split(" ")[0]}</td><td>{f(r.dist, "{:.0f}")}</td><td>{r.nch}</td><td>{r.nfam:.0f}</td>'
              f'<td>{sig(r.m7, r.m7se)}</td><td>{sig(r.tr, r.trse)}</td><td>{r.ann:.3f}</td><td>{r.doy:.0f}</td></tr>')
 H.append('</table></div>')
+H.append(img('poolclean', 'Instrument-cleaned curves for the channels with instrument problems found by the shear-wave-splitting analysis (grey: original; colour: cleaned). Excluded windows are shaded red; at sensor reinstalls (B933, BRIC, RVIT, BJES, KMPB maintenance) each instrument segment is inverted separately with its own level, so reinstall jumps cannot appear as velocity changes. The table and map above use the original curves; for these stations use the cleaned values (data/dvv/pool_clean/).'))
 H.append(img('poolcurves', 'dv/v curves per station-channel (all families pooled); dashed lines mark the three quakes.'))
 H.append(img('longterm', 'Yearly-mean dv/v (seasonal cycle averaged out), median and interquartile range over channels.'))
 H.append(img('instr', 'dv/v claims re-run with the instrument-problem windows excluded and with free offsets at sensor reinstalls: the decline, its onset after mid-2021, the M7 surface step and the annual cycle survive; the surface/borehole contrast shrinks to 1.2-1.5x.'))
