@@ -94,7 +94,7 @@ figs = {k: fig(v, k) for k, v in {
     'noise_ts': 'figures/sci_noise_dvv_timeseries.png', 'noise_steps': 'figures/sci_noise_dvv_steps.png',
     'strain': 'figures/sci_strain_stacks.png',
     'sharpened': 'figures/sharpened_patches_all_families.png',
-    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
+    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
     'diprake': 'figures/sci_tidal_spotl_dip_rake.png', 'gnss_q2': 'figures/sci_gnss_q2_postseismic.png',
     'density': 'figures/cloud_density_fault_plane.png', 'density_m7': 'figures/cloud_density_m7.png',
     'tidal_fits': 'figures/sci_tidal_spotl_fits.png', 'gnss_q1': 'figures/sci_gnss_q1_rate_peaks.png',
@@ -347,6 +347,7 @@ the dv/v results with these windows excluded is in progress. Absolute splitting 
 </div>
 <p class="note">In progress: dv/v results re-checked with the instrument-problem windows found by the splitting analysis excluded; our own
 matched-filter scan of continuous data around Petrolia and Ferndale (real rate change vs detection loss).</p>""")
+H.append(img('lfespec', 'LFE S-wave spectra. (a) Family 23 on its six best channels: S window vs pre-event noise; the LFE signal clearly exceeds noise only at about 2-7 Hz. (b) Median displacement spectrum of every family on borehole PB.B049 (velocity divided by f, normalised at 2.2 Hz): the falloff over 2-7 Hz lies between Brune shapes with corner 4 and 8 Hz for t* = 0.04 s; the corner frequency trades off with the unknown attenuation, so the absolute corner is not resolved.'))
 H.append(img('spectra', 'Source-spectral indices (mid- and high-frequency ratios, low-frequency size proxy, S-envelope width) before and after each quake and in the first weeks after the M7, pooled over 27 families, compared with 200 random placebo dates: no change.'))
 H.append(img('sws', 'Shear-wave splitting through time (delay along the reference fast direction and fast-direction change) per station; shaded windows are instrument problems found by this analysis; dashed lines mark the three quakes.'))
 H.append(img('tidal_fits', 'Tidal fits with the converged ocean load (log-likelihood gain over a constant rate). Top left: fit vs effective friction mu\' for several load models (solid right-lateral, dashed left-lateral; right-lateral wins in every model). Top right: fit vs ocean-load scale factor and phase shift; the best fit is at scale 0, i.e. body tide only (the open issue). Bottom left: strike scan at dip 40 deg, right-lateral (dashed line = 293 deg). Bottom right: phase of the LFE rate relative to right-lateral shear per constituent (0 = in phase with right-lateral shear, +-180 = left-lateral).'))
