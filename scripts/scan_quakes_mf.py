@@ -27,13 +27,15 @@ import numpy as np
 import pandas as pd
 from obspy import UTCDateTime, read
 from scipy.ndimage import maximum_filter1d
-from scipy.signal import butter, find_peaks, oaconvolve, sosfiltfilt
+from scipy import fft as sfft
+from scipy.signal import butter, find_peaks, sosfiltfilt
 
 sys.path.insert(0, os.path.dirname(__file__))
 from scan_matched_filter import SR, load_templates  # noqa: E402
 
 NPTS = int(86400 * SR)
 HR = int(3600 * SR)
+BL = 16384          # overlap-save FFT block length
 FLOOR_K = 6.0
 TEMPLATES = {}   # filled in workers via initializer
 INJ = None
@@ -118,25 +120,40 @@ def scan_day(args):
             if vv.mean() > 0.5:
                 rms_rows.append(dict(cid=cid, hour=h, rms=float(np.sqrt(np.mean(x[h * HR:(h + 1) * HR][vv] ** 2)))))
     pd.DataFrame(rms_rows).to_csv(os.path.join(out_dir, f'chanrms_{day}.csv'), index=False)
-    dens = {}
-    det_rows, hr_rows = [], []
-    for F, tpls in TEMPLATES.items():
-        ccsum = np.zeros(NPTS)
-        nch = np.zeros(NPTS)
-        for cid, (tpl, w0) in tpls.items():
-            if cid not in data:
-                continue
+    # correlation: channel-outer, overlap-save with one forward FFT per channel shared by all families
+    fam_list = list(TEMPLATES)
+    ccsums = {F: np.zeros(NPTS, np.float32) for F in fam_list}
+    nchs = {F: np.zeros(NPTS, np.float32) for F in fam_list}
+    mmax = max(len(t[0]) for T in TEMPLATES.values() for t in T.values())
+    step = BL - mmax + 1
+    for cid in data:
+        users = [(F, TEMPLATES[F][cid]) for F in fam_list if cid in TEMPLATES[F]]
+        if not users:
+            continue
+        x = data[cid]
+        nb = int(np.ceil((NPTS - mmax + 1) / step))
+        pad = np.zeros((nb - 1) * step + BL, np.float32)
+        pad[:NPTS] = x
+        X = sfft.rfft(np.lib.stride_tricks.sliding_window_view(pad, BL)[::step], axis=1)
+        dens, vcs = {}, {}
+        for F, (tpl, w0) in users:
             n = len(tpl)
-            if (cid, n) not in dens:
-                dens[(cid, n)] = moving_stats(data[cid].astype(float), n).astype(np.float32)
-            num = oaconvolve(data[cid], tpl[::-1].astype(np.float32), mode='valid')
-            cc = np.clip(num * dens[(cid, n)], -1.0, 1.0)
+            if n not in dens:
+                dens[n] = moving_stats(x.astype(float), n).astype(np.float32)
+                vcs[n] = valid[cid][n // 2:n // 2 + NPTS - n + 1].astype(np.float32)
+            Tk = np.conj(sfft.rfft(tpl.astype(np.float32), n=BL))
+            num = sfft.irfft(X * Tk, n=BL, axis=1)[:, :step].ravel()[:NPTS - n + 1]
+            cc = np.clip(num * dens[n], -1.0, 1.0) * vcs[n]
             shift = int(round(w0 * SR))
-            k = np.arange(len(cc)) - shift
-            ok = (k >= 0) & (k < NPTS)
-            vv = valid[cid][np.clip(np.arange(len(cc)) + n // 2, 0, NPTS - 1)][ok]
-            ccsum[k[ok]] += np.where(vv, cc[ok], 0.0)
-            nch[k[ok]] += vv
+            j0, j1 = max(0, shift), min(NPTS - n + 1, NPTS + shift)
+            if j1 <= j0:
+                continue
+            ccsums[F][j0 - shift:j1 - shift] += cc[j0:j1]
+            nchs[F][j0 - shift:j1 - shift] += vcs[n][j0:j1]
+    det_rows, hr_rows = [], []
+    for F in fam_list:
+        ccsum = ccsums[F].astype(float)
+        nch = nchs[F]
         if not nch.any():
             continue
         mad_day = np.median(np.abs(ccsum - np.median(ccsum)))

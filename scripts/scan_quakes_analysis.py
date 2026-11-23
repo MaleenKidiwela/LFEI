@@ -32,10 +32,10 @@ def ep(x):
 
 
 def near(ts, ref, tol=TOL):
-    ref = np.sort(np.asarray(ref, float))
-    if len(ref) == 0 or len(ts) == 0:
+    ref = np.r_[-np.inf, np.sort(np.asarray(ref, float)), np.inf]
+    if len(ts) == 0:
         return np.zeros(len(ts), bool)
-    i = np.clip(np.searchsorted(ref, ts), 1, max(len(ref) - 1, 1))
+    i = np.searchsorted(ref, ts)
     return np.minimum(abs(ts - ref[i - 1]), abs(ts - ref[i])) <= tol
 
 
@@ -73,6 +73,13 @@ def catalog():
     return c
 
 
+def fa_filter(neg, pos, cw, tol=3.0):
+    """False-alarm control: reversed detections NOT within +-tol s of a catalog LFE or of a
+    catalog-matched positive detection (those are CC side-lobes / cross-family responses of real LFEs)."""
+    ref = np.r_[cw.ts.values, pos[pos.catany].ts.values]
+    return neg[~near(neg.ts.values, ref, tol)]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--tag', required=True)
@@ -104,7 +111,8 @@ def main():
     rules = {'daily': D.ccsum.abs() >= 8 * D.mad_day,
              'hourly': D.ccsum.abs() >= 8 * D.mad_hour,
              'fixed8': D.ccsum.abs() >= 8 * D.b,
-             'fixed10': D.ccsum.abs() >= 10 * D.b}
+             'fixed10': D.ccsum.abs() >= 10 * D.b,
+             'fixed12': D.ccsum.abs() >= 12 * D.b}
     out = dict(tag=tag, quake=str(Q), window=[str(t_lo), str(t_hi)], T_pre_d=T_pre, T_post_d=T_post,
                n_days_scanned=len(days), floor_violation_frac=float(floor_viol),
                baseline_mad_median=float(b.median()))
@@ -134,10 +142,12 @@ def main():
             k = pos.fam == F
             pos.loc[k, 'catfam'] = near(pos.ts[k].values, cw[cw.idnum == F].ts.values)
         pos['catany'] = near(pos.ts.values, cw.ts.values)
-        if rn in ('fixed8', 'daily'):
+        n_all = neg
+        neg = fa_filter(neg, pos, cw)
+        if rn in ('fixed8', 'fixed10', 'daily'):
             dets_all.append(pos.assign(rule=rn))
-            dets_all.append(neg.assign(rule=rn))
-        r = dict(pre_pos=cnt(pos, *pre_w), pre_neg=cnt(neg, *pre_w),
+            dets_all.append(n_all.assign(rule=rn, fa=near(n_all.ts.values, neg.ts.values, 0.01)))
+        r = dict(pre_pos=cnt(pos, *pre_w), pre_neg=cnt(neg, *pre_w), pre_neg_all=cnt(n_all, *pre_w),
                  pre_new=cnt(pos[~pos.catany], *pre_w), pre_catmatch=cnt(pos[pos.catany], *pre_w))
         r['pre_pos_rate'] = r['pre_pos'] / T_pre
         r['pre_neg_rate'] = r['pre_neg'] / T_pre
@@ -147,7 +157,7 @@ def main():
             npos, nneg = cnt(pos, t0, t1), cnt(neg, t0, t1)
             pw = pos[(pos.t >= t0) & (pos.t < t1)]
             nw = neg[(neg.t >= t0) & (neg.t < t1)]
-            r[k] = dict(pos=npos, neg=nneg, catmatch=int(pw.catany.sum()),
+            r[k] = dict(pos=npos, neg=nneg, neg_all=cnt(n_all, t0, t1), catmatch=int(pw.catany.sum()),
                         ratio=(npos / dur) / max(r['pre_pos_rate'], 1e-9),
                         ratio_fa_corr=((npos - nneg) / dur) / max(net_pre, 1e-9),
                         neg_ratio=(nneg / dur) / max(r['pre_neg_rate'], 1e-9),
@@ -226,19 +236,45 @@ def main():
         I['h'] = (I.ts - qs) / 3600
         I['det_fixed8'] = I.ccsum >= 8 * I.b
         I['det_fixed10'] = I.ccsum >= 10 * I.b
+        I['det_fixed12'] = I.ccsum >= 12 * I.b
         I['det_daily'] = I.ccsum >= 8 * I.mad_day
         I['det_hourly'] = I.ccsum >= 8 * I.mad_hour
         I['ccrel'] = I.ccsum / I.b
         I.to_csv(f'data/scan_quakes/{tag}_injection.csv', index=False)
         bins = {'pre': (-1e9, 0), 'h0_6': (0, 6), 'h6_24': (6, 24), 'h0_24': (0, 24), 'h24_48': (24, 48),
-                'h48_96': (48, 96)}
+                'h0_48': (0, 48), 'h48_96': (48, 96)}
         inj = {}
         for k, (h0, h1) in bins.items():
             x = I[(I.h >= h0) & (I.h < h1)]
             inj[k] = dict(n=len(x), **{c: float(x[c].mean()) for c in
-                                       ['det_fixed8', 'det_fixed10', 'det_daily', 'det_hourly']},
+                                       ['det_fixed8', 'det_fixed10', 'det_fixed12', 'det_daily', 'det_hourly']},
                           ccrel_median=float(x.ccrel.median()))
         out['injection'] = inj
+        # efficiency-corrected fixed-threshold ratios: weight each detection by 1/relative efficiency
+        out['corrected'] = {}
+        for rn in ('fixed8', 'fixed10'):
+            col = 'det_' + rn
+            e0 = inj['pre'][col]
+            eb = [(0, 6, inj['h0_6'][col]), (6, 24, inj['h6_24'][col]),
+                  (24, 48, inj['h24_48'][col]), (48, 1e9, inj['h48_96'][col])]
+
+            def wsum(x):
+                hh_ = (x.ts.values - qs) / 3600
+                wts = np.ones(len(x))
+                for h0, h1, e in eb:
+                    wts[(hh_ >= h0) & (hh_ < h1)] = min(e0 / max(e, 0.02), 20.0)
+                return wts.sum()
+            X = D[rules[rn]]
+            pos_ = dedup(X[X.sign == 1].copy())
+            pos_['catany'] = near(pos_.ts.values, cw.ts.values)
+            neg_ = fa_filter(dedup(X[X.sign == -1].copy()), pos_, cw)
+            net_pre = (out[rn]['pre_pos'] - out[rn]['pre_neg']) / T_pre
+            corr = {}
+            for k, (t0, t1) in wins.items():
+                dur = (t1 - t0).total_seconds() / 86400
+                corr[k] = (wsum(pos_[(pos_.t >= t0) & (pos_.t < t1)]) -
+                           wsum(neg_[(neg_.t >= t0) & (neg_.t < t1)])) / dur / net_pre
+            out['corrected'][rn] = corr
     json.dump(out, open(f'data/scan_quakes/{tag}_summary.json', 'w'), indent=1, default=float)
     print(json.dumps(out, indent=1, default=float))
 

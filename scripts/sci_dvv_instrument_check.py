@@ -895,7 +895,10 @@ def figures(V, curves, st, P, B):
         for q in Q.values():
             a.axvline(q, color='0.5', ls='--', lw=0.8)
         a.axhline(0, color='0.7', lw=0.5)
-        a.set_title(f'{g}: deseasoned group-median monthly dv/v (3-mo running mean)\nV0 original, V1 windows excluded, V2/V3 baseline segment only', fontsize=9)
+        ttl = f'{g}: deseasoned group-median monthly dv/v (3-mo running mean)\nV0 original, V1 windows excluded, V2/V3 baseline segment only'
+        if g == 'surface':
+            ttl += '\n(V2/V3 after 2023-10 = KMR+HAYF(+RBOW) only: KMPB/BRIC/RVIT/BJES dropped after their breaks)'
+        a.set_title(ttl, fontsize=8)
         a.set_ylabel('dv/v (%) rel. 2019-2021H1')
         a.legend(fontsize=8)
     a = ax[1, 0]
@@ -903,6 +906,10 @@ def figures(V, curves, st, P, B):
     x = np.arange(len(s))
     for j, v in enumerate(VARIANTS):
         a.plot(x + (j - 1.5) * 0.18, s[v], 'o', color=col[v], label=v)
+    dm = pd.read_csv(f'{OUT}/decline_model_per_channel.csv')
+    dm = dm[(dm['mode'] == 'V2_free_offsets') & (dm.kind == 'steps+ramp')].assign(sta=lambda d: d.chan.map(sta_of))
+    dm = dm.groupby('sta').D_model_pct.median().reindex(s.index)
+    a.plot(x + 0.36, dm, 's', mfc='none', color='tab:red', ms=7, label='V2 model: steps+ramp, free offsets')
     a.set_xticks(x)
     a.set_xticklabels([i.split('.')[1] for i in s.index], rotation=60, fontsize=8)
     a.axhline(0, color='0.7', lw=0.5)

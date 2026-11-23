@@ -2,7 +2,8 @@
 """Build a synthetic-injection table for scan_quakes_mf.py --inject (detection-efficiency test).
 
 Donors: per family, NDONOR catalog events from the pre-quake window (Q-30 d .. Q-2 d) with typical
-strength (Shelly cc_div_thr_v2 between the family's 40th and 60th percentiles in that window).
+strength (Shelly cc_div_thr_v2 between the family's 30th and 70th percentiles in that window;
+no other catalog event within +-5 s).
 For each donor, the raw continuous segment on every template channel (same demean/taper/resample
 as the scan, NOT band-passed; includes the donor's own background noise) from min(w0)-3 s to
 max(w0)+9 s around the catalog time, with 1-s cosine end tapers. Gap-free channels only.
@@ -39,6 +40,7 @@ def main():
     ap.add_argument('--ndonor', type=int, default=6)
     ap.add_argument('--cont', default='data/continuous')
     ap.add_argument('--seed', type=int, default=1)
+    ap.add_argument('--iso', type=float, default=5.0)
     a = ap.parse_args()
     rng = np.random.default_rng(a.seed)
     Q = pd.Timestamp(a.quake)
@@ -52,16 +54,16 @@ def main():
         tpls[F] = load_templates(F, '3d', 10.0, f'data/templates/fam{F}_templates_era{a.era}.h5')
         w = c[(c.idnum == F) & (c.t >= Q - pd.Timedelta(days=30)) & (c.t < Q - pd.Timedelta(days=2))]
         w = w[w.t.dt.strftime('%Y-%m-%d').isin(days_avail)]
-        # avoid events within 60 s of any other catalog event (clean donor coda)
+        # avoid events within ISO s of any other catalog event (cleaner donor segment)
         allt = np.sort(ep(c.t))   # unit-safe epoch seconds (pandas 3 datetime64[us])
         ts = ep(w.t)
         i = np.searchsorted(allt, ts)
         dprev = ts - allt[np.clip(i - 1, 0, len(allt) - 1)]
         dnext = allt[np.clip(i + 1, 0, len(allt) - 1)] - ts
-        w = w[((dprev > 60) | (i == 0)) & (dnext > 60)]
-        q40, q60 = w.cc_div_thr_v2.quantile([0.4, 0.6])
+        w = w[((dprev > a.iso) | (i == 0)) & (dnext > a.iso)]
+        q40, q60 = w.cc_div_thr_v2.quantile([0.3, 0.7])
         cand = w[(w.cc_div_thr_v2 >= q40) & (w.cc_div_thr_v2 <= q60)]
-        pick = cand.sample(min(a.ndonor * 2, len(cand)), random_state=a.seed + F)
+        pick = cand.sample(min(a.ndonor * 4, len(cand)), random_state=a.seed + F)
         want += [(F, r.t) for r in pick.itertuples()]
     # read donor segments, grouped by day
     by_day = {}
@@ -114,6 +116,7 @@ def main():
             donors[did] = dict(fam=F, t_cat=str(t), off0=off0, segs=segs)
             nper[F] += 1
         print(day, sum(nper.values()), flush=True)
+    print('candidates per family:', {F: sum(1 for f, _ in want if f == F) for F in range(1, 28)})
     rows = []
     days = pd.date_range(Q.normalize() - pd.Timedelta(days=a.days_before),
                          Q.normalize() + pd.Timedelta(days=a.days_after), freq='D')

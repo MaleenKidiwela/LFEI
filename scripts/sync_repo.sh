@@ -32,7 +32,7 @@ for v in ovl_incl ovl_excl; do
   cp "$SRC/data/sci/patch_images/$v/"{real_summary.csv,real_error_models.json,time_summary.csv,synth_summary.csv} "$DST/results/patch_images/$v/" 2>/dev/null || true
 done
 cp "$SRC/data/sci/patch_images/population_structure.csv" "$DST/results/patch_images/"
-cp "$SRC"/figures/sharpened_patches_all_families.png "$SRC"/figures/cloud_density_*.png "$SRC"/figures/sci_patch_images_*.png "$DST/docs/figures/"
+cp "$SRC"/figures/sci_dvv_instrument_check*.png "$SRC"/figures/lfe_spectra.png "$SRC"/figures/sharpened_patches_all_families.png "$SRC"/figures/cloud_density_*.png "$SRC"/figures/sci_patch_images_*.png "$DST/docs/figures/"
 # report figures so docs/report.html renders
 rsync -a --delete "$SRC/report/figs/" "$DST/docs/figs/"
 echo "added patch images + figures"; du -sh "$DST" --exclude=.git
