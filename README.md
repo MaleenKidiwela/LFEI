@@ -27,6 +27,7 @@ is in [`docs/report.html`](docs/report.html).
 | `results/<analysis>/` | summary JSON of each science analysis |
 | `results/dvv_pool/` | per-station-channel dv/v curves (all 27 families pooled; `<NET.STA.LOC.CHA>_curve.csv`: time, segment, dv/v %, error %) and per-channel fit parameters (`params_by_channel.csv`) |
 | `results/dvv_pool_clean/` | **instrument-cleaned** per-station curves (use these): windows with instrument problems removed; channels split at sensor reinstalls into `<chan>__seg<k>_curve.csv`, each segment with its own level (`scripts/dvv_cwire_pool_clean.py`) |
+| `results/dvv_source_receiver/` | joint source–receiver dv/v separation (`scripts/sci_dvv_source_receiver.py`): family source-term table, regressions, bounds on the common deep term and stress sensitivity |
 | `tools/spotl/LFE_INSTALL.txt` | how SPOTL (ocean-tide loading) was built for the tidal-stress model |
 
 Not included (size or licence): raw and continuous waveforms, per-family HDF5 waveform sets, derived intermediate data
@@ -67,7 +68,7 @@ Not included (size or licence): raw and continuous waveforms, per-family HDF5 wa
      (converged ocean load at depth, poroelastic test)
    - triggering: `sci_dyn_trigger.py`, `sci_remote_check.py`
    - geodesy: `sci_strain_stack.py` (PBO strainmeters), `sci_gnss.py`
-   - source and path: `sci_transient_source*.py`, `sci_dvv_depth*.py`, `sci_source_spectra.py`, `sci_sws.py`
+   - source and path: `sci_transient_source*.py`, `sci_dvv_depth*.py`, `sci_source_spectra.py`, `sci_sws.py`, `sci_dvv_source_receiver.py` (+ `_analyze`)
 6. **Report**: `build_report_html.py`.
 
 Most scripts take `--family F` or stage arguments; see each script's docstring. Paths are relative to the project root.
@@ -82,7 +83,8 @@ Most scripts take `--family F` or stage arguments; see each script's docstring. 
 - Patches: resolved, ~560 × 350 m, elongated along strike, flat-topped; no sub-asperities above ~150–200 m; no shape change across the M7.
 - Interaction: ~9× coupling between families at 10 min, stronger along strike; 31–55 % of episodes propagate at 80–100 km/day.
 - dv/v: 18-year record from repeating LFEs; robust annual cycle; a non-recovering velocity decrease since 2021, receiver-side, confirmed
-  independently with ambient noise.
+  independently with ambient noise, confined to the top few hundred metres. A joint source–receiver fit finds no family-specific
+  (source-side) change at any quake or over the decline (scatter < 0.03–0.13 %); a common deep change is bounded, not detected.
 - Geodesy: no aseismic slip detectable with strainmeters (< Mw 4.4 per episode) or GNSS (< Mw 5.1–5.6).
 
 ## Licence

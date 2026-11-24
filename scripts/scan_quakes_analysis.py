@@ -241,7 +241,9 @@ def main():
     out['threshold'] = th
 
     # injection test
-    inj_pk = f'data/scan_quakes/inject/{base}_inject.pkl'
+    inj_pk = f'data/scan_quakes/inject/{base}_inject_v3.pkl'
+    if not os.path.exists(inj_pk):
+        inj_pk = f'data/scan_quakes/inject/{base}_inject.pkl'
     if os.path.exists(inj_pk) and glob.glob(f'data/scan_quakes/{tag}_inj/det_*.csv'):
         tab = pd.read_pickle(inj_pk)['table']   # our own file (scan_quakes_inject.py)
         DI, HI, _, idays = load(f'{tag}_inj')
@@ -281,19 +283,28 @@ def main():
                (96, 168, 'd4_7'), (168, 336, 'd7_14'), (336, 1e9, 'd14_30')]
 
         def eff_fun(col):
+            """Relative efficiency e(h): fine bins over the first 4 d; after that, linear interpolation
+            between the daily efficiencies of the injected days (h >= 72 h)."""
             e0 = inj['pre'][col]
             pieces, last = [], 1.0
-            for h0, h1, k in seq:
+            for h0, h1, k in seq[:4]:
                 if k in inj:
                     last = inj[k][col] / max(e0, 1e-9)
                 pieces.append((h0, h1, last))
-            return pieces
+            J = I[I.h >= 72].copy()
+            J['dc'] = (np.floor((J.ts - (qs - (qs % 86400))) / 86400) * 86400 + (qs - (qs % 86400)) + 43200 - qs) / 3600
+            dd = J.groupby('dc')[col].mean() / max(e0, 1e-9)
+            return pieces, dd.index.values, dd.values
 
-        def mean_eff(pieces, h0w, h1w):
+        def mean_eff(model, h0w, h1w):
+            pieces, xc, yc = model
             hs = np.linspace(h0w, h1w, 2000, endpoint=False)
             e = np.ones_like(hs)
             for a0, a1, v in pieces:
                 e[(hs >= a0) & (hs < a1)] = v
+            if len(xc):
+                late = hs >= 96
+                e[late] = np.interp(hs[late], xc, yc)
             return float(e.mean())
         # observed net (positive - reversed false alarms) vs expected under "no rate change, only detection loss"
         out['corrected'] = {}
@@ -324,8 +335,51 @@ def main():
                           (np.searchsorted(nts, starts + wl) - np.searchsorted(nts, starts))
                     r_['p_empirical'] = float(np.mean(npw * me <= max(O, 0)))   # FA noise can make O < 0
                     r_['pre_window_net_q05_q50'] = [float(np.quantile(npw * me, 0.05)), float(np.median(npw * me))]
+                    # same test for the catalog (aftershock-associated events removed), assuming the catalog's
+                    # efficiency loss equals this rule's measured loss
+                    cts = np.sort(cpre.ts.values[~eqassoc(cpre.ts.values)])
+                    ncw = np.searchsorted(cts, starts + wl) - np.searchsorted(cts, starts)
+                    r_['catalog_p_empirical'] = float(np.mean(ncw * me <= out['catalog'][k]['n_clean']))
+                    r_['catalog_expected_if_unchanged'] = float(cat_pre_clean / T_pre * dur * me)
                 res[k] = r_
             out['corrected'][rn] = res
+        # noise-model efficiency: logistic fit of injected detection vs log10(hourly median channel RMS / pre),
+        # applied hour by hour over every window (uses the measured noise time series, not only injected days)
+        from scipy.optimize import minimize
+        hr_rms = hh.set_index('t').chan_rms_rel_med
+        I['t_hour'] = (pd.Timestamp('1970-01-01') + pd.to_timedelta(I.ts, unit='s')).dt.floor('h')
+        I['lrms'] = np.log10(I.t_hour.map(hr_rms).astype(float).clip(lower=0.1))
+        out['corrected_noise_model'] = {}
+        for rn in ('fixed8', 'fixed10', 'daily'):
+            col = 'det_' + rn
+            J = I.dropna(subset=['lrms'])
+            y, xv = J[col].values.astype(float), J.lrms.values
+
+            def nll(par):
+                z = np.clip(par[0] + par[1] * xv, -30, 30)
+                pz = 1 / (1 + np.exp(-z))
+                return -np.sum(y * np.log(pz + 1e-12) + (1 - y) * np.log(1 - pz + 1e-12))
+            fit = minimize(nll, [-1.0, -1.0], method='Nelder-Mead')
+            a0, a1 = fit.x
+
+            def pdet(lr):
+                return 1 / (1 + np.exp(-np.clip(a0 + a1 * lr, -30, 30)))
+            lr_all = np.log10(hr_rms.astype(float).clip(lower=0.1))
+            t_all = hr_rms.index
+            e_pre = float(np.nanmean(pdet(lr_all[(t_all >= t_lo) & (t_all < Q)])))
+            net_pre = (out[rn]['pre_pos'] - out[rn]['pre_neg']) / T_pre
+            res = dict(logit_a=float(a0), logit_b=float(a1), n_inj=int(len(J)))
+            for k, (t0, t1) in wins.items():
+                sel = (t_all >= t0.floor('h')) & (t_all < t1)
+                me = float(np.nanmean(pdet(lr_all[sel])) / e_pre) if sel.any() else np.nan
+                dur = (t1 - t0).total_seconds() / 86400
+                O = out[rn][k]['pos'] - out[rn][k]['neg']
+                E = net_pre * dur * me
+                res[k] = dict(mean_rel_eff=me, observed_net=int(O), expected_if_unchanged=E,
+                              ratio_eff_corr=O / max(E, 1e-9),
+                              catalog_ratio_eff_corr=out['catalog'][k]['ratio'] / max(me, 1e-9),
+                              catalog_clean_ratio_eff_corr=out['catalog'][k]['ratio_clean'] / max(me, 1e-9))
+            out['corrected_noise_model'][rn] = res
     json.dump(out, open(f'data/scan_quakes/{tag}_summary.json', 'w'), indent=1, default=float)
     print(json.dumps(out, indent=1, default=float))
 

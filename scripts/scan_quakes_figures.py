@@ -36,16 +36,22 @@ def fig_threshold():
         a = ax[i, 0]
         a.plot(x, h.mad_rel_med, color='k', lw=1, label='CC-sum MAD (adaptive threshold), median family')
         a.plot(x, h.mad_rel_p90, color='0.6', lw=0.7, label='90th pct family')
-        a.plot(x, h.chan_rms_rel_med, color='#d62728', lw=0.8, label='2-8 Hz RMS, median channel')
         a.plot(x, h.nchan_rel_med, color='#2ca02c', lw=0.8, ls='--', label='channels available')
+        a2 = a.twinx()
+        a2.plot(x, h.chan_rms_rel_med, color='#d62728', lw=0.7, alpha=0.8, label='2-8 Hz RMS, median channel (right, log)')
+        a2.set_yscale('log')
+        a2.set_ylim(0.3, 300)
+        a2.set_ylabel('RMS / pre-quake', color='#d62728', fontsize=8)
         a.axvline(0, color='b', lw=0.8)
         a.axhline(1, color='0.5', lw=0.5)
-        a.set_ylim(0.5, 3)
+        a.set_ylim(0.7, 1.5)
         a.set_xlim(-3, 10)
-        a.set_ylabel('relative to pre-quake')
+        a.set_ylabel('CC-sum MAD / pre-quake')
         a.set_title(NAME[tag], fontsize=10, loc='left')
         if i == 0:
-            a.legend(fontsize=7, ncol=2, loc='upper right')
+            h1, l1 = a.get_legend_handles_labels()
+            h2, l2 = a2.get_legend_handles_labels()
+            a.legend(h1 + h2, l1 + l2, fontsize=7, ncol=2, loc='upper right')
     ax[-1, 0].set_xlabel('days since mainshock')
     fig.tight_layout()
     fig.savefig(f'figures/sci_scan_quakes_threshold{SUFFIX}.png', dpi=150)
@@ -88,44 +94,50 @@ def fig_rates():
 
 
 def fig_ratios():
-    fig, ax = plt.subplots(1, 2, figsize=(11, 3.8))
+    fig, ax = plt.subplots(1, 2, figsize=(12, 4))
     wins = ['24h', '2d', '30d']
-    w = 0.2
+    w = 0.16
+    series = [('catalog', lambda s, k: s['catalog'][k]['ratio'], COL['cat']),
+              ('catalog, aftershock-associated removed', lambda s, k: s['catalog'][k].get('ratio_clean', np.nan), '0.65'),
+              ('scan fixed 10xMAD0 (FA-corr.)', lambda s, k: s['fixed10'][k]['ratio_fa_corr'], COL['fixed8']),
+              ('scan fixed 10x, efficiency-corr.', lambda s, k: s.get('corrected', {}).get('fixed10', {}).get(k, {}).get('ratio_eff_corr', np.nan), '#9467bd'),
+              ('scan daily 8xMAD, efficiency-corr.', lambda s, k: s.get('corrected', {}).get('daily', {}).get(k, {}).get('ratio_eff_corr', np.nan), COL['daily'])]
     for i, tag in enumerate(TAGS):
         s = json.load(open(f'data/scan_quakes/{tag}_summary.json'))
-        for j, (lab, val, col) in enumerate([
-                ('catalog', [s['catalog'][k]['ratio'] for k in wins], COL['cat']),
-                ('scan fixed 10xMAD0 (FA-corr.)', [s['fixed10'][k]['ratio_fa_corr'] for k in wins], COL['fixed8']),
-                ('scan fixed 10x / inj. efficiency', [s.get('corrected', {}).get('fixed10', {}).get(k, np.nan) for k in wins], '#9467bd'),
-                ('scan daily 8xMAD (FA-corr.)', [s['daily'][k]['ratio_fa_corr'] for k in wins], COL['daily'])]):
-            xs = np.arange(3) + i * 3.6 + (j - 1.5) * w
-            ax[0].bar(xs, val, w, color=col, label=lab if i == 0 else None)
-    ax[0].set_xticks([k + i * 3.6 for i in range(len(TAGS)) for k in range(3)])
-    ax[0].set_xticklabels([f'{k}\n{tag.split("_")[0]}' if k == '2d' else k for tag in TAGS for k in wins], fontsize=8)
+        for j, (lab, fn, col) in enumerate(series):
+            xs = np.arange(3) + i * 3.8 + (j - 2) * w
+            ax[0].bar(xs, [max(fn(s, k), 0) for k in wins], w, color=col, label=lab if i == 0 else None)
+    ax[0].set_xticks([k + i * 3.8 for i in range(len(TAGS)) for k in range(3)])
+    ax[0].set_xticklabels([f'{k}\n{NAME[tag].split()[0]}' if k == '2d' else k for tag in TAGS for k in wins], fontsize=8)
     ax[0].axhline(1, color='0.5', lw=0.5)
+    ax[0].set_ylim(0, 1.6)
     ax[0].set_ylabel('post / pre rate ratio')
-    ax[0].legend(fontsize=7)
+    ax[0].legend(fontsize=7, loc='upper left')
     for i, tag in enumerate(TAGS):
         p = f'data/scan_quakes/{tag}_injection.csv'
         if not os.path.exists(p):
             continue
         I = pd.read_csv(p)
-        e = np.array([-48, -24, 0, 3, 6, 12, 24, 36, 48, 72, 96])
-        x, y, lo, hi = [], [], [], []
+        e0 = I.det_daily[I.h < 0].mean()
+        e = np.array([0, 6, 24, 48, 96, 168, 336, 720])
+        x, y, er = [], [], []
         for a0, a1 in zip(e[:-1], e[1:]):
             k = (I.h >= a0) & (I.h < a1)
-            if k.sum() < 5:
+            if k.sum() < 20:
                 continue
-            p_ = I.det_fixed10[k].mean()
-            se = np.sqrt(p_ * (1 - p_) / k.sum())
-            x.append((a0 + a1) / 2)
-            y.append(p_)
-            lo.append(se)
-        ax[1].errorbar(x, y, yerr=lo, marker='o', ms=3, lw=1, capsize=2, label=NAME[tag])
-    ax[1].axvline(0, color='b', lw=0.8)
-    ax[1].set_xlabel('hours since mainshock')
-    ax[1].set_ylabel('injected-event detection efficiency (fixed 10xMAD0)')
-    ax[1].set_ylim(0, 1)
+            p_ = I.det_daily[k].mean()
+            x.append(np.sqrt(a0 * a1) if a0 > 0 else 3)
+            y.append(p_ / e0)
+            er.append(np.sqrt(p_ * (1 - p_) / k.sum()) / e0)
+        ax[1].errorbar(np.array(x) / 24, y, yerr=er, marker='o', ms=3, lw=1, capsize=2, label=NAME[tag])
+    ax[1].set_xscale('log')
+    ax[1].set_xticks([0.1, 0.3, 1, 3, 10, 30])
+    ax[1].set_xticklabels(['0.1', '0.3', '1', '3', '10', '30'])
+    ax[1].minorticks_off()
+    ax[1].axhline(1, color='0.5', lw=0.5)
+    ax[1].set_xlabel('days since mainshock (bin centre)')
+    ax[1].set_ylabel('relative detection efficiency\n(injected LFEs, daily 8xMAD rule)')
+    ax[1].set_ylim(0, 1.5)
     ax[1].legend(fontsize=7)
     fig.tight_layout()
     fig.savefig(f'figures/sci_scan_quakes_ratios{SUFFIX}.png', dpi=150)

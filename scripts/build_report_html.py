@@ -94,7 +94,7 @@ figs = {k: fig(v, k) for k, v in {
     'noise_ts': 'figures/sci_noise_dvv_timeseries.png', 'noise_steps': 'figures/sci_noise_dvv_steps.png',
     'strain': 'figures/sci_strain_stacks.png',
     'sharpened': 'figures/sharpened_patches_all_families.png',
-    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'instr': 'figures/sci_dvv_instrument_check.png', 'poolclean': 'figures/dvv_pool_channels_clean.png', 'famspec': 'figures/sci_family_spectra_scaling.png', 'depth2': 'figures/sci_dvv_depth2_posterior.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
+    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'instr': 'figures/sci_dvv_instrument_check.png', 'poolclean': 'figures/dvv_pool_channels_clean.png', 'famspec': 'figures/sci_family_spectra_scaling.png', 'depth2': 'figures/sci_dvv_depth2_posterior.png', 'srfam': 'figures/sci_dvv_source_receiver_family.png', 'srcommon': 'figures/sci_dvv_source_receiver_common.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
     'diprake': 'figures/sci_tidal_spotl_dip_rake.png', 'gnss_q2': 'figures/sci_gnss_q2_postseismic.png',
     'density': 'figures/cloud_density_fault_plane.png', 'density_m7': 'figures/cloud_density_m7.png',
     'tidal_fits': 'figures/sci_tidal_spotl_fits.png', 'gnss_q1': 'figures/sci_gnss_q1_rate_peaks.png',
@@ -357,11 +357,24 @@ The size range between families is too narrow to tell self-similar from constant
 M7 (network |z| ≤ 1.5; delay bound ~1–2 ms), no counterpart of the post-2021 dv/v decline, no coherent annual cycle, and no difference between
 borehole and surface stations. The method proved a sensitive check of horizontal components: it found instrument problems at B933 (2017–2021, and
 from 2024-08), B935 (from 2024-05), BRIC (Dec 2022 to its May 2024 reinstall), RVIT and BJES (until their 2024 reinstalls), KMR and KMPB. Re-running every dv/v claim with these windows excluded (and with free offsets at the reinstalls): the annual cycle, the borehole decline, the decline onset after mid-2021 and the M7 surface step survive; the surface decline is ~20% smaller; the surface/borehole factor of 2 drops to 1.2–1.5×; the 1–4 Hz noise decline at BRIC does not survive an offset at its 2024 reinstall (its 2–8 Hz decline and M7 drop do, also on the vertical alone); Ferndale steps at RVIT, BRIC and BJES cannot be separated from instrument changes that began with that quake. Absolute splitting values are ambiguous (delays near half a period).</p></div>
+<div class="finding"><span class="eyebrow">dv/v (source side)</span><h3>No velocity change detected at the LFEs themselves; deep changes are bounded, not seen</h3>
+<p>All 1.83 million instrument-cleaned coda measurements were fitted jointly as a receiver term per station channel plus a source term per family
+(sum of family terms fixed at zero, because a change common to every path cannot be told from a change at every station). Only how families
+differ from each other is identifiable. Balanced panel of 8 long-record stations and 25 families; errors calibrated with bootstrap, placebo dates and
+family-label permutations. Family deviations are null at the M7 (step scatter &lt; 0.03%, 60-day transient &lt; 0.13%), Ferndale, Petrolia and over
+the post-2021 decline (&lt; 0.06%); no family exceeds |z| = 1.6 for any step, and nothing scales with silence duration, modelled stress change or position
+(one lead: family 27, transient −0.15 ± 0.06%, not significant after correction for 25 families). Synthetics with the real design recover injected
+family steps (slope 1.1) without leakage. The common deep term is bounded only: apparent M7 change −0.04 ± 0.03% (95% −0.10 to +0.02%), decline
+−0.07 ± 0.03%, which every station decline explains equally well. Converted to local dv/v this excludes percent-level changes (MPa-scale pore pressure
+or damage) near the LFEs, but expected kPa-level stress effects are 10–1000× below detection. Inter-family coda coherence is at chance, so the coda
+sensitivity to the source region could not be measured.</p></div>
 </div>
 <p class="note">In progress: our own
 matched-filter scan of continuous data around Petrolia and Ferndale (real rate change vs detection loss).</p>""")
 H.append(img('lfespec', 'LFE S-wave spectra. (a) Family 23 on its six best channels: S window vs pre-event noise; the LFE signal clearly exceeds noise only at about 2-7 Hz. (b) Median displacement spectrum of every family on borehole PB.B049 (velocity divided by f, normalised at 2.2 Hz): the falloff over 2-7 Hz lies between Brune shapes with corner 4 and 8 Hz for t* = 0.04 s; the corner frequency trades off with the unknown attenuation, so the absolute corner is not resolved.'))
 H.append(img('depth2', 'Depth extent of the dv/v decline: posterior depth distributions from the joint inversion of sensor-depth, frequency and lapse-time observations (LFE coda and ambient noise) for uniform, exponential and two-layer models.'))
+H.append(img('srfam', 'Source-receiver separation: family deviations from the weighted mean (95% honest errors) for the M7 step, the 60-day post-M7 transient and the post-2021 decline, ordered along strike (top), and the transient versus silence duration, modelled pore-pressure change and along-strike position (bottom). All consistent with zero.'))
+H.append(img('srcommon', 'Source-receiver separation: receiver curves at the M7 versus peak ground velocity (left), post-2021 decline per long-record station (centre) and bounds on the common deep term under different stated assumptions (right); the common term is bounded, not identified.'))
 H.append(img('spectra', 'Source-spectral indices (mid- and high-frequency ratios, low-frequency size proxy, S-envelope width) before and after each quake and in the first weeks after the M7, pooled over 27 families, compared with 200 random placebo dates: no change.'))
 H.append(img('famspec', 'Relative source spectra between families (within clusters of neighbouring families): high-frequency falloff and typical amplitude versus patch size, recurrence interval and depth, with permutation nulls.'))
 H.append(img('sws', 'Shear-wave splitting through time (delay along the reference fast direction and fast-direction change) per station; shaded windows are instrument problems found by this analysis; dashed lines mark the three quakes.'))

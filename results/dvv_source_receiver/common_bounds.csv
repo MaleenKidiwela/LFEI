@@ -1,0 +1,24 @@
+quantity,constraint,value_pct,sd_pct,lo95,hi95,abs95,n,note
+step_m7,common_mode_median_panel_param,0.022116433728364186,0.02652560992856365,-0.02987376173162057,0.07410662918834894,0.07410662918834894,7.0,parametric receiver model (step + log-healing); max-common attribution
+step_m7,common_mode_ivw_panel_param,0.0098131142224727,0.02652560992856365,-0.04217708123751206,0.06180330968245745,0.06180330968245745,7.0,parametric receiver model (step + log-healing); max-common attribution
+step_m7,smallest_signal_HAYF_param,0.0626454522446749,0.14221126868803655,-0.21608863438387677,0.34137953887322653,0.34137953887322653,3.0,assumes no fine-tuned cancellation of receiver and common terms at this station
+step_m7,smallest_signal_PB.B049_param,0.023703211754187607,0.04428223620995115,-0.06308997121731665,0.11049639472569185,0.11049639472569185,3.0,assumes no fine-tuned cancellation of receiver and common terms at this station
+step_m7,deep_boreholes_412_592m_param,-0.023656058807160235,0.07333877520898868,-0.16740005821677806,0.12008794060245759,0.16740005821677806,3.0,if receiver change were zero at >=400 m depth (contradicts dvv_depth2; max-deep reading)
+step_m7,all_receiver_S0,0.0,,,,,,gauge choice Sbar = 0: everything common is near-surface
+decline_4yr,common_mode_median_panel_param,-0.03058666146724718,0.08752501399320803,-0.2021356888939349,0.14096236595944056,0.2021356888939349,8.0,parametric receiver model (step + log-healing); max-common attribution
+decline_4yr,common_mode_ivw_panel_param,-0.025511618370546073,0.08752501399320803,-0.1970606457972338,0.14603740905614165,0.1970606457972338,8.0,parametric receiver model (step + log-healing); max-common attribution
+decline_4yr,smallest_signal_PB.B932_param,0.0015678897752276673,0.17186180964581424,-0.3352812571305683,0.3384170366810236,0.3384170366810236,3.0,assumes no fine-tuned cancellation of receiver and common terms at this station
+decline_4yr,deep_boreholes_412_592m_param,0.03138575823488623,0.2145292219046821,-0.3890915166982907,0.4518630331680631,0.4518630331680631,3.0,if receiver change were zero at >=400 m depth (contradicts dvv_depth2; max-deep reading)
+decline_4yr,all_receiver_S0,0.0,,,,,,gauge choice Sbar = 0: everything common is near-surface
+step_m7,smallest_signal_BK.HAYF_npcurve_90d,0.018407943844974867,0.03411181442433363,-0.04845121242671904,0.08526710011666877,0.08526710011666877,1.0,mean(M7..M7+90 d) - mean(M7-120 d..M7) of the joint-fit curve; bootstrap SD x inflation
+step_m7,common_mode_median_panel_npcurve_90d,-0.03866226638183423,0.028633044281760604,-0.09478303317408501,0.01745850041041655,0.09478303317408501,8.0,curve-based 90-d change; errors treated as fully correlated across stations
+step_m7,smallest_signal_panel_PB.B047_npcurve_90d,-0.005041344373729713,0.019654514704618813,-0.04356419319478258,0.03348150444732316,0.04356419319478258,1.0,smallest |90-d change| among panel stations
+decline_4yr,smallest_signal_BK.HAYF_npcurve,-0.02561089032909128,0.04637347191448289,-0.11650289528147774,0.06528111462329518,0.11650289528147774,1.0,2025 minus 2019H2-2021H1 of the joint-fit curve; bootstrap SD x panel inflation
+decline_4yr,smallest_signal_panel_PB.B046_npcurve,-0.03328408749481686,0.02552582943347505,-0.08331471318442796,0.01674653819479424,0.08331471318442796,1.0,smallest |decline| among panel stations
+decline_4yr,common_mode_median_panel_npcurve,-0.06688609178084254,0.028380988312654974,-0.12251282887364628,-0.011259354688038792,0.12251282887364628,7.0,curve-based; errors treated as fully correlated across stations
+step_m7,damage_only_lower_bound(PB.B047),-0.005041344373729713,0.019654514704618813,-0.04356419319478258,,,22.0,one-sided: a deep velocity DROP larger than -lo95 is excluded if receivers only decline
+decline_4yr,damage_only_lower_bound(PB.B049),-0.04401380497440294,0.015280082538419844,-0.07396276674970584,,,8.0,one-sided: a deep velocity DROP larger than -lo95 is excluded if receivers only decline
+step_m7,PGV_intercept_at_1cm_s,0.0726744790266793,0.09322832229357426,-0.11005303266872625,0.25540199072208486,0.25540199072208486,14.0,"slope -0.096+/-0.078 %/decade, chi2r 0.66; PGV range 2.4-42.8 cm/s"
+step_m7,direct_S_all,-0.01244920772112565,0.010686564812065934,-0.03339487475277488,0.008496459310523579,0.03339487475277488,10.0,path-averaged direct-S dv/v at the M7 (whole 28-km path; ~0.4-0.5 of travel time below 15 km)
+step_m7,direct_S_noKMPB,0.010477366528292332,0.010184857370509915,-0.009484953917907102,0.030439686974491766,0.030439686974491766,9.0,path-averaged direct-S dv/v at the M7 (whole 28-km path; ~0.4-0.5 of travel time below 15 km)
+step_m7,direct_S_PB,0.010127028405061645,0.012431355699476274,-0.01423842876591185,0.03449248557603514,0.03449248557603514,8.0,path-averaged direct-S dv/v at the M7 (whole 28-km path; ~0.4-0.5 of travel time below 15 km)
