@@ -45,6 +45,8 @@ cp "$SRC"/figures/dvv_pool_channels_clean.png "$SRC"/figures/sci_family_spectra_
 cp "$SRC"/figures/sci_dvv_source_receiver_*.png "$DST/docs/figures/"
 cp "$SRC"/figures/sci_scan_quakes_*.png "$DST/docs/figures/"
 cp "$SRC"/figures/sci_dvv_deep_shallow_*.png "$DST/docs/figures/"
+cp "$SRC"/figures/sci_dvv_source_region_*.png "$DST/docs/figures/"
+mkdir -p "$DST/results/dvv_source_region"; cp "$SRC"/data/sci/dvv_source_region/{summary.json,timefit_network.csv,timefit_reccorr.csv,family_terms_sph5.csv,family_terms_sph10.csv,family_terms_Q.json,synthetic_recovery.csv,synthetic_waveform_injection.csv,placebo_repeaters_as_sources.csv} "$DST/results/dvv_source_region/" 2>/dev/null || true
 mkdir -p "$DST/results/dvv_deep_shallow"; cp "$SRC"/data/sci/dvv_deep_shallow/{summary.json,deep_estimates.csv,station_directS_coda.csv,shallow_from_directS.csv,swin_station_terms.csv,clock_steps.csv,synthetic_recovery.csv} "$SRC"/data/sci/dvv_deep_shallow/tension_*.csv "$SRC"/data/sci/dvv_deep_shallow/rep/{clusters.csv,rep_fit.csv} "$DST/results/dvv_deep_shallow/" 2>/dev/null || true
 mkdir -p "$DST/results/scan_quakes"; cp "$SRC"/data/scan_quakes/summary_three_quakes.csv "$SRC"/data/scan_quakes/*_summary.json "$SRC"/data/scan_quakes/*_family_table.csv "$SRC"/data/scan_quakes/*_popeff.json "$DST/results/scan_quakes/" 2>/dev/null || true
 mkdir -p "$DST/results/dvv_source_receiver"; cp "$SRC"/data/sci/dvv_source_receiver/summary.json "$SRC"/data/sci/dvv_source_receiver/{family_table_balanced,regressions_balanced,common_bounds,stress_sensitivity_bounds}.csv "$DST/results/dvv_source_receiver/" 2>/dev/null || true
