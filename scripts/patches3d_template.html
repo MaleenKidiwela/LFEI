@@ -1,0 +1,123 @@
+<title>Mendocino LFE Patches 3D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: one full-width 3D figure, a thin header line above, a key line below. */
+:root {
+  --bg: #f6f7f8; --fg: #1c2328; --muted: #5d6973; --line: #d5dbe0; --accent: #1f6f8b;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11161a; --fg: #e3e8ec; --muted: #94a1ab; --line: #2a333a; --accent: #6fb7d1; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #11161a; --fg: #e3e8ec; --muted: #94a1ab; --line: #2a333a; --accent: #6fb7d1; color-scheme: dark }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 12px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+h1 { font-size: 1.05rem; font-weight: 600; margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); font-size: 0.85rem; }
+.ctl { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+button { font: inherit; font-size: 0.8rem; color: var(--fg); background: transparent; border: 1px solid var(--line);
+  border-radius: 4px; padding: 4px 10px; cursor: pointer; }
+button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#plot { flex: 1 1 auto; min-height: 420px; width: 100%; min-width: 0; }
+.key { color: var(--muted); font-size: 0.78rem; line-height: 1.45; max-width: 110ch; }
+.key code { font-family: var(--font-mono); font-size: 0.75rem; }
+</style>
+<header>
+  <h1>Sharpened LFE patches and the slab, Mendocino triple junction</h1>
+  <span class="sub">22 imaged families · drag to rotate, scroll to zoom, click legend to toggle</span>
+  <div class="ctl" role="group" aria-label="View">
+    <button id="vReg" aria-pressed="true">Regional map</button>
+    <button id="vZoom" aria-pressed="false">Zoom to patches</button>
+  </div>
+  <div class="ctl" role="group" aria-label="Depth reference" style="margin-left:0">
+    <button id="dAs" aria-pressed="true">Depths as located</button>
+    <button id="dCorr" aria-pressed="false">Shift LFEs 2.5 km up</button>
+  </div>
+</header>
+<div id="plot"></div>
+<p class="key">Patches: deconvolved (sharpened) density images, every 25 m pixel at ≥ 5% of the family peak; size and opacity scale with density, colour with family depth.
+Numbers label family centres. Surfaces: plate interface from McCrory et al. (2012) and Slab2 (Hayes et al. 2018); Bloch et al. (2023) top of the low-velocity layer (t) and slab Moho (m).
+Surface (depth 0): Natural Earth coastline, the stations used for dv/v (orange = PB boreholes, purple = surface) and place names. Regional view in longitude/latitude; the zoomed view in km east and north of <code id="ref"></code>. True scale in both views (no vertical exaggeration). An earthquake test showed our absolute LFE depths about 2.5 km too deep; the second button shifts the patches up by that amount (slabs fixed).
+Families 3, 4, 5, 9 and 11 have too few well-located events to image.</p>
+<script src="https://cdn.jsdelivr.net/npm/plotly.js@2.35.2/dist/plotly-strict.min.js"></script>
+<script>
+const D = /*DATA*/null;
+const SHIFT = 2.5;
+document.getElementById('ref').textContent = D.lat0.toFixed(3) + '°N, ' + (-D.lon0).toFixed(3) + '°W';
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const famZ = {}; D.lab.f.forEach((f, i) => famZ[f] = D.lab.z[i]);
+const zmin = Math.min(...D.lab.z), zmax = Math.max(...D.lab.z);
+const SLABC = {'McCrory et al. 2012': '#6b6f73', 'Slab2 (Hayes et al. 2018)': '#c0392b',
+  'Bloch et al. 2023 top (t)': '#4a7fd6', 'Bloch et al. 2023 slab Moho (m)': '#27408b'};
+let shifted = false, zoomed = false;
+function traces() {
+  const s = shifted ? SHIFT : 0;
+  const t = [];
+  for (const [name, Z] of Object.entries(D.slabs)) {
+    t.push({type: 'surface', name, x: D.ge, y: D.gn, z: Z, showscale: false, opacity: 0.35,
+      colorscale: [[0, SLABC[name]], [1, SLABC[name]]], showlegend: true, hoverinfo: 'name+z',
+      contours: {z: {show: true, usecolormap: false, color: SLABC[name], width: 1, start: 10, end: 40, size: 5}}});
+  }
+  t.push({type: 'scatter3d', mode: 'markers', name: 'LFE patches', x: D.pat.x, y: D.pat.y,
+    z: D.pat.z.map(v => v - s),
+    marker: {size: D.pat.d.map(d => 1.5 + 3 * d), color: D.pat.f.map(f => famZ[f]), colorscale: 'Viridis', reversescale: true,
+      cmin: zmin, cmax: zmax, opacity: 0.55, line: {width: 0},
+      colorbar: {title: {text: 'family depth (km)', side: 'right'}, thickness: 10, len: 0.5, x: 1.0}},
+    customdata: D.pat.f.map((f, i) => [f, D.pat.d[i]]),
+    hovertemplate: 'family %{customdata[0]}<br>depth %{z:.2f} km<br>density %{customdata[1]:.2f}<extra></extra>'});
+  t.push({type: 'scatter3d', mode: 'text', name: 'family numbers', x: D.lab.x, y: D.lab.y,
+    z: D.lab.z.map(v => v - s - 0.6), text: D.lab.f.map(String), textfont: {size: 10, color: css('--fg')}, hoverinfo: 'skip'});
+  t.push({type: 'scatter3d', mode: 'lines', name: 'coastline', x: D.coast.x, y: D.coast.y, z: D.coast.x.map(v => v === null ? null : 0),
+    line: {color: css('--fg'), width: 4}, hoverinfo: 'skip', connectgaps: false});
+  t.push({type: 'scatter3d', mode: 'markers', name: 'stations (dv/v)', x: D.stations.x, y: D.stations.y, z: D.stations.x.map(() => 0),
+    marker: {size: 4, symbol: 'diamond', color: D.stations.bh.map(b => b ? '#d4892a' : '#7a4fb0'), line: {width: 0}},
+    text: D.stations.name, hovertemplate: '%{text}<extra></extra>'});
+  t.push({type: 'scatter3d', mode: 'text', name: 'places', x: D.places.x, y: D.places.y, z: D.places.x.map(() => -0.5),
+    text: D.places.name, textfont: {size: 10, color: css('--muted')}, hoverinfo: 'skip'});
+  return t;
+}
+function layout() {
+  const fg = css('--fg'), grid = css('--line'), bg = css('--bg');
+  const ax = (title, range) => ({title: {text: title}, range, color: fg, gridcolor: grid, zerolinecolor: grid, backgroundcolor: bg, showbackground: true});
+  return {paper_bgcolor: bg, font: {family: css('--font-body'), color: fg, size: 11},
+    margin: {l: 0, r: 0, t: 0, b: 0}, uirevision: zoomed ? 'zoom' : 'reg',
+    legend: {x: 0, y: 1, bgcolor: 'rgba(0,0,0,0)', font: {size: 10}},
+    scene: zoomed ? {
+      xaxis: ax('east (km)', [-14, 14]), yaxis: ax('north (km)', [-11, 11]), zaxis: ax('depth (km)', [38, 12]),
+      aspectmode: 'manual', aspectratio: {x: 1, y: 0.786, z: 0.929}, camera: {eye: {x: -1.35, y: -1.45, z: 0.75}}
+    } : {
+      xaxis: Object.assign(ax('', [D.ge[0], D.ge[D.ge.length - 1]]), {tickvals: D.ticks.xv, ticktext: D.ticks.xt}),
+      yaxis: Object.assign(ax('', [D.gn[0], D.gn[D.gn.length - 1]]), {tickvals: D.ticks.yv, ticktext: D.ticks.yt}),
+      zaxis: ax('depth (km)', [40, -1]),
+      aspectmode: 'manual', aspectratio: {x: 1, y: (D.gn[D.gn.length - 1] - D.gn[0]) / (D.ge[D.ge.length - 1] - D.ge[0]), z: 41 / (D.ge[D.ge.length - 1] - D.ge[0])},
+      camera: {eye: {x: -0.45, y: -0.95, z: 0.5}, center: {x: 0.05, y: 0, z: -0.12}}
+    }};
+}
+const el = document.getElementById('plot');
+Plotly.newPlot(el, traces(), layout(), {responsive: true, displaylogo: false});
+function setShift(v) {
+  shifted = v;
+  document.getElementById('dAs').setAttribute('aria-pressed', String(!v));
+  document.getElementById('dCorr').setAttribute('aria-pressed', String(v));
+  Plotly.react(el, traces(), layout());
+}
+function setView(z) {
+  zoomed = z;
+  document.getElementById('vReg').setAttribute('aria-pressed', String(!z));
+  document.getElementById('vZoom').setAttribute('aria-pressed', String(z));
+  Plotly.react(el, traces(), layout());
+}
+document.getElementById('vReg').onclick = () => setView(false);
+document.getElementById('vZoom').onclick = () => setView(true);
+document.getElementById('dAs').onclick = () => setShift(false);
+document.getElementById('dCorr').onclick = () => setShift(true);
+const rethem = () => Plotly.react(el, traces(), layout());
+try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', rethem); } catch (e) {}
+new MutationObserver(rethem).observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+</script>
