@@ -23,6 +23,19 @@ pat = dict(x=P.E.round(3).tolist(), y=P.N.round(3).tolist(), z=P.depth_km.round(
            d=P.density.round(3).tolist(), f=P.family.astype(int).tolist())
 lab = dict(x=[round(C[F][0] - c0[0], 3) for F in fams], y=[round(C[F][1] - c0[1], 3) for F in fams],
            z=[round(C[F][2], 3) for F in fams], f=[int(F) for F in fams])
+# raw relocated event clouds (well-constrained events, up to 500 per family, fixed random subset)
+rng = np.random.default_rng(0)
+cl = []
+for F in range(1, 28):
+    e = pd.read_csv(f'data/relocations/fam{F}_events_3d.csv')
+    e = e[(e.sd_x < 0.5) & (e.sd_y < 0.5) & (e.sd_z < 1.0)]
+    if len(e) > 500:
+        e = e.iloc[np.sort(rng.choice(len(e), 500, replace=False))]
+    loc = json.load(open(f'data/locations/fam{F}_3d.json'))
+    cl.append(pd.DataFrame(dict(E=(loc['lon'] - lon0) * kx + e.dx - c0[0], N=(loc['lat'] - lat0) * ky + e.dy - c0[1],
+                                z=loc['depth_km'] + e.dz, f=F)))
+cl = pd.concat(cl)
+cloud = dict(x=cl.E.round(3).tolist(), y=cl.N.round(3).tolist(), z=cl.z.round(3).tolist(), f=cl.f.astype(int).tolist())
 S = slab_models()
 ge = np.arange(-80, 31, 1.0); gn = np.arange(-36, 46, 1.0)
 # map layer at the surface: Natural Earth 10 m coastline, stations used for dv/v, place names
@@ -54,11 +67,13 @@ ticks = dict(xv=[round((v - lon0) * kx - c0[0], 2) for v in lonticks], xt=[f'{-v
 GE, GN = np.meshgrid(ge, gn)
 slabs = {}
 for name, fn in S.items():
+    if not name.startswith('Bloch'):
+        continue
     Z = fn(GE + c0[0], GN + c0[1])
     slabs[name] = [[None if not np.isfinite(v) else round(float(v), 2) for v in row] for row in Z]
-data = dict(pat=pat, lab=lab, ge=ge.round(2).tolist(), gn=gn.round(2).tolist(), slabs=slabs, coast=dict(x=cx, y=cy),
+data = dict(pat=pat, cloud=cloud, lab=lab, ge=ge.round(2).tolist(), gn=gn.round(2).tolist(), slabs=slabs, coast=dict(x=cx, y=cy),
             stations=stations, places=places, ticks=ticks,
             lon0=lon0 + c0[0] / kx, lat0=lat0 + c0[1] / ky)
 tpl = open('scripts/patches3d_template.html').read()
 open('report/patches3d/index.html', 'w').write(tpl.replace('/*DATA*/null', json.dumps(data, separators=(',', ':'))))
-print(len(cx), 'coast pts', len(stations['x']), 'stations', len(P), 'pixels', len(fams), 'families', {k: int(np.isfinite(np.array(v, dtype=float)).sum()) for k, v in slabs.items()})
+print(len(cl), 'cloud events', len(cx), 'coast pts', len(stations['x']), 'stations', len(P), 'pixels', len(fams), 'families', {k: int(np.isfinite(np.array(v, dtype=float)).sum()) for k, v in slabs.items()})

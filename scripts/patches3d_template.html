@@ -5,13 +5,13 @@
 <style>
 /* Layout: one full-width 3D figure, a thin header line above, a key line below. */
 :root {
-  --bg: #f6f7f8; --fg: #1c2328; --muted: #5d6973; --line: #d5dbe0; --accent: #1f6f8b;
+  --bg: #f6f7f8; --fg: #1c2328; --muted: #5d6973; --line: #d5dbe0; --accent: #1f6f8b; --cloud: #4f6d86;
   --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #11161a; --fg: #e3e8ec; --muted: #94a1ab; --line: #2a333a; --accent: #6fb7d1; color-scheme: dark } }
-:root[data-theme="dark"] { --bg: #11161a; --fg: #e3e8ec; --muted: #94a1ab; --line: #2a333a; --accent: #6fb7d1; color-scheme: dark }
+  --bg: #11161a; --fg: #e3e8ec; --muted: #94a1ab; --line: #2a333a; --accent: #6fb7d1; --cloud: #9fb6c9; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #11161a; --fg: #e3e8ec; --muted: #94a1ab; --line: #2a333a; --accent: #6fb7d1; --cloud: #9fb6c9; color-scheme: dark }
 html, body { height: 100%; }
 body { background: var(--bg); color: var(--fg); font-family: var(--font-body);
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
@@ -29,7 +29,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .key code { font-family: var(--font-mono); font-size: 0.75rem; }
 </style>
 <header>
-  <h1>Sharpened LFE patches and the slab, Mendocino triple junction</h1>
+  <h1>LFE clouds, sharpened patches and the slab, Mendocino triple junction</h1>
   <span class="sub">22 imaged families · drag to rotate, scroll to zoom, click legend to toggle</span>
   <div class="ctl" role="group" aria-label="View">
     <button id="vReg" aria-pressed="true">Regional map</button>
@@ -41,8 +41,8 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   </div>
 </header>
 <div id="plot"></div>
-<p class="key">Patches: deconvolved (sharpened) density images, every 25 m pixel at ≥ 5% of the family peak; size and opacity scale with density, colour with family depth.
-Numbers label family centres. Surfaces: plate interface from McCrory et al. (2012) and Slab2 (Hayes et al. 2018); Bloch et al. (2023) top of the low-velocity layer (t) and slab Moho (m).
+<p class="key">Raw clouds (one colour per family): relocated LFEs with formal errors &lt; 0.5 km horizontal and &lt; 1 km vertical, up to 500 per family; its spread is mostly location error. Sharpened patches: deconvolved (sharpened) density images, every 25 m pixel at ≥ 5% of the family peak; colour = density relative to each family's peak (same colour scale for every family).
+Numbers label family centres. Surfaces: Bloch, Bostock &amp; Audet (2023) top of the low-velocity layer (t) and slab Moho (m).
 Surface (depth 0): Natural Earth coastline, the stations used for dv/v (orange = PB boreholes, purple = surface) and place names. Regional view in longitude/latitude; the zoomed view in km east and north of <code id="ref"></code>. True scale in both views (no vertical exaggeration). An earthquake test showed our absolute LFE depths about 2.5 km too deep; the second button shifts the patches up by that amount (slabs fixed).
 Families 3, 4, 5, 9 and 11 have too few well-located events to image.</p>
 <script src="https://cdn.jsdelivr.net/npm/plotly.js@2.35.2/dist/plotly-strict.min.js"></script>
@@ -56,6 +56,9 @@ const zmin = Math.min(...D.lab.z), zmax = Math.max(...D.lab.z);
 const SLABC = {'McCrory et al. 2012': '#6b6f73', 'Slab2 (Hayes et al. 2018)': '#c0392b',
   'Bloch et al. 2023 top (t)': '#4a7fd6', 'Bloch et al. 2023 slab Moho (m)': '#27408b'};
 let shifted = false, zoomed = false;
+const FAMC = ['#2E91E5','#E15F99','#1CA71C','#FB0D0D','#DA16FF','#222A2A','#B68100','#750D86','#EB663B','#511CFB',
+  '#00A08B','#FB00D1','#FC0080','#B2828D','#6C7C32','#778AAE','#862A16','#A777F1','#620042','#1616A7',
+  '#DA60CA','#6C4516','#0D2A63','#AF0038','#3B8C8C','#C49A00','#5A6F00'];
 function traces() {
   const s = shifted ? SHIFT : 0;
   const t = [];
@@ -64,11 +67,13 @@ function traces() {
       colorscale: [[0, SLABC[name]], [1, SLABC[name]]], showlegend: true, hoverinfo: 'name+z',
       contours: {z: {show: true, usecolormap: false, color: SLABC[name], width: 1, start: 10, end: 40, size: 5}}});
   }
-  t.push({type: 'scatter3d', mode: 'markers', name: 'LFE patches', x: D.pat.x, y: D.pat.y,
+  t.push({type: 'scatter3d', mode: 'markers', name: 'relocated events (raw cloud)', x: D.cloud.x, y: D.cloud.y,
+    z: D.cloud.z.map(v => v - s), marker: {size: 1.6, color: D.cloud.f.map(f => FAMC[(f - 1) % FAMC.length]), opacity: 0.4, line: {width: 0}},
+    customdata: D.cloud.f, hovertemplate: 'family %{customdata} event<br>depth %{z:.2f} km<extra></extra>'});
+  t.push({type: 'scatter3d', mode: 'markers', name: 'sharpened patches', x: D.pat.x, y: D.pat.y,
     z: D.pat.z.map(v => v - s),
-    marker: {size: D.pat.d.map(d => 1.5 + 3 * d), color: D.pat.f.map(f => famZ[f]), colorscale: 'Viridis', reversescale: true,
-      cmin: zmin, cmax: zmax, opacity: 0.55, line: {width: 0},
-      colorbar: {title: {text: 'family depth (km)', side: 'right'}, thickness: 10, len: 0.5, x: 1.0}},
+    marker: {size: 2.6, color: D.pat.d, colorscale: 'YlOrRd', reversescale: true, cmin: 0, cmax: 1, opacity: 0.8, line: {width: 0},
+      colorbar: {title: {text: 'patch density (fraction of peak)', side: 'right'}, thickness: 10, len: 0.5, x: 1.0}},
     customdata: D.pat.f.map((f, i) => [f, D.pat.d[i]]),
     hovertemplate: 'family %{customdata[0]}<br>depth %{z:.2f} km<br>density %{customdata[1]:.2f}<extra></extra>'});
   t.push({type: 'scatter3d', mode: 'text', name: 'family numbers', x: D.lab.x, y: D.lab.y,
