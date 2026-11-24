@@ -51,3 +51,7 @@ mkdir -p "$DST/results/dvv_deep_shallow"; cp "$SRC"/data/sci/dvv_deep_shallow/{s
 mkdir -p "$DST/results/scan_quakes"; cp "$SRC"/data/scan_quakes/summary_three_quakes.csv "$SRC"/data/scan_quakes/*_summary.json "$SRC"/data/scan_quakes/*_family_table.csv "$SRC"/data/scan_quakes/*_popeff.json "$DST/results/scan_quakes/" 2>/dev/null || true
 mkdir -p "$DST/results/dvv_source_receiver"; cp "$SRC"/data/sci/dvv_source_receiver/summary.json "$SRC"/data/sci/dvv_source_receiver/{family_table_balanced,regressions_balanced,common_bounds,stress_sensitivity_bounds}.csv "$DST/results/dvv_source_receiver/" 2>/dev/null || true
 mkdir -p "$DST/data/maps"; cp "$SRC"/data/maps/coast_ne10m_mtj.csv "$DST/data/maps/"; mkdir -p "$DST/docs/patches3d"; cp "$SRC"/report/patches3d/index.html "$DST/docs/patches3d/index.html"
+cp "$SRC"/figures/sci_noise_dvv_jewt_*.png "$SRC"/figures/sci_noise_dvv_bands_quakes.png "$DST/docs/figures/"
+mkdir -p "$DST/results/noise_dvv_jewt" "$DST/results/noise_dvv_bands_quakes"
+cp "$SRC"/data/sci/noise_dvv_jewt/*.csv "$SRC"/data/sci/noise_dvv_jewt/*.json "$DST/results/noise_dvv_jewt/" 2>/dev/null || true
+cp "$SRC"/data/sci/noise_dvv_bands_quakes/steps.csv "$SRC"/data/sci/noise_dvv_bands_quakes/daily.csv "$DST/results/noise_dvv_bands_quakes/" 2>/dev/null || true
