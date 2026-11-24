@@ -29,6 +29,7 @@ is in [`docs/report.html`](docs/report.html).
 | `results/dvv_pool_clean/` | **instrument-cleaned** per-station curves (use these): windows with instrument problems removed; channels split at sensor reinstalls into `<chan>__seg<k>_curve.csv`, each segment with its own level (`scripts/dvv_cwire_pool_clean.py`) |
 | `results/dvv_source_receiver/` | joint source–receiver dv/v separation (`scripts/sci_dvv_source_receiver.py`): family source-term table, regressions, bounds on the common deep term and stress sensitivity |
 | `results/scan_quakes/` | own matched-filter scans 30 days around Petrolia, Ferndale and the M7 with injected-LFE detection efficiency (`scripts/scan_quakes_*.py`; start with `summary_three_quakes.csv`) |
+| `results/dvv_deep_shallow/` | deep vs shallow dv/v: direct-S travel-time inversion jointly with coda, borehole tests, station timing checks, repeating-earthquake dv/v (`scripts/sci_dvv_deep_shallow*.py`) |
 | `tools/spotl/LFE_INSTALL.txt` | how SPOTL (ocean-tide loading) was built for the tidal-stress model |
 
 Not included (size or licence): raw and continuous waveforms, per-family HDF5 waveform sets, derived intermediate data
@@ -85,7 +86,7 @@ Most scripts take `--family F` or stage arguments; see each script's docstring. 
 - Interaction: ~9× coupling between families at 10 min, stronger along strike; 31–55 % of episodes propagate at 80–100 km/day.
 - dv/v: 18-year record from repeating LFEs; robust annual cycle; a non-recovering velocity decrease since 2021, receiver-side, confirmed
   independently with ambient noise, confined to the top few hundred metres. A joint source–receiver fit finds no family-specific
-  (source-side) change at any quake or over the decline (scatter < 0.03–0.13 %); a common deep change is bounded, not detected.
+  (source-side) change at any quake or over the decline (scatter < 0.03–0.13 %); direct-S travel times show no change below 1 km (M7 and decline within ±0.02 %), so the changes are in the upper crust under each station.
 - Geodesy: no aseismic slip detectable with strainmeters (< Mw 4.4 per episode) or GNSS (< Mw 5.1–5.6).
 
 ## Licence
