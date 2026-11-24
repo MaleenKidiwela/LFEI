@@ -1,0 +1,217 @@
+{
+ "tag": "ferndale",
+ "minpre": 0.5,
+ "fixed10": {
+  "n_donors": 8,
+  "n_inj": 224,
+  "pre_eff": 0.7701149425287356,
+  "fine_rel_eff": {
+   "0-6h": [
+    0.26,
+    5
+   ],
+   "6-24h": [
+    0.472,
+    11
+   ],
+   "24-48h": [
+    0.974,
+    16
+   ],
+   "48-96h": [
+    0.727,
+    25
+   ]
+  },
+  "daily_rel_eff": {
+   "3.1d": 0.866,
+   "5.1d": 0.974,
+   "10.1d": 0.487,
+   "15.1d": 0.081,
+   "20.1d": 0.0,
+   "25.1d": 0.0
+  },
+  "24h": {
+   "mean_rel_eff": 0.4190637720488467,
+   "observed_net": 0,
+   "expected_if_unchanged": 6.090393487109905,
+   "ratio_eff_corr": 0.0,
+   "catalog_ratio_eff_corr": 1.2714497610077988,
+   "catalog_clean_ratio_eff_corr": 0.19205941471895144
+  },
+  "2d": {
+   "mean_rel_eff": 0.6964721845318862,
+   "observed_net": 14,
+   "expected_if_unchanged": 20.244124830393492,
+   "ratio_eff_corr": 0.6915586678748946,
+   "catalog_ratio_eff_corr": 0.8481797318734781,
+   "catalog_clean_ratio_eff_corr": 0.4556082093753885
+  },
+  "d1_2": {
+   "mean_rel_eff": 0.9738805970149257,
+   "observed_net": 14,
+   "expected_if_unchanged": 14.153731343283587,
+   "ratio_eff_corr": 0.9891384582937885,
+   "catalog_ratio_eff_corr": 0.6660453557005279,
+   "catalog_clean_ratio_eff_corr": 0.5441344337277347
+  },
+  "d2_7": {
+   "mean_rel_eff": 0.8324801558872306,
+   "observed_net": 73,
+   "expected_if_unchanged": 60.49355799447209,
+   "ratio_eff_corr": 1.2067400632422836,
+   "catalog_ratio_eff_corr": 1.1409364452593782,
+   "catalog_clean_ratio_eff_corr": 1.1021019642335304
+  },
+  "30d": {
+   "mean_rel_eff": 0.3042896665206167,
+   "observed_net": 200,
+   "expected_if_unchanged": 132.67029460298886,
+   "ratio_eff_corr": 1.5074964640614759,
+   "catalog_ratio_eff_corr": 1.7637126584552447,
+   "catalog_clean_ratio_eff_corr": 1.6998111450307918
+  }
+ },
+ "fixed8": {
+  "n_donors": 18,
+  "n_inj": 504,
+  "pre_eff": 0.7969543147208121,
+  "fine_rel_eff": {
+   "0-6h": [
+    0.418,
+    6
+   ],
+   "6-24h": [
+    0.502,
+    30
+   ],
+   "24-48h": [
+    0.871,
+    36
+   ],
+   "48-96h": [
+    0.89,
+    55
+   ]
+  },
+  "daily_rel_eff": {
+   "3.1d": 0.925,
+   "5.1d": 0.976,
+   "10.1d": 0.453,
+   "15.1d": 0.139,
+   "20.1d": 0.139,
+   "25.1d": 0.07
+  },
+  "24h": {
+   "mean_rel_eff": 0.4809978768577496,
+   "observed_net": -5,
+   "expected_if_unchanged": 11.752381457891016,
+   "ratio_eff_corr": -0.42544568672443844,
+   "catalog_ratio_eff_corr": 1.107735727025067,
+   "catalog_clean_ratio_eff_corr": 0.16732951778375577
+  },
+  "2d": {
+   "mean_rel_eff": 0.6761854210898798,
+   "observed_net": 19,
+   "expected_if_unchanged": 33.042927577258794,
+   "ratio_eff_corr": 0.5750095827791122,
+   "catalog_ratio_eff_corr": 0.8736266300764705,
+   "catalog_clean_ratio_eff_corr": 0.4692772647521474
+  },
+  "d1_2": {
+   "mean_rel_eff": 0.8713729653220099,
+   "observed_net": 24,
+   "expected_if_unchanged": 21.290546119367775,
+   "ratio_eff_corr": 1.1272608915450724,
+   "catalog_ratio_eff_corr": 0.7443984085608452,
+   "catalog_clean_ratio_eff_corr": 0.608145981416024
+  },
+  "d2_7": {
+   "mean_rel_eff": 0.8992477461173549,
+   "observed_net": 148,
+   "expected_if_unchanged": 109.8580996506702,
+   "ratio_eff_corr": 1.3471924279649334,
+   "catalog_ratio_eff_corr": 1.0562238870299008,
+   "catalog_clean_ratio_eff_corr": 1.0202727990702334
+  },
+  "30d": {
+   "mean_rel_eff": 0.3591183122629901,
+   "observed_net": 488,
+   "expected_if_unchanged": 263.23372288877175,
+   "ratio_eff_corr": 1.8538658141692668,
+   "catalog_ratio_eff_corr": 1.494436564088424,
+   "catalog_clean_ratio_eff_corr": 1.4402912600309417
+  }
+ },
+ "daily": {
+  "n_donors": 17,
+  "n_inj": 476,
+  "pre_eff": 0.7903225806451613,
+  "fine_rel_eff": {
+   "0-6h": [
+    0.422,
+    6
+   ],
+   "6-24h": [
+    0.542,
+    28
+   ],
+   "24-48h": [
+    0.893,
+    34
+   ],
+   "48-96h": [
+    0.9,
+    52
+   ]
+  },
+  "daily_rel_eff": {
+   "3.1d": 0.984,
+   "5.1d": 0.93,
+   "10.1d": 0.409,
+   "15.1d": 0.186,
+   "20.1d": 0.261,
+   "25.1d": 0.112
+  },
+  "24h": {
+   "mean_rel_eff": 0.5121477162293488,
+   "observed_net": 1,
+   "expected_if_unchanged": 12.189115646258504,
+   "ratio_eff_corr": 0.08204040629534547,
+   "catalog_ratio_eff_corr": 1.0403610441561106,
+   "catalog_clean_ratio_eff_corr": 0.15715220480173908
+  },
+  "2d": {
+   "mean_rel_eff": 0.7026524895672557,
+   "observed_net": 26,
+   "expected_if_unchanged": 33.446258503401374,
+   "ratio_eff_corr": 0.7773664727657321,
+   "catalog_ratio_eff_corr": 0.8407194160763699,
+   "catalog_clean_ratio_eff_corr": 0.4516008262772477
+  },
+  "d1_2": {
+   "mean_rel_eff": 0.8931572629051625,
+   "observed_net": 25,
+   "expected_if_unchanged": 21.257142857142867,
+   "ratio_eff_corr": 1.1760752688172038,
+   "catalog_ratio_eff_corr": 0.7262423714036614,
+   "catalog_clean_ratio_eff_corr": 0.5933131702377626
+  },
+  "d2_7": {
+   "mean_rel_eff": 0.8821835136373638,
+   "observed_net": 126,
+   "expected_if_unchanged": 104.97983812284629,
+   "ratio_eff_corr": 1.200230465706721,
+   "catalog_ratio_eff_corr": 1.076654613381705,
+   "catalog_clean_ratio_eff_corr": 1.040008117138649
+  },
+  "30d": {
+   "mean_rel_eff": 0.3882222288284871,
+   "observed_net": 388,
+   "expected_if_unchanged": 277.1906713835398,
+   "ratio_eff_corr": 1.3997585058089381,
+   "catalog_ratio_eff_corr": 1.3824029043855617,
+   "catalog_clean_ratio_eff_corr": 1.3323167198083259
+  }
+ }
+}

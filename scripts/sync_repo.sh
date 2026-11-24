@@ -43,4 +43,6 @@ cp "$SRC"/figures/dvv_pool_channels.png "$SRC"/figures/dvv_pool_map.png "$DST/do
 mkdir -p "$DST/results/dvv_pool_clean"; rsync -a --delete "$SRC/data/dvv/pool_clean/" "$DST/results/dvv_pool_clean/"
 cp "$SRC"/figures/dvv_pool_channels_clean.png "$SRC"/figures/sci_family_spectra_*.png "$SRC"/figures/sci_dvv_depth2_*.png "$DST/docs/figures/"
 cp "$SRC"/figures/sci_dvv_source_receiver_*.png "$DST/docs/figures/"
+cp "$SRC"/figures/sci_scan_quakes_*.png "$DST/docs/figures/"
+mkdir -p "$DST/results/scan_quakes"; cp "$SRC"/data/scan_quakes/summary_three_quakes.csv "$SRC"/data/scan_quakes/*_summary.json "$SRC"/data/scan_quakes/*_family_table.csv "$SRC"/data/scan_quakes/*_popeff.json "$DST/results/scan_quakes/" 2>/dev/null || true
 mkdir -p "$DST/results/dvv_source_receiver"; cp "$SRC"/data/sci/dvv_source_receiver/summary.json "$SRC"/data/sci/dvv_source_receiver/{family_table_balanced,regressions_balanced,common_bounds,stress_sensitivity_bounds}.csv "$DST/results/dvv_source_receiver/" 2>/dev/null || true

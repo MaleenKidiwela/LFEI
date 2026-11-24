@@ -94,7 +94,7 @@ figs = {k: fig(v, k) for k, v in {
     'noise_ts': 'figures/sci_noise_dvv_timeseries.png', 'noise_steps': 'figures/sci_noise_dvv_steps.png',
     'strain': 'figures/sci_strain_stacks.png',
     'sharpened': 'figures/sharpened_patches_all_families.png',
-    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'instr': 'figures/sci_dvv_instrument_check.png', 'poolclean': 'figures/dvv_pool_channels_clean.png', 'famspec': 'figures/sci_family_spectra_scaling.png', 'depth2': 'figures/sci_dvv_depth2_posterior.png', 'srfam': 'figures/sci_dvv_source_receiver_family.png', 'srcommon': 'figures/sci_dvv_source_receiver_common.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
+    'patchimg': 'figures/sci_patch_images_families_B_full.png', 'spectra': 'figures/sci_source_spectra_quakes.png', 'lfespec': 'figures/lfe_spectra.png', 'instr': 'figures/sci_dvv_instrument_check.png', 'poolclean': 'figures/dvv_pool_channels_clean.png', 'famspec': 'figures/sci_family_spectra_scaling.png', 'depth2': 'figures/sci_dvv_depth2_posterior.png', 'srfam': 'figures/sci_dvv_source_receiver_family.png', 'scanrates': 'figures/sci_scan_quakes_rates_fc.png', 'scanratios': 'figures/sci_scan_quakes_ratios_fc.png', 'srcommon': 'figures/sci_dvv_source_receiver_common.png', 'sws': 'figures/sci_sws_timeseries.png', 'poro': 'figures/sci_tidal_spotl_poro.png',
     'diprake': 'figures/sci_tidal_spotl_dip_rake.png', 'gnss_q2': 'figures/sci_gnss_q2_postseismic.png',
     'density': 'figures/cloud_density_fault_plane.png', 'density_m7': 'figures/cloud_density_m7.png',
     'tidal_fits': 'figures/sci_tidal_spotl_fits.png', 'gnss_q1': 'figures/sci_gnss_q1_rate_peaks.png',
@@ -317,12 +317,12 @@ across model variants, all |z| ≤ 1.7; 95% limits 1.4–8× the plate rate), an
 p = 0.28). Borehole strainmeters bound slip during individual LFE episodes to below Mw 4.4.</p></div>
 <div class="finding"><span class="eyebrow">Literature</span><h3>Graded response to the three quakes, not "ceased after each"</h3>
 <p>Lu, Ide &amp; Ren (2026) report tremor stopping after each of the 2021, 2022 and 2024 quakes. In the LFE catalogue Petrolia caused only a 1–2-day
-dip (4 LFEs in the first day; 30-day count unchanged), Ferndale a sustained halving (no shutdown), and only the M7 a full 7–25-day silence,
+dip (4 LFEs in the first day; 30-day count unchanged), Ferndale a marginal 1–2-day deficit (its catalogue halving over 30 days is detection loss, see below), and only the M7 a full 7–25-day silence,
 consistent with the M7 being the only quake that lowered pore pressure at the LFEs. (Measured against the preceding year, the Petrolia
 30-day rate was 1.32×; against the 30 days before, it was unchanged.) The restart after the M7 shows no along-strike order (t50 vs along-strike
 position p ≥ 0.38; first-event time vs longitude ρ = 0.04): Lu et al. report east-to-west recovery, Shelly &amp; Materna suggest, if anything, the
 opposite. Lu, Ide &amp; Ren’s tidal intrinsic friction of ~0.1 agrees with our tidal fit; Shelly &amp; Materna’s 0.6 is what the M7 requires.
-Whether the Petrolia/Ferndale dips are partly detection loss is being tested with our own matched-filter scan (in progress).</p></div>
+Our own matched-filter scan with injected LFEs (below) confirms that only the M7 cessation is robust.</p></div>
 <div class="finding"><span class="eyebrow">Setting</span><h3>Where the LFEs sit relative to the slab</h3>
 <p>In McCrory et al. (2012) and Slab2 the LFEs lie 0.5–3 km above the plate interface. In the newest, receiver-function model (Bloch, Bostock &amp;
 Audet 2023), the McCrory interface corresponds to the slab Moho (~30 km) and all 27 families lie inside the low-velocity layered package
@@ -357,6 +357,16 @@ The size range between families is too narrow to tell self-similar from constant
 M7 (network |z| ≤ 1.5; delay bound ~1–2 ms), no counterpart of the post-2021 dv/v decline, no coherent annual cycle, and no difference between
 borehole and surface stations. The method proved a sensitive check of horizontal components: it found instrument problems at B933 (2017–2021, and
 from 2024-08), B935 (from 2024-05), BRIC (Dec 2022 to its May 2024 reinstall), RVIT and BJES (until their 2024 reinstalls), KMR and KMPB. Re-running every dv/v claim with these windows excluded (and with free offsets at the reinstalls): the annual cycle, the borehole decline, the decline onset after mid-2021 and the M7 surface step survive; the surface decline is ~20% smaller; the surface/borehole factor of 2 drops to 1.2–1.5×; the 1–4 Hz noise decline at BRIC does not survive an offset at its 2024 reinstall (its 2–8 Hz decline and M7 drop do, also on the vertical alone); Ferndale steps at RVIT, BRIC and BJES cannot be separated from instrument changes that began with that quake. Absolute splitting values are ambiguous (delays near half a period).</p></div>
+<div class="finding"><span class="eyebrow">Activity (own scan)</span><h3>Only the M7 truly silenced the LFEs; the Petrolia and Ferndale dips are mostly detection loss</h3>
+<p>We rescanned continuous data 30 days either side of Petrolia, Ferndale and the M7 with templates of all 27 families (fixed station set with
+data before and after; reversed-polarity false-alarm control; 8,100–8,400 real LFE waveforms injected into the noisy post-quake data to measure
+detection loss directly). Station noise rose 16–32× in the first day; detection efficiency was 0.1–0.2 in the first 6 hours, 0.4–0.6 over the
+first day and recovered within about 3 days after Petrolia and the M7, but at Ferndale it fell again to 0.05–0.35 during the late-December 2022
+and January 2023 storms and aftershocks. Results: the M7 cessation survives the efficiency correction (p ≲ 0.03 over 2 days; days 2–7: about
+100 expected, 0–10 observed). Petrolia: about half of its 1–2-day dip is detection loss; the rest (0.2–0.3 of normal) is within normal LFE
+burstiness (p 0.06–0.2). Ferndale: 20 of the 23 catalogue LFEs on the first day follow an aftershock by 15–65 s (aftershock coda); genuine LFEs show a
+marginal 1–2-day deficit (p 0.04–0.14), and the 30-day halving vanishes after correction (0.9–1.5×). No hidden population of uncatalogued
+LFEs after any quake (new detections look like false alarms). This contradicts Lu, Ide &amp; Ren’s cessation after each quake.</p></div>
 <div class="finding"><span class="eyebrow">dv/v (source side)</span><h3>No velocity change detected at the LFEs themselves; deep changes are bounded, not seen</h3>
 <p>All 1.83 million instrument-cleaned coda measurements were fitted jointly as a receiver term per station channel plus a source term per family
 (sum of family terms fixed at zero, because a change common to every path cannot be told from a change at every station). Only how families
@@ -369,10 +379,11 @@ family steps (slope 1.1) without leakage. The common deep term is bounded only: 
 or damage) near the LFEs, but expected kPa-level stress effects are 10–1000× below detection. Inter-family coda coherence is at chance, so the coda
 sensitivity to the source region could not be measured.</p></div>
 </div>
-<p class="note">In progress: our own
-matched-filter scan of continuous data around Petrolia and Ferndale (real rate change vs detection loss).</p>""")
+""")
 H.append(img('lfespec', 'LFE S-wave spectra. (a) Family 23 on its six best channels: S window vs pre-event noise; the LFE signal clearly exceeds noise only at about 2-7 Hz. (b) Median displacement spectrum of every family on borehole PB.B049 (velocity divided by f, normalised at 2.2 Hz): the falloff over 2-7 Hz lies between Brune shapes with corner 4 and 8 Hz for t* = 0.04 s; the corner frequency trades off with the unknown attenuation, so the absolute corner is not resolved.'))
 H.append(img('depth2', 'Depth extent of the dv/v decline: posterior depth distributions from the joint inversion of sensor-depth, frequency and lapse-time observations (LFE coda and ambient noise) for uniform, exponential and two-layer models.'))
+H.append(img('scanrates', 'Own matched-filter scan, 30 days either side of each quake (fixed station set): daily LFE rate relative to before the quake from the catalogue (black), our scan at a fixed threshold (blue) and a daily threshold (orange), and reversed-polarity false alarms (red). Only the M7 shows a multi-day silence.'))
+H.append(img('scanratios', 'Left: post/pre rate ratios over 24 h, 2 d and 30 d from the catalogue (with and without aftershock-associated events) and from the scan, raw and corrected for detection efficiency. Right: detection efficiency measured with injected real LFEs versus time after each quake; at Ferndale it drops again during the storms of late December 2022 and January 2023.'))
 H.append(img('srfam', 'Source-receiver separation: family deviations from the weighted mean (95% honest errors) for the M7 step, the 60-day post-M7 transient and the post-2021 decline, ordered along strike (top), and the transient versus silence duration, modelled pore-pressure change and along-strike position (bottom). All consistent with zero.'))
 H.append(img('srcommon', 'Source-receiver separation: receiver curves at the M7 versus peak ground velocity (left), post-2021 decline per long-record station (centre) and bounds on the common deep term under different stated assumptions (right); the common term is bounded, not identified.'))
 H.append(img('spectra', 'Source-spectral indices (mid- and high-frequency ratios, low-frequency size proxy, S-envelope width) before and after each quake and in the first weeks after the M7, pooled over 27 families, compared with 200 random placebo dates: no change.'))
@@ -391,7 +402,7 @@ H.append('<section><h2>Main findings</h2><div class="findings">')
 H.append(f'''<div class="finding"><span class="eyebrow">Activity</span><h3>The M7.0 is the only quake that silenced the system</h3>
 <p>Of 13 M≥5.5 earthquakes within 200 km since 2008, only the M7.0 shut the LFEs down: the 30-day rate of all families
 fell to {m7q.ratio:.2f}× normal (no random date in 3,000 reached this), and {int(m7q.fam_top10)} of 27 families had one of
-their 10 longest quiet periods since 2009 span it. After Ferndale the rate fell to {fer.ratio:.2f}× without long gaps;
+their 10 longest quiet periods since 2009 span it. After Ferndale the catalogue rate fell to {fer.ratio:.2f}× without long gaps, but our matched-filter scan shows this is detection loss (winter storms, aftershocks; corrected 0.9–1.5×);
 after Petrolia it rose to {pet.ratio:.2f}×.</p></div>''')
 H.append(f'''<div class="finding"><span class="eyebrow">dv/v</span><h3>Modest velocity drops at the quakes</h3>
 <p>Pooling all families per station (CWIRE layout), surface stations dropped {sf["step_m7_pct"][0]:+.3f} ± {sf["step_m7_pct"][1]:.3f}% at the M7
@@ -697,8 +708,7 @@ drop (B ≈ 1, intrinsic friction 0.6), not shear stress. The Science paper find
 captured slab fragment. Lu &amp; Ide map the same zone as tremor cluster I and its shutdown after the M7. Lu, Ide &amp; Ren find the tremor in
 positive Coulomb stress, fit the tides with intrinsic friction ~0.1, report suppression after each of the three M6+ quakes and propose dilatancy,
 drainage and recharge with east-to-west recovery. Relative to these, we: test the pore-pressure mechanism on all 13 M≥5.5 quakes (only the M7
-lowers pore pressure at the LFEs, and only the M7 silenced them); show a graded response (Petrolia a 1–2-day dip, Ferndale a halving, only the
-M7 a cessation); find that the tides favour friction ~0.1 and reject B ≈ 1, μ = 0.6 while the M7 needs them, so no single static model fits
+lowers pore pressure at the LFEs, and only the M7 silenced them); show with our own matched-filter scan and injected LFEs that only the M7 caused a real cessation (Petrolia and Ferndale: at most a marginal 1–2-day deficit; the Ferndale 30-day halving is detection loss from storms and aftershocks); find that the tides favour friction ~0.1 and reject B ≈ 1, μ = 0.6 while the M7 needs them, so no single static model fits
 both; find a synchronous restart with no east–west order; find that the 7–25-day spread in cessation time is not explained by patch size, time
 since the last LFE, background rate, longitude or depth (all p &gt; 0.1); confirm right-lateral slip with a converged ocean load; and bound
 dynamically triggered slip, Shelly &amp; Materna’s main caveat, by the strainmeter and GNSS limits and the repaid moment deficit.</li>

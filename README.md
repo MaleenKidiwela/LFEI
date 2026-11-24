@@ -28,6 +28,7 @@ is in [`docs/report.html`](docs/report.html).
 | `results/dvv_pool/` | per-station-channel dv/v curves (all 27 families pooled; `<NET.STA.LOC.CHA>_curve.csv`: time, segment, dv/v %, error %) and per-channel fit parameters (`params_by_channel.csv`) |
 | `results/dvv_pool_clean/` | **instrument-cleaned** per-station curves (use these): windows with instrument problems removed; channels split at sensor reinstalls into `<chan>__seg<k>_curve.csv`, each segment with its own level (`scripts/dvv_cwire_pool_clean.py`) |
 | `results/dvv_source_receiver/` | joint source–receiver dv/v separation (`scripts/sci_dvv_source_receiver.py`): family source-term table, regressions, bounds on the common deep term and stress sensitivity |
+| `results/scan_quakes/` | own matched-filter scans 30 days around Petrolia, Ferndale and the M7 with injected-LFE detection efficiency (`scripts/scan_quakes_*.py`; start with `summary_three_quakes.csv`) |
 | `tools/spotl/LFE_INSTALL.txt` | how SPOTL (ocean-tide loading) was built for the tidal-stress model |
 
 Not included (size or licence): raw and continuous waveforms, per-family HDF5 waveform sets, derived intermediate data
@@ -76,7 +77,7 @@ Most scripts take `--family F` or stage arguments; see each script's docstring. 
 ## Main results (details, uncertainties and null tests in `docs/NOTES.md`)
 
 - Only the 2024 Mw 7.0 Mendocino earthquake, of 13 M≥5.5 quakes within 200 km since 2008, silenced all 27 families (7–25 days); it is the
-  only one that lowered pore pressure at the LFEs. Petrolia (2021) gave a 1–2-day dip, Ferndale (2022) a ~50 % rate drop.
+  only one that lowered pore pressure at the LFEs. Our own matched-filter scan with injected LFEs shows Petrolia (2021) and Ferndale (2022) caused at most a marginal 1–2-day deficit; the catalogue Ferndale halving is detection loss (storms, aftershocks).
 - Tides: strong modulation, right-lateral slip on the 293°/40° plane confirmed with a converged ocean load (SPOTL + layered Earth);
   μ′ ≈ 0.09, aσ ≈ 0.6 kPa; the undrained poroelastic model (B ≈ 1, μ = 0.6) is rejected by the tides, and no single static (B, μ) explains
   both the tides and the M7 cessation.
