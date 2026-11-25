@@ -9,8 +9,8 @@ import pandas as pd
 
 # observable, group, depth range km (z0, z1), M7 result, long-term result, 95% limit (text), limit for figure (% dv/v, or None), verdict
 R = [
- ('Direct-S travel times, LFE→station (relative)', 'velocity', 1, 28, '−0.002 ± 0.009%', 'decline −0.002 ± 0.009%', '±0.02%', 0.02, 'no change'),
- ('LFE − earthquake differential S−P (layer above the LFEs)', 'velocity', 22, 31, '+0.001 ± 0.008%', 'decline −0.001 ± 0.005%; yearly 2010–26 within ±0.008%', '±0.016% (M7), ±0.01% (decline)', 0.016, 'no change'),
+ ('Direct-S travel times, LFE→station (relative)', 'velocity', 1, 28, '−0.002 ± 0.009% (under re-check: station terms tied to coda)', 'decline −0.002 ± 0.009%', '±0.02% → under re-check; free station terms give several× larger', 0.02, 'no change (limit under re-check)'),
+ ('LFE − earthquake differential S−P (layer above the LFEs)', 'velocity', 22, 31, 'no change seen; earlier ±0.008% WITHDRAWN (kernels > travel time on ~20% of paths)', 'free station terms: 1σ ~0.12–0.17%', '~±0.25–0.35% (revised fit pending)', 0.3, 'no change (weak limit)'),
  ('S−P around the sources (Vp, Vs, Vp/Vs)', 'velocity', 20, 40, '−0.07 ± 0.14%; Vp/Vs +0.06 ± 0.14%', 'decline +0.04 ± 0.07%', '±0.3–0.4% (10-km sphere)', 0.35, 'no change'),
  ('Coda: per-family source terms (1.83 M measurements)', 'velocity', 20, 32, 'family scatter < 0.03%', 'family scatter < 0.06%', 'common deep term −0.10…+0.02%', 0.10, 'no change'),
  ('Ordinary repeating earthquakes, deep (19 km) vs shallow (8 km)', 'velocity', 8, 19, 'deep − shallow +0.020 ± 0.011%', 'deep − shallow +0.006 ± 0.006%', '±0.02% (decline)', 0.02, 'no source-depth dependence'),
@@ -39,16 +39,16 @@ v = D.dropna(subset=['limit_pct'])
 col = {'velocity': 'C0', 'structure': 'C2'}
 XO = {'Ordinary repeating earthquakes, deep (19 km) vs shallow (8 km)': 1.15}   # avoid overlap with direct S
 LY = {'Direct-S travel times, LFE→station (relative)': 3, 'Ordinary repeating earthquakes, deep (19 km) vs shallow (8 km)': 9,
-      'LFE − earthquake differential S−P (layer above the LFEs)': 33.5, 'Coda: per-family source terms (1.83 M measurements)': 18.5,
+      'LFE − earthquake differential S−P (layer above the LFEs)': 21, 'Coda: per-family source terms (1.83 M measurements)': 18.5,
       'S−P around the sources (Vp, Vs, Vp/Vs)': 34.5, 'Inter-station noise 0.05–0.1 Hz (56% of sensitivity at 10–30 km)': 11,
       'LFE-stack secondary phases (in-layer reflections)': 24, 'Receiver functions: top of low-velocity layer (A_t)': 14.5,
       'Receiver functions: slab power (Herath method)': 33.5}
 for i, r in v.reset_index(drop=True).iterrows():
     x = r.limit_pct * XO.get(r.observable, 1)
-    ax.plot([x] * 2, [r.z0_km, r.z1_km], '-', lw=7, color=col.get(r.group, 'C1'), alpha=0.75, solid_capstyle='butt')
+    ax.plot([x] * 2, [r.z0_km, r.z1_km], '-', lw=7, color=col.get(r.group, 'C1'), alpha=0.3 if 're-check' in r.verdict else 0.75, solid_capstyle='butt')
     ha = 'right' if x > 3 else 'left'
     ax.text(x * (0.9 if ha == 'right' else 1.12), LY.get(r.observable, (r.z0_km + r.z1_km) / 2),
-            r.observable.split(' (')[0].replace('Ordinary repeating earthquakes, deep', 'Repeating earthquakes 8 vs 19 km'),
+            (r.observable.split(' (')[0] + (' (under re-check)' if 're-check' in r.verdict else '')).replace('Ordinary repeating earthquakes, deep', 'Repeating earthquakes 8 vs 19 km'),
             fontsize=7.5, va='center', ha=ha)
 ax.axvspan(0.0004, 0.004, color='0.85', zorder=0)
 ax.text(0.0013, 2, 'expected from the\nM7 static strain', fontsize=7.5, ha='center', va='top', color='0.3')

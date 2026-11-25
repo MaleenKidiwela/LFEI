@@ -198,7 +198,7 @@ H.append('''<section><h2>What we learned</h2>
 <p class="lede">The M7.0 acted as a natural clamp-and-hold experiment on a very weak, deep strike-slip fault. These are the results
 that survived null tests and controls, grouped by how new they are.</p>
 <h3>New</h3><ul>
-<li><b>Nothing measurable changed at depth in 18 years.</b> Some 20 independent observables reach the low-velocity layer and the LFEs: travel times, S−P, earthquake-minus-LFE differentials, long-period noise, receiver functions, reflections, attenuation, coda Q, source polarity and spectra, tides, stress, GNSS. None changes at any quake or over 2008–2026; the best deep bounds are ±0.01–0.02%. All observed velocity changes are in the top ~0.1–0.8 km beneath the stations (see “Did anything change at depth?”).</li>
+<li><b>Nothing measurable changed at depth in 18 years.</b> Some 20 independent observables reach the low-velocity layer and the LFEs: travel times, S−P, earthquake-minus-LFE differentials, long-period noise, receiver functions, reflections, attenuation, coda Q, source polarity and spectra, tides, stress, GNSS. None shows a credible change at any quake or over 2008–2026. <b>Correction (25 Nov, code review):</b> the tight ±0.01–0.02% deep travel-time bounds quoted earlier are withdrawn: the LFE-minus-earthquake layer kernels exceeded the total travel time on ~20% of paths, and the direct-S fit tied station terms to the coda. With free station terms the travel-time bound on a 20–31 km change is ~±0.25–0.35% (95%; revised joint fit in progress). All observed velocity changes are in the top ~0.1–0.8 km beneath the stations (see “Did anything change at depth?”).</li>
 <li><b>Only the M7 lowered pore pressure at the LFE fault, and only the M7 silenced it.</b> Of 12 nearby quake dates, Coulomb stress and
 clamping do not single out the M7 (Ferndale was larger on both); the undrained pore-pressure drop does, in every model variant.</li>
 <li><b>The fault's frictional state did not change.</b> Tidal sensitivity (±28% for M2) stayed the same across all three quakes (a drop of
@@ -298,9 +298,12 @@ _rows = ''.join(
 H.append(f'''<section id="depth"><h2>Did anything change at depth? Every observable, 2008–2026 (25 Nov 2026)</h2>
 <p class="lede">No. Every observable that reaches the LFE region, from the top of the low-velocity layer (~20 km) down to and around the
 LFEs (~28–31 km), is unchanged through 18 years and the 2010, 2014, 2021, 2022 and 2024 earthquakes, and so are the LFE sources themselves. All the velocity changes we
-do see sit in the top ~0.1–0.8 km beneath the stations, and they get larger at higher frequency and at shallower sensitivity. The tightest deep bounds
-(±0.01–0.02%) are still about 5–50× above the ~0.0004–0.004% expected from the M7’s static strain, so a null is what physics predicts. These are bounds,
-not proof of zero.</p>
+do see sit in the top ~0.1–0.8 km beneath the stations, and they get larger at higher frequency and at shallower sensitivity. The deep bounds
+are well above the ~0.0004–0.004% expected from the M7’s static strain, so a null is what physics predicts. These are bounds,
+not proof of zero. <b>Correction (25 Nov 2026, independent code review):</b> the tight ±0.01–0.02% deep travel-time bounds shown earlier
+(LFE−earthquake differential and direct S) are withdrawn. The differential used layer kernels longer than the whole travel time on ~20% of
+paths (near-horizontal rays), and the direct-S fit tied the station terms to the coda. With free station terms and placebo errors the
+travel-time limit on a uniform 20–31 km change is ~±0.25–0.35% (95%); a revised joint fit with 3-D ray kernels is running and will replace these numbers.</p>
 <figure><img src="figs/depthsum.jpg" alt="95% limits on a velocity change against the depth range each observable samples" loading="lazy"><figcaption>95% (2σ) limit
 on a velocity change against the depth range each method samples (blue: dv/v; green: Vs of the low-velocity layer). Grey: change expected from the
 M7 static strain. Pink: the LFEs. Pale blue at top: where the observed changes are.</figcaption></figure>
@@ -318,10 +321,11 @@ side of the correlation only (−0.11% vs −0.01%), so it is a noise-source cha
 |z| &gt; 3), −0.10% at 0.3–0.6 Hz, −0.09% at 0.5–1 Hz, −0.13% at 1–3 Hz (11 stations |z| &gt; 3) and −0.17% at 3–5 Hz. The borehole decline since 2021
 is present at 0.3–5 Hz and weak or absent at 0.1–0.3 Hz, i.e. in the upper ~1–2 km at most. The full 0.1–1 Hz band follows ocean-microseism power;
 the narrower sub-bands do much less.</p></div>
-<div class="finding"><span class="eyebrow">New · earthquakes above the LFEs</span><h3>The layer between the earthquakes and the LFEs did not change</h3>
+<div class="finding"><span class="eyebrow">New · earthquakes above the LFEs</span><h3>The layer between the earthquakes and the LFEs: no change seen, but the earlier tight limit is withdrawn</h3>
 <p>26 families of ordinary earthquakes at 17–23 km, relocated and stacked, give a second source above the LFEs. Differencing LFE and earthquake travel
-times isolates the layer down to the LFEs (22–31 km): M7 +0.001 ± 0.008%, restart −0.002 ± 0.018%, decline −0.001 ± 0.005%, every year 2010–2026 within
-±0.008%. Injected −0.3% is recovered as −0.299%, and receiver-side steps do not leak. Stress inversion of 245 mechanisms shows no rotation. Across 9
+times isolates the layer down to the LFEs (22–31 km). <b>The ±0.008% precision reported earlier is withdrawn</b>: the layer kernels came from
+straight rays with near-horizontal take-off and exceeded the total travel time on ~20% of paths, which created false leverage. With free station
+terms the honest 1σ is ~0.12–0.17% (revised fit with 3-D ray kernels in progress); no change is seen, but the limit is ~20× weaker. Stress inversion of 245 mechanisms shows no rotation. Across 9
 stations, repeating earthquakes at 19 km show the same decline as those at 8 km (difference +0.006 ± 0.006%); a ~2σ lead at KMPB and B045 is balanced
 by B932 in the other direction.</p></div>
 <div class="finding"><span class="eyebrow">New · structure</span><h3>Receiver functions, reflections, attenuation, coda Q, polarity: no change</h3>
@@ -442,7 +446,8 @@ LFEs after any quake (new detections look like false alarms). This contradicts L
 <p>Direct S waves travel the full 25 km from the LFEs to the surface, so their arrival times weigh a deep change about 30× more than a change in the
 top few hundred metres. Re-measuring S delays on stacks of 100 LFEs for every family and channel (relative times only, so origin time and common clock
 errors cancel) and fitting them jointly with the coda gives, for everything from 1 km down to the LFEs: M7 −0.002 ± 0.009% and post-2021 decline
-−0.002 ± 0.009% (95% within ±0.02%), and no deep annual cycle. Synthetics show shallow changes do not leak into this estimate and a deep change would be
+−0.002 ± 0.009% (95% within ±0.02%), and no deep annual cycle. <b>Under re-check (25 Nov):</b> this fit tied station terms to the coda; with free
+station terms the deep uncertainty is several times larger (revised fit in progress). Synthetics show shallow changes do not leak into this estimate and a deep change would be
 recovered. So the common coda change bounded by the source–receiver fit is shallow, not deep. Surface stations delay S by 3–8 ms relative to boreholes,
 implying several percent velocity loss in the top ~100 m (M7 and decline). Borehole S onsets also delay in proportion to their decline, so at boreholes
 the decline extends below the sensors to about 0.4–0.8 km (about 2σ, 6 stations), resolving the earlier tension; the M7 change sits above the sensors.
