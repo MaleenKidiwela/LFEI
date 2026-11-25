@@ -1,0 +1,55 @@
+{
+ "michael_selftest": [
+  [
+   359.43389377690835,
+   1.4002564914166733
+  ],
+  [
+   89.44876711945469,
+   0.608444278878146
+  ],
+  0.5182267797879624
+ ],
+ "ABOVE_mc_eras": {
+  "pre_petrolia": 2.0,
+  "petrolia_m7": 1.9000000000000001,
+  "post_m7": 1.7
+ },
+ "ABOVE_mc": 2.0,
+ "MID_mc_eras": {
+  "pre_petrolia": 2.0,
+  "petrolia_m7": 1.9000000000000001,
+  "post_m7": 1.7
+ },
+ "MID_mc": 2.0,
+ "DEEP_mc_eras": {
+  "pre_petrolia": 2.3000000000000003,
+  "petrolia_m7": 1.8,
+  "post_m7": 2.1
+ },
+ "DEEP_mc": 2.3000000000000003,
+ "ALL_mc_eras": {
+  "pre_petrolia": 2.0,
+  "petrolia_m7": 1.7,
+  "post_m7": 1.7
+ },
+ "ALL_mc": 2.0,
+ "ABOVE_m17_mc_eras": {
+  "pre_petrolia": 2.0,
+  "petrolia_m7": 1.9000000000000001,
+  "post_m7": 1.7
+ },
+ "ABOVE_m17_mc": 1.7,
+ "DEEP_m17_mc_eras": {
+  "pre_petrolia": 2.3000000000000003,
+  "petrolia_m7": 1.8,
+  "post_m7": 2.1
+ },
+ "DEEP_m17_mc": 1.7,
+ "ALL_m17_mc_eras": {
+  "pre_petrolia": 2.0,
+  "petrolia_m7": 1.7,
+  "post_m7": 1.7
+ },
+ "ALL_m17_mc": 1.7
+}

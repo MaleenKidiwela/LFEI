@@ -1,0 +1,7 @@
+{
+ "slope_dtPS_per_sTS": -2.8488131542572508e-05,
+ "se_formal": 0.0004242292431468346,
+ "se_station_boot": 0.0009108088816108735,
+ "n": 316,
+ "note": "dtPS = t*_P - t*_S (from ln(P/S) slope); slope vs T_S = 1/(1.78 Qp) - 1/Qs (path-average, site kappa differences add scatter)"
+}

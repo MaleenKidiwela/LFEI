@@ -66,15 +66,57 @@ STATIONS = [('PB', 'B049', '2008-11-01', None), ('PB', 'B934', '2008-10-01', Non
             ('BK', 'SPRL', '2023-09-01', None), ('BK', 'USAL', '2024-03-01', None),
             ('BK', 'BLAS', '2022-06-01', None), ('BK', 'GHOP', '2022-05-01', None),
             ('BK', 'HUNT', '2022-06-01', None), ('BK', 'PRDS', '2022-09-01', None),
-            ('BK', 'SHWD', '2023-02-01', None), ('BK', 'ETSL', '2024-07-01', '2025-08-31')]
+            ('BK', 'SHWD', '2023-02-01', None), ('BK', 'ETSL', '2024-07-01', '2025-08-31'),
+            ('BK', 'JEWT', '2023-08-23', None)]      # JEWT re-processed with this pipeline (added 2026-11-24)
 SC_PAIRS = [('E', 'N'), ('E', 'Z'), ('N', 'Z')]
 PN = ['EN', 'EZ', 'NZ']
 PRODS = {'low': J.PRODS['low'], 'day': J.PRODS['day']}       # lag axes, mutes, codas, line scales
+# sub-bands of the stored 0.1-1 Hz 'low' CCFs (one-bit + whitened 0.1-1 Hz; band-passing the CCF on
+# the lag axis = band-passing the whitened spectra, since filtering commutes with correlation).
+# Zero-phase 4-pole Butterworth on the lag axis after a 10-s cosine taper at the +-150 s ends.
+# Coda windows chosen on BK.JEWT (stage subval; data/sci/noise_dvv_sc_full/subband_coda_test.csv).
+SUB = {'low_a': (0.1, 0.3), 'low_b': (0.3, 0.6), 'low_c': (0.5, 1.0)}
+CODA_SUB = {'0.1-0.3Hz': (20.0, 120.0), '0.3-0.6Hz': (10.0, 60.0), '0.5-1Hz': (5.0, 40.0)}
+# JEWT (subband_coda_test.csv, subband_lag_coherence.csv): 0.1-0.3 Hz lag coherence with the reference
+# >0.6 to ~120 s, 20-120 s gives the lowest 10-d scatter (0.11%) at CC 0.77-0.89; 0.3-0.6 Hz coherence
+# >0.35 to ~70 s, 10-60 s: CC 0.76-0.79, scatter 0.13%; 0.5-1 Hz coherence falls below 0.4 beyond ~20-30 s,
+# 5-40 s keeps CC 0.41-0.57 (all pairs pass the 0.3 cut) with the 10-d scatter ~0.3%.
+for _k, _b in SUB.items():
+    PRODS[_k] = J.Prod(_k, 'low', [0], [_b], J.LOW_FS, J.LOW_MAXLAG, CODA_SUB, mute0=0.75, nf=4096,
+                       line_med_hz=0.05, line_dil_hz=0.005, label=f'{J._bn(_b)} sub-band of the 0.1-1 Hz CCFs')
+LOW_KEYS = ['low', 'low_a', 'low_b', 'low_c']
+BANDS5 = [('low_a', '0.1-0.3Hz'), ('low_b', '0.3-0.6Hz'), ('low_c', '0.5-1Hz'), ('day', '1-3Hz'), ('day', '3-5Hz')]
 MAIN = [('low', '0.1-1Hz'), ('day', '1-3Hz'), ('day', '3-5Hz')]
+JEWT = ('BK', 'JEWT', '2023-08-23', None)          # now in STATIONS; old day files (data/sci/noise_dvv_jewt/days) only for checks
+
+
+def set_sub_codas(codas):
+    for k in SUB:
+        PRODS[k].coda.update(codas)
+    CODA_SUB.update(codas)
+
+
+def subband(ccf, f1, f2, fs=J.LOW_FS, taper_s=10.0, chunk=2000):
+    """zero-phase band-pass of CCFs (..., L) along the lag axis; NaN traces stay NaN."""
+    from scipy.signal import butter, sosfiltfilt
+    L = ccf.shape[-1]
+    nt = int(taper_s * fs)
+    tap = np.ones(L)
+    tap[:nt] = 0.5 * (1 - np.cos(np.pi * np.arange(nt) / nt))
+    tap[-nt:] = tap[:nt][::-1]
+    sos = butter(4, [f1, f2], btype='band', fs=fs, output='sos')
+    flat = ccf.reshape(-1, L)
+    out = np.full(flat.shape, np.nan, dtype='float32')
+    ok = np.where(np.isfinite(flat).all(axis=1))[0]
+    for i in range(0, len(ok), chunk):
+        ii = ok[i:i + chunk]
+        out[ii] = sosfiltfilt(sos, flat[ii].astype('float64') * tap, axis=-1)
+    return out.reshape(ccf.shape)
 M7 = pd.Timestamp('2024-12-05')
 EVENTS = {'M7': '2024-12-05', 'Petrolia': '2021-12-20', 'Ferndale': '2022-12-20'}
 EXCL = {'M7': (-31, 120), 'Petrolia': (-31, 60), 'Ferndale': (-31, 60)}
-REF_END = pd.Timestamp('2024-11-30')
+REF_END = pd.Timestamp('2024-12-05')        # reference = all pre-M7 days (whole record if < 60 such days)
+REF_END_JEWT_OLD = pd.Timestamp('2024-11-30')   # reference of the original JEWT run (verify stage only)
 
 
 def sdir(net, sta):
@@ -420,10 +462,11 @@ def load_sc(key, days_dir, d0=None, d1=None):
 
 
 def load_jewt_sc(key, d0=None, d1=None):
-    """existing JEWT day files (6 pairs, float32) -> SC-only array in the same layout."""
+    """existing JEWT day files (6 pairs, float32) -> SC pairs, and autos at |lag| >= maxlag/2."""
     P = PRODS[key]
     days, ccf = J.load_prod(key, d0=d0, d1=d1)
-    return days, ccf[:, :, 3:6].astype('float32')
+    ai = auto_idx(P.fs, P.maxlag)
+    return days, ccf[:, :, 3:6].astype('float32'), ccf[:, :, 0:3][..., ai].astype('float32')
 
 
 # ----------------------------------------------------------------------------- dv/v (SC only)
@@ -585,6 +628,57 @@ def series_sc(SR, P, days, ccf, ref, good, blk, t0, min_days):
     return pd.concat(out, ignore_index=True)
 
 
+def series_2day(SR, P, days, X, ref, good, chunk=400):
+    """2-day BACKWARD moving stacks (as scripts/sci_noise_dvv_jewt_2day_back.py): value at day d =
+    nanmean of the CCFs of days d-1 and d; per pair and SC-combined."""
+    D = len(days)
+    dv = np.full((D, len(P.bands), 3), np.nan)
+    cc = np.full_like(dv, np.nan)
+    er = np.full_like(dv, np.nan)
+    for i0 in range(1, D, chunk):
+        i1 = min(D, i0 + chunk)
+        with np.errstate(invalid='ignore'):
+            S = np.nanmean(np.stack([X[i0 - 1:i1 - 1], X[i0:i1]]), axis=0, dtype='float64')
+        dv[i0:i1], cc[i0:i1], er[i0:i1] = SR.measure(P, ref, S)
+    m, e = M.combine(dv, np.where(good[None], er, np.nan))
+    out = []
+    for b in range(len(P.bands)):
+        out.append(pd.DataFrame(dict(t=days, band=P.names[b], combo='SC', dvv_pct=m[:, b] * 100, err_pct=e[:, b] * 100,
+                                     cc=np.nan)))
+        for p in range(3):
+            if good[b, p]:
+                out.append(pd.DataFrame(dict(t=days, band=P.names[b], combo=PN[p], dvv_pct=dv[:, b, p] * 100,
+                                             err_pct=er[:, b, p] * 100, cc=cc[:, b, p])))
+    return pd.concat(out, ignore_index=True)
+
+
+def _step_windows(y, te):
+    rel = (y.index - pd.Timestamp(te)).days
+    pre = y[(rel >= -30) & (rel <= -1)].dropna().values
+    post = y[(rel >= 1) & (rel <= 15)].dropna().values
+    return pre, post
+
+
+def step_2day(y, te):
+    pre, post = _step_windows(y, te)
+    if len(pre) < 10 or len(post) < 5:
+        return np.nan
+    return post.mean() - pre.mean()
+
+
+def step_2day_mbb(y, te, nboot, rng, block=5):
+    pre, post = _step_windows(y, te)
+    if len(pre) < 10 or len(post) < 5 or not nboot:
+        return np.nan
+
+    def bs(x):
+        nb = int(np.ceil(len(x) / block))
+        st0 = rng.integers(0, len(x) - block + 1, size=(nboot, nb))
+        idx = (st0[..., None] + np.arange(block)).reshape(nboot, -1)[:, :len(x)]
+        return x[idx].mean(axis=1)
+    return float(np.std(bs(post) - bs(pre)))
+
+
 def _design(tt, breaks, m7terms, tau=None):
     """J._design with per-station breaks; M7 terms only if the record spans the M7."""
     ty = (tt - M7).days.values / 365.25
@@ -683,7 +777,8 @@ def epoch_breaks(net, sta):
     return {f'xml_epoch_{d}': str(d) for d in sorted(ds)}
 
 
-def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_override=None, steps=True, aut=None):
+def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_override=None, steps=True, aut=None,
+            lines_override='override'):
     """the J._dvv_prod pipeline for one station/product, SC pairs only."""
     rng = np.random.default_rng(seed)
     P = PRODS[key]
@@ -691,7 +786,7 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
     valid = np.isfinite(ccf[:, 0, :, 0]).any(axis=1)
     nyr = sum(int((valid & (days.year == y)).sum() >= 60) for y in set(days.year))
     if keep_override is not None:
-        keep, lines = keep_override, 'override'
+        keep, lines = keep_override, lines_override
     else:
         keep, lines = detect_lines_sc(P, days, ccf, 2 if nyr >= 2 else 1, aut)
     del aut
@@ -713,6 +808,7 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
                 pair_q={P.names[b]: dict(zip(PN, np.round(q[b], 3).tolist())) for b in range(len(P.bands))},
                 pairs_used={P.names[b]: list(np.array(PN)[good[b]]) for b in range(len(P.bands))})
     print(name, key, 'lines', lines, 'notched', nf, 'pair q', np.round(q, 2).tolist(), flush=True)
+    s2 = series_2day(SR, P, days, X, ref, good).assign(sta=name, prod=key)
     s10 = series_sc(SR, P, days, X, ref, good, 10, M7, 5).assign(sta=name, prod=key)
     s5 = series_sc(SR, P, days, X, ref, good, 5, M7, 2).assign(sta=name, prod=key)
     km = days.to_period('M').astype(str).values
@@ -721,7 +817,7 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
     mM, eM = M.combine(dvM, np.where(good[None], erM, np.nan))
     rowsM = [dict(sta=name, prod=key, band=P.names[b], combo='SC', month=labsM[g], dvv_pct=mM[g, b] * 100,
                   err_pct=eM[g, b] * 100, ndays=int(NM[g, b].max())) for b in range(len(P.bands)) for g in range(len(labsM))]
-    res = dict(meta=meta, s10=s10, s5=s5, monthly=pd.DataFrame(rowsM), steps=pd.DataFrame(), fits=pd.DataFrame())
+    res = dict(meta=meta, s2=s2, s10=s10, s5=s5, monthly=pd.DataFrame(rowsM), steps=pd.DataFrame(), fits=pd.DataFrame())
     if not steps:
         return res
     # steps + placebo
@@ -743,11 +839,30 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
             sdp = np.std(pv) if len(pv) > 5 else np.nan
             st_ = r[0, b]
             srows.append(dict(sta=name, prod=key, band=P.names[b], combo='SC', event=ev, date=te, half_days=30,
+                              method='30d_stacks (30-d pre/post CCF stacks, MBB of days)',
                               step_pct=st_, se_mbb_pct=np.nanstd(r[1:, b]), placebo_sd_pct=sdp, n_placebo=len(pv),
                               z_placebo=st_ / sdp, z_mbb=st_ / np.nanstd(r[1:, b]),
                               frac_placebo_le=np.mean(pv <= st_) if len(pv) else np.nan,
                               placebo_robust_sd_pct=1.4826 * np.median(np.abs(pv - np.median(pv))) if len(pv) else np.nan,
                               pairs_used=' '.join(meta['pairs_used'][P.names[b]])))
+    # primary: 2-day backward series, mean(days 1..15) - mean(days -30..-1); 5-d block bootstrap of the
+    # series inside the two windows; placebo = same statistic at the placebo dates
+    for b, bn in enumerate(P.names):
+        y = s2[(s2.band == bn) & (s2.combo == 'SC')].set_index('t').dvv_pct
+        pv = np.array([step_2day(y, td) for td in pl_dates])
+        pv = pv[np.isfinite(pv)]
+        sdp = np.std(pv) if len(pv) > 5 else np.nan
+        for ev, te in EVENTS.items():
+            st_ = step_2day(y, te)
+            if not np.isfinite(st_):
+                continue
+            se = step_2day_mbb(y, te, nboot, rng)
+            srows.append(dict(sta=name, prod=key, band=bn, combo='SC', event=ev, date=te, half_days=15,
+                              method='2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series)',
+                              step_pct=st_, se_mbb_pct=se, placebo_sd_pct=sdp, n_placebo=len(pv), z_placebo=st_ / sdp,
+                              z_mbb=st_ / se, frac_placebo_le=np.mean(pv <= st_) if len(pv) else np.nan,
+                              placebo_robust_sd_pct=1.4826 * np.median(np.abs(pv - np.median(pv))) if len(pv) else np.nan,
+                              pairs_used=' '.join(meta['pairs_used'][bn])))
     fits = []
     for b, bn in enumerate(P.names):
         g = s10[(s10.band == bn) & (s10.combo == 'SC')]
@@ -766,44 +881,70 @@ def _dvv_job(job):
     net, sta, key, nboot, seed = job
     import pickle          # our own intermediate results (trusted, written by this script)
     name = f'{net}.{sta}'
-    days, ccf, aut = load_sc(key, os.path.join(sdir(net, sta), 'days'))
+    os.makedirs(sdir(net, sta), exist_ok=True)
+    days, ccf, aut = load_station(net, sta, key)
     if days is None or np.isfinite(ccf[:, 0, :, 0]).any(axis=1).sum() < 60:
         return name, key, None
-    r = run_dvv(name, key, days, ccf, nboot, seed, epoch_breaks(net, sta), aut=aut)
-    pickle.dump(r, open(os.path.join(sdir(net, sta), f'_dvv_{key}.pkl'), 'wb'))
+    if key != 'low':
+        r = run_dvv(name, key, days, ccf, nboot, seed, epoch_breaks(net, sta), aut=aut)
+        pickle.dump(r, open(os.path.join(sdir(net, sta), f'_dvv_{key}.pkl'), 'wb'))
+        return name, key, 'ok'
+    # lines found once on the 0.1-1 Hz CCFs (SC + autos), applied to the full band and the sub-bands
+    valid = np.isfinite(ccf[:, 0, :, 0]).any(axis=1)
+    nyr = sum(int((valid & (days.year == y)).sum() >= 60) for y in set(days.year))
+    keep, lines = detect_lines_sc(PRODS['low'], days, ccf, 2 if nyr >= 2 else 1, aut)
+    del aut
+    for k in LOW_KEYS:
+        c = ccf if k == 'low' else subband(ccf, *SUB[k])
+        r = run_dvv(name, k, days, c, nboot, seed, epoch_breaks(net, sta), keep_override=keep, lines_override=lines)
+        pickle.dump(r, open(os.path.join(sdir(net, sta), f'_dvv_{k}.pkl'), 'wb'))
+        del c
     return name, key, 'ok'
+
+
+def load_station(net, sta, key):
+    if (net, sta) == JEWT[:2] and os.environ.get('SC_JEWT_OLDDAYS'):
+        return load_jewt_sc(key)            # old JEWT day files (6 pairs) -- comparison only
+    return load_sc(key, os.path.join(sdir(net, sta), 'days'))
+
+
+def dvv_stations():
+    return list(STATIONS)
 
 
 def stage_dvv(args):
     import pickle
     from concurrent.futures import ProcessPoolExecutor
-    sel = [s for s in STATIONS if not args.stations or s[1] in args.stations]
-    jobs = [(n, s, k, args.nboot, 100 + i) for i, (n, s, _, _) in enumerate(sel) for k in (args.prods or ['day', 'low'])]
+    sel = [s for s in dvv_stations() if not args.stations or s[1] in args.stations]
+    jobs = [(n, s, k, args.nboot, 100 + i) for i, (n, s, _, _) in enumerate(sel) for k in (args.prods or ['low', 'day'])]
+    jobs = sorted(jobs, key=lambda j: j[2] != 'low')          # the 4-product low jobs first
     if not args.collect_only:
         with ProcessPoolExecutor(max_workers=min(args.workers, len(jobs))) as ex:
             for r in ex.map(_dvv_job, jobs):
                 print('dvv', *r, flush=True)
-    acc = {k: [] for k in ('s10', 's5', 'monthly', 'steps', 'fits')}
+    acc = {k: [] for k in ('s2', 's10', 's5', 'monthly', 'steps', 'fits')}
     meta = {}
-    for n, s, _, _ in STATIONS:
-        for k in ('low', 'day'):
+    for n, s, _, _ in dvv_stations():
+        for k in LOW_KEYS + ['day']:
             fn = os.path.join(sdir(n, s), f'_dvv_{k}.pkl')
             if not os.path.exists(fn):
                 continue
             r = pickle.load(open(fn, 'rb'))
             for a in acc:
-                acc[a].append(r[a])
+                if a in r:
+                    acc[a].append(r[a])
             meta[f'{n}.{s}:{k}'] = r['meta']
-    names = dict(s10='sc_10day', s5='sc_5day', monthly='sc_monthly', steps='sc_steps', fits='sc_longterm_fit')
+    names = dict(s2='sc_2day_back', s10='sc_10day', s5='sc_5day', monthly='sc_monthly', steps='sc_steps', fits='sc_longterm_fit')
     for a, nm in names.items():
         D = pd.concat(acc[a], ignore_index=True)
-        D.to_csv(os.path.join(OUT, f'{nm}.csv'), index=False)
+        D.to_csv(os.path.join(OUT, f'{nm}.csv'), index=False, float_format='%.6g')
     json.dump(dict(meta=meta, events=EVENTS, excl_placebo=EXCL, ref_end=str(REF_END.date())),
               open(os.path.join(OUT, 'sc_meta.json'), 'w'), indent=1, default=str)
     S = pd.concat(acc['steps'], ignore_index=True)
     F = pd.concat(acc['fits'], ignore_index=True)
     with pd.option_context('display.width', 250, 'display.max_columns', 40, 'display.max_rows', 500):
-        print(S[['sta', 'band', 'event', 'step_pct', 'se_mbb_pct', 'placebo_sd_pct', 'z_placebo', 'pairs_used']].round(3).to_string())
+        S['m'] = S.method.str[:9]
+        print(S[['sta', 'band', 'm', 'event', 'step_pct', 'se_mbb_pct', 'placebo_sd_pct', 'z_placebo', 'pairs_used']].round(3).to_string())
         cols = [c for c in ['sta', 'band', 'n', 'first', 'last', 'trend_per_yr', 'trend_per_yr_se', 'trend_preM7_per_yr',
                             'trend_preM7_per_yr_se', 'annual_amp_pct', 'annual_amp_se', 'annual_peak_doy', 'step_M7_perm',
                             'tau_days', 'coseis_M7', 'd2025_minus_2021_pct', 'null_4yr_sd_pct'] if c in F]
@@ -830,7 +971,7 @@ def stage_verify(args):
     rows = []
     for key in ('day', 'low'):
         P = PRODS[key]
-        days, ccf = load_jewt_sc(key)
+        days, ccf, _ = load_jewt_sc(key)
         # same line notch as J (detected on the 6-pair JEWT record)
         _, c6 = J.load_prod(key)
         keep, lines = J.detect_lines_g(P, days, c6, 2)
@@ -850,7 +991,7 @@ def stage_verify(args):
         # reference from the ORIGINAL record so only the 60 days differ
         Xo = J.notch_g(P, ccf, keep)
         with np.errstate(invalid='ignore'):
-            ref = np.nanmean(Xo[days < REF_END], axis=0, dtype='float64')
+            ref = np.nanmean(Xo[days < REF_END_JEWT_OLD], axis=0, dtype='float64')
         rB = run_dvv('BK.JEWT', key, days, ccf2, 0, 1, {}, ref_override=ref, keep_override=keep, steps=False)
         for bn in P.names:
             t = T[(T['prod'] == key) & (T.band == bn)].set_index('t')
@@ -872,8 +1013,291 @@ def stage_verify(args):
         print(V.round(4).to_string())
 
 
+# ----------------------------------------------------------------------------- sub-band validation (JEWT)
+CODA_CANDIDATES = {'0.1-0.3Hz': [(10, 60), (15, 90), (20, 80), (20, 120), (30, 120), (40, 140)],
+                   '0.3-0.6Hz': [(5, 40), (8, 50), (10, 40), (10, 60), (15, 80), (20, 100)],
+                   '0.5-1Hz': [(5, 30), (5, 40), (8, 50), (10, 60), (15, 80), (20, 100)],
+                   '0.1-1Hz': [(10, 60)]}
+
+
+def stage_subval(args):
+    """BK.JEWT: (1) lag-window coherence of 10-d stacks with the reference (no stretching) per
+    sub-band; (2) coda-window tests: median stretching CC of 10-d stacks (reference period) and the
+    scatter / grid-edge fraction of the 10-d SC dv/v; -> subband_lag_coherence.csv,
+    subband_coda_test.csv."""
+    days, ccf, aut = load_jewt_sc('low')
+    keep, lines = detect_lines_sc(PRODS['low'], days, ccf, 2, aut)
+    print('JEWT low lines', lines, flush=True)
+    rmask = days < REF_END
+    k10 = ((days - M7).days // 10).values
+    rows, crow = [], []
+    for k in LOW_KEYS:
+        P = PRODS[k]
+        bn = P.names[0]
+        c = ccf if k == 'low' else subband(ccf, *SUB[k])
+        X = J.notch_g(P, c, keep)
+        with np.errstate(invalid='ignore'):
+            ref = np.nanmean(X[rmask], axis=0, dtype='float64')
+        labs, S, N = stack_groups(days, X, k10, 5)
+        tt = M7 + pd.to_timedelta(labs * 10 + 4.5, unit='D')
+        inref = tt < REF_END
+        # (1) coherence vs lag (10-s windows, both sides pooled), median over reference-period stacks
+        for lo in range(0, 150, 10):
+            m = (np.abs(P.lags) >= lo) & (np.abs(P.lags) < lo + 10)
+            for p in range(3):
+                a = S[:, 0, p][:, m]
+                b = ref[0, p][m]
+                a = a - a.mean(axis=1, keepdims=True)
+                bb = b - b.mean()
+                r = (a @ bb) / (np.linalg.norm(a, axis=1) * np.linalg.norm(bb) + 1e-30)
+                rows.append(dict(band=bn, pair=PN[p], lag0=lo, lag1=lo + 10, median_r_ref=np.nanmedian(r[inref]),
+                                 median_r_all=np.nanmedian(r), rms_ref=float(np.sqrt(np.mean(b ** 2)))))
+        # (2) coda tests
+        SR = Stretcher()
+        for cd in CODA_CANDIDATES[bn]:
+            dv, cc, er = SR.measure(P, ref, S, [cd])
+            mm, ee = M.combine(dv, er)
+            y = mm[:, 0] * 100
+            d = dict(band=bn, coda=f'{cd[0]}-{cd[1]}s')
+            for p in range(3):
+                d[f'cc_{PN[p]}'] = np.nanmedian(cc[inref, 0, p])
+                d[f'edge_frac_{PN[p]}'] = float(np.mean(np.isnan(dv[:, 0, p]) & np.isfinite(S[:, 0, p, 0])))
+            d['sd_10d_SC_pct'] = np.nanstd(y)
+            d['sd_diff_10d_SC_pct'] = np.nanstd(np.diff(y)) / np.sqrt(2)      # point-to-point scatter
+            d['median_err_SC_pct'] = np.nanmedian(ee[:, 0]) * 100
+            crow.append(d)
+            print(k, d, flush=True)
+    pd.DataFrame(rows).to_csv(os.path.join(OUT, 'subband_lag_coherence.csv'), index=False)
+    C = pd.DataFrame(crow)
+    C.to_csv(os.path.join(OUT, 'subband_coda_test.csv'), index=False)
+    R = pd.DataFrame(rows).groupby(['band', 'lag0']).median_r_ref.median().unstack(0)
+    with pd.option_context('display.width', 250, 'display.max_columns', 30):
+        print(R.round(2).to_string())
+        print(C.round(3).to_string())
+
+
+POWER_COL = {'0.1-0.3Hz': '0.1-0.3', '0.3-0.6Hz': '0.3-0.6', '0.5-1Hz': '0.5-1', '0.1-1Hz': '0.1-1',
+             '1-3Hz': '1-3', '3-5Hz': '3-5'}
+JEWT_POWER_COL = {'0.1-0.3Hz': 'day5_0.1-0.3', '0.3-0.6Hz': 'day5_0.3-1', '0.5-1Hz': 'day5_0.3-1',
+                  '0.1-1Hz': 'day5_0.1-1', '1-3Hz': 'night20_1-3', '3-5Hz': 'night20_3-5'}
+
+
+def power_regression(g, lp, breaks):
+    """J.stage_compare regression: 10-d dv/v ~ design (+ 10-d mean log10 power)."""
+    t = pd.DatetimeIndex(g.t)
+    lpp = np.array([lp[(lp.index >= tt - pd.Timedelta(days=4.5)) & (lp.index <= tt + pd.Timedelta(days=4.5))].mean()
+                    for tt in t])
+    y = g.dvv_pct.values
+    ok = np.isfinite(y) & np.isfinite(lpp)
+    if ok.sum() < 30:
+        return dict(n=int(ok.sum()))
+    tt = t[ok]
+    m7 = (tt < M7 - pd.Timedelta(days=30)).sum() >= 6 and (tt > M7 + pd.Timedelta(days=30)).sum() >= 6
+    br = {k: v for k, v in breaks.items() if (tt < pd.Timestamp(v)).sum() >= 6 and (tt >= pd.Timestamp(v)).sum() >= 6}
+    X, names = _design(tt, br, m7)
+    X2 = np.c_[X, lpp[ok] - np.nanmean(lpp[ok])]
+    b1 = np.linalg.lstsq(X, y[ok], rcond=None)[0]
+    b2 = np.linalg.lstsq(X2, y[ok], rcond=None)[0]
+    res = y[ok] - X @ b1
+    out = dict(n=int(ok.sum()), r_resid_vs_logpower=np.corrcoef(res, lpp[ok])[0, 1],
+               r_raw_vs_logpower=np.corrcoef(y[ok], lpp[ok])[0, 1], coef_pct_per_decade=b2[-1],
+               annual_amp_nopower=np.hypot(b1[2], b1[3]), annual_amp_withpower=np.hypot(b2[2], b2[3]),
+               trend_nopower=b1[1], trend_withpower=b2[1])
+    if m7:
+        out.update(step_M7_nopower=b1[names.index('step_M7_perm')], step_M7_withpower=b2[names.index('step_M7_perm')])
+    # significance of r_resid: block-shuffle null (power series shifted by whole years)
+    return out
+
+
+def stage_jewtpower(args):
+    """JEWT: run the 5-band (+0.1-1 Hz) SC dv/v and regress each band on JEWT's own noise power
+    (jewt_noise_power.csv; 0.3-0.6 and 0.5-1 Hz use the 0.3-1 Hz power) and on the regional power
+    proxy (power_B045_EHZ.csv, if present). -> jewt_subband_power_regression.csv + figure."""
+    import pickle
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    if not args.collect_only:
+        _dvv_job(('BK', 'JEWT', 'low', args.nboot, 7))
+    pw = pd.read_csv(os.path.join(J.OUT, 'jewt_noise_power.csv'), parse_dates=['day']).set_index('day')
+    reg = None
+    fr = os.path.join(OUT, 'power_B045_EHZ.csv')
+    if os.path.exists(fr):
+        reg = pd.read_csv(fr, parse_dates=['day']).set_index('day')
+    br = epoch_breaks('BK', 'JEWT')
+    rows = []
+    fig, axs = plt.subplots(4, 1, figsize=(12, 10), sharex=True)
+    for ax, k in zip(axs, LOW_KEYS):
+        r = pickle.load(open(os.path.join(sdir('BK', 'JEWT'), f'_dvv_{k}.pkl'), 'rb'))
+        bn = PRODS[k].names[0]
+        g = r['s10'][r['s10'].combo == 'SC']
+        base = JEWT_POWER_COL[bn]
+        lp = np.log10(pw[[c for c in pw.columns if c.startswith(base + '_')]].mean(axis=1))
+        o = power_regression(g, lp, br)
+        st = r['steps']
+        m7 = st[st.event == 'M7']
+        f = r['fits'].iloc[0]
+        rows.append(dict(band=bn, power='JEWT own ' + base, coda=str(PRODS[k].coda[bn]),
+                         pairs_used=' '.join(r['meta']['pairs_used'][bn]), pair_q=r['meta']['pair_q'][bn],
+                         m7_step=m7.step_pct.iloc[0] if len(m7) else np.nan,
+                         m7_z=m7.z_placebo.iloc[0] if len(m7) else np.nan, annual_amp=f.get('annual_amp_pct'),
+                         trend=f.get('trend_per_yr'), **o))
+        if reg is not None and POWER_COL[bn] in reg:
+            o2 = power_regression(g, np.log10(reg[POWER_COL[bn]]), br)
+            rows.append(dict(band=bn, power='regional B045 EHZ ' + POWER_COL[bn], **o2))
+        ax.errorbar(g.t, g.dvv_pct, yerr=g.err_pct, fmt='o-', ms=2.5, lw=0.7, color='C2', label=f'{bn} SC 10-d')
+        for pr, col in PCOL.items():
+            gp = r['s10'][r['s10'].combo == pr]
+            ax.plot(gp.t, gp.dvv_pct, '-', lw=0.4, color=col, alpha=0.6, label=pr)
+        ax2 = ax.twinx()
+        ax2.plot(lp.rolling(10, center=True).mean(), '-', color='0.3', lw=0.8, label=f'log10 RMS {base} (10-d)')
+        ax2.invert_yaxis()
+        ax2.set_ylabel('log10 RMS (inverted)', fontsize=7)
+        ax.set_title(f'{bn}: coda {PRODS[k].coda[bn]} s, pairs {",".join(r["meta"]["pairs_used"][bn])}, '
+                     f'r(resid, log power) {o.get("r_resid_vs_logpower", np.nan):+.2f}, '
+                     f'{o.get("coef_pct_per_decade", np.nan):+.2f} %/decade; M7 step '
+                     f'{rows[-1 if reg is None else -2]["m7_step"]:+.3f}% (z {rows[-1 if reg is None else -2]["m7_z"]:+.1f})',
+                     fontsize=8, loc='left')
+        ax.axvline(M7, color='r')
+        ax.grid(alpha=0.25)
+        ax.legend(fontsize=6.5, ncol=5, loc='lower left')
+        ax2.legend(fontsize=6.5, loc='lower right')
+        ax.set_ylabel('dv/v (%)')
+    fig.suptitle('BK.JEWT sub-band SC dv/v (band-passed 0.1-1 Hz CCFs) vs microseism power', fontsize=10)
+    fig.tight_layout()
+    fig.savefig(os.path.join(FIG, 'sci_noise_dvv_sc_full_jewt_subbands.png'), dpi=130)
+    plt.close(fig)
+    R = pd.DataFrame(rows)
+    R.to_csv(os.path.join(OUT, 'jewt_subband_power_regression.csv'), index=False)
+    with pd.option_context('display.width', 250, 'display.max_columns', 40):
+        print(R.round(3).to_string())
+
+
+def stage_jewtcheck(args):
+    """BK.JEWT re-processed with this pipeline (data/sci/noise_dvv_sc_full/BK.JEWT/days) vs the same dv/v
+    code on the original JEWT day files (_dvv_*_olddays.pkl, made with SC_JEWT_OLDDAYS=1) and vs the
+    original JEWT 10-day csv (0.1-1, 1-3, 3-5 Hz). -> jewt_new_vs_old.csv"""
+    import pickle
+    T = pd.read_csv(os.path.join(J.OUT, 'jewt_noise_dvv_10day.csv'), parse_dates=['t'])
+    T = T[T.combo == 'SC']
+    rows = []
+    for k in LOW_KEYS + ['day']:
+        fn, fo = (os.path.join(sdir('BK', 'JEWT'), f'_dvv_{k}{x}.pkl') for x in ('', '_olddays'))
+        if not (os.path.exists(fn) and os.path.exists(fo)):
+            continue
+        a, b = pickle.load(open(fn, 'rb')), pickle.load(open(fo, 'rb'))
+        for bn in PRODS[k].names:
+            d = dict(prod=k, band=bn)
+            for ser, nm in (('s2', '2day'), ('s10', '10day')):
+                x = a[ser][(a[ser].band == bn) & (a[ser].combo == 'SC')].set_index('t').dvv_pct
+                y = b[ser][(b[ser].band == bn) & (b[ser].combo == 'SC')].set_index('t').dvv_pct
+                j = pd.concat([x, y], axis=1, keys=['new', 'old']).dropna()
+                d[f'r_{nm}_new_vs_olddays'] = j.new.corr(j.old)
+                d[f'rms_diff_{nm}'] = float(np.sqrt(((j.new - j.old) ** 2).mean()))
+                d[f'rms_{nm}_old'] = float(j.old.std())
+                d[f'n_{nm}'] = len(j)
+            t = T[(T['prod'] == k) & (T.band == bn)].set_index('t').dvv_pct
+            if len(t):
+                x = a['s10'][(a['s10'].band == bn) & (a['s10'].combo == 'SC')].set_index('t').dvv_pct
+                j = pd.concat([x, t], axis=1, keys=['new', 'orig']).dropna()
+                d['r_10day_new_vs_original_csv'] = j.new.corr(j.orig)
+                d['rms_diff_10day_vs_original_csv'] = float(np.sqrt(((j.new - j.new.mean() - j.orig + j.orig.mean()) ** 2).mean()))
+            for lab, r in (('new', a), ('olddays', b)):
+                st = r['steps']
+                for _, q in st[(st.band == bn) & (st.event == 'M7')].iterrows():
+                    m = 'stack30' if q.method.startswith('30d') else '2day'
+                    d[f'M7_{m}_{lab}'] = q.step_pct
+                    d[f'M7_{m}_{lab}_z'] = q.z_placebo
+            d['pairs_new'] = ' '.join(a['meta']['pairs_used'][bn])
+            d['lines_new'] = str(a['meta']['lines_hz'])
+            rows.append(d)
+    R = pd.DataFrame(rows)
+    R.to_csv(os.path.join(OUT, 'jewt_new_vs_old.csv'), index=False)
+    with pd.option_context('display.width', 250, 'display.max_columns', 40):
+        print(R.round(3).T.to_string())
+
+
+# ----------------------------------------------------------------------------- regional microseism power
+def _power_day(dstr):
+    """PB.B045 EHZ: median RMS of 600-s segments (5 Hz, counts) per band; same filtering chain as the
+    'low' product (M._decimate -> J._to_low)."""
+    from scipy.signal import butter, sosfiltfilt
+    day = pd.Timestamp(dstr)
+    try:
+        if day.year <= 2022:
+            st = _read_pnwstore('B045', day).select(channel='EHZ')
+        else:
+            st = Stream_empty()
+        if len(st) == 0:
+            from obspy import UTCDateTime
+            from obspy.clients.fdsn import Client
+            a = UTCDateTime(day)
+            st = Client('NCEDC', timeout=300).get_waveforms('PB', 'B045', '*', 'EHZ', a - 60, a + 86460)
+    except Exception:
+        return dict(day=dstr)
+    st = J._to_low(M._decimate(st))
+    arr = _segments(st, day, {'Z': 'EHZ', 'N': 'EHN_', 'E': 'EHE_'}, J.LOW_FS, J.LOW_SEG)[0]
+    good = np.isfinite(arr).all(axis=1)
+    out = dict(day=dstr)
+    if good.sum() < 20:
+        return out
+    x = arr[good] - arr[good].mean(axis=1, keepdims=True)
+    for f1, f2 in [(0.1, 0.3), (0.3, 0.6), (0.5, 1.0), (0.1, 1.0)]:
+        sos = butter(4, [f1, f2], btype='band', fs=J.LOW_FS, output='sos')
+        y = sosfiltfilt(sos, x, axis=1)
+        out[f'{f1:g}-{f2:g}'] = float(np.median(np.sqrt((y ** 2).mean(axis=1))))
+    return out
+
+
+def Stream_empty():
+    from obspy import Stream
+    return Stream()
+
+
+def stage_power(args):
+    from concurrent.futures import ProcessPoolExecutor
+    fn = os.path.join(OUT, 'power_B045_EHZ.csv')
+    done = set(pd.read_csv(fn).day) if os.path.exists(fn) else set()
+    days = [d.strftime('%Y-%m-%d') for d in pd.date_range('2008-09-17', LAST_DAY) if d.strftime('%Y-%m-%d') not in done]
+    print(len(days), 'days', flush=True)
+    new = not os.path.exists(fn)
+    with open(fn, 'a') as f, ProcessPoolExecutor(max_workers=args.workers) as ex:
+        if new:
+            f.write('day,0.1-0.3,0.3-0.6,0.5-1,0.1-1\n')
+        for i, r in enumerate(ex.map(_power_day, days, chunksize=4)):
+            f.write(f"{r['day']},{r.get('0.1-0.3', '')},{r.get('0.3-0.6', '')},{r.get('0.5-1', '')},{r.get('0.1-1', '')}\n")
+            f.flush()
+            if i % 200 == 0:
+                print(i, r, flush=True)
+
+
+def stage_powreg(args):
+    """every station/band: 10-d SC dv/v regressed on the regional microseism power proxy
+    (PB.B045 EHZ daily median 600-s RMS in the same band; 1-3/3-5 Hz not covered) and, for JEWT,
+    also on its own power. -> sc_power_regression.csv"""
+    T = pd.read_csv(os.path.join(OUT, 'sc_10day.csv'), parse_dates=['t'])
+    reg = pd.read_csv(os.path.join(OUT, 'power_B045_EHZ.csv'), parse_dates=['day']).set_index('day')
+    pw = pd.read_csv(os.path.join(J.OUT, 'jewt_noise_power.csv'), parse_dates=['day']).set_index('day')
+    rows = []
+    for (sta, pk, bn), g in T[T.combo == 'SC'].groupby(['sta', 'prod', 'band']):
+        n, s_ = sta.split('.')
+        br = epoch_breaks(n, s_)
+        if POWER_COL[bn] in reg:
+            rows.append(dict(sta=sta, prod=pk, band=bn, power='regional PB.B045 EHZ ' + POWER_COL[bn],
+                             **power_regression(g, np.log10(reg[POWER_COL[bn]].astype(float)), br)))
+        if sta == 'BK.JEWT':
+            base = JEWT_POWER_COL[bn]
+            lp = np.log10(pw[[c for c in pw.columns if c.startswith(base + '_')]].mean(axis=1))
+            rows.append(dict(sta=sta, prod=pk, band=bn, power='own ' + base, **power_regression(g, lp, br)))
+    R = pd.DataFrame(rows)
+    R.to_csv(os.path.join(OUT, 'sc_power_regression.csv'), index=False)
+    with pd.option_context('display.width', 250, 'display.max_columns', 40, 'display.max_rows', 300):
+        print(R.round(3).to_string())
+
+
 # ----------------------------------------------------------------------------- figures
-PANELS = [('low', '0.1-1Hz', '0.1–1 Hz (microseism band)'), ('day', '1-3Hz', '1–3 Hz'), ('day', '3-5Hz', '3–5 Hz')]
+PANELS = [('low_a', '0.1-0.3Hz', '0.1–0.3 Hz'), ('low_b', '0.3-0.6Hz', '0.3–0.6 Hz'), ('low_c', '0.5-1Hz', '0.5–1 Hz'),
+          ('day', '1-3Hz', '1–3 Hz'), ('day', '3-5Hz', '3–5 Hz')]
 PCOL = {'EN': '#1f77b4', 'EZ': '#ff7f0e', 'NZ': '#9467bd'}
 QCOL = {'M7': 'r', 'Petrolia': 'salmon', 'Ferndale': 'salmon'}
 
@@ -894,10 +1318,47 @@ def _coords():
     return {f'{n.code}.{s.code}': (s.latitude, s.longitude) for n in inv for s in n}
 
 
+def _trail_median(g):
+    """trailing (backward) 30-day median of a daily series (as the JEWT 2-day figures)."""
+    return g.set_index('t').dvv_pct.rolling('30D', min_periods=20).median()
+
+
+def _deco(ax, n, s, tmin):
+    for ev, te in EVENTS.items():
+        ax.axvline(pd.Timestamp(te), color=QCOL[ev], lw=1.1 if ev == 'M7' else 0.9, ls='-' if ev == 'M7' else '--')
+    for k, v in epoch_breaks(n, s).items():
+        if pd.Timestamp(v) > tmin:
+            ax.axvline(pd.Timestamp(v), color='0.4', ls=':', lw=0.9)
+    ax.axhline(0, color='0.6', lw=0.5)
+    ax.grid(alpha=0.25)
+
+
+def _title(name, pk, bn, lab, meta, S, F, method):
+    mk = meta.get(f'{name}:{pk}', {})
+    pu = mk.get('pairs_used', {}).get(bn, [])
+    cod = PRODS[pk].coda[bn]
+    txt = f'{lab}  [coda {cod[0]:g}-{cod[1]:g} s; pairs used: {",".join(pu) or "none"}]'
+    st = S[(S.sta == name) & (S['prod'] == pk) & (S.band == bn) & S.method.str.startswith(method)]
+    if len(st):
+        txt += '   steps: ' + '; '.join(f'{r.event} {r.step_pct:+.3f}% (z {r.z_placebo:+.1f})' for r in st.itertuples())
+    f = F[(F.sta == name) & (F['prod'] == pk) & (F.band == bn)]
+    if len(f) and 'annual_amp_pct' in f and np.isfinite(f.annual_amp_pct.iloc[0]):
+        f = f.iloc[0]
+        txt += f'\nseasonal amplitude {f.annual_amp_pct:.3f}%, trend {f.trend_per_yr:+.3f} ± {f.trend_per_yr_se:.3f} %/yr'
+        if 'trend_preM7_per_yr' in f and np.isfinite(f.trend_preM7_per_yr):
+            txt += f' (pre-M7 {f.trend_preM7_per_yr:+.3f} ± {f.trend_preM7_per_yr_se:.3f})'
+        if 'd2025_minus_2021_pct' in f and np.isfinite(f.d2025_minus_2021_pct):
+            txt += f'; 2025−2021 {f.d2025_minus_2021_pct:+.3f}%'
+            if np.isfinite(f.get('null_4yr_sd_pct', np.nan)):
+                txt += f' (pre-2021 4-yr sd {f.null_4yr_sd_pct:.3f})'
+    return txt
+
+
 def stage_plot(args):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
+    T2 = pd.read_csv(os.path.join(OUT, 'sc_2day_back.csv'), parse_dates=['t'])
     T = pd.read_csv(os.path.join(OUT, 'sc_10day.csv'), parse_dates=['t'])
     D = pd.read_csv(os.path.join(OUT, 'sc_5day.csv'), parse_dates=['t'])
     Mo = pd.read_csv(os.path.join(OUT, 'sc_monthly.csv'), parse_dates=['month'])
@@ -905,103 +1366,115 @@ def stage_plot(args):
     F = pd.read_csv(os.path.join(OUT, 'sc_longterm_fit.csv'))
     meta = json.load(open(os.path.join(OUT, 'sc_meta.json')))['meta']
     coords = _coords()
-    for n, s, _, _ in STATIONS:
+    sel_st = [x for x in dvv_stations() if not args.stations or x[1] in args.stations]
+    for n, s, _, _ in sel_st:
         name = f'{n}.{s}'
-        if name not in set(T.sta):
+        if name not in set(T2.sta):
             continue
-        fig, axs = plt.subplots(3, 1, figsize=(13, 9.5), sharex=True)
+        T2s, Ts, Ds, Mos = (X[X.sta == name] for X in (T2, T, D, Mo))
+        mk = meta.get(f'{name}:day', {})
+        la, lo_ = coords.get(name, (np.nan, np.nan))
+        head = (f'{name} single-station cross-component (EN, EZ, NZ) noise dv/v, {mk.get("first", "")} – {mk.get("last", "")}'
+                f' ({_dist_km(la, lo_):.0f} km from the LFE families)\nreference = {mk.get("ref_period", "")}; '
+                'red = 2024-12-05 M7, dashed = Petrolia 2021-12-20 / Ferndale 2022-12-20, dotted = StationXML epochs')
+        # ---- primary: 2-day backward stacks
+        fig, axs = plt.subplots(len(PANELS), 1, figsize=(13, 3.0 * len(PANELS)), sharex=True)
         for ax, (pk, bn, lab) in zip(axs, PANELS):
-            sel = lambda X: X[(X.sta == name) & (X['prod'] == pk) & (X.band == bn)]
-            t10 = sel(T)
+            g2 = T2s[(T2s['prod'] == pk) & (T2s.band == bn)]
+            for pr, col in PCOL.items():
+                g = g2[g2.combo == pr]
+                if len(g):
+                    ax.plot(g.t, g.dvv_pct, '-', lw=0.35, color=col, alpha=0.45, label=f'{pr} (2-day)')
+            g = g2[g2.combo == 'SC']
+            ax.plot(g.t, g.dvv_pct, '-', lw=0.5, color='k', label='combined (2-day backward)')
+            if len(g):
+                r = _trail_median(g)
+                ax.plot(r.index, r.values, '-', lw=1.6, color='C3', label='combined, trailing 30-day median')
+            _deco(ax, n, s, T2s.t.min())
+            ax.set_title(_title(name, pk, bn, lab, meta, S, F, '2day'), fontsize=7.8, loc='left')
+            v = g2.dvv_pct
+            if v.notna().sum() > 10:
+                lo, hi = np.nanpercentile(v, [1, 99])
+                ax.set_ylim(lo - 0.1 * (hi - lo), hi + 0.1 * (hi - lo))
+            ax.set_ylabel('dv/v (%)')
+        axs[0].legend(fontsize=7, ncol=6, loc='lower left')
+        axs[-1].set_xlim(T2s.t.min() - pd.Timedelta(days=20), T2s.t.max() + pd.Timedelta(days=20))
+        fig.suptitle(head.replace('\nreference', '\n2-day backward moving stacks (day d = days d-1, d); reference'), fontsize=9)
+        fig.tight_layout()
+        fig.savefig(os.path.join(FIG, f'sci_noise_dvv_sc_full_{s}.png'), dpi=120)
+        plt.close(fig)
+        # ---- secondary: 10-day / 5-day / monthly
+        fig, axs = plt.subplots(len(PANELS), 1, figsize=(13, 3.0 * len(PANELS)), sharex=True)
+        for ax, (pk, bn, lab) in zip(axs, PANELS):
+            t10 = Ts[(Ts['prod'] == pk) & (Ts.band == bn)]
             for pr, col in PCOL.items():
                 g = t10[t10.combo == pr]
                 ax.plot(g.t, g.dvv_pct, '.-', ms=2.5, lw=0.4, color=col, alpha=0.5, label=f'{pr} (10-day)')
-            g5 = sel(D)[sel(D).combo == 'SC']
+            g5 = Ds[(Ds['prod'] == pk) & (Ds.band == bn) & (Ds.combo == 'SC')]
             ax.plot(g5.t, g5.dvv_pct, '-', lw=0.4, color='0.55', alpha=0.6, label='combined, 5-day')
             g = t10[t10.combo == 'SC']
             ax.errorbar(g.t, g.dvv_pct, yerr=g.err_pct, fmt='o', ms=2.4, lw=0.5, color='k', label='combined, 10-day')
-            gm = sel(Mo)
-            gm = gm.set_index('month').asfreq('MS') if len(gm) else gm
-            ax.plot(gm.index + pd.Timedelta(days=15), gm.dvv_pct, '-', lw=1.6, color='C3', label='combined, monthly')
-            for ev, te in EVENTS.items():
-                ax.axvline(pd.Timestamp(te), color=QCOL[ev], lw=1.1 if ev == 'M7' else 0.9, ls='-' if ev == 'M7' else '--')
-            for k, v in epoch_breaks(n, s).items():
-                if pd.Timestamp(v) > t10.t.min():
-                    ax.axvline(pd.Timestamp(v), color='0.4', ls=':', lw=0.9)
-            ax.axhline(0, color='0.6', lw=0.5)
-            ax.grid(alpha=0.25)
-            txt = lab
-            mk = meta.get(f'{name}:{pk}', {})
-            pu = mk.get('pairs_used', {}).get(bn, [])
-            txt += f'  [pairs used: {",".join(pu) or "none"}]'
-            st = S[(S.sta == name) & (S['prod'] == pk) & (S.band == bn)]
-            if len(st):
-                txt += '   steps (30 d): ' + '; '.join(f'{r.event} {r.step_pct:+.3f}% (z {r.z_placebo:+.1f})' for r in st.itertuples())
-            f = F[(F.sta == name) & (F['prod'] == pk) & (F.band == bn)]
-            if len(f) and 'annual_amp_pct' in f and np.isfinite(f.annual_amp_pct.iloc[0]):
-                f = f.iloc[0]
-                txt += f'\nseasonal amplitude {f.annual_amp_pct:.3f}%, trend {f.trend_per_yr:+.3f} ± {f.trend_per_yr_se:.3f} %/yr'
-                if 'trend_preM7_per_yr' in f and np.isfinite(f.trend_preM7_per_yr):
-                    txt += f' (pre-M7 {f.trend_preM7_per_yr:+.3f} ± {f.trend_preM7_per_yr_se:.3f})'
-                if 'd2025_minus_2021_pct' in f and np.isfinite(f.d2025_minus_2021_pct):
-                    txt += f'; 2025−2021 {f.d2025_minus_2021_pct:+.3f}%'
-                    if np.isfinite(f.get('null_4yr_sd_pct', np.nan)):
-                        txt += f' (pre-2021 4-yr sd {f.null_4yr_sd_pct:.3f})'
-            ax.set_title(txt, fontsize=8, loc='left')
+            gm = Mos[(Mos['prod'] == pk) & (Mos.band == bn)]
+            if len(gm):
+                gm = gm.set_index('month').asfreq('MS')
+                ax.plot(gm.index + pd.Timedelta(days=15), gm.dvv_pct, '-', lw=1.6, color='C3', label='combined, monthly')
+            _deco(ax, n, s, T2s.t.min())
+            ax.set_title(_title(name, pk, bn, lab, meta, S, F, '30d'), fontsize=7.8, loc='left')
             v = t10[t10.combo.isin(list(PCOL))].dvv_pct
             if v.notna().sum() > 10:
                 lo, hi = np.nanpercentile(v, [1, 99])
                 ax.set_ylim(lo - 0.1 * (hi - lo), hi + 0.1 * (hi - lo))
             ax.set_ylabel('dv/v (%)')
         axs[0].legend(fontsize=7, ncol=6, loc='lower left')
-        tt = T[T.sta == name].t
-        axs[-1].set_xlim(tt.min() - pd.Timedelta(days=20), tt.max() + pd.Timedelta(days=20))
-        mk = meta.get(f'{name}:day', {})
-        la, lo_ = coords.get(name, (np.nan, np.nan))
-        fig.suptitle(f'{name} single-station cross-component (EN, EZ, NZ) noise dv/v, {mk.get("first", "")} – {mk.get("last", "")}'
-                     f' ({_dist_km(la, lo_):.0f} km from the LFE families)\nReference = {mk.get("ref_period", "")}; red = 2024-12-05 M7, '
-                     'dashed = Petrolia 2021-12-20 / Ferndale 2022-12-20, dotted = StationXML epochs', fontsize=9.5)
+        axs[-1].set_xlim(T2s.t.min() - pd.Timedelta(days=20), T2s.t.max() + pd.Timedelta(days=20))
+        fig.suptitle(head.replace('\nreference', '\n10-day / 5-day / monthly stacks, steps from 30-d CCF stacks; reference'),
+                     fontsize=9)
         fig.tight_layout()
-        fig.savefig(os.path.join(FIG, f'sci_noise_dvv_sc_full_{s}.png'), dpi=130)
+        fig.savefig(os.path.join(FIG, f'sci_noise_dvv_sc_full_{s}_10day.png'), dpi=120)
         plt.close(fig)
-    # overview
-    names = [f'{n}.{s}' for n, s, _, _ in STATIONS if f'{n}.{s}' in set(Mo.sta)]
+    # ---- overview: trailing 30-day median of the 2-day SC series, one column per band
+    names = [f'{n}.{s}' for n, s, _, _ in dvv_stations() if f'{n}.{s}' in set(T2.sta)]
     dist = {nm: _dist_km(*coords[nm]) for nm in names}
     names = sorted(names, key=dist.get)
-    fig, axs = plt.subplots(1, 2, figsize=(15, 1.0 + 0.62 * len(names)), sharey=True)
-    for ax, bn in zip(axs, ['1-3Hz', '3-5Hz']):
-        g = Mo[(Mo['prod'] == 'day') & (Mo.band == bn)]
-        sp = 0.5 if bn == '1-3Hz' else 0.8
+    fig, axs = plt.subplots(1, len(PANELS), figsize=(5.6 * len(PANELS), 1.2 + 0.6 * len(names)))
+    for ax, (pk, bn, lab) in zip(axs, PANELS):
+        g = T2[(T2['prod'] == pk) & (T2.band == bn) & (T2.combo == 'SC')]
+        curves = {}
+        for nm in names:
+            h = g[g.sta == nm]
+            if h.dvv_pct.notna().sum() > 30:
+                c = _trail_median(h)
+                curves[nm] = c - np.nanmedian(c)
+        rng_ = [np.subtract(*np.nanpercentile(c, [95, 5])) for c in curves.values()]
+        sp = max(0.1, round(1.0 * float(np.median(rng_)), 1)) if rng_ else 0.5
         for i, nm in enumerate(names):
-            h = g[g.sta == nm].set_index('month').dvv_pct
-            if h.notna().sum() == 0:
-                continue
-            h = h.asfreq('MS')
             y0 = -i * sp
-            ax.plot(h.index + pd.Timedelta(days=15), y0 + h - np.nanmedian(h), '-', lw=0.9,
-                    color='C0' if nm.startswith('PB') else ('C2' if nm.startswith('NC') else 'C1'))
             ax.axhline(y0, color='0.85', lw=0.5, zorder=0)
-            ax.text(pd.Timestamp('2008-01-01'), y0 + 0.08 * sp, f'{nm.split(".")[1]} {dist[nm]:.0f} km', fontsize=7)
+            ax.text(pd.Timestamp('2007-11-01'), y0 + 0.1 * sp, f'{nm.split(".")[1]} {dist[nm]:.0f} km', fontsize=6.5)
+            if nm in curves:
+                c = curves[nm]
+                ax.plot(c.index, y0 + c.values, '-', lw=0.8,
+                        color='C0' if nm.startswith('PB') else ('C2' if nm.startswith('NC') else 'C1'))
         for ev, te in EVENTS.items():
             ax.axvline(pd.Timestamp(te), color=QCOL[ev], lw=1 if ev == 'M7' else 0.8, ls='-' if ev == 'M7' else '--')
-        ax.plot([pd.Timestamp('2009-01-01')] * 2, [-(len(names) - 0.3) * sp, -(len(names) - 0.3) * sp + sp * 0.5], 'k-', lw=2)
-        ax.text(pd.Timestamp('2009-03-01'), -(len(names) - 0.3) * sp, f'{0.5 * sp:.2f} %', fontsize=7)
-        ax.set_title(f'{bn.replace("-", "–").replace("Hz", " Hz")} SC dv/v, monthly (offset by {sp} % per station; '
-                     'blue PB borehole, green NC, orange BK)', fontsize=9)
+        ax.plot([pd.Timestamp('2009-06-01')] * 2, [-(len(names) - 0.2) * sp, -(len(names) - 0.2) * sp + sp * 0.5], 'k-', lw=2)
+        ax.text(pd.Timestamp('2009-09-01'), -(len(names) - 0.2) * sp, f'{0.5 * sp:.2g} %', fontsize=7)
+        ax.set_title(f'{lab} SC dv/v (trailing 30-d median of 2-day stacks)\noffset {sp:g} % per station', fontsize=9)
         ax.set_xlim(pd.Timestamp('2007-10-01'), pd.Timestamp('2027-01-01'))
+        ax.set_ylim(-(len(names) + 0.3) * sp, 1.0 * sp)
         ax.grid(alpha=0.2, axis='x')
         ax.set_yticks([])
-    fig.suptitle('Single-station cross-component ambient-noise dv/v, all stations, ordered by distance to the LFE families '
-                 '(median removed; red = M7, dashed = Petrolia/Ferndale)', fontsize=10)
+    fig.suptitle('Single-station cross-component ambient-noise dv/v, all stations ordered by distance to the LFE families '
+                 '(median removed; blue PB borehole, green NC, orange BK; red = M7, dashed = Petrolia/Ferndale)', fontsize=10)
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, 'sci_noise_dvv_sc_full_all.png'), dpi=130)
+    fig.savefig(os.path.join(FIG, 'sci_noise_dvv_sc_full_all.png'), dpi=120)
     plt.close(fig)
     print('figures written', flush=True)
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('stage', choices=['download', 'verify', 'dvv', 'plot'])
+    ap.add_argument('stage', choices=['download', 'verify', 'dvv', 'plot', 'subval', 'jewtpower', 'power', 'powreg', 'jewtcheck'])
     ap.add_argument('--stations', nargs='*')
     ap.add_argument('--prods', nargs='*')
     ap.add_argument('--start')

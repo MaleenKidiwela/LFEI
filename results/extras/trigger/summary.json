@@ -1,0 +1,765 @@
+{
+ "n_teleseisms_total": 793,
+ "dropped": {
+  "": 718,
+  "overlap": 65,
+  "silence_local_or_end": 6,
+  "no_pgv": 4
+ },
+ "n_used": 705,
+ "epochs": {
+  "pre2021": "2009-01-01..2021-12-20",
+  "pet_m7": "2021-12-20..2024-12-05",
+  "post_m7": "2025-01-04..2026-06-29 (after 30-d silence)"
+ },
+ "S0_kPa": 0.63,
+ "catalog_end": "2026-06-30 22:31:16.320000",
+ "variants": {
+  "real_onsets": {
+   "ratios": {
+    "pre2021|strong": {
+     "n_quakes": 109,
+     "obs": 104,
+     "exp": 42.66,
+     "ratio": 2.438,
+     "p_upper": 0.0015,
+     "p_lower": 0.999
+    },
+    "pre2021|weak": {
+     "n_quakes": 439,
+     "obs": 245,
+     "exp": 202.69,
+     "ratio": 1.209,
+     "p_upper": 0.1169,
+     "p_lower": 0.8891
+    },
+    "pet_m7|strong": {
+     "n_quakes": 12,
+     "obs": 43,
+     "exp": 5.45,
+     "ratio": 7.895,
+     "p_upper": 0.0005,
+     "p_lower": 1.0
+    },
+    "pet_m7|weak": {
+     "n_quakes": 95,
+     "obs": 30,
+     "exp": 51.51,
+     "ratio": 0.582,
+     "p_upper": 0.8591,
+     "p_lower": 0.1544
+    },
+    "post_m7|strong": {
+     "n_quakes": 13,
+     "obs": 3,
+     "exp": 9.89,
+     "ratio": 0.303,
+     "p_upper": 0.6882,
+     "p_lower": 0.3998
+    },
+    "post_m7|weak": {
+     "n_quakes": 37,
+     "obs": 24,
+     "exp": 22.41,
+     "ratio": 1.071,
+     "p_upper": 0.4188,
+     "p_lower": 0.6107
+    }
+   },
+   "glm": {
+    "pre2021": {
+     "a": 0.561,
+     "slope_per_log10kPa": 0.38,
+     "slope_ci95": [
+      -0.064,
+      0.778
+     ],
+     "ratio_at_1kPa": 1.753,
+     "ratio_at_1kPa_ci95": [
+      1.179,
+      2.376
+     ]
+    },
+    "pet_m7": {
+     "a": 1.132,
+     "slope_per_log10kPa": 1.654,
+     "slope_ci95": [
+      0.164,
+      2.937
+     ],
+     "ratio_at_1kPa": 3.103,
+     "ratio_at_1kPa_ci95": [
+      0.548,
+      7.366
+     ]
+    },
+    "post_m7": {
+     "a": -0.692,
+     "slope_per_log10kPa": -0.867,
+     "slope_ci95": [
+      -1.88,
+      1.174
+     ],
+     "ratio_at_1kPa": 0.501,
+     "ratio_at_1kPa_ci95": [
+      0.135,
+      1.08
+     ]
+    }
+   }
+  },
+  "real_onsets_0.5h": {
+   "ratios": {
+    "pre2021|strong": {
+     "n_quakes": 109,
+     "obs": 58,
+     "exp": 24.72,
+     "ratio": 2.346,
+     "p_upper": 0.009,
+     "p_lower": 0.9935
+    },
+    "pre2021|weak": {
+     "n_quakes": 439,
+     "obs": 96,
+     "exp": 101.69,
+     "ratio": 0.944,
+     "p_upper": 0.5677,
+     "p_lower": 0.4478
+    },
+    "pet_m7|strong": {
+     "n_quakes": 12,
+     "obs": 15,
+     "exp": 2.75,
+     "ratio": 5.448,
+     "p_upper": 0.0055,
+     "p_lower": 0.9975
+    },
+    "pet_m7|weak": {
+     "n_quakes": 95,
+     "obs": 9,
+     "exp": 22.05,
+     "ratio": 0.408,
+     "p_upper": 0.9095,
+     "p_lower": 0.1154
+    },
+    "post_m7|strong": {
+     "n_quakes": 13,
+     "obs": 1,
+     "exp": 5.13,
+     "ratio": 0.195,
+     "p_upper": 0.8001,
+     "p_lower": 0.4028
+    },
+    "post_m7|weak": {
+     "n_quakes": 37,
+     "obs": 11,
+     "exp": 11.41,
+     "ratio": 0.964,
+     "p_upper": 0.4828,
+     "p_lower": 0.5657
+    }
+   },
+   "glm": {
+    "pre2021": {
+     "a": 0.443,
+     "slope_per_log10kPa": 0.721,
+     "slope_ci95": [
+      0.151,
+      1.219
+     ],
+     "ratio_at_1kPa": 1.557,
+     "ratio_at_1kPa_ci95": [
+      0.932,
+      2.219
+     ]
+    },
+    "pet_m7": {
+     "a": 0.648,
+     "slope_per_log10kPa": 1.441,
+     "slope_ci95": [
+      -1.586,
+      4.096
+     ],
+     "ratio_at_1kPa": 1.911,
+     "ratio_at_1kPa_ci95": [
+      0.072,
+      6.667
+     ]
+    },
+    "post_m7": {
+     "a": -1.881,
+     "slope_per_log10kPa": -1.429,
+     "slope_ci95": [
+      -18.813,
+      57.722
+     ],
+     "ratio_at_1kPa": 0.152,
+     "ratio_at_1kPa_ci95": [
+      0.0,
+      0.52
+     ]
+    }
+   }
+  },
+  "real_onsets_peak-10to+20min": {
+   "ratios": {
+    "pre2021|strong": {
+     "n_quakes": 109,
+     "obs": 59,
+     "exp": 26.45,
+     "ratio": 2.23,
+     "p_upper": 0.014,
+     "p_lower": 0.9875
+    },
+    "pre2021|weak": {
+     "n_quakes": 439,
+     "obs": 91,
+     "exp": 99.47,
+     "ratio": 0.915,
+     "p_upper": 0.6507,
+     "p_lower": 0.3678
+    },
+    "pet_m7|strong": {
+     "n_quakes": 12,
+     "obs": 14,
+     "exp": 2.62,
+     "ratio": 5.35,
+     "p_upper": 0.006,
+     "p_lower": 0.997
+    },
+    "pet_m7|weak": {
+     "n_quakes": 95,
+     "obs": 12,
+     "exp": 22.06,
+     "ratio": 0.544,
+     "p_upper": 0.8001,
+     "p_lower": 0.2444
+    },
+    "post_m7|strong": {
+     "n_quakes": 13,
+     "obs": 1,
+     "exp": 4.34,
+     "ratio": 0.23,
+     "p_upper": 0.8256,
+     "p_lower": 0.3823
+    },
+    "post_m7|weak": {
+     "n_quakes": 37,
+     "obs": 20,
+     "exp": 9.92,
+     "ratio": 2.016,
+     "p_upper": 0.1374,
+     "p_lower": 0.8866
+    }
+   },
+   "glm": {
+    "pre2021": {
+     "a": 0.378,
+     "slope_per_log10kPa": 0.739,
+     "slope_ci95": [
+      0.052,
+      1.347
+     ],
+     "ratio_at_1kPa": 1.459,
+     "ratio_at_1kPa_ci95": [
+      0.883,
+      2.03
+     ]
+    },
+    "pet_m7": {
+     "a": -0.429,
+     "slope_per_log10kPa": 0.309,
+     "slope_ci95": [
+      -2.161,
+      1.852
+     ],
+     "ratio_at_1kPa": 0.651,
+     "ratio_at_1kPa_ci95": [
+      0.053,
+      1.359
+     ]
+    },
+    "post_m7": {
+     "a": -1.466,
+     "slope_per_log10kPa": -2.135,
+     "slope_ci95": [
+      -23.441,
+      1.382
+     ],
+     "ratio_at_1kPa": 0.231,
+     "ratio_at_1kPa_ci95": [
+      0.0,
+      0.922
+     ]
+    }
+   }
+  },
+  "realZ3_onsets": {
+   "ratios": {
+    "pre2021|strong": {
+     "n_quakes": 109,
+     "obs": 82,
+     "exp": 38.51,
+     "ratio": 2.129,
+     "p_upper": 0.01,
+     "p_lower": 0.991
+    },
+    "pre2021|weak": {
+     "n_quakes": 439,
+     "obs": 217,
+     "exp": 187.9,
+     "ratio": 1.155,
+     "p_upper": 0.2079,
+     "p_lower": 0.7981
+    },
+    "pet_m7|strong": {
+     "n_quakes": 12,
+     "obs": 39,
+     "exp": 5.22,
+     "ratio": 7.471,
+     "p_upper": 0.0005,
+     "p_lower": 1.0
+    },
+    "pet_m7|weak": {
+     "n_quakes": 95,
+     "obs": 26,
+     "exp": 48.72,
+     "ratio": 0.534,
+     "p_upper": 0.8751,
+     "p_lower": 0.1384
+    },
+    "post_m7|strong": {
+     "n_quakes": 13,
+     "obs": 3,
+     "exp": 9.89,
+     "ratio": 0.303,
+     "p_upper": 0.6612,
+     "p_lower": 0.4233
+    },
+    "post_m7|weak": {
+     "n_quakes": 37,
+     "obs": 24,
+     "exp": 22.36,
+     "ratio": 1.073,
+     "p_upper": 0.4278,
+     "p_lower": 0.5992
+    }
+   },
+   "glm": {
+    "pre2021": {
+     "a": 0.449,
+     "slope_per_log10kPa": 0.306,
+     "slope_ci95": [
+      -0.181,
+      0.705
+     ],
+     "ratio_at_1kPa": 1.567,
+     "ratio_at_1kPa_ci95": [
+      1.055,
+      2.147
+     ]
+    },
+    "pet_m7": {
+     "a": 0.925,
+     "slope_per_log10kPa": 1.923,
+     "slope_ci95": [
+      0.128,
+      3.48
+     ],
+     "ratio_at_1kPa": 2.521,
+     "ratio_at_1kPa_ci95": [
+      0.278,
+      6.9
+     ]
+    },
+    "post_m7": {
+     "a": -0.691,
+     "slope_per_log10kPa": -0.869,
+     "slope_ci95": [
+      -1.841,
+      1.516
+     ],
+     "ratio_at_1kPa": 0.501,
+     "ratio_at_1kPa_ci95": [
+      0.152,
+      1.106
+     ]
+    }
+   }
+  },
+  "realcc137_onsets": {
+   "ratios": {
+    "pre2021|strong": {
+     "n_quakes": 109,
+     "obs": 48,
+     "exp": 23.68,
+     "ratio": 2.027,
+     "p_upper": 0.0505,
+     "p_lower": 0.9535
+    },
+    "pre2021|weak": {
+     "n_quakes": 439,
+     "obs": 131,
+     "exp": 118.24,
+     "ratio": 1.108,
+     "p_upper": 0.3163,
+     "p_lower": 0.6967
+    },
+    "pet_m7|strong": {
+     "n_quakes": 12,
+     "obs": 34,
+     "exp": 3.65,
+     "ratio": 9.307,
+     "p_upper": 0.0005,
+     "p_lower": 1.0
+    },
+    "pet_m7|weak": {
+     "n_quakes": 95,
+     "obs": 17,
+     "exp": 35.1,
+     "ratio": 0.484,
+     "p_upper": 0.8601,
+     "p_lower": 0.1559
+    },
+    "post_m7|strong": {
+     "n_quakes": 13,
+     "obs": 2,
+     "exp": 8.49,
+     "ratio": 0.236,
+     "p_upper": 0.7431,
+     "p_lower": 0.3638
+    },
+    "post_m7|weak": {
+     "n_quakes": 37,
+     "obs": 18,
+     "exp": 18.63,
+     "ratio": 0.966,
+     "p_upper": 0.4818,
+     "p_lower": 0.5407
+    }
+   },
+   "glm": {
+    "pre2021": {
+     "a": 0.151,
+     "slope_per_log10kPa": 0.366,
+     "slope_ci95": [
+      -0.315,
+      0.982
+     ],
+     "ratio_at_1kPa": 1.162,
+     "ratio_at_1kPa_ci95": [
+      0.574,
+      1.702
+     ]
+    },
+    "pet_m7": {
+     "a": 1.09,
+     "slope_per_log10kPa": 2.204,
+     "slope_ci95": [
+      -1.337,
+      3.708
+     ],
+     "ratio_at_1kPa": 2.975,
+     "ratio_at_1kPa_ci95": [
+      0.048,
+      8.304
+     ]
+    },
+    "post_m7": {
+     "a": -0.884,
+     "slope_per_log10kPa": -0.98,
+     "slope_ci95": [
+      -1.972,
+      1.188
+     ],
+     "ratio_at_1kPa": 0.413,
+     "ratio_at_1kPa_ci95": [
+      0.099,
+      0.936
+     ]
+    }
+   }
+  },
+  "real_events": {
+   "ratios": {
+    "pre2021|strong": {
+     "n_quakes": 109,
+     "obs": 203,
+     "exp": 107.88,
+     "ratio": 1.882,
+     "p_upper": 0.0445,
+     "p_lower": 0.957
+    },
+    "pre2021|weak": {
+     "n_quakes": 439,
+     "obs": 620,
+     "exp": 541.07,
+     "ratio": 1.146,
+     "p_upper": 0.2384,
+     "p_lower": 0.7636
+    },
+    "pet_m7|strong": {
+     "n_quakes": 12,
+     "obs": 157,
+     "exp": 13.62,
+     "ratio": 11.53,
+     "p_upper": 0.0005,
+     "p_lower": 1.0
+    },
+    "pet_m7|weak": {
+     "n_quakes": 95,
+     "obs": 64,
+     "exp": 172.28,
+     "ratio": 0.371,
+     "p_upper": 0.9535,
+     "p_lower": 0.0485
+    },
+    "post_m7|strong": {
+     "n_quakes": 13,
+     "obs": 7,
+     "exp": 37.84,
+     "ratio": 0.185,
+     "p_upper": 0.7286,
+     "p_lower": 0.2859
+    },
+    "post_m7|weak": {
+     "n_quakes": 37,
+     "obs": 93,
+     "exp": 89.03,
+     "ratio": 1.045,
+     "p_upper": 0.4058,
+     "p_lower": 0.6012
+    }
+   },
+   "glm": {
+    "pre2021": {
+     "a": 0.288,
+     "slope_per_log10kPa": 0.085,
+     "slope_ci95": [
+      -0.544,
+      0.601
+     ],
+     "ratio_at_1kPa": 1.334,
+     "ratio_at_1kPa_ci95": [
+      0.754,
+      1.913
+     ]
+    },
+    "pet_m7": {
+     "a": 1.297,
+     "slope_per_log10kPa": 2.206,
+     "slope_ci95": [
+      -0.622,
+      3.857
+     ],
+     "ratio_at_1kPa": 3.657,
+     "ratio_at_1kPa_ci95": [
+      0.18,
+      12.102
+     ]
+    },
+    "post_m7": {
+     "a": -0.853,
+     "slope_per_log10kPa": -1.013,
+     "slope_ci95": [
+      -1.942,
+      1.307
+     ],
+     "ratio_at_1kPa": 0.426,
+     "ratio_at_1kPa_ci95": [
+      0.143,
+      0.957
+     ]
+    }
+   }
+  }
+ },
+ "tests_strong_real_onsets_1h": {
+  "pet_m7": {
+   "D_logratio": 1.182,
+   "ratio_change_factor": 3.26,
+   "boot_ci95_factor": [
+    0.397,
+    13.409
+   ],
+   "perm_p_two_sided": 0.118,
+   "perm_pctl": 95.3,
+   "n_strong": 10,
+   "n_strong_pre": 100,
+   "leave_one_out_factor_range": [
+    1.733,
+    4.585
+   ],
+   "placebo_3.0yr_pctl": 100.0,
+   "placebo_3.0yr_D_range": [
+    -1.605,
+    0.854
+   ],
+   "placebo_3.0yr_n_windows": 40
+  },
+  "post_m7": {
+   "D_logratio": -1.935,
+   "ratio_change_factor": 0.144,
+   "boot_ci95_factor": [
+    0.032,
+    0.374
+   ],
+   "perm_p_two_sided": 0.0838,
+   "perm_pctl": 5.8,
+   "n_strong": 13,
+   "n_strong_pre": 100,
+   "leave_one_out_factor_range": [
+    0.106,
+    0.198
+   ],
+   "placebo_1.5yr_pctl": 0.0,
+   "placebo_1.5yr_D_range": [
+    -1.88,
+    1.544
+   ],
+   "placebo_1.5yr_n_windows": 46
+  },
+  "post2021_all": {
+   "D_logratio": 0.213,
+   "ratio_change_factor": 1.238,
+   "perm_pctl": 68.5,
+   "perm_p_two_sided": 0.5899
+  }
+ },
+ "robust_strong_real_onsets_1h": {
+  "pre2021": {
+   "n": 100,
+   "mean_PIT": 0.559,
+   "mean_PIT_null_sd": 0.029,
+   "n_any": 30,
+   "exp_any": 19.45,
+   "excess_any_frac": 0.105
+  },
+  "pet_m7": {
+   "n": 10,
+   "mean_PIT": 0.661,
+   "mean_PIT_null_sd": 0.091,
+   "n_any": 5,
+   "exp_any": 1.9,
+   "excess_any_frac": 0.31,
+   "dPIT_vs_pre": 0.102,
+   "dPIT_perm_pctl": 92.4,
+   "dAny_vs_pre": 0.205,
+   "dAny_perm_pctl": 92.5
+  },
+  "post_m7": {
+   "n": 13,
+   "mean_PIT": 0.521,
+   "mean_PIT_null_sd": 0.08,
+   "n_any": 3,
+   "exp_any": 2.15,
+   "excess_any_frac": 0.066,
+   "dPIT_vs_pre": -0.038,
+   "dPIT_perm_pctl": 35.3,
+   "dAny_vs_pre": -0.04,
+   "dAny_perm_pctl": 43.5
+  }
+ },
+ "threshold_per_epoch": {
+  "pre2021": {
+   "S0_best_kPa": 5.623,
+   "S0_LR95_kPa": [
+    3.162,
+    5.623
+   ],
+   "ratio_above_0p63": 2.438,
+   "ratio_below_0p63": 1.194
+  },
+  "pet_m7": {
+   "S0_best_kPa": 0.562,
+   "S0_LR95_kPa": [
+    0.562,
+    0.794
+   ],
+   "ratio_above_0p63": 7.895,
+   "ratio_below_0p63": 0.582
+  },
+  "post_m7": {
+   "S0_best_kPa": 0.178,
+   "S0_LR95_kPa": [
+    0.1,
+    0.355
+   ],
+   "ratio_above_0p63": 0.303,
+   "ratio_below_0p63": 1.071
+  }
+ },
+ "injection": {
+  "R_pre_strong": 2.438,
+  "nb_dispersion_k": 0.393,
+  "note": "f = multiplier on triggered EXCESS (R-1) in the test epoch; background = random matched control count",
+  "pet_m7_PIT": {
+   "observed_dPIT": 0.102,
+   "sim_null_f1_pctl": 89.5,
+   "detectable_decrease_f_le": null,
+   "detectable_increase_f_ge": null,
+   "neyman95_f_consistent": [
+    0.5,
+    10.0
+   ]
+  },
+  "pet_m7": {
+   "observed_D": 1.182,
+   "sim_null_f1_pctl_of_observed": 99.5,
+   "detectable_decrease_f_le": null,
+   "detectable_increase_f_ge": 10.0,
+   "neyman95_f_consistent": [
+    2.0,
+    10.0
+   ],
+   "f_grid": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0,
+    6.0,
+    10.0
+   ]
+  },
+  "post_m7_PIT": {
+   "observed_dPIT": -0.038,
+   "sim_null_f1_pctl": 17.0,
+   "detectable_decrease_f_le": null,
+   "detectable_increase_f_ge": null,
+   "neyman95_f_consistent": [
+    0.0,
+    2.0
+   ]
+  },
+  "post_m7": {
+   "observed_D": -1.935,
+   "sim_null_f1_pctl_of_observed": 0.7,
+   "detectable_decrease_f_le": null,
+   "detectable_increase_f_ge": 10.0,
+   "neyman95_f_consistent": [
+    0.0,
+    0.25
+   ],
+   "f_grid": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0,
+    6.0,
+    10.0
+   ]
+  }
+ }
+}

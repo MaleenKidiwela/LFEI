@@ -1,0 +1,5 @@
+sta,contrast,nA,nB,nA_used,nB_used,breaks_in_window
+PB.B934,step_Petrolia,0,0,0,0,
+PB.B934,step_Ferndale,0,0,0,0,
+PB.B934,step_M7,1,0,0,0,
+PB.B934,longterm_post2021,1,16,0,0,

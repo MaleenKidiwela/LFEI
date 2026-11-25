@@ -1,0 +1,212 @@
+{
+ "SmS|c|all|famclass": {
+  "dz_best": 8.6,
+  "z_best": 2.368063078925796,
+  "p_global": 0.3853820598006645,
+  "n": 603,
+  "z_at_ref": -0.7373793343915284
+ },
+ "SmS|c|boreholes|famclass": {
+  "dz_best": 8.7,
+  "z_best": 2.9368935134149625,
+  "p_global": 0.05647840531561462,
+  "n": 191,
+  "z_at_ref": -1.2066322949947677
+ },
+ "SmS|c|surface|famclass": {
+  "dz_best": -3.1,
+  "z_best": 2.5049799187795196,
+  "p_global": 0.2724252491694352,
+  "n": 98,
+  "z_at_ref": -0.08559640309566034
+ },
+ "SmS|c|fam_odd|famclass": {
+  "dz_best": 7.9,
+  "z_best": 2.397685797955809,
+  "p_global": 0.24916943521594684,
+  "n": 285,
+  "z_at_ref": -1.0842336516602349
+ },
+ "SmS|c|fam_even|famclass": {
+  "dz_best": -3.1,
+  "z_best": 3.6888833032228336,
+  "p_global": 0.006644518272425249,
+  "n": 68,
+  "z_at_ref": 0.2774857061726902
+ },
+ "SmS|a|all|famclass": {
+  "dz_best": 8.7,
+  "z_best": 2.7226081751020743,
+  "p_global": 0.1362126245847176,
+  "n": 578,
+  "z_at_ref": 2.2916294401168456
+ },
+ "SmS|a|boreholes|famclass": {
+  "dz_best": 8.6,
+  "z_best": 3.013955481089814,
+  "p_global": 0.04318936877076412,
+  "n": 198,
+  "z_at_ref": 2.076353176684812
+ },
+ "SmS|a|surface|famclass": {
+  "dz_best": 3.4,
+  "z_best": 2.8515344379172447,
+  "p_global": 0.1362126245847176,
+  "n": 425,
+  "z_at_ref": 1.4520464169930465
+ },
+ "SmS|a|fam_odd|famclass": {
+  "dz_best": 8.6,
+  "z_best": 2.966544298334678,
+  "p_global": 0.059800664451827246,
+  "n": 285,
+  "z_at_ref": 1.6022840767520947
+ },
+ "SmS|a|fam_even|famclass": {
+  "dz_best": 9.8,
+  "z_best": 1.6676245726780954,
+  "p_global": 0.8106312292358804,
+  "n": 242,
+  "z_at_ref": 1.0130626371430194
+ },
+ "SmS|e|all|famclass": {
+  "dz_best": 3.2,
+  "z_best": 2.7995014953569455,
+  "p_global": 0.16611295681063123,
+  "n": 552,
+  "z_at_ref": 1.7384335609791453
+ },
+ "SmS|e|boreholes|famclass": {
+  "dz_best": 4.6,
+  "z_best": 3.251028225025734,
+  "p_global": 0.036544850498338874,
+  "n": 191,
+  "z_at_ref": 1.556410427530761
+ },
+ "SmS|e|surface|famclass": {
+  "dz_best": 7.4,
+  "z_best": 2.6101365500489075,
+  "p_global": 0.24584717607973422,
+  "n": 256,
+  "z_at_ref": 0.9644089231743155
+ },
+ "SmS|e|fam_odd|famclass": {
+  "dz_best": 3.2,
+  "z_best": 2.415595924135934,
+  "p_global": 0.33222591362126247,
+  "n": 272,
+  "z_at_ref": 0.6783368781302819
+ },
+ "SmS|e|fam_even|famclass": {
+  "dz_best": 7.4,
+  "z_best": 1.8434793597507881,
+  "p_global": 0.867109634551495,
+  "n": 226,
+  "z_at_ref": 1.626593876797688
+ },
+ "PmS|c|all|famclass": {
+  "dz_best": 5.4,
+  "z_best": 2.5066323837890216,
+  "p_global": 0.3222591362126246,
+  "n": 560,
+  "z_at_ref": -0.8106924771997799
+ },
+ "PmS|c|boreholes|famclass": {
+  "dz_best": 5.3,
+  "z_best": 2.5051119241655875,
+  "p_global": 0.2591362126245847,
+  "n": 202,
+  "z_at_ref": -1.5368595827876217
+ },
+ "PmS|c|surface|famclass": {
+  "dz_best": 6.6,
+  "z_best": 2.7290895348437587,
+  "p_global": 0.21926910299003322,
+  "n": 412,
+  "z_at_ref": 0.26751840250190595
+ },
+ "PmS|c|fam_odd|famclass": {
+  "dz_best": 5.4,
+  "z_best": 2.0248215945990085,
+  "p_global": 0.654485049833887,
+  "n": 282,
+  "z_at_ref": -0.734175101510117
+ },
+ "PmS|c|fam_even|famclass": {
+  "dz_best": -1.7,
+  "z_best": 2.2667112694578013,
+  "p_global": 0.5116279069767442,
+  "n": 140,
+  "z_at_ref": 0.029608155148407634
+ },
+ "PmS|a|all|famclass": {
+  "dz_best": 9.6,
+  "z_best": 3.352147110536741,
+  "p_global": 0.013289036544850499,
+  "n": 501,
+  "z_at_ref": -1.6146499997867916
+ },
+ "PmS|a|boreholes|famclass": {
+  "dz_best": 8.6,
+  "z_best": 2.4435192502251772,
+  "p_global": 0.2757475083056478,
+  "n": 171,
+  "z_at_ref": -1.1446948573900229
+ },
+ "PmS|a|surface|famclass": {
+  "dz_best": 9.9,
+  "z_best": 2.808161721381171,
+  "p_global": 0.12624584717607973,
+  "n": 319,
+  "z_at_ref": -0.5536972225594445
+ },
+ "PmS|a|fam_odd|famclass": {
+  "dz_best": 10.0,
+  "z_best": 2.8331887602767374,
+  "p_global": 0.08970099667774087,
+  "n": 237,
+  "z_at_ref": -0.9760798958840404
+ },
+ "PmS|a|fam_even|famclass": {
+  "dz_best": 9.6,
+  "z_best": 2.623998875514975,
+  "p_global": 0.23920265780730898,
+  "n": 264,
+  "z_at_ref": -1.059865626496231
+ },
+ "PmS|e|all|famclass": {
+  "dz_best": 6.5,
+  "z_best": 2.7784095572377376,
+  "p_global": 0.12292358803986711,
+  "n": 361,
+  "z_at_ref": -0.15639364442368942
+ },
+ "PmS|e|boreholes|famclass": {
+  "dz_best": 6.1,
+  "z_best": 1.9029834720801933,
+  "p_global": 0.7109634551495017,
+  "n": 104,
+  "z_at_ref": NaN
+ },
+ "PmS|e|surface|famclass": {
+  "dz_best": 6.6,
+  "z_best": 2.6189521210782645,
+  "p_global": 0.2026578073089701,
+  "n": 267,
+  "z_at_ref": 0.08563981592349994
+ },
+ "PmS|e|fam_odd|famclass": {
+  "dz_best": 6.9,
+  "z_best": 2.625782303011051,
+  "p_global": 0.19601328903654486,
+  "n": 195,
+  "z_at_ref": 1.2452062716636996
+ },
+ "PmS|e|fam_even|famclass": {
+  "dz_best": 6.4,
+  "z_best": 2.734580436393878,
+  "p_global": 0.132890365448505,
+  "n": 183,
+  "z_at_ref": -1.9390630395495885
+ }
+}

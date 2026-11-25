@@ -198,6 +198,7 @@ H.append('''<section><h2>What we learned</h2>
 <p class="lede">The M7.0 acted as a natural clamp-and-hold experiment on a very weak, deep strike-slip fault. These are the results
 that survived null tests and controls, grouped by how new they are.</p>
 <h3>New</h3><ul>
+<li><b>Nothing measurable changed at depth in 18 years.</b> Some 20 independent observables reach the low-velocity layer and the LFEs: travel times, S−P, earthquake-minus-LFE differentials, long-period noise, receiver functions, reflections, attenuation, coda Q, source polarity and spectra, tides, stress, GNSS. None changes at any quake or over 2008–2026; the best deep bounds are ±0.01–0.02%. All observed velocity changes are in the top ~0.1–0.8 km beneath the stations (see “Did anything change at depth?”).</li>
 <li><b>Only the M7 lowered pore pressure at the LFE fault, and only the M7 silenced it.</b> Of 12 nearby quake dates, Coulomb stress and
 clamping do not single out the M7 (Ferndale was larger on both); the undrained pore-pressure drop does, in every model variant.</li>
 <li><b>The fault's frictional state did not change.</b> Tidal sensitivity (±28% for M2) stayed the same across all three quakes (a drop of
@@ -263,7 +264,7 @@ constituents (N2/M2 and K1/O1 ratios at their equilibrium values).</li>
 faster than ~1 m/yr.</li>
 <li>A velocity change at the depth of the LFEs. The coseismic drops scale with local shaking only weakly (slope significant on all 14 surface
 stations, but not on the 6 with long records), and the post-2021 decline does not scale with shaking beyond what random pre-2021 windows
-produce; where the changes occur is therefore not established. A 60-day early-coda drop after the
+produce; the changes are shallow (see “Did anything change at depth?”). A 60-day early-coda drop after the
 M7 survived location and event-mix controls in three families, but across 18 families it is not significant against random-date placebos
 (early minus late z = −1.2), is absent in boreholes, and similar drops follow Petrolia and Ferndale. Formal dv/v errors understate
 the real scatter by 2–3×.</li>
@@ -281,6 +282,71 @@ LFEs during the silence (Vp/Vs and amplitude ratios tested on family 23; the rev
 <li>Patch “breathing” (size changes with tide, season or the M7) is inconclusive: too few events are well located in both station halves.</li>
 
 </ul></section>''')
+# ---------------- depth summary (2026-11-25)
+for _k, _src in {'depthsum': 'figures/sci_depth_summary.png', 'lpdepth': 'figures/sci_noise_lp_depth.png',
+                 'lpts': 'figures/sci_noise_lp_timeseries.png', 'scall': 'figures/sci_noise_dvv_sc_full_all.png',
+                 'eqabove': 'figures/sci_eq_above_lapse.png', 'rflvz': 'figures/sci_rf_lvz_contrasts.png',
+                 'lfeatten': 'figures/sci_lfe_phases_atten.png', 'restartpol': 'figures/sci_restart_polarity.png',
+                 'codaq': 'figures/sci_extras_codaq_timeseries.png', 'ducell': 'figures/sci_ducellier_tremor_sea_ccf_tides.png'}.items():
+    fig(_src, _k, width=1600 if _k == 'scall' else 1400)
+_DS = pd.read_csv('data/sci/depth_summary.csv')
+_rows = ''.join(
+    f'<tr><td style="white-space:normal;min-width:16em">{html.escape(r.observable)}</td><td>{int(r.z0_km)}–{int(r.z1_km)} km</td>'
+    f'<td style="white-space:normal;text-align:left">{html.escape(str(r.M7))}</td><td style="white-space:normal;text-align:left">{html.escape(str(r.long_term))}</td>'
+    f'<td style="white-space:normal;text-align:left">{html.escape(str(r.limit95))}</td><td style="text-align:left">{html.escape(r.verdict)}</td></tr>'
+    for r in _DS.itertuples())
+H.append(f'''<section id="depth"><h2>Did anything change at depth? Every observable, 2008–2026 (25 Nov 2026)</h2>
+<p class="lede">No. Every observable that reaches the LFE region, from the top of the low-velocity layer (~20 km) down to and around the
+LFEs (~28–31 km), is unchanged through 18 years and the 2010, 2014, 2021, 2022 and 2024 earthquakes, and so are the LFE sources themselves. All the velocity changes we
+do see sit in the top ~0.1–0.8 km beneath the stations, and they get larger at higher frequency and at shallower sensitivity. The tightest deep bounds
+(±0.01–0.02%) are still about 5–50× above the ~0.0004–0.004% expected from the M7’s static strain, so a null is what physics predicts. These are bounds,
+not proof of zero.</p>
+<figure><img src="figs/depthsum.jpg" alt="95% limits on a velocity change against the depth range each observable samples" loading="lazy"><figcaption>95% (2σ) limit
+on a velocity change against the depth range each method samples (blue: dv/v; green: Vs of the low-velocity layer). Grey: change expected from the
+M7 static strain. Pink: the LFEs. Pale blue at top: where the observed changes are.</figcaption></figure>
+<div class="tbl"><table><thead><tr><th>Observable</th><th>Depth</th><th style="text-align:left">M7 (2024)</th><th style="text-align:left">Long term / decline</th>
+<th style="text-align:left">95% limit</th><th style="text-align:left">Verdict</th></tr></thead><tbody>{_rows}</tbody></table></div>
+<div class="findings">
+<div class="finding"><span class="eyebrow">New · long-period noise</span><h3>Inter-station noise down to 0.05 Hz: the deep band is flat</h3>
+<p>18 years of 1-sample/s data at 39 sites (~390 broadband pairs). At 0.05–0.1 Hz, 56% of the sensitivity lies at 10–30 km. The M7 drop shrinks
+into the deep band (0.2–0.3 Hz −0.04%, significant; 0.1–0.2 Hz −0.045%, marginal; 0.05–0.1 Hz −0.06%, 13th placebo percentile). A joint shallow/deep fit
+gives a shallow −0.040 ± 0.006% and a deep −0.07 ± 0.07%. A change confined to 10–30 km larger than ~0.3% is excluded at every quake; the long-term
+trend is −0.0003 ± 0.0055%/yr. An apparent −0.1% dip after 2021 in the network curve is −0.05% on the same 57 pairs before and after, appears on one
+side of the correlation only (−0.11% vs −0.01%), so it is a noise-source change, not the ground.</p></div>
+<div class="finding"><span class="eyebrow">New · single-station noise</span><h3>Five bands at 27 stations: the M7 drop and the decline grow toward high frequency</h3>
+<p>Full-record cross-component dv/v (2-day backward stacks, 82,974 station-days). The M7 step (median over stations) is −0.07% at 0.1–0.3 Hz (no station
+|z| &gt; 3), −0.10% at 0.3–0.6 Hz, −0.09% at 0.5–1 Hz, −0.13% at 1–3 Hz (11 stations |z| &gt; 3) and −0.17% at 3–5 Hz. The borehole decline since 2021
+is present at 0.3–5 Hz and weak or absent at 0.1–0.3 Hz, i.e. in the upper ~1–2 km at most. The full 0.1–1 Hz band follows ocean-microseism power;
+the narrower sub-bands do much less.</p></div>
+<div class="finding"><span class="eyebrow">New · earthquakes above the LFEs</span><h3>The layer between the earthquakes and the LFEs did not change</h3>
+<p>26 families of ordinary earthquakes at 17–23 km, relocated and stacked, give a second source above the LFEs. Differencing LFE and earthquake travel
+times isolates the layer down to the LFEs (22–31 km): M7 +0.001 ± 0.008%, restart −0.002 ± 0.018%, decline −0.001 ± 0.005%, every year 2010–2026 within
+±0.008%. Injected −0.3% is recovered as −0.299%, and receiver-side steps do not leak. Stress inversion of 245 mechanisms shows no rotation. Across 9
+stations, repeating earthquakes at 19 km show the same decline as those at 8 km (difference +0.006 ± 0.006%); a ~2σ lead at KMPB and B045 is balanced
+by B932 in the other direction.</p></div>
+<div class="finding"><span class="eyebrow">New · structure</span><h3>Receiver functions, reflections, attenuation, coda Q, polarity: no change</h3>
+<p>Receiver functions show no change at the top of the low-velocity layer (contrast +0.10 ± 0.07 km/s; limits 5–6% Vs long term, 10–15% at the
+quakes), in slab power (best ~5% Vs; after fixing a PyRaysum setting that dropped the direct P) or in anisotropy. No reflection from inside the
+layer is robust in LFE stacks (0 of 34 hypotheses). Attenuation (Δt*_S ±10 ms), coda Q (~7% for the M7 over a year) and the S-wave polarity of
+the first LFEs after each silence (0.6% of channels flipped at the M7, the placebo median) are unchanged. An apparent polarity change after
+Ferndale is surface-only (station decorrelation at BRIC and RVIT), so it is not at the source.</p></div>
+<div class="finding"><span class="eyebrow">New · other quakes and ETS</span><h3>2010 and 2014 quakes; Cascadia main-band LFEs are not coupled</h3>
+<p>The 2010 M6.5 and 2014 M6.8 caused 3-day network-wide LFE dips but no deep dv/v, S−P, tidal or spectral change. The southern-Cascadia main-band
+ETS LFEs (Ducellier &amp; Creager) and PNSN tremor are not coupled to the MTJ families (Shelly rate during/before 209 episodes 1.02, placebo
+0.96–1.04). They have a different tidal phase (M2 ~312° vs ~255°) and kept going through the M7. The M7 silence was specific to the MTJ families.
+A new matched-filter scan of the main band (to 2026) is running.</p></div>
+</div>
+''')
+H.append(img('lpdepth', 'Long-period inter-station noise: depth kernels (left), injection tests on real data (centre) and the 95% bounds on a change confined to 10-30 km for each quake and band (right).'))
+H.append(img('lpts', 'Long-period inter-station noise dv/v 2008-2026 in 0.05-0.1, 0.1-0.2 and 0.2-0.3 Hz (Rayleigh and Love/TT), 10- and 30-day bins; dashed = 2010, 2014, Petrolia, Ferndale, M7.'))
+H.append(img('scall', 'Single-station cross-component noise dv/v at all 27 stations in five bands (0.1-0.3 to 3-5 Hz), trailing 30-day median of 2-day backward stacks, ordered by distance from the LFEs; red = M7.'))
+H.append(img('eqabove', 'Earthquakes above the LFEs: LFE-minus-earthquake differential travel times isolate the 22-31 km layer.'))
+H.append(img('rflvz', 'Receiver functions: changes at the top of the low-velocity layer (A_t, delay) for each contrast with bootstrap, permutation and placebo ranges.'))
+H.append(img('lfeatten', 'Attenuation through time from LFE P and S spectra: network steps at each quake vs placebo dates.'))
+H.append(img('restartpol', 'S-wave polarity per channel: last 50 LFEs before vs first 20 after each quake (signed template correlation); red = significant sign flip.'))
+H.append(img('codaq', 'Coda Q (decay rate) from coherent LFE coda through time, borehole and surface stations.'))
+H.append(img('ducell', 'PNSN main-band tremor vs the Shelly families: superposed-epoch rates and cross-correlation, and tidal phases.'))
+H.append('</section>')
 H.append("""<section><h2>Newest results (round 4, 23 Nov 2026)</h2>
 <div class="findings">
 <div class="finding"><span class="eyebrow">Tides</span><h3>Right-lateral slip confirmed; one static pore-pressure model cannot explain both the tides and the M7</h3>

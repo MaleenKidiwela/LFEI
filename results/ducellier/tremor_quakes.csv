@@ -1,0 +1,6 @@
+quake,main_before30,main_after30,near_before30,near_after30,shelly_before30,shelly_after30,prev_episode_start,next_episode_start,days_since_prev_ep,days_to_next_ep,in_episode,big_interval_containing_d
+M6.5_2010-01-10,51,194,0,0,187,146,2009-11-27,2010-01-16,44,5,False,133
+M6.8_2014-03-10,2307,744,0,8,189,183,2014-02-06,2014-03-13,32,2,False,77
+M6.2_Petrolia_2021-12-20,814,319,16,9,253,233,2021-12-16,2021-12-30,4,9,True,79
+M6.4_Ferndale_2022-12-20,519,1149,0,0,235,140,2022-11-18,2023-01-11,32,21,False,65
+M7.0_2024-12-05,2184,1770,19,0,238,117,2024-12-04,2025-01-22,1,47,True,73

@@ -1,0 +1,149 @@
+{
+ "Ps_above|c|all|fam": {
+  "dz_best": 7.7,
+  "z_best": 3.398421540943562,
+  "p_global": 0.03980099502487562,
+  "n": 63,
+  "z_at_ref": -2.00289751949608
+ },
+ "Ps_above|c|boreholes|fam": {
+  "dz_best": 7.5,
+  "z_best": 2.6109059186871426,
+  "p_global": 0.13432835820895522,
+  "n": 63,
+  "z_at_ref": -2.194882576525099
+ },
+ "Ps_above|c|surface|fam": {
+  "dz_best": -7.4,
+  "z_best": 3.314172346482443,
+  "p_global": 0.029850746268656716,
+  "n": 91,
+  "z_at_ref": -1.4488821422373426
+ },
+ "Ps_above|c|fam_odd|fam": {
+  "dz_best": -2.5,
+  "z_best": 2.271607856390556,
+  "p_global": 0.3781094527363184,
+  "n": 172,
+  "z_at_ref": -1.191282051553553
+ },
+ "Ps_above|c|fam_even|fam": {
+  "dz_best": 5.0,
+  "z_best": 2.1541131941287683,
+  "p_global": 0.3880597014925373,
+  "n": 194,
+  "z_at_ref": -1.1632535357083813
+ },
+ "Ps_above|c|half0|fam": {
+  "dz_best": 7.7,
+  "z_best": 3.848167999792481,
+  "p_global": 0.009950248756218905,
+  "n": 63,
+  "z_at_ref": -2.9579875820273793
+ },
+ "Ps_above|c|half1|fam": {
+  "dz_best": 7.7,
+  "z_best": 3.7344152381869526,
+  "p_global": 0.01990049751243781,
+  "n": 63,
+  "z_at_ref": -1.7765773698210605
+ },
+ "Ps_above|a|all|fam": {
+  "dz_best": -7.4,
+  "z_best": 2.727319867464259,
+  "p_global": 0.11442786069651742,
+  "n": 124,
+  "z_at_ref": -1.6256635833831152
+ },
+ "Ps_above|a|boreholes|fam": {
+  "dz_best": 5.1,
+  "z_best": 2.5263916896758833,
+  "p_global": 0.20398009950248755,
+  "n": 98,
+  "z_at_ref": -0.7825999209239298
+ },
+ "Ps_above|a|surface|fam": {
+  "dz_best": -7.4,
+  "z_best": 3.71685419324663,
+  "p_global": 0.009950248756218905,
+  "n": 91,
+  "z_at_ref": -1.5589564015662427
+ },
+ "Ps_above|a|fam_odd|fam": {
+  "dz_best": -7.3,
+  "z_best": 1.7636542474151815,
+  "p_global": 0.681592039800995,
+  "n": 75,
+  "z_at_ref": -0.6007600910742562
+ },
+ "Ps_above|a|fam_even|fam": {
+  "dz_best": 5.1,
+  "z_best": 2.365770704528493,
+  "p_global": 0.3333333333333333,
+  "n": 169,
+  "z_at_ref": -1.6050239827807802
+ },
+ "Ps_above|a|half0|fam": {
+  "dz_best": -7.7,
+  "z_best": 3.1956711921229974,
+  "p_global": 0.01990049751243781,
+  "n": 124,
+  "z_at_ref": -1.7002509594448807
+ },
+ "Ps_above|a|half1|fam": {
+  "dz_best": -0.8,
+  "z_best": 1.0481710861675226,
+  "p_global": 1.0,
+  "n": 381,
+  "z_at_ref": 0.08460272979730069
+ },
+ "Ps_above|e|all|fam": {
+  "dz_best": -0.5,
+  "z_best": 2.559623325502902,
+  "p_global": 0.13930348258706468,
+  "n": 63,
+  "z_at_ref": 0.7628623097613566
+ },
+ "Ps_above|e|boreholes|fam": {
+  "dz_best": -8.0,
+  "z_best": NaN,
+  "p_global": 0.004975124378109453,
+  "n": 11,
+  "z_at_ref": NaN
+ },
+ "Ps_above|e|surface|fam": {
+  "dz_best": -8.0,
+  "z_best": NaN,
+  "p_global": 0.004975124378109453,
+  "n": 17,
+  "z_at_ref": NaN
+ },
+ "Ps_above|e|fam_odd|fam": {
+  "dz_best": -8.0,
+  "z_best": NaN,
+  "p_global": 0.004975124378109453,
+  "n": 12,
+  "z_at_ref": NaN
+ },
+ "Ps_above|e|fam_even|fam": {
+  "dz_best": -8.0,
+  "z_best": NaN,
+  "p_global": 0.004975124378109453,
+  "n": 16,
+  "z_at_ref": NaN
+ },
+ "Ps_above|e|half0|fam": {
+  "dz_best": -8.0,
+  "z_best": NaN,
+  "p_global": 0.004975124378109453,
+  "n": 21,
+  "z_at_ref": NaN
+ },
+ "Ps_above|e|half1|fam": {
+  "dz_best": -8.0,
+  "z_best": NaN,
+  "p_global": 0.004975124378109453,
+  "n": 17,
+  "z_at_ref": NaN
+ }
+}
