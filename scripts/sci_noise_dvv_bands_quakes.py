@@ -22,7 +22,10 @@ from multiprocessing import get_context
 import numpy as np
 import pandas as pd
 
-OUT = 'data/sci/noise_dvv_bands_quakes'
+# env overrides (inherited by spawned workers): NDVV_OUT, NDVV_W0/NDVV_W1 (day window), NDVV_JEWT=1 to include JEWT, NDVV_FIG
+OUT = os.environ.get('NDVV_OUT', 'data/sci/noise_dvv_bands_quakes')
+W0, W1 = int(os.environ.get('NDVV_W0', -35)), int(os.environ.get('NDVV_W1', 30))
+FIGNAME = os.environ.get('NDVV_FIG', 'sci_noise_dvv_bands_quakes')
 FS = 20.0
 QUAKES = {'petrolia': '2021-12-20', 'ferndale': '2022-12-20', 'm7': '2024-12-05'}
 BANDS = {'0.1-1Hz': (0.1, 1.0, 300.0, 60.0, (8.0, 50.0)),       # f1, f2, segment s, maxlag s, coda |lag| window
@@ -35,7 +38,7 @@ EPS = np.arange(-0.01, 0.01 + 1e-12, 0.0002)
 
 def window_days(q):
     t = pd.Timestamp(QUAKES[q])
-    days = sorted(d for d in os.listdir('data/continuous') if -35 <= (pd.Timestamp(d) - t).days <= 30)
+    days = sorted(d for d in os.listdir('data/continuous') if W0 <= (pd.Timestamp(d) - t).days <= W1)
     return days
 
 
@@ -133,7 +136,7 @@ def stage_correlate(a):
         stas = set()
         for d in window_days(q):
             stas |= {os.path.basename(p)[:-6] for p in glob.glob(f'data/continuous/{d}/*.mseed')}
-        jobs += [(s, q) for s in sorted(stas) if s != 'BK.JEWT']       # JEWT handled by sci_noise_dvv_jewt.py
+        jobs += [(s, q) for s in sorted(stas) if s != 'BK.JEWT' or os.environ.get('NDVV_JEWT') == '1']       # JEWT handled by sci_noise_dvv_jewt.py
     print(len(jobs), 'station-quake jobs', flush=True)
     with get_context('spawn').Pool(a.procs) as pool:
         for sta, q, msg in pool.imap_unordered(_job, jobs):
@@ -254,13 +257,60 @@ def stage_plot(a):
         ax.legend(fontsize=7)
     fig.suptitle('Single-station cross-component (EN, EZ, NZ) ambient-noise dv/v by band around the three quakes (data on disk)')
     fig.tight_layout()
-    fig.savefig('figures/sci_noise_dvv_bands_quakes.png', dpi=120)
-    print('figures/sci_noise_dvv_bands_quakes.png')
+    fig.savefig(f'figures/{FIGNAME}.png', dpi=120)
+    print(f'figures/{FIGNAME}.png')
+
+
+def stage_stations(a):
+    """Per-station daily cross-component dv/v (3-day running mean), one figure per quake."""
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    G = pd.read_csv(f'{OUT}/daily.csv')
+    S = pd.read_csv(f'{OUT}/steps.csv')
+    cols = {'0.1-1Hz': '0.65', '1-3Hz': 'C0', '3-5Hz': 'C3'}
+    for q in QUAKES:
+        g = G[G.quake == q]
+        stas = sorted(g.sta.unique())
+        nc = 6
+        nr = int(np.ceil(len(stas) / nc))
+        fig, axs = plt.subplots(nr, nc, figsize=(3.0 * nc, 2.1 * nr), sharex=True, sharey=True, squeeze=False)
+        for ax, sta in zip(axs.flat, stas):
+            for b, c in cols.items():
+                s = g[(g.sta == sta) & (g.band == b)].set_index('rel').dvv.sort_index()
+                if s.empty:
+                    continue
+                s = s - s[(s.index >= -30) & (s.index <= -1)].mean()
+                ax.plot(s.index, s.values, '.', ms=1.5, color=c, alpha=0.35)
+                r = s.reindex(range(s.index.min(), s.index.max() + 1)).rolling(3, center=True, min_periods=2).mean()
+                ax.plot(r.index, r.values, '-', lw=1.0 if b != '0.1-1Hz' else 0.7, color=c, label=b)
+            txt = []
+            for b in ('1-3Hz', '3-5Hz'):
+                r = S[(S.sta == sta) & (S.quake == q) & (S.band == b)]
+                if len(r):
+                    txt.append(f'{b[:-2]}: {r.step_pct.iloc[0]:+.2f} (z {r.z.iloc[0]:+.1f})')
+            ax.set_title(sta + ('\n' + ', '.join(txt) if txt else ''), fontsize=7)
+            ax.axvline(0, color='k', ls='--', lw=0.7)
+            ax.axhline(0, color='k', lw=0.4)
+            ax.grid(alpha=0.2)
+        for ax in axs.flat[len(stas):]:
+            ax.set_visible(False)
+        axs[0, 0].set_ylim(-0.6, 0.4)
+        axs[0, 0].legend(fontsize=6, loc='lower left')
+        for ax in axs[-1]:
+            ax.set_xlabel(f'days from {QUAKES[q]}', fontsize=7)
+        for ax in axs[:, 0]:
+            ax.set_ylabel('dv/v (%)', fontsize=7)
+        fig.suptitle(f'{q}: single-station cross-component noise dv/v, every day on disk (dots daily, line 3-day mean; '
+                     f'zero = mean of days -30..-1; title = step post 1-15 d minus pre 30 d)', fontsize=9)
+        fig.tight_layout()
+        fig.savefig(f'figures/{FIGNAME}_stations_{q}.png', dpi=110)
+        print(f'figures/{FIGNAME}_stations_{q}.png')
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('stage', choices=['correlate', 'dvv', 'plot'])
+    ap.add_argument('stage', choices=['correlate', 'dvv', 'plot', 'stations'])
     ap.add_argument('--procs', type=int, default=12)
     a = ap.parse_args()
-    dict(correlate=stage_correlate, dvv=stage_dvv, plot=stage_plot)[a.stage](a)
+    dict(correlate=stage_correlate, dvv=stage_dvv, plot=stage_plot, stations=stage_stations)[a.stage](a)

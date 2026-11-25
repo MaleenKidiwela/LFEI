@@ -55,3 +55,5 @@ cp "$SRC"/figures/sci_noise_dvv_jewt_*.png "$SRC"/figures/sci_noise_dvv_bands_qu
 mkdir -p "$DST/results/noise_dvv_jewt" "$DST/results/noise_dvv_bands_quakes"
 cp "$SRC"/data/sci/noise_dvv_jewt/*.csv "$SRC"/data/sci/noise_dvv_jewt/*.json "$DST/results/noise_dvv_jewt/" 2>/dev/null || true
 cp "$SRC"/data/sci/noise_dvv_bands_quakes/steps.csv "$SRC"/data/sci/noise_dvv_bands_quakes/daily.csv "$DST/results/noise_dvv_bands_quakes/" 2>/dev/null || true
+cp "$SRC"/figures/sci_noise_dvv_bands_ondisk*.png "$DST/docs/figures/"
+mkdir -p "$DST/results/noise_dvv_bands_ondisk"; cp "$SRC"/data/sci/noise_dvv_bands_ondisk/steps.csv "$SRC"/data/sci/noise_dvv_bands_ondisk/daily.csv "$DST/results/noise_dvv_bands_ondisk/" 2>/dev/null || true
