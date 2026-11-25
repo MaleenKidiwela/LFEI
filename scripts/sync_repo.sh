@@ -64,7 +64,7 @@ for n in noise_lp noise_lp/check2022 noise_dvv_sc_full restart_polarity restart_
   find "$SRC/data/sci/$n" -maxdepth 1 -type f \( -name '*.csv' -o -name '*.json' \) -size -2M -exec cp {} "$DST/results/$n/" \;
 done
 cp "$SRC"/data/sci/depth_summary.csv "$DST/results/"
-cp "$SRC"/figures/sci_depth_summary.png "$SRC"/figures/sci_noise_lp_*.png "$SRC"/figures/sci_noise_dvv_sc_full_all.png "$SRC"/figures/sci_restart_polarity*.png \
+cp "$SRC"/figures/sci_depth_summary.png "$SRC"/figures/sci_noise_lp_*.png "$SRC"/figures/sci_noise_dvv_sc_full_all.png "$SRC"/figures/sci_noise_dvv_sc_5back_all.png "$SRC"/figures/sci_noise_dvv_sc_5back_m7.png "$SRC"/figures/sci_noise_dvv_sc_10back_all.png "$SRC"/figures/sci_noise_dvv_sc_10back_m7.png "$SRC"/figures/sci_restart_polarity*.png \
    "$SRC"/figures/sci_rf_lvz_*.png "$SRC"/figures/sci_eq_above_*.png "$SRC"/figures/sci_lfe_phases_*.png "$SRC"/figures/sci_extras_*.png \
    "$SRC"/figures/sci_ducellier_*.png "$DST/docs/figures/" 2>/dev/null || true
 echo "added deep-change tests"; du -sh "$DST" --exclude=.git

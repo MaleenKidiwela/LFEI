@@ -628,17 +628,17 @@ def series_sc(SR, P, days, ccf, ref, good, blk, t0, min_days):
     return pd.concat(out, ignore_index=True)
 
 
-def series_2day(SR, P, days, X, ref, good, chunk=400):
-    """2-day BACKWARD moving stacks (as scripts/sci_noise_dvv_jewt_2day_back.py): value at day d =
-    nanmean of the CCFs of days d-1 and d; per pair and SC-combined."""
+def series_2day(SR, P, days, X, ref, good, chunk=400, nwin=2):
+    """nwin-day BACKWARD moving stacks (default 2, as scripts/sci_noise_dvv_jewt_2day_back.py): value at day d =
+    nanmean of the CCFs of days d-nwin+1 .. d (no later data); per pair and SC-combined."""
     D = len(days)
     dv = np.full((D, len(P.bands), 3), np.nan)
     cc = np.full_like(dv, np.nan)
     er = np.full_like(dv, np.nan)
-    for i0 in range(1, D, chunk):
+    for i0 in range(nwin - 1, D, chunk):
         i1 = min(D, i0 + chunk)
         with np.errstate(invalid='ignore'):
-            S = np.nanmean(np.stack([X[i0 - 1:i1 - 1], X[i0:i1]]), axis=0, dtype='float64')
+            S = np.nanmean(np.stack([X[i0 - k:i1 - k] for k in range(nwin)]), axis=0, dtype='float64')
         dv[i0:i1], cc[i0:i1], er[i0:i1] = SR.measure(P, ref, S)
     m, e = M.combine(dv, np.where(good[None], er, np.nan))
     out = []
@@ -809,6 +809,8 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
                 pairs_used={P.names[b]: list(np.array(PN)[good[b]]) for b in range(len(P.bands))})
     print(name, key, 'lines', lines, 'notched', nf, 'pair q', np.round(q, 2).tolist(), flush=True)
     s2 = series_2day(SR, P, days, X, ref, good).assign(sta=name, prod=key)
+    s5b = series_2day(SR, P, days, X, ref, good, nwin=5).assign(sta=name, prod=key)   # 5-day backward (added 2026-11-25)
+    s10b = series_2day(SR, P, days, X, ref, good, nwin=10).assign(sta=name, prod=key)  # 10-day backward (added 2026-11-25)
     s10 = series_sc(SR, P, days, X, ref, good, 10, M7, 5).assign(sta=name, prod=key)
     s5 = series_sc(SR, P, days, X, ref, good, 5, M7, 2).assign(sta=name, prod=key)
     km = days.to_period('M').astype(str).values
@@ -817,7 +819,7 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
     mM, eM = M.combine(dvM, np.where(good[None], erM, np.nan))
     rowsM = [dict(sta=name, prod=key, band=P.names[b], combo='SC', month=labsM[g], dvv_pct=mM[g, b] * 100,
                   err_pct=eM[g, b] * 100, ndays=int(NM[g, b].max())) for b in range(len(P.bands)) for g in range(len(labsM))]
-    res = dict(meta=meta, s2=s2, s10=s10, s5=s5, monthly=pd.DataFrame(rowsM), steps=pd.DataFrame(), fits=pd.DataFrame())
+    res = dict(meta=meta, s2=s2, s5b=s5b, s10b=s10b, s10=s10, s5=s5, monthly=pd.DataFrame(rowsM), steps=pd.DataFrame(), fits=pd.DataFrame())
     if not steps:
         return res
     # steps + placebo
@@ -847,8 +849,9 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
                               pairs_used=' '.join(meta['pairs_used'][P.names[b]])))
     # primary: 2-day backward series, mean(days 1..15) - mean(days -30..-1); 5-d block bootstrap of the
     # series inside the two windows; placebo = same statistic at the placebo dates
-    for b, bn in enumerate(P.names):
-        y = s2[(s2.band == bn) & (s2.combo == 'SC')].set_index('t').dvv_pct
+    for (sname, sser, nlab) in (('2day_back', s2, '2-day'), ('5day_back', s5b, '5-day'), ('10day_back', s10b, '10-day')):
+      for b, bn in enumerate(P.names):
+        y = sser[(sser.band == bn) & (sser.combo == 'SC')].set_index('t').dvv_pct
         pv = np.array([step_2day(y, td) for td in pl_dates])
         pv = pv[np.isfinite(pv)]
         sdp = np.std(pv) if len(pv) > 5 else np.nan
@@ -858,7 +861,7 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
                 continue
             se = step_2day_mbb(y, te, nboot, rng)
             srows.append(dict(sta=name, prod=key, band=bn, combo='SC', event=ev, date=te, half_days=15,
-                              method='2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series)',
+                              method=f'{sname} (mean d1..15 - mean d-30..-1 of the {nlab} backward series)',
                               step_pct=st_, se_mbb_pct=se, placebo_sd_pct=sdp, n_placebo=len(pv), z_placebo=st_ / sdp,
                               z_mbb=st_ / se, frac_placebo_le=np.mean(pv <= st_) if len(pv) else np.nan,
                               placebo_robust_sd_pct=1.4826 * np.median(np.abs(pv - np.median(pv))) if len(pv) else np.nan,
@@ -922,7 +925,7 @@ def stage_dvv(args):
         with ProcessPoolExecutor(max_workers=min(args.workers, len(jobs))) as ex:
             for r in ex.map(_dvv_job, jobs):
                 print('dvv', *r, flush=True)
-    acc = {k: [] for k in ('s2', 's10', 's5', 'monthly', 'steps', 'fits')}
+    acc = {k: [] for k in ('s2', 's5b', 's10b', 's10', 's5', 'monthly', 'steps', 'fits')}
     meta = {}
     for n, s, _, _ in dvv_stations():
         for k in LOW_KEYS + ['day']:
@@ -934,7 +937,7 @@ def stage_dvv(args):
                 if a in r:
                     acc[a].append(r[a])
             meta[f'{n}.{s}:{k}'] = r['meta']
-    names = dict(s2='sc_2day_back', s10='sc_10day', s5='sc_5day', monthly='sc_monthly', steps='sc_steps', fits='sc_longterm_fit')
+    names = dict(s2='sc_2day_back', s5b='sc_5day_back', s10b='sc_10day_back', s10='sc_10day', s5='sc_5day', monthly='sc_monthly', steps='sc_steps', fits='sc_longterm_fit')
     for a, nm in names.items():
         D = pd.concat(acc[a], ignore_index=True)
         D.to_csv(os.path.join(OUT, f'{nm}.csv'), index=False, float_format='%.6g')
@@ -1394,7 +1397,7 @@ def stage_plot(args):
             ax.set_title(_title(name, pk, bn, lab, meta, S, F, '2day'), fontsize=7.8, loc='left')
             v = g2.dvv_pct
             if v.notna().sum() > 10:
-                lo, hi = np.nanpercentile(v, [1, 99])
+                lo, hi = np.nanmin(v), np.nanmax(v)   # full range, no clipping (user request 2026-11-25)
                 ax.set_ylim(lo - 0.1 * (hi - lo), hi + 0.1 * (hi - lo))
             ax.set_ylabel('dv/v (%)')
         axs[0].legend(fontsize=7, ncol=6, loc='lower left')
@@ -1422,7 +1425,7 @@ def stage_plot(args):
             ax.set_title(_title(name, pk, bn, lab, meta, S, F, '30d'), fontsize=7.8, loc='left')
             v = t10[t10.combo.isin(list(PCOL))].dvv_pct
             if v.notna().sum() > 10:
-                lo, hi = np.nanpercentile(v, [1, 99])
+                lo, hi = np.nanmin(v), np.nanmax(v)   # full range, no clipping (user request 2026-11-25)
                 ax.set_ylim(lo - 0.1 * (hi - lo), hi + 0.1 * (hi - lo))
             ax.set_ylabel('dv/v (%)')
         axs[0].legend(fontsize=7, ncol=6, loc='lower left')
@@ -1461,7 +1464,8 @@ def stage_plot(args):
         ax.text(pd.Timestamp('2009-09-01'), -(len(names) - 0.2) * sp, f'{0.5 * sp:.2g} %', fontsize=7)
         ax.set_title(f'{lab} SC dv/v (trailing 30-d median of 2-day stacks)\noffset {sp:g} % per station', fontsize=9)
         ax.set_xlim(pd.Timestamp('2007-10-01'), pd.Timestamp('2027-01-01'))
-        ax.set_ylim(-(len(names) + 0.3) * sp, 1.0 * sp)
+        _ext = [(-i * sp + np.nanmin(curves[nm].values), -i * sp + np.nanmax(curves[nm].values)) for i, nm in enumerate(names) if nm in curves]
+        ax.set_ylim(min([-(len(names) + 0.3) * sp] + [e[0] for e in _ext]) - 0.05 * sp, max([1.0 * sp] + [e[1] for e in _ext]) + 0.05 * sp)
         ax.grid(alpha=0.2, axis='x')
         ax.set_yticks([])
     fig.suptitle('Single-station cross-component ambient-noise dv/v, all stations ordered by distance to the LFE families '
