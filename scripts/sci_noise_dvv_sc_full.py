@@ -637,8 +637,20 @@ def series_2day(SR, P, days, X, ref, good, chunk=400, nwin=2):
     er = np.full_like(dv, np.nan)
     for i0 in range(nwin - 1, D, chunk):
         i1 = min(D, i0 + chunk)
-        with np.errstate(invalid='ignore'):
-            S = np.nanmean(np.stack([X[i0 - k:i1 - k] for k in range(nwin)]), axis=0, dtype='float64')
+        if nwin <= 10:
+            with np.errstate(invalid='ignore'):
+                S = np.nanmean(np.stack([X[i0 - k:i1 - k] for k in range(nwin)]), axis=0, dtype='float64')
+        else:   # long windows: running sums (same nanmean, much less memory)
+            B = X[i0 - nwin + 1:i1].astype('float64')
+            fin = np.isfinite(B)
+            cs = np.concatenate([np.zeros((1,) + B.shape[1:]), np.cumsum(np.where(fin, B, 0.0), axis=0)])
+            cn = np.concatenate([np.zeros((1,) + B.shape[1:]), np.cumsum(fin, axis=0)])
+            del B, fin
+            ssum = cs[nwin:] - cs[:-nwin]
+            scnt = cn[nwin:] - cn[:-nwin]
+            del cs, cn
+            with np.errstate(invalid='ignore', divide='ignore'):
+                S = np.where(scnt > 0, ssum / np.maximum(scnt, 1), np.nan)
         dv[i0:i1], cc[i0:i1], er[i0:i1] = SR.measure(P, ref, S)
     m, e = M.combine(dv, np.where(good[None], er, np.nan))
     out = []
@@ -657,6 +669,17 @@ def _step_windows(y, te):
     pre = y[(rel >= -30) & (rel <= -1)].dropna().values
     post = y[(rel >= 1) & (rel <= 15)].dropna().values
     return pre, post
+
+
+def step_back30(y, te):
+    """30-day backward series: value whose window is fully after the event (day +30) minus the last value fully
+    before it (day -1); nearest available within 3 days."""
+    rel = (y.index - pd.Timestamp(te).normalize()).days
+    a = y[(rel >= -3) & (rel <= -1)].dropna()
+    b = y[(rel >= 30) & (rel <= 32)].dropna()
+    if not len(a) or not len(b):
+        return np.nan
+    return float(b.iloc[0] - a.iloc[-1])
 
 
 def step_2day(y, te):
@@ -811,6 +834,7 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
     s2 = series_2day(SR, P, days, X, ref, good).assign(sta=name, prod=key)
     s5b = series_2day(SR, P, days, X, ref, good, nwin=5).assign(sta=name, prod=key)   # 5-day backward (added 2026-11-25)
     s10b = series_2day(SR, P, days, X, ref, good, nwin=10).assign(sta=name, prod=key)  # 10-day backward (added 2026-11-25)
+    s30b = series_2day(SR, P, days, X, ref, good, nwin=30, chunk=200).assign(sta=name, prod=key)  # 30-day backward, 1-day step (added 2026-11-25)
     s10 = series_sc(SR, P, days, X, ref, good, 10, M7, 5).assign(sta=name, prod=key)
     s5 = series_sc(SR, P, days, X, ref, good, 5, M7, 2).assign(sta=name, prod=key)
     km = days.to_period('M').astype(str).values
@@ -819,7 +843,7 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
     mM, eM = M.combine(dvM, np.where(good[None], erM, np.nan))
     rowsM = [dict(sta=name, prod=key, band=P.names[b], combo='SC', month=labsM[g], dvv_pct=mM[g, b] * 100,
                   err_pct=eM[g, b] * 100, ndays=int(NM[g, b].max())) for b in range(len(P.bands)) for g in range(len(labsM))]
-    res = dict(meta=meta, s2=s2, s5b=s5b, s10b=s10b, s10=s10, s5=s5, monthly=pd.DataFrame(rowsM), steps=pd.DataFrame(), fits=pd.DataFrame())
+    res = dict(meta=meta, s2=s2, s5b=s5b, s10b=s10b, s30b=s30b, s10=s10, s5=s5, monthly=pd.DataFrame(rowsM), steps=pd.DataFrame(), fits=pd.DataFrame())
     if not steps:
         return res
     # steps + placebo
@@ -849,19 +873,20 @@ def run_dvv(name, key, days, ccf, nboot, seed, breaks, ref_override=None, keep_o
                               pairs_used=' '.join(meta['pairs_used'][P.names[b]])))
     # primary: 2-day backward series, mean(days 1..15) - mean(days -30..-1); 5-d block bootstrap of the
     # series inside the two windows; placebo = same statistic at the placebo dates
-    for (sname, sser, nlab) in (('2day_back', s2, '2-day'), ('5day_back', s5b, '5-day'), ('10day_back', s10b, '10-day')):
+    for (sname, sser, nlab) in (('2day_back', s2, '2-day'), ('5day_back', s5b, '5-day'), ('10day_back', s10b, '10-day'), ('30day_back', s30b, '30-day')):
       for b, bn in enumerate(P.names):
         y = sser[(sser.band == bn) & (sser.combo == 'SC')].set_index('t').dvv_pct
-        pv = np.array([step_2day(y, td) for td in pl_dates])
+        sfun = step_back30 if sname == '30day_back' else step_2day
+        pv = np.array([sfun(y, td) for td in pl_dates])
         pv = pv[np.isfinite(pv)]
         sdp = np.std(pv) if len(pv) > 5 else np.nan
         for ev, te in EVENTS.items():
-            st_ = step_2day(y, te)
+            st_ = sfun(y, te)
             if not np.isfinite(st_):
                 continue
-            se = step_2day_mbb(y, te, nboot, rng)
+            se = step_2day_mbb(y, te, nboot, rng) if sname != '30day_back' else np.nan
             srows.append(dict(sta=name, prod=key, band=bn, combo='SC', event=ev, date=te, half_days=15,
-                              method=f'{sname} (mean d1..15 - mean d-30..-1 of the {nlab} backward series)',
+                              method=(f'{sname} (value at d+30 minus d-1 of the 30-day backward series)' if sname == '30day_back' else f'{sname} (mean d1..15 - mean d-30..-1 of the {nlab} backward series)'),
                               step_pct=st_, se_mbb_pct=se, placebo_sd_pct=sdp, n_placebo=len(pv), z_placebo=st_ / sdp,
                               z_mbb=st_ / se, frac_placebo_le=np.mean(pv <= st_) if len(pv) else np.nan,
                               placebo_robust_sd_pct=1.4826 * np.median(np.abs(pv - np.median(pv))) if len(pv) else np.nan,
@@ -925,7 +950,7 @@ def stage_dvv(args):
         with ProcessPoolExecutor(max_workers=min(args.workers, len(jobs))) as ex:
             for r in ex.map(_dvv_job, jobs):
                 print('dvv', *r, flush=True)
-    acc = {k: [] for k in ('s2', 's5b', 's10b', 's10', 's5', 'monthly', 'steps', 'fits')}
+    acc = {k: [] for k in ('s2', 's5b', 's10b', 's30b', 's10', 's5', 'monthly', 'steps', 'fits')}
     meta = {}
     for n, s, _, _ in dvv_stations():
         for k in LOW_KEYS + ['day']:
@@ -937,7 +962,7 @@ def stage_dvv(args):
                 if a in r:
                     acc[a].append(r[a])
             meta[f'{n}.{s}:{k}'] = r['meta']
-    names = dict(s2='sc_2day_back', s5b='sc_5day_back', s10b='sc_10day_back', s10='sc_10day', s5='sc_5day', monthly='sc_monthly', steps='sc_steps', fits='sc_longterm_fit')
+    names = dict(s2='sc_2day_back', s5b='sc_5day_back', s10b='sc_10day_back', s30b='sc_30day_back', s10='sc_10day', s5='sc_5day', monthly='sc_monthly', steps='sc_steps', fits='sc_longterm_fit')
     for a, nm in names.items():
         D = pd.concat(acc[a], ignore_index=True)
         D.to_csv(os.path.join(OUT, f'{nm}.csv'), index=False, float_format='%.6g')

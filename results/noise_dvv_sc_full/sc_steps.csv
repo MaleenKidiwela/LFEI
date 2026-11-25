@@ -8,6 +8,9 @@ PB.B049,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 PB.B049,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0503323,0.0111187,0.0396563,1193,-1.26921,-4.52682,0.0955574,0.0404556,EN EZ NZ
 PB.B049,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.00626858,0.0106642,0.0396563,1193,-0.158073,-0.587818,0.430847,0.0404556,EN EZ NZ
 PB.B049,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0236304,0.0273177,0.0396563,1193,0.59588,0.865022,0.709975,0.0404556,EN EZ NZ
+PB.B049,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0461905,,0.0409984,1212,-1.12664,,0.113036,0.0379723,EN EZ NZ
+PB.B049,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0735984,,0.0409984,1212,-1.79515,,0.0239274,0.0379723,EN EZ NZ
+PB.B049,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0444232,,0.0409984,1212,-1.08354,,0.122937,0.0379723,EN EZ NZ
 PB.B049,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0703284,0.0578804,0.10393,1181,-0.676693,-1.21506,0.215919,0.0904838,EN EZ NZ
 PB.B049,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.00790165,0.0576831,0.10393,1181,-0.0760288,-0.136984,0.458933,0.0904838,EN EZ NZ
 PB.B049,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0239895,0.065459,0.138422,1179,-0.173307,-0.366481,0.405428,0.119317,EN EZ NZ
@@ -17,6 +20,9 @@ PB.B049,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B049,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.149568,0.0464826,0.118906,1193,-1.25786,-3.21771,0.093881,0.0981987,EN EZ NZ
 PB.B049,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0495647,0.0155339,0.118906,1193,-0.416838,-3.19074,0.312657,0.0981987,EN EZ NZ
 PB.B049,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.035922,0.030319,0.118906,1193,0.302103,1.1848,0.630344,0.0981987,EN EZ NZ
+PB.B049,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.088497,,0.112991,1212,-0.783218,,0.169142,0.0912603,EN EZ NZ
+PB.B049,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0703284,,0.112991,1212,-0.622422,,0.219472,0.0912603,EN EZ NZ
+PB.B049,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.00790165,,0.112991,1212,-0.0699314,,0.459571,0.0912603,EN EZ NZ
 PB.B049,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0466214,0.0442562,0.0496957,1181,-0.938138,-1.05344,0.174428,0.0502095,EN EZ NZ
 PB.B049,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0121714,0.0417895,0.0496957,1181,0.244919,0.291255,0.580864,0.0502095,EN EZ NZ
 PB.B049,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0152643,0.0417002,0.0598629,1179,-0.254989,-0.36605,0.402036,0.0585917,EN EZ NZ
@@ -26,6 +32,9 @@ PB.B049,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B049,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.150123,0.0162449,0.052378,1193,-2.86614,-9.2412,0.00167645,0.0521933,EN EZ NZ
 PB.B049,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.035027,0.0295922,0.052378,1193,0.668735,1.18366,0.746018,0.0521933,EN EZ NZ
 PB.B049,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0328591,0.027576,0.052378,1193,0.627346,1.19159,0.732607,0.0521933,EN EZ NZ
+PB.B049,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.131108,,0.0532883,1212,-2.46034,,0.00742574,0.050428,EN EZ NZ
+PB.B049,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0466214,,0.0532883,1212,-0.87489,,0.176568,0.050428,EN EZ NZ
+PB.B049,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0121714,,0.0532883,1212,0.228407,,0.581683,0.050428,EN EZ NZ
 PB.B049,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0504666,0.0402486,0.0419523,1181,-1.20295,-1.25387,0.109229,0.0391866,EN EZ NZ
 PB.B049,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.11047,0.0337471,0.0419523,1181,-2.63323,-3.27347,0.0042337,0.0391866,EN EZ NZ
 PB.B049,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.00384547,0.0495106,0.052428,1179,-0.0733476,-0.0776695,0.474131,0.0488004,EN EZ NZ
@@ -35,6 +44,9 @@ PB.B049,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 PB.B049,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0932317,0.0233789,0.0455886,1193,-2.04507,-3.98786,0.0276614,0.0429081,EN EZ NZ
 PB.B049,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.000267667,0.0181372,0.0455886,1193,0.00587136,0.0147579,0.499581,0.0429081,EN EZ NZ
 PB.B049,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0415303,0.0317772,0.0455886,1193,-0.910981,-1.30692,0.151718,0.0429081,EN EZ NZ
+PB.B049,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.110386,,0.0447456,1212,-2.46697,,0.00577558,0.0402575,EN EZ NZ
+PB.B049,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0504666,,0.0447456,1212,-1.12785,,0.116337,0.0402575,EN EZ NZ
+PB.B049,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.11047,,0.0447456,1212,-2.46884,,0.00577558,0.0402575,EN EZ NZ
 PB.B049,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.075876,0.0128118,0.0196696,1182,-3.85753,-5.92233,0,0.0193565,EN EZ NZ
 PB.B049,day,3-5Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.148168,0.0243701,0.0907599,1182,-1.63252,-6.07989,0.0389171,0.0854477,EN EZ NZ
 PB.B049,day,1-3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0554177,0.0113034,0.0196696,1182,-2.81743,-4.90273,0,0.0193565,EN EZ NZ
@@ -53,6 +65,12 @@ PB.B049,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 PB.B049,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.144357,0.0325397,0.0829748,1194,-1.73976,-4.43632,0.0410385,0.0776306,EN EZ NZ
 PB.B049,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.082089,0.00951718,0.0829748,1194,-0.989325,-8.62535,0.152429,0.0776306,EN EZ NZ
 PB.B049,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.101389,0.0607293,0.0829748,1194,-1.22193,-1.66953,0.100503,0.0776306,EN EZ NZ
+PB.B049,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.159437,,0.0219153,1212,-7.27514,,0.000825083,0.0197692,EN EZ NZ
+PB.B049,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.075876,,0.0219153,1212,-3.46223,,0.00165017,0.0197692,EN EZ NZ
+PB.B049,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0554177,,0.0219153,1212,-2.52872,,0.00247525,0.0197692,EN EZ NZ
+PB.B049,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0317714,,0.0917854,1212,0.346149,,0.659241,0.0858397,EN EZ NZ
+PB.B049,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.148168,,0.0917854,1212,-1.61428,,0.0387789,0.0858397,EN EZ NZ
+PB.B049,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.287175,,0.0917854,1212,-3.12877,,0.000825083,0.0858397,EN EZ NZ
 PB.B934,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.151691,0.064722,0.0575153,1178,-2.6374,-2.34373,0.000848896,0.0550178,EN
 PB.B934,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0809805,0.0629819,0.0575153,1178,-1.40798,-1.28577,0.0814941,0.0550178,EN
 PB.B934,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0731789,0.0596598,0.0575153,1178,-1.27234,-1.2266,0.106112,0.0550178,EN
@@ -65,6 +83,9 @@ PB.B934,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 PB.B934,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0187186,0.0515448,0.0597664,1181,-0.313196,-0.363153,0.370872,0.0581758,EN
 PB.B934,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0038901,0.0362406,0.0597664,1181,-0.0650884,-0.107341,0.461473,0.0581758,EN
 PB.B934,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0546531,0.0235939,0.0597664,1181,0.914444,2.3164,0.822185,0.0581758,EN
+PB.B934,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.151691,,0.0577422,1183,-2.62703,,0.00169062,0.0550662,EN
+PB.B934,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0809805,,0.0577422,1183,-1.40245,,0.0836855,0.0550662,EN
+PB.B934,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0731789,,0.0577422,1183,-1.26734,,0.108199,0.0550662,EN
 PB.B934,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0435925,0.116071,0.148138,1178,-0.29427,-0.375568,0.38455,0.151291,EN
 PB.B934,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.115933,0.0762963,0.148138,1178,0.782603,1.51951,0.78438,0.151291,EN
 PB.B934,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.027421,0.173467,0.148138,1178,-0.185105,-0.158076,0.420204,0.151291,EN
@@ -77,6 +98,9 @@ PB.B934,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B934,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0132682,0.044404,0.165216,1181,0.0803082,0.298805,0.531753,0.154906,EN
 PB.B934,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00698351,0.0383349,0.165216,1181,0.042269,0.182171,0.508891,0.154906,EN
 PB.B934,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.16941,0.113595,0.165216,1181,1.02539,1.49136,0.852667,0.154906,EN
+PB.B934,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0435925,,0.154968,1183,-0.2813,,0.386306,0.151615,EN
+PB.B934,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.115933,,0.154968,1183,0.748108,,0.785292,0.151615,EN
+PB.B934,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.027421,,0.154968,1183,-0.176946,,0.421809,0.151615,EN
 PB.B934,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.237496,0.0719177,0.0714215,1178,-3.32528,-3.30234,0,0.0699127,EN EZ NZ
 PB.B934,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.00889674,0.0620965,0.0714215,1178,0.124567,0.143273,0.536503,0.0699127,EN EZ NZ
 PB.B934,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.123412,0.0610152,0.0714215,1178,-1.72794,-2.02264,0.040747,0.0699127,EN EZ NZ
@@ -89,6 +113,9 @@ PB.B934,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B934,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.190376,0.041745,0.075961,1181,-2.50623,-4.56045,0.0042337,0.0791271,EN EZ NZ
 PB.B934,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.113446,0.0275712,0.075961,1181,1.49348,4.11467,0.935648,0.0791271,EN EZ NZ
 PB.B934,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.137631,0.0242326,0.075961,1181,-1.81186,-5.67956,0.0330229,0.0791271,EN EZ NZ
+PB.B934,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.237496,,0.0757519,1183,-3.13519,,0.00169062,0.0703911,EN EZ NZ
+PB.B934,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.00889674,,0.0757519,1183,0.117446,,0.538462,0.0703911,EN EZ NZ
+PB.B934,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.123412,,0.0757519,1183,-1.62916,,0.0422654,0.0703911,EN EZ NZ
 PB.B934,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.112189,0.0942769,0.0857303,1178,-1.30862,-1.18999,0.0993209,0.0852103,EN EZ NZ
 PB.B934,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.172203,0.0821401,0.0857303,1178,-2.00865,-2.09645,0.0220713,0.0852103,EN EZ NZ
 PB.B934,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.159776,0.0705933,0.0857303,1178,-1.86371,-2.26333,0.0314092,0.0852103,EN EZ NZ
@@ -101,6 +128,9 @@ PB.B934,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 PB.B934,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.086768,0.0474187,0.0918294,1181,0.944882,1.82982,0.843353,0.0905205,EN EZ NZ
 PB.B934,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.136539,0.0611954,0.0918294,1181,-1.48687,-2.23119,0.0660457,0.0905205,EN EZ NZ
 PB.B934,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.11956,0.0431866,0.0918294,1181,-1.30198,-2.76846,0.0931414,0.0905205,EN EZ NZ
+PB.B934,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.112189,,0.0878369,1183,-1.27724,,0.0997464,0.0851921,EN EZ NZ
+PB.B934,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.172203,,0.0878369,1183,-1.96048,,0.0228233,0.0851921,EN EZ NZ
+PB.B934,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.159776,,0.0878369,1183,-1.81901,,0.0321217,0.0851921,EN EZ NZ
 PB.B934,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0537916,0.0299455,0.0280419,1179,-1.91826,-1.79631,0.0254453,0.0280241,EN EZ NZ
 PB.B934,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.232235,0.151797,0.111623,1179,-2.08054,-1.52991,0.0220526,0.0863226,EN EZ NZ
 PB.B934,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0177533,0.013379,0.0280419,1179,-0.6331,-1.32695,0.25106,0.0280241,EN EZ NZ
@@ -125,22 +155,32 @@ PB.B934,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 PB.B934,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0871924,0.0912804,0.101792,1182,-0.856577,-0.955215,0.14467,0.0784962,EN EZ NZ
 PB.B934,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.109214,0.032494,0.101792,1182,-1.07292,-3.36105,0.0972927,0.0784962,EN EZ NZ
 PB.B934,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.140692,0.0253423,0.101792,1182,-1.38216,-5.55168,0.0609137,0.0784962,EN EZ NZ
+PB.B934,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0537916,,0.0304217,1184,-1.7682,,0.0253378,0.0279927,EN EZ NZ
+PB.B934,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0177533,,0.0304217,1184,-0.583575,,0.25,0.0279927,EN EZ NZ
+PB.B934,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-8.71297e-05,,0.0304217,1184,-0.00286407,,0.481419,0.0279927,EN EZ NZ
+PB.B934,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.232235,,0.111643,1184,-2.08015,,0.0219595,0.0866967,EN EZ NZ
+PB.B934,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.101135,,0.111643,1184,-0.905872,,0.131757,0.0866967,EN EZ NZ
+PB.B934,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.221065,,0.111643,1184,-1.9801,,0.0244932,0.0866967,EN EZ NZ
 PB.B933,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0594404,0.038222,0.118584,1112,-0.501251,-1.55513,0.122302,0.0482821,EN EZ NZ
 PB.B933,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0357551,0.0328461,0.0954627,1113,-0.374546,-1.08857,0.237197,0.0539676,EN EZ NZ
 PB.B933,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0415701,0.0294144,0.085488,1114,-0.486268,-1.41326,0.20018,0.0498604,EN EZ NZ
 PB.B933,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0599297,0.0190649,0.0946658,1115,-0.633066,-3.14346,0.117489,0.0471822,EN EZ NZ
+PB.B933,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0594404,,0.118482,1114,-0.501684,,0.122083,0.0481851,EN EZ NZ
 PB.B933,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0837328,0.0600653,0.160324,1112,-0.522272,-1.39403,0.216727,0.102488,EN EZ NZ
 PB.B933,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0164374,0.0598964,0.14916,1113,-0.110199,-0.27443,0.425876,0.121709,EN EZ NZ
 PB.B933,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0191667,0.0393129,0.154067,1114,-0.124405,-0.487541,0.401257,0.112048,EN EZ NZ
 PB.B933,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0212677,0.0276617,0.149078,1115,-0.142661,-0.768848,0.404484,0.101723,EN EZ NZ
+PB.B933,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0837328,,0.162028,1114,-0.51678,,0.216338,0.102584,EN EZ NZ
 PB.B933,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0390833,0.0272995,0.123778,1112,-0.315754,-1.43165,0.186151,0.0439773,EN EZ NZ
 PB.B933,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.00797239,0.0246192,0.0987285,1113,0.0807507,0.323828,0.55885,0.0573645,EN EZ NZ
 PB.B933,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.00723244,0.0177225,0.114945,1114,-0.0629207,-0.408094,0.440754,0.053411,EN EZ NZ
 PB.B933,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0166525,0.014091,0.116212,1115,-0.143294,-1.18178,0.366816,0.0498975,EN EZ NZ
+PB.B933,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0390833,,0.123672,1114,-0.316025,,0.185817,0.0439773,EN EZ NZ
 PB.B933,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0850523,0.039557,0.115742,1110,-0.734844,-2.15012,0.0666667,0.0456443,EN EZ NZ
 PB.B933,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0534259,0.0344,0.0928689,1113,-0.575283,-1.55308,0.159928,0.0534361,EN EZ NZ
 PB.B933,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0508895,0.0256811,0.106473,1114,-0.477958,-1.9816,0.14991,0.048195,EN EZ NZ
 PB.B933,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0684885,0.0155289,0.0908132,1115,-0.754169,-4.41038,0.0896861,0.0454862,EN EZ NZ
+PB.B933,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0850523,,0.126322,1113,-0.673299,,0.0673854,0.0459075,EN EZ NZ
 PB.B933,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0711764,0.0163834,0.0742289,1112,-0.958877,-4.34442,0.0503597,0.0303667,EN EZ NZ
 PB.B933,day,3-5Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0966157,0.0303239,0.201321,1112,-0.479908,-3.18612,0.23741,0.131693,EN EZ NZ
 PB.B933,day,1-3Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0375852,0.0130825,0.0692542,1113,-0.542713,-2.87293,0.157233,0.0334053,EN EZ NZ
@@ -149,6 +189,8 @@ PB.B933,day,1-3Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..
 PB.B933,day,3-5Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.116628,0.0358745,0.186193,1114,-0.626383,-3.251,0.204668,0.128007,EN EZ NZ
 PB.B933,day,1-3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.034196,0.00411755,0.0764357,1115,-0.447383,-8.30495,0.159641,0.0309773,EN EZ NZ
 PB.B933,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.10608,0.0235184,0.185392,1115,-0.572192,-4.51051,0.208072,0.12253,EN EZ NZ
+PB.B933,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0711764,,0.074268,1114,-0.958372,,0.0502693,0.0304671,EN EZ NZ
+PB.B933,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0966157,,0.201144,1114,-0.48033,,0.236984,0.131171,EN EZ NZ
 PB.B045,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.164863,0.044527,0.0317074,1167,-5.19951,-3.70254,0.000856898,0.0294568,EN EZ NZ
 PB.B045,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.10702,0.0209723,0.0317074,1167,-3.37524,-5.10293,0.0017138,0.0294568,EN EZ NZ
 PB.B045,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0426246,0.0323871,0.0317074,1167,-1.34431,-1.3161,0.0745501,0.0294568,EN EZ NZ
@@ -161,6 +203,9 @@ PB.B045,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 PB.B045,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.121731,0.0150596,0.031074,1178,-3.91746,-8.08328,0,0.0296424,EN EZ NZ
 PB.B045,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.104681,0.0093862,0.031074,1178,-3.36876,-11.1526,0.00169779,0.0296424,EN EZ NZ
 PB.B045,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.00733559,0.016796,0.031074,1178,-0.236068,-0.436746,0.376061,0.0296424,EN EZ NZ
+PB.B045,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.164863,,0.0337476,1195,-4.88518,,0.00083682,0.0300066,EN EZ NZ
+PB.B045,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.10702,,0.0337476,1195,-3.17119,,0.00251046,0.0300066,EN EZ NZ
+PB.B045,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0426246,,0.0337476,1195,-1.26304,,0.0769874,0.0300066,EN EZ NZ
 PB.B045,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.28678,0.0987603,0.0866302,1167,-3.31039,-2.9038,0.000856898,0.081406,EN EZ NZ
 PB.B045,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0820593,0.0647657,0.0866302,1167,-0.947236,-1.26702,0.158526,0.081406,EN EZ NZ
 PB.B045,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0301094,0.0437891,0.0866302,1167,-0.347562,-0.6876,0.354756,0.081406,EN EZ NZ
@@ -173,6 +218,9 @@ PB.B045,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B045,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.101265,0.0505555,0.0992322,1177,-1.02049,-2.00305,0.130841,0.0904042,EN EZ NZ
 PB.B045,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.156943,0.0208322,0.0992322,1177,-1.58157,-7.53367,0.0458794,0.0904042,EN EZ NZ
 PB.B045,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0395255,0.0188836,0.0992322,1177,0.398313,2.09311,0.677145,0.0904042,EN EZ NZ
+PB.B045,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.28678,,0.102771,1194,-2.79047,,0.00335008,0.0839684,EN EZ NZ
+PB.B045,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0820593,,0.102771,1194,-0.798464,,0.161642,0.0839684,EN EZ NZ
+PB.B045,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0301094,,0.102771,1194,-0.292975,,0.354271,0.0839684,EN EZ NZ
 PB.B045,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0788342,0.0612859,0.0481871,1167,-1.636,-1.28633,0.0471294,0.0408751,EN EZ NZ
 PB.B045,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0996432,0.0338566,0.0481871,1167,-2.06784,-2.94309,0.0188518,0.0408751,EN EZ NZ
 PB.B045,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0260493,0.0379077,0.0481871,1167,0.540587,0.687177,0.736075,0.0408751,EN EZ NZ
@@ -185,6 +233,9 @@ PB.B045,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B045,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0670655,0.0132864,0.0512634,1178,-1.30825,-5.04768,0.0721562,0.0458785,EN EZ NZ
 PB.B045,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.100499,0.0266637,0.0512634,1178,-1.96044,-3.76913,0.0144312,0.0458785,EN EZ NZ
 PB.B045,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00842336,0.0221212,0.0512634,1178,0.164315,0.380782,0.574703,0.0458785,EN EZ NZ
+PB.B045,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0788342,,0.0513542,1195,-1.53511,,0.0468619,0.0415481,EN EZ NZ
+PB.B045,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0996432,,0.0513542,1195,-1.94031,,0.0192469,0.0415481,EN EZ NZ
+PB.B045,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0260493,,0.0513542,1195,0.507249,,0.727197,0.0415481,EN EZ NZ
 PB.B045,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.155104,0.0511342,0.0362213,1167,-4.28214,-3.03328,0.0017138,0.0343291,EN EZ NZ
 PB.B045,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0990139,0.0384733,0.0362213,1167,-2.73358,-2.57357,0.00599829,0.0343291,EN EZ NZ
 PB.B045,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0672939,0.0398481,0.0362213,1167,-1.85785,-1.68876,0.0291345,0.0343291,EN EZ NZ
@@ -197,6 +248,9 @@ PB.B045,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 PB.B045,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.14296,0.0220472,0.0367521,1178,-3.88984,-6.48427,0.000848896,0.0335886,EN EZ NZ
 PB.B045,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.114245,0.0149249,0.0367521,1178,-3.10852,-7.65465,0.00254669,0.0335886,EN EZ NZ
 PB.B045,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0587898,0.0251614,0.0367521,1178,-1.59963,-2.3365,0.0466893,0.0335886,EN EZ NZ
+PB.B045,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.155104,,0.0400638,1195,-3.87144,,0.00334728,0.0346863,EN EZ NZ
+PB.B045,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0990139,,0.0400638,1195,-2.4714,,0.0083682,0.0346863,EN EZ NZ
+PB.B045,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0672939,,0.0400638,1195,-1.67967,,0.0317992,0.0346863,EN EZ NZ
 PB.B045,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.25434,0.0409128,0.038907,1172,-6.53712,-6.21663,0,0.0329745,EN EZ NZ
 PB.B045,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.205681,0.0722476,0.0909705,1172,-2.26097,-2.84689,0.0170648,0.0741012,EN EZ NZ
 PB.B045,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0740036,0.0180918,0.038907,1172,-1.90206,-4.09046,0.0401024,0.0329745,EN EZ NZ
@@ -221,6 +275,12 @@ PB.B045,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 PB.B045,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.161418,0.048211,0.0853276,1187,-1.89174,-3.34815,0.0286436,0.0687062,EN EZ NZ
 PB.B045,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0722527,0.00917332,0.0853276,1187,-0.846769,-7.8764,0.141533,0.0687062,EN EZ NZ
 PB.B045,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.108294,0.0202107,0.0853276,1187,-1.26915,-5.35824,0.064027,0.0687062,EN EZ NZ
+PB.B045,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.25434,,0.0438228,1197,-5.80383,,0.00167084,0.0335019,EN EZ NZ
+PB.B045,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0740036,,0.0438228,1197,-1.6887,,0.0467836,0.0335019,EN EZ NZ
+PB.B045,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.291495,,0.0438228,1197,-6.65167,,0.000835422,0.0335019,EN EZ NZ
+PB.B045,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.205681,,0.0950542,1197,-2.16383,,0.0183793,0.0754892,EN EZ NZ
+PB.B045,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.121618,,0.0950542,1197,-1.27946,,0.0618212,0.0754892,EN EZ NZ
+PB.B045,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0681853,,0.0950542,1197,-0.71733,,0.163743,0.0754892,EN EZ NZ
 PB.B047,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.154209,0.0381889,0.035089,1164,-4.39478,-4.03805,0,0.0332048,EN EZ NZ
 PB.B047,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0252671,0.0343729,0.035089,1164,-0.720086,-0.735089,0.219072,0.0332048,EN EZ NZ
 PB.B047,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.120202,0.037583,0.035089,1164,-3.42562,-3.1983,0.00343643,0.0332048,EN EZ NZ
@@ -233,6 +293,9 @@ PB.B047,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 PB.B047,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.137455,0.0185719,0.0449758,1178,-3.05621,-7.40125,0.00594228,0.0351687,EN EZ NZ
 PB.B047,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0164745,0.00856903,0.0449758,1178,0.366298,1.92257,0.681664,0.0351687,EN EZ NZ
 PB.B047,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0492374,0.0214546,0.0449758,1178,-1.09475,-2.29496,0.0959253,0.0351687,EN EZ NZ
+PB.B047,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.154209,,0.0461078,1183,-3.34452,,0.00422654,0.0334887,EN EZ NZ
+PB.B047,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0252671,,0.0461078,1183,-0.548001,,0.224007,0.0334887,EN EZ NZ
+PB.B047,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.120202,,0.0461078,1183,-2.60697,,0.00760778,0.0334887,EN EZ NZ
 PB.B047,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0517917,0.0590235,0.0862444,1164,-0.600523,-0.877477,0.264605,0.0786628,EN EZ NZ
 PB.B047,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0248808,0.0526652,0.0862444,1164,-0.288492,-0.472433,0.388316,0.0786628,EN EZ NZ
 PB.B047,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.076893,0.0940368,0.0862444,1164,-0.891571,-0.81769,0.176976,0.0786628,EN EZ NZ
@@ -245,6 +308,9 @@ PB.B047,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B047,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0220748,0.0363282,0.104145,1178,-0.211962,-0.607648,0.393888,0.0918276,EN EZ NZ
 PB.B047,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0296982,0.0198624,0.104145,1178,-0.285162,-1.4952,0.363328,0.0918276,EN EZ NZ
 PB.B047,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.084325,0.0328492,0.104145,1178,0.809689,2.56704,0.815789,0.0918276,EN EZ NZ
+PB.B047,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0517917,,0.0922654,1183,-0.561334,,0.268808,0.0797535,EN EZ NZ
+PB.B047,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0248808,,0.0922654,1183,-0.269665,,0.391378,0.0797535,EN EZ NZ
+PB.B047,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.076893,,0.0922654,1183,-0.833389,,0.182587,0.0797535,EN EZ NZ
 PB.B047,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.089733,0.0614691,0.0456755,1164,-1.96458,-1.45981,0.0274914,0.043183,EN EZ NZ
 PB.B047,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0190844,0.0388326,0.0456755,1164,-0.417826,-0.491453,0.323024,0.043183,EN EZ NZ
 PB.B047,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0465403,0.0531068,0.0456755,1164,-1.01893,-0.876353,0.129725,0.043183,EN EZ NZ
@@ -257,6 +323,9 @@ PB.B047,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B047,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0916131,0.0229331,0.0594031,1178,-1.54223,-3.9948,0.0424448,0.0500712,EN EZ NZ
 PB.B047,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0326905,0.0120655,0.0594031,1178,-0.550318,-2.70943,0.252122,0.0500712,EN EZ NZ
 PB.B047,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00676445,0.033924,0.0594031,1178,0.113874,0.1994,0.547538,0.0500712,EN EZ NZ
+PB.B047,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.089733,,0.0544329,1183,-1.64851,,0.032967,0.0434627,EN EZ NZ
+PB.B047,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0190844,,0.0544329,1183,-0.350605,,0.326289,0.0434627,EN EZ NZ
+PB.B047,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0465403,,0.0544329,1183,-0.855004,,0.135249,0.0434627,EN EZ NZ
 PB.B047,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.147494,0.0375054,0.0434006,1164,-3.39844,-3.93261,0.00171821,0.0426622,EN EZ NZ
 PB.B047,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.00247605,0.0359422,0.0434006,1164,-0.0570511,-0.0688899,0.446735,0.0426622,EN EZ NZ
 PB.B047,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0918744,0.0483924,0.0434006,1164,-2.11689,-1.89853,0.0223368,0.0426622,EN EZ NZ
@@ -269,6 +338,9 @@ PB.B047,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 PB.B047,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.1595,0.0249671,0.0576858,1178,-2.76498,-6.3884,0.00509338,0.0461233,EN EZ NZ
 PB.B047,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0364898,0.014193,0.0576858,1178,-0.632562,-2.57097,0.198642,0.0461233,EN EZ NZ
 PB.B047,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.103686,0.0279175,0.0576858,1178,-1.79743,-3.71402,0.0212224,0.0461233,EN EZ NZ
+PB.B047,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.147494,,0.060265,1183,-2.44743,,0.00676247,0.0430118,EN EZ NZ
+PB.B047,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.00247605,,0.060265,1183,-0.0410861,,0.450549,0.0430118,EN EZ NZ
+PB.B047,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0918744,,0.060265,1183,-1.52451,,0.0287405,0.0430118,EN EZ NZ
 PB.B047,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.171525,0.0239382,0.0237245,1168,-7.22986,-7.16532,0,0.0236237,EN EZ NZ
 PB.B047,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.140426,0.065331,0.144787,1168,-0.969875,-2.14945,0.130993,0.118715,EN EZ NZ
 PB.B047,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0741807,0.0116061,0.0237245,1168,-3.12676,-6.39155,0.00684932,0.0236237,EN EZ NZ
@@ -293,6 +365,12 @@ PB.B047,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 PB.B047,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0289163,0.0442795,0.151906,1177,-0.190356,-0.653041,0.410365,0.120284,EN EZ NZ
 PB.B047,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0392634,0.0382277,0.151906,1177,0.258471,1.02709,0.630416,0.120284,EN EZ NZ
 PB.B047,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0992444,0.0684218,0.151906,1177,-0.653326,-1.45048,0.201359,0.120284,EN EZ NZ
+PB.B047,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.171525,,0.0300766,1182,-5.70293,,0,0.0235811,EN EZ NZ
+PB.B047,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0741807,,0.0300766,1182,-2.46639,,0.00676819,0.0235811,EN EZ NZ
+PB.B047,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0556017,,0.0300766,1182,-1.84867,,0.0203046,0.0235811,EN EZ NZ
+PB.B047,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.140426,,0.1498,1182,-0.937418,,0.130288,0.118826,EN EZ NZ
+PB.B047,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0273272,,0.1498,1182,0.182424,,0.585448,0.118826,EN EZ NZ
+PB.B047,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.174679,,0.1498,1182,-1.16608,,0.0761421,0.118826,EN EZ NZ
 PB.B046,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.233424,0.0508356,0.0399569,1215,-5.84189,-4.59175,0,0.0407801,EN EZ NZ
 PB.B046,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0283725,0.0467275,0.0399569,1215,-0.710076,-0.60719,0.22716,0.0407801,EN EZ NZ
 PB.B046,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0728251,0.0352089,0.0399569,1215,-1.82259,-2.06837,0.0288066,0.0407801,EN EZ NZ
@@ -305,6 +383,9 @@ PB.B046,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 PB.B046,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.214768,0.0288949,0.0438168,1224,-4.90151,-7.43274,0,0.041236,EN EZ NZ
 PB.B046,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0739576,0.0202467,0.0438168,1224,-1.68788,-3.65281,0.0424837,0.041236,EN EZ NZ
 PB.B046,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0750564,0.0166378,0.0438168,1224,-1.71296,-4.51121,0.0400327,0.041236,EN EZ NZ
+PB.B046,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.233424,,0.0428709,1236,-5.44481,,0.000809061,0.0416695,EN EZ NZ
+PB.B046,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0283725,,0.0428709,1236,-0.661811,,0.232201,0.0416695,EN EZ NZ
+PB.B046,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0728251,,0.0428709,1236,-1.69871,,0.0364078,0.0416695,EN EZ NZ
 PB.B046,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.174164,0.0511485,0.0824937,1215,-2.11124,-3.40506,0.0164609,0.0753073,EN EZ NZ
 PB.B046,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.101307,0.0693307,0.0824937,1215,-1.22806,-1.46121,0.10535,0.0753073,EN EZ NZ
 PB.B046,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0624489,0.0555848,0.0824937,1215,-0.757014,-1.12349,0.2,0.0753073,EN EZ NZ
@@ -317,6 +398,9 @@ PB.B046,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B046,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.140142,0.0377604,0.0945626,1224,-1.482,-3.71134,0.0629085,0.0875045,EN EZ NZ
 PB.B046,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.149521,0.0325721,0.0945626,1224,-1.58118,-4.59046,0.0498366,0.0875045,EN EZ NZ
 PB.B046,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0528494,0.0299857,0.0945626,1224,-0.558883,-1.76248,0.272876,0.0875045,EN EZ NZ
+PB.B046,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.174164,,0.087856,1236,-1.98237,,0.0194175,0.0760817,EN EZ NZ
+PB.B046,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.101307,,0.087856,1236,-1.1531,,0.107605,0.0760817,EN EZ NZ
+PB.B046,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0624489,,0.087856,1236,-0.710809,,0.202265,0.0760817,EN EZ NZ
 PB.B046,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.310678,0.071134,0.0551312,1215,-5.63524,-4.3675,0,0.0571221,EN EZ NZ
 PB.B046,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0436309,0.0513676,0.0551312,1215,0.791401,0.849385,0.78107,0.0571221,EN EZ NZ
 PB.B046,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0255325,0.0576481,0.0551312,1215,-0.463122,-0.442902,0.326749,0.0571221,EN EZ NZ
@@ -329,6 +413,9 @@ PB.B046,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B046,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.272904,0.0339935,0.0601349,1224,-4.5382,-8.02814,0,0.0602723,EN EZ NZ
 PB.B046,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.031146,0.019297,0.0601349,1224,0.517935,1.61404,0.684641,0.0602723,EN EZ NZ
 PB.B046,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0563997,0.0250054,0.0601349,1224,-0.937885,-2.2555,0.156863,0.0602723,EN EZ NZ
+PB.B046,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.310678,,0.0587958,1236,-5.28401,,0.000809061,0.057697,EN EZ NZ
+PB.B046,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0436309,,0.0587958,1236,0.742075,,0.779126,0.057697,EN EZ NZ
+PB.B046,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0255325,,0.0587958,1236,-0.434257,,0.32767,0.057697,EN EZ NZ
 PB.B046,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.210001,0.0479759,0.0580377,1215,-3.61835,-4.37722,0,0.0605934,EN EZ NZ
 PB.B046,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.105459,0.0602304,0.0580377,1215,-1.81707,-1.75093,0.0279835,0.0605934,EN EZ NZ
 PB.B046,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.138705,0.0414557,0.0580377,1215,-2.38991,-3.34586,0.00329218,0.0605934,EN EZ NZ
@@ -341,6 +428,9 @@ PB.B046,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 PB.B046,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.237678,0.0271421,0.0590993,1224,-4.02166,-8.75677,0,0.0574877,EN EZ NZ
 PB.B046,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0689675,0.0299687,0.0590993,1224,-1.16698,-2.30131,0.109477,0.0574877,EN EZ NZ
 PB.B046,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.130783,0.0253489,0.0590993,1224,-2.21294,-5.15932,0.0147059,0.0574877,EN EZ NZ
+PB.B046,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.210001,,0.0596111,1236,-3.52285,,0,0.0612147,EN EZ NZ
+PB.B046,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.105459,,0.0596111,1236,-1.76911,,0.0315534,0.0612147,EN EZ NZ
+PB.B046,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.138705,,0.0596111,1236,-2.32683,,0.00728155,0.0612147,EN EZ NZ
 PB.B046,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.392949,0.0418624,0.0613297,1215,-6.40717,-9.38669,0,0.0571309,EN EZ NZ
 PB.B046,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.146449,0.0486315,0.0808581,1215,-1.81118,-3.0114,0.0312757,0.0828642,EN EZ NZ
 PB.B046,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.154624,0.0235686,0.0613297,1215,-2.52119,-6.56059,0.00987654,0.0571309,EN EZ NZ
@@ -365,6 +455,12 @@ PB.B046,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 PB.B046,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0546121,0.0390023,0.0752748,1224,-0.725504,-1.40023,0.236111,0.0781125,EN EZ NZ
 PB.B046,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0401106,0.0242758,0.0752748,1224,-0.532856,-1.65229,0.295752,0.0781125,EN EZ NZ
 PB.B046,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00556342,0.0136606,0.0752748,1224,0.0739082,0.407259,0.53268,0.0781125,EN EZ NZ
+PB.B046,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.392949,,0.067015,1236,-5.86361,,0,0.0572034,EN EZ NZ
+PB.B046,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.154624,,0.067015,1236,-2.3073,,0.0105178,0.0572034,EN EZ NZ
+PB.B046,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.248362,,0.067015,1236,-3.70607,,0.000809061,0.0572034,EN EZ NZ
+PB.B046,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.146449,,0.0811375,1236,-1.80495,,0.0315534,0.0836182,EN EZ NZ
+PB.B046,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0263965,,0.0811375,1236,0.32533,,0.60356,0.0836182,EN EZ NZ
+PB.B046,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0490958,,0.0811375,1236,-0.605094,,0.271036,0.0836182,EN EZ NZ
 PB.B932,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0349804,0.0361353,0.0425237,1158,0.82261,0.96804,0.800518,0.0383974,EN EZ NZ
 PB.B932,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0937959,0.031306,0.0425237,1158,-2.20573,-2.9961,0.0172712,0.0383974,EN EZ NZ
 PB.B932,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.0357435,0.0323223,0.0516913,1160,0.69148,1.10585,0.751724,0.0503749,EN EZ NZ
@@ -373,6 +469,8 @@ PB.B932,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30
 PB.B932,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0599594,0.018789,0.0486604,1162,-1.2322,-3.19119,0.0972461,0.0481596,EN EZ NZ
 PB.B932,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0171994,0.0163261,0.0447037,1164,0.384743,1.05349,0.633162,0.0426951,EN EZ NZ
 PB.B932,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0263598,0.0197139,0.0447037,1164,-0.589657,-1.33712,0.267182,0.0426951,EN EZ NZ
+PB.B932,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0349804,,0.042539,1165,0.822314,,0.800858,0.0384183,EN EZ NZ
+PB.B932,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0937959,,0.042539,1165,-2.20494,,0.0171674,0.0384183,EN EZ NZ
 PB.B932,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0245214,0.0364949,0.065754,1158,0.372926,0.671913,0.645941,0.0646244,EN EZ NZ
 PB.B932,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0519989,0.0451642,0.065754,1158,-0.790809,-1.15133,0.208117,0.0646244,EN EZ NZ
 PB.B932,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.00945072,0.0393266,0.0948552,1160,-0.0996331,-0.240314,0.447414,0.088495,EN EZ NZ
@@ -381,6 +479,8 @@ PB.B932,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean 
 PB.B932,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0733176,0.0508487,0.0844911,1162,-0.867755,-1.44188,0.165232,0.075285,EN EZ NZ
 PB.B932,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0327513,0.0114841,0.0753636,1164,-0.434577,-2.85187,0.317869,0.0690904,EN EZ NZ
 PB.B932,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0525122,0.0278053,0.0753636,1164,-0.696785,-1.88857,0.219931,0.0690904,EN EZ NZ
+PB.B932,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0245214,,0.0668209,1165,0.366972,,0.643777,0.0653173,EN EZ NZ
+PB.B932,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0519989,,0.0668209,1165,-0.778183,,0.206867,0.0653173,EN EZ NZ
 PB.B932,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0644798,0.045556,0.0573045,1158,-1.12521,-1.4154,0.131261,0.0594351,EN EZ NZ
 PB.B932,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0025557,0.0393287,0.0573045,1158,0.0445987,0.0649832,0.500864,0.0594351,EN EZ NZ
 PB.B932,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0377736,0.0431568,0.073024,1160,-0.517277,-0.875264,0.301724,0.0734683,EN EZ NZ
@@ -389,6 +489,8 @@ PB.B932,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean 
 PB.B932,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.00952838,0.0316031,0.0665622,1162,-0.14315,-0.301501,0.449225,0.0697842,EN EZ NZ
 PB.B932,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00642577,0.0237556,0.0603189,1164,0.10653,0.270495,0.542955,0.0623863,EN EZ NZ
 PB.B932,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00966885,0.0205644,0.0603189,1164,0.160296,0.470174,0.559278,0.0623863,EN EZ NZ
+PB.B932,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0644798,,0.0575433,1165,-1.12055,,0.132189,0.0593819,EN EZ NZ
+PB.B932,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0025557,,0.0575433,1165,0.0444136,,0.500429,0.0593819,EN EZ NZ
 PB.B932,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.089598,0.0421916,0.0665501,1158,-1.34632,-2.1236,0.0967185,0.0659798,EN EZ NZ
 PB.B932,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0986919,0.053428,0.0665501,1158,-1.48297,-1.84719,0.0777202,0.0659798,EN EZ NZ
 PB.B932,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.114052,0.0353026,0.0811714,1160,-1.40508,-3.2307,0.087931,0.0840076,EN EZ NZ
@@ -397,6 +499,8 @@ PB.B932,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-
 PB.B932,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.073836,0.0421404,0.0767739,1162,-0.961732,-1.75214,0.168675,0.0796828,EN EZ NZ
 PB.B932,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.126159,0.0188913,0.0704722,1164,-1.79019,-6.67812,0.040378,0.0714662,EN EZ NZ
 PB.B932,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0624205,0.0376009,0.0704722,1164,-0.885746,-1.66008,0.191581,0.0714662,EN EZ NZ
+PB.B932,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.089598,,0.0670368,1165,-1.33655,,0.0995708,0.0661683,EN EZ NZ
+PB.B932,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0986919,,0.0670368,1165,-1.4722,,0.0806867,0.0661683,EN EZ NZ
 PB.B932,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0542507,0.0127198,0.0171439,1158,-3.16443,-4.26505,0.00604491,0.0141523,EN EZ NZ
 PB.B932,day,3-5Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0988912,0.0623029,0.0716639,1158,-1.37993,-1.58727,0.0958549,0.0696391,EN EZ NZ
 PB.B932,day,1-3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0704022,0.0184219,0.0171439,1158,-4.10654,-3.82166,0.000863558,0.0141523,EN EZ NZ
@@ -415,6 +519,12 @@ PB.B932,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 PB.B932,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.812559,0.00912348,0.0685489,1164,-11.8537,-89.0624,0,0.0634172,EN EZ NZ
 PB.B932,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.181847,0.034004,0.0685489,1164,-2.65281,-5.34782,0.00601375,0.0634172,EN EZ NZ
 PB.B932,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0675052,0.0292907,0.0685489,1164,-0.984774,-2.30466,0.152921,0.0634172,EN EZ NZ
+PB.B932,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.130652,,0.0173975,1167,-7.50981,,0,0.014172,EN EZ NZ
+PB.B932,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0542507,,0.0173975,1167,-3.11831,,0.00685518,0.014172,EN EZ NZ
+PB.B932,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0704022,,0.0173975,1167,-4.04669,,0.0017138,0.014172,EN EZ NZ
+PB.B932,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.807007,,0.073824,1167,-10.9315,,0,0.0697335,EN EZ NZ
+PB.B932,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0988912,,0.073824,1167,-1.33955,,0.0951157,0.0697335,EN EZ NZ
+PB.B932,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0720767,,0.073824,1167,-0.976332,,0.157669,0.0697335,EN EZ NZ
 PB.B935,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.123354,0.0560195,0.0499289,1225,-2.4706,-2.20199,0.00653061,0.0507268,EN EZ NZ
 PB.B935,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.153021,0.0518066,0.0499289,1225,-3.06479,-2.95371,0,0.0507268,EN EZ NZ
 PB.B935,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0916339,0.0355101,0.0499289,1225,-1.83529,-2.5805,0.0342857,0.0507268,EN EZ NZ
@@ -427,6 +537,9 @@ PB.B935,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 PB.B935,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.111078,0.0263791,0.0527271,1238,-2.10667,-4.21085,0.0153473,0.0560181,EN EZ NZ
 PB.B935,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.10507,0.0174471,0.0527271,1238,-1.99271,-6.02218,0.0185784,0.0560181,EN EZ NZ
 PB.B935,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0913302,0.0133564,0.0527271,1238,-1.73213,-6.83794,0.0363489,0.0560181,EN EZ NZ
+PB.B935,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.123354,,0.0499861,1240,-2.46777,,0.00645161,0.050263,EN EZ NZ
+PB.B935,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.153021,,0.0499861,1240,-3.06128,,0,0.050263,EN EZ NZ
+PB.B935,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0916339,,0.0499861,1240,-1.83319,,0.033871,0.050263,EN EZ NZ
 PB.B935,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0866897,0.0630812,0.13642,1225,-0.635461,-1.37426,0.232653,0.115768,EN EZ NZ
 PB.B935,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.00307582,0.0579328,0.13642,1225,0.0225466,0.0530929,0.517551,0.115768,EN EZ NZ
 PB.B935,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0206301,0.0517214,0.13642,1225,0.151225,0.39887,0.57551,0.115768,EN EZ NZ
@@ -439,6 +552,9 @@ PB.B935,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B935,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0914705,0.027296,0.146692,1238,-0.623553,-3.35106,0.232633,0.12789,EN EZ NZ
 PB.B935,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0374346,0.0302405,0.146692,1238,0.255191,1.23789,0.612278,0.12789,EN EZ NZ
 PB.B935,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0274536,0.0319825,0.146692,1238,-0.187151,-0.858396,0.409532,0.12789,EN EZ NZ
+PB.B935,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0866897,,0.135733,1240,-0.638677,,0.230645,0.114906,EN EZ NZ
+PB.B935,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.00307582,,0.135733,1240,0.0226608,,0.520968,0.114906,EN EZ NZ
+PB.B935,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0206301,,0.135733,1240,0.15199,,0.579032,0.114906,EN EZ NZ
 PB.B935,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.187757,0.0498009,0.0696783,1225,-2.69462,-3.77015,0.00489796,0.0691826,EN EZ NZ
 PB.B935,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.136295,0.0627565,0.0696783,1225,-1.95606,-2.17181,0.0293878,0.0691826,EN EZ NZ
 PB.B935,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.139821,0.0655895,0.0696783,1225,-2.00667,-2.13176,0.0269388,0.0691826,EN EZ NZ
@@ -451,6 +567,9 @@ PB.B935,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 PB.B935,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0546301,0.0423662,0.078385,1238,-0.696946,-1.28948,0.220517,0.0713588,EN EZ NZ
 PB.B935,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.122114,0.0279173,0.078385,1238,-1.55787,-4.37413,0.052504,0.0713588,EN EZ NZ
 PB.B935,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.205165,0.0438122,0.078385,1238,-2.6174,-4.68283,0.0088853,0.0713588,EN EZ NZ
+PB.B935,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.187757,,0.0729148,1240,-2.57501,,0.00645161,0.069559,EN EZ NZ
+PB.B935,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.136295,,0.0729148,1240,-1.86924,,0.0306452,0.069559,EN EZ NZ
+PB.B935,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.139821,,0.0729148,1240,-1.9176,,0.0282258,0.069559,EN EZ NZ
 PB.B935,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0591526,0.088268,0.0621872,1225,-0.951201,-0.670148,0.168163,0.0604907,EN EZ NZ
 PB.B935,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0611861,0.0439162,0.0621872,1225,-0.983901,-1.39325,0.158367,0.0604907,EN EZ NZ
 PB.B935,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0501389,0.0459197,0.0621872,1225,-0.806258,-1.09188,0.206531,0.0604907,EN EZ NZ
@@ -463,6 +582,9 @@ PB.B935,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 PB.B935,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.132315,0.0432568,0.0661554,1238,-2.00007,-3.05884,0.0258481,0.0628404,EN EZ NZ
 PB.B935,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0472131,0.0251305,0.0661554,1238,-0.71367,-1.87872,0.23021,0.0628404,EN EZ NZ
 PB.B935,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0353738,0.0216563,0.0661554,1238,0.534708,1.63342,0.71567,0.0628404,EN EZ NZ
+PB.B935,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0591526,,0.0632997,1240,-0.934485,,0.170968,0.0624328,EN EZ NZ
+PB.B935,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0611861,,0.0632997,1240,-0.96661,,0.16129,0.0624328,EN EZ NZ
+PB.B935,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0501389,,0.0632997,1240,-0.792089,,0.209677,0.0624328,EN EZ NZ
 PB.B935,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0428802,0.0511471,0.0479372,1226,-0.894509,-0.83837,0.162316,0.0398582,EN EZ NZ
 PB.B935,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0853717,0.0953573,0.171284,1226,-0.498422,-0.895282,0.26509,0.131794,EN EZ NZ
 PB.B935,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0661841,0.0503639,0.0479372,1226,1.38064,1.31412,0.933931,0.0398582,EN EZ NZ
@@ -487,6 +609,12 @@ PB.B935,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 PB.B935,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0440733,0.0432731,0.173492,1238,0.254037,1.01849,0.648627,0.142823,EN EZ NZ
 PB.B935,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.177807,0.0465425,0.173492,1238,-1.02487,-3.82031,0.119548,0.142823,EN EZ NZ
 PB.B935,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.156136,0.0288622,0.173492,1238,-0.899964,-5.40971,0.160743,0.142823,EN EZ NZ
+PB.B935,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0428802,,0.0509493,1240,-0.841626,,0.166129,0.0402139,EN EZ NZ
+PB.B935,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0661841,,0.0509493,1240,1.29902,,0.930645,0.0402139,EN EZ NZ
+PB.B935,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0558307,,0.0509493,1240,1.09581,,0.904032,0.0402139,EN EZ NZ
+PB.B935,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0853717,,0.171911,1240,-0.496605,,0.267742,0.13288,EN EZ NZ
+PB.B935,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0327737,,0.171911,1240,-0.190644,,0.400806,0.13288,EN EZ NZ
+PB.B935,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.235676,,0.171911,1240,-1.37092,,0.0741935,0.13288,EN EZ NZ
 NC.KMR,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.696739,0.25783,0.2343,601,-2.97371,-2.70232,0.00831947,0.230939,EN EZ NZ
 NC.KMR,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0230444,0.163494,0.2343,601,-0.0983541,-0.140949,0.429285,0.230939,EN EZ NZ
 NC.KMR,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.420462,0.170676,0.2343,601,-1.79454,-2.46351,0.0332779,0.230939,EN EZ NZ
@@ -499,6 +627,9 @@ NC.KMR,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30.
 NC.KMR,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.411294,0.140167,0.259784,606,-1.58321,-2.93431,0.0511551,0.244728,EN EZ NZ
 NC.KMR,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.101686,0.0832682,0.259784,606,0.391425,1.22119,0.641914,0.244728,EN EZ NZ
 NC.KMR,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0676279,0.104829,0.259784,606,0.260324,0.645125,0.580858,0.244728,EN EZ NZ
+NC.KMR,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.696739,,0.236218,609,-2.94957,,0.00821018,0.232303,EN EZ NZ
+NC.KMR,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0230444,,0.236218,609,-0.0975556,,0.426929,0.232303,EN EZ NZ
+NC.KMR,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.420462,,0.236218,609,-1.77998,,0.0328407,0.232303,EN EZ NZ
 NC.KMR,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.134671,0.0901638,0.0891028,601,-1.51141,-1.49362,0.0549085,0.0774685,EN EZ NZ
 NC.KMR,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.110488,0.0653264,0.0891028,601,1.24,1.69132,0.896839,0.0774685,EN EZ NZ
 NC.KMR,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0391323,0.0677431,0.0891028,601,0.439182,0.577658,0.695507,0.0774685,EN EZ NZ
@@ -511,6 +642,9 @@ NC.KMR,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d
 NC.KMR,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0554869,0.0549765,0.0992759,606,-0.558916,-1.00928,0.257426,0.089193,EN EZ NZ
 NC.KMR,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0732128,0.0693888,0.0992759,606,0.737468,1.05511,0.785479,0.089193,EN EZ NZ
 NC.KMR,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00514849,0.0276236,0.0992759,606,0.0518605,0.18638,0.534653,0.089193,EN EZ NZ
+NC.KMR,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.134671,,0.0911498,609,-1.47746,,0.0591133,0.0781333,EN EZ NZ
+NC.KMR,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.110488,,0.0911498,609,1.21216,,0.89491,0.0781333,EN EZ NZ
+NC.KMR,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0391323,,0.0911498,609,0.429319,,0.696223,0.0781333,EN EZ NZ
 NC.KMR,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.304269,0.135705,0.126408,601,-2.40703,-2.24214,0.0133111,0.106789,EN EZ NZ
 NC.KMR,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0586344,0.140994,0.126408,601,-0.463849,-0.415864,0.267887,0.106789,EN EZ NZ
 NC.KMR,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.151098,0.123517,0.126408,601,-1.19531,-1.2233,0.0865225,0.106789,EN EZ NZ
@@ -523,6 +657,9 @@ NC.KMR,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d
 NC.KMR,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.188158,0.0622623,0.141819,606,-1.32675,-3.02203,0.0775578,0.11857,EN EZ NZ
 NC.KMR,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.00327512,0.123981,0.141819,606,-0.0230936,-0.0264162,0.493399,0.11857,EN EZ NZ
 NC.KMR,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.217087,0.0577583,0.141819,606,-1.53073,-3.75855,0.049505,0.11857,EN EZ NZ
+NC.KMR,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.304269,,0.128526,609,-2.36737,,0.0147783,0.106455,EN EZ NZ
+NC.KMR,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0586344,,0.128526,609,-0.456207,,0.269294,0.106455,EN EZ NZ
+NC.KMR,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.151098,,0.128526,609,-1.17562,,0.08867,0.106455,EN EZ NZ
 NC.KMR,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.347349,0.470415,0.345948,601,-1.00405,-0.738387,0.104825,0.279726,EN EZ NZ
 NC.KMR,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.338003,0.370928,0.345948,601,-0.977036,-0.911238,0.113145,0.279726,EN EZ NZ
 NC.KMR,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-1.00438,0.272986,0.345948,601,-2.90328,-3.67924,0.00665557,0.279726,EN EZ NZ
@@ -535,6 +672,9 @@ NC.KMR,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-3
 NC.KMR,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.268261,0.227292,0.310239,606,-0.864691,-1.18025,0.163366,0.277088,EN EZ NZ
 NC.KMR,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.372742,0.21602,0.310239,606,-1.20147,-1.7255,0.0924092,0.277088,EN EZ NZ
 NC.KMR,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-1.0882,0.134035,0.310239,606,-3.50763,-8.11882,0,0.277088,EN EZ NZ
+NC.KMR,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.347349,,0.350189,609,-0.991888,,0.108374,0.280322,EN EZ NZ
+NC.KMR,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.338003,,0.350189,609,-0.965202,,0.116585,0.280322,EN EZ NZ
+NC.KMR,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-1.00438,,0.350189,609,-2.86811,,0.00821018,0.280322,EN EZ NZ
 NC.KMR,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0603591,0.0200093,0.0298165,601,-2.02435,-3.01656,0.0232945,0.0294499,EN EZ NZ
 NC.KMR,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.189212,0.120282,0.100218,601,-1.88801,-1.57308,0.0332779,0.09635,EN EZ NZ
 NC.KMR,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0789301,0.0185291,0.0298165,601,-2.64719,-4.25979,0.00332779,0.0294499,EN EZ NZ
@@ -559,6 +699,12 @@ NC.KMR,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..
 NC.KMR,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0203902,0.0723197,0.101253,606,0.20138,0.281945,0.564356,0.0944478,EN EZ NZ
 NC.KMR,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.108537,0.0377144,0.101253,606,-1.07194,-2.87786,0.120462,0.0944478,EN EZ NZ
 NC.KMR,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0696786,0.0917427,0.101253,606,-0.688167,-0.7595,0.222772,0.0944478,EN EZ NZ
+NC.KMR,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0603591,,0.0300575,609,-2.00812,,0.0229885,0.0290728,EN EZ NZ
+NC.KMR,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0789301,,0.0300575,609,-2.62597,,0.00328407,0.0290728,EN EZ NZ
+NC.KMR,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0660046,,0.0300575,609,-2.19594,,0.0131363,0.0290728,EN EZ NZ
+NC.KMR,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.189212,,0.100422,609,-1.88417,,0.0328407,0.0968094,EN EZ NZ
+NC.KMR,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.2037,,0.100422,609,-2.02843,,0.0262726,0.0968094,EN EZ NZ
+NC.KMR,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.268351,,0.100422,609,-2.67222,,0.00821018,0.0968094,EN EZ NZ
 NC.KMPB,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.324041,0.0927632,0.14761,607,-2.19525,-3.4932,0.00988468,0.139013,EN EZ NZ
 NC.KMPB,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.171477,0.114464,0.14761,607,-1.16169,-1.49809,0.112026,0.139013,EN EZ NZ
 NC.KMPB,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.175553,0.108522,0.14761,607,-1.18931,-1.61768,0.108731,0.139013,EN EZ NZ
@@ -571,6 +717,9 @@ NC.KMPB,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 NC.KMPB,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.295996,0.067811,0.170696,612,-1.73406,-4.36502,0.0473856,0.159906,EN EZ NZ
 NC.KMPB,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0793187,0.0579508,0.170696,612,-0.464678,-1.36872,0.312092,0.159906,EN EZ NZ
 NC.KMPB,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.296008,0.113858,0.170696,612,1.73412,2.59979,0.960784,0.159906,EN EZ NZ
+NC.KMPB,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.324041,,0.15094,618,-2.14682,,0.00970874,0.14096,EN EZ NZ
+NC.KMPB,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.171477,,0.15094,618,-1.13606,,0.113269,0.14096,EN EZ NZ
+NC.KMPB,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.175553,,0.15094,618,-1.16307,,0.110032,0.14096,EN EZ NZ
 NC.KMPB,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.144471,0.0472879,0.0731934,607,-1.97382,-3.05514,0.0197694,0.0741773,EN EZ NZ
 NC.KMPB,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0487211,0.0410022,0.0731934,607,-0.665649,-1.18825,0.265239,0.0741773,EN EZ NZ
 NC.KMPB,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0904402,0.0466349,0.0731934,607,-1.23563,-1.93933,0.105437,0.0741773,EN EZ NZ
@@ -583,6 +732,9 @@ NC.KMPB,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 NC.KMPB,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0959291,0.0384427,0.0818494,612,-1.17202,-2.49538,0.109477,0.0775898,EN EZ NZ
 NC.KMPB,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0135701,0.0328418,0.0818494,612,-0.165793,-0.413196,0.452614,0.0775898,EN EZ NZ
 NC.KMPB,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0254109,0.0290452,0.0818494,612,0.310459,0.874873,0.642157,0.0775898,EN EZ NZ
+NC.KMPB,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.144471,,0.0802274,618,-1.80077,,0.0226537,0.0757243,EN EZ NZ
+NC.KMPB,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0487211,,0.0802274,618,-0.607288,,0.26699,0.0757243,EN EZ NZ
+NC.KMPB,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0904402,,0.0802274,618,-1.1273,,0.108414,0.0757243,EN EZ NZ
 NC.KMPB,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.199287,0.12107,0.105096,607,-1.89624,-1.64606,0.029654,0.111604,EN EZ NZ
 NC.KMPB,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0359586,0.104841,0.105096,607,-0.342149,-0.342983,0.364086,0.111604,EN EZ NZ
 NC.KMPB,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.214025,0.153293,0.105096,607,2.03647,1.39618,0.978583,0.111604,EN EZ NZ
@@ -595,6 +747,9 @@ NC.KMPB,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 NC.KMPB,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.517966,0.148105,0.114002,612,-4.5435,-3.4973,0,0.107929,EN EZ NZ
 NC.KMPB,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0799729,0.0437911,0.114002,612,0.701507,1.82624,0.764706,0.107929,EN EZ NZ
 NC.KMPB,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.117094,0.0899398,0.114002,612,1.02712,1.30191,0.854575,0.107929,EN EZ NZ
+NC.KMPB,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.199287,,0.123742,617,-1.61051,,0.0324149,0.112014,EN EZ NZ
+NC.KMPB,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0359586,,0.123742,617,-0.290593,,0.363047,0.112014,EN EZ NZ
+NC.KMPB,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.214025,,0.123742,617,1.72961,,0.974068,0.112014,EN EZ NZ
 NC.KMPB,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0252522,0.294811,0.170185,607,-0.14838,-0.0856555,0.411862,0.149092,EN EZ NZ
 NC.KMPB,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0910815,0.273568,0.170185,607,0.53519,0.332939,0.733114,0.149092,EN EZ NZ
 NC.KMPB,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0704611,0.331054,0.170185,607,-0.414026,-0.212839,0.311367,0.149092,EN EZ NZ
@@ -607,6 +762,9 @@ NC.KMPB,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 NC.KMPB,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0478918,0.163009,0.20123,612,-0.237995,-0.293798,0.393791,0.177421,EN EZ NZ
 NC.KMPB,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.410281,0.152448,0.20123,612,-2.03887,-2.69129,0.0245098,0.177421,EN EZ NZ
 NC.KMPB,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0416076,0.0709198,0.20123,612,0.206767,0.586685,0.576797,0.177421,EN EZ NZ
+NC.KMPB,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0252522,,0.196411,618,-0.128568,,0.415858,0.15278,EN EZ NZ
+NC.KMPB,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0910815,,0.196411,618,0.463729,,0.731392,0.15278,EN EZ NZ
+NC.KMPB,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0704611,,0.196411,618,-0.358743,,0.317152,0.15278,EN EZ NZ
 NC.KMPB,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0804283,0.0150194,0.0195895,607,-4.10569,-5.35497,0.00164745,0.0184073,EN EZ NZ
 NC.KMPB,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.117492,0.0284701,0.0636586,607,-1.84566,-4.12687,0.0428336,0.0495442,EN EZ NZ
 NC.KMPB,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0621583,0.0167331,0.0195895,607,-3.17304,-3.71469,0.00329489,0.0184073,EN EZ NZ
@@ -631,22 +789,32 @@ NC.KMPB,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 NC.KMPB,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0830156,0.0304753,0.0594519,612,-1.39635,-2.72403,0.0767974,0.0470898,EN EZ NZ
 NC.KMPB,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.057231,0.0212144,0.0594519,612,-0.962644,-2.69775,0.142157,0.0470898,EN EZ NZ
 NC.KMPB,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0084004,0.0228782,0.0594519,612,-0.141297,-0.36718,0.387255,0.0470898,EN EZ NZ
+NC.KMPB,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0804283,,0.0203839,618,-3.94568,,0.00323625,0.0190166,EN EZ NZ
+NC.KMPB,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0621583,,0.0203839,618,-3.04939,,0.00485437,0.0190166,EN EZ NZ
+NC.KMPB,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.061486,,0.0203839,618,-3.01641,,0.00485437,0.0190166,EN EZ NZ
+NC.KMPB,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.117492,,0.0648558,618,-1.81159,,0.0436893,0.0498407,EN EZ NZ
+NC.KMPB,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0780553,,0.0648558,618,-1.20352,,0.101942,0.0498407,EN EZ NZ
+NC.KMPB,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.135042,,0.0648558,618,-2.08218,,0.02589,0.0498407,EN EZ NZ
 NC.KCPB,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.109644,0.116307,0.145664,454,0.75272,0.942711,0.777533,0.130883,EN EZ NZ
 NC.KCPB,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.15015,0.111165,0.203666,454,0.737235,1.35069,0.773128,0.191953,EN EZ NZ
 NC.KCPB,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.167955,0.0852499,0.197041,454,0.852387,1.97015,0.810573,0.186446,EN EZ NZ
 NC.KCPB,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0442483,0.0451525,0.174069,454,0.2542,0.979975,0.577093,0.16274,EN EZ NZ
+NC.KCPB,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.109644,,0.145664,454,0.75272,,0.777533,0.130883,EN EZ NZ
 NC.KCPB,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0481617,0.0704066,0.102183,454,0.471329,0.684051,0.676211,0.100429,EN EZ NZ
 NC.KCPB,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.0413051,0.103746,0.133044,454,0.310461,0.398138,0.610132,0.133582,EN EZ NZ
 NC.KCPB,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.0392043,0.0538691,0.123588,454,0.317218,0.727769,0.612335,0.128432,EN EZ NZ
 NC.KCPB,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0135313,0.0220123,0.11294,454,-0.11981,-0.614715,0.451542,0.113378,EN EZ NZ
+NC.KCPB,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0481617,,0.102183,454,0.471329,,0.676211,0.100429,EN EZ NZ
 NC.KCPB,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0226912,0.11172,0.0669635,454,-0.338859,-0.203107,0.345815,0.060795,EN EZ NZ
 NC.KCPB,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.174722,0.0809343,0.107439,454,-1.62624,-2.15882,0.0506608,0.105268,EN EZ NZ
 NC.KCPB,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0623333,0.0608982,0.0889417,454,-0.700833,-1.02356,0.231278,0.0816722,EN EZ NZ
 NC.KCPB,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0538223,0.0241738,0.0756942,454,-0.71105,-2.22647,0.222467,0.0677464,EN EZ NZ
+NC.KCPB,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0226912,,0.0669635,454,-0.338859,,0.345815,0.060795,EN EZ NZ
 NC.KCPB,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0331564,0.138094,0.137254,454,-0.24157,-0.240101,0.414097,0.12645,EN EZ NZ
 NC.KCPB,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0452187,0.108999,0.168676,454,-0.268081,-0.414855,0.374449,0.155042,EN EZ NZ
 NC.KCPB,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.106516,0.0805352,0.163932,454,0.649755,1.3226,0.744493,0.16186,EN EZ NZ
 NC.KCPB,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.165007,0.0399182,0.154713,454,1.06654,4.13363,0.878855,0.136039,EN EZ NZ
+NC.KCPB,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0331564,,0.137254,454,-0.24157,,0.414097,0.12645,EN EZ NZ
 NC.KCPB,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0896516,0.0145408,0.0342691,454,-2.6161,-6.16551,0.0242291,0.0259361,EN EZ NZ
 NC.KCPB,day,3-5Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.179342,0.0902703,0.100915,454,-1.77716,-1.98673,0.0572687,0.0938486,EN EZ NZ
 NC.KCPB,day,1-3Hz,SC,Petrolia,2021-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.107208,0.0127415,0.0352957,454,-3.03741,-8.41404,0.00881057,0.0301668,EN EZ NZ
@@ -655,22 +823,28 @@ NC.KCPB,day,1-3Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..
 NC.KCPB,day,3-5Hz,SC,Petrolia,2021-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.277706,0.0552741,0.111066,454,-2.50037,-5.02417,0.0110132,0.0989603,EN EZ NZ
 NC.KCPB,day,1-3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.076661,0.0167961,0.0325199,454,-2.35736,-4.56421,0.0286344,0.026383,EN EZ NZ
 NC.KCPB,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.213191,0.0607479,0.100518,454,-2.12092,-3.50945,0.0264317,0.0926865,EN EZ NZ
+NC.KCPB,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0896516,,0.0342691,454,-2.6161,,0.0242291,0.0259361,EN EZ NZ
+NC.KCPB,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.179342,,0.100915,454,-1.77716,,0.0572687,0.0938486,EN EZ NZ
 NC.KCPC,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.336023,0.130647,0.15467,188,-2.17252,-2.57199,0.0265957,0.111763,EN EZ NZ
 NC.KCPC,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.248145,0.142323,0.190617,188,-1.3018,-1.74353,0.106383,0.169517,EN EZ NZ
 NC.KCPC,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.222545,0.104396,0.186988,190,-1.19015,-2.13174,0.110526,0.163772,EN EZ NZ
 NC.KCPC,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.307452,0.0506979,0.170707,191,-1.80105,-6.0644,0.0471204,0.14761,EN EZ NZ
+NC.KCPC,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.336023,,0.15684,192,-2.14246,,0.03125,0.110094,EN EZ NZ
 NC.KCPC,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.147153,0.0613305,0.120221,188,-1.22402,-2.39934,0.138298,0.125936,EN EZ NZ
 NC.KCPC,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.103351,0.111252,0.141926,188,-0.728198,-0.928979,0.239362,0.134844,EN EZ NZ
 NC.KCPC,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.117208,0.076124,0.132649,190,-0.88359,-1.53969,0.205263,0.138481,EN EZ NZ
 NC.KCPC,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.124137,0.0330109,0.123068,191,-1.00869,-3.7605,0.188482,0.127841,EN EZ NZ
+NC.KCPC,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.147153,,0.124231,192,-1.18451,,0.140625,0.125936,EN EZ NZ
 NC.KCPC,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.00484651,0.138956,0.0918747,188,-0.0527513,-0.0348781,0.37766,0.0721143,EN EZ NZ
 NC.KCPC,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0318801,0.165512,0.123279,188,-0.2586,-0.192616,0.303191,0.11338,EN EZ NZ
 NC.KCPC,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0446358,0.133259,0.108727,190,-0.410533,-0.334956,0.263158,0.0932613,EN EZ NZ
 NC.KCPC,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0519178,0.104321,0.0929083,191,-0.558807,-0.497675,0.204188,0.077316,EN EZ NZ
+NC.KCPC,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.00484651,,0.0933121,192,-0.0519387,,0.375,0.0721143,EN EZ NZ
 NC.KCPC,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.174834,0.159049,0.153418,188,1.13959,1.09925,0.898936,0.127828,EN EZ NZ
 NC.KCPC,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.189132,0.132804,0.170683,188,1.10809,1.42415,0.867021,0.151031,EN EZ NZ
 NC.KCPC,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.329495,0.116433,0.185726,190,1.77409,2.82991,0.973684,0.130057,EN EZ NZ
 NC.KCPC,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.337076,0.0826727,0.1622,191,2.07816,4.07724,0.979058,0.117906,EN EZ NZ
+NC.KCPC,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.174834,,0.154697,192,1.13017,,0.901042,0.128077,EN EZ NZ
 NC.KCPC,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0954336,0.0262484,0.0338843,188,-2.81645,-3.63579,0.0159574,0.0258577,EN EZ NZ
 NC.KCPC,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0126125,0.0680967,0.0918179,188,0.137364,0.185214,0.558511,0.0821815,EN EZ NZ
 NC.KCPC,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0902178,0.0283344,0.0314685,189,-2.86693,-3.18404,0.026455,0.0221422,EN EZ NZ
@@ -679,6 +853,8 @@ NC.KCPC,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 NC.KCPC,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0720368,0.05223,0.0988424,190,-0.728805,-1.37922,0.252632,0.104475,EN EZ NZ
 NC.KCPC,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0935507,0.0197177,0.031077,191,-3.01028,-4.7445,0.0157068,0.0241923,EN EZ NZ
 NC.KCPC,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0306098,0.0329785,0.088628,191,-0.345374,-0.928174,0.376963,0.0926774,EN EZ NZ
+NC.KCPC,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0954336,,0.0337062,192,-2.83134,,0.015625,0.0258577,EN EZ NZ
+NC.KCPC,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0126125,,0.0923998,192,0.136499,,0.557292,0.0831157,EN EZ NZ
 BK.BRIC,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.217414,0.155119,0.115341,457,-1.88497,-1.4016,0.0328228,0.0777423,EN EZ NZ
 BK.BRIC,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0729746,0.0618385,0.115341,457,0.632688,1.18008,0.822757,0.0777423,EN EZ NZ
 BK.BRIC,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0345468,0.185929,0.115341,457,-0.299519,-0.185806,0.330416,0.0777423,EN EZ NZ
@@ -691,6 +867,9 @@ BK.BRIC,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 BK.BRIC,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0397839,0.115924,0.136671,473,0.291093,0.343189,0.661734,0.0981037,EN EZ NZ
 BK.BRIC,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.114684,0.0379381,0.136671,473,0.839129,3.02293,0.902748,0.0981037,EN EZ NZ
 BK.BRIC,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0388668,0.119168,0.136671,473,0.284383,0.32615,0.661734,0.0981037,EN EZ NZ
+BK.BRIC,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.217414,,0.136573,482,-1.59192,,0.0435685,0.0818362,EN EZ NZ
+BK.BRIC,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0729746,,0.136573,482,0.534326,,0.807054,0.0818362,EN EZ NZ
+BK.BRIC,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0345468,,0.136573,482,-0.252954,,0.33195,0.0818362,EN EZ NZ
 BK.BRIC,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0387029,0.0937973,0.119875,457,-0.32286,-0.412623,0.304158,0.0817751,EN EZ NZ
 BK.BRIC,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0743035,0.0620582,0.119875,457,0.61984,1.19732,0.798687,0.0817751,EN EZ NZ
 BK.BRIC,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.00687485,0.0884669,0.119875,457,-0.0573501,-0.077711,0.446389,0.0817751,EN EZ NZ
@@ -703,6 +882,9 @@ BK.BRIC,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 BK.BRIC,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.10055,0.0341898,0.169606,473,-0.592846,-2.94094,0.173362,0.0980476,EN EZ NZ
 BK.BRIC,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0211902,0.0295145,0.169606,473,0.124938,0.71796,0.570825,0.0980476,EN EZ NZ
 BK.BRIC,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.186129,0.0546246,0.169606,473,1.09742,3.40743,0.938689,0.0980476,EN EZ NZ
+BK.BRIC,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0387029,,0.180833,482,-0.214025,,0.313278,0.0841576,EN EZ NZ
+BK.BRIC,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0743035,,0.180833,482,0.410894,,0.790456,0.0841576,EN EZ NZ
+BK.BRIC,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.00687485,,0.180833,482,-0.0380176,,0.448133,0.0841576,EN EZ NZ
 BK.BRIC,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.398533,0.161773,0.122381,457,-3.2565,-2.46354,0,0.0676156,EN EZ NZ
 BK.BRIC,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.111041,0.0753091,0.122381,457,-0.90734,-1.47447,0.0984683,0.0676156,EN EZ NZ
 BK.BRIC,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.155689,0.130345,0.122381,457,-1.27217,-1.19444,0.0568928,0.0676156,EN EZ NZ
@@ -715,6 +897,9 @@ BK.BRIC,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 BK.BRIC,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0464645,0.0894387,0.137699,473,-0.337435,-0.519512,0.251586,0.0780073,EN EZ NZ
 BK.BRIC,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0561316,0.077143,0.137699,473,-0.40764,-0.727631,0.217759,0.0780073,EN EZ NZ
 BK.BRIC,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.222915,0.0506668,0.137699,473,-1.61886,-4.39964,0.0443975,0.0780073,EN EZ NZ
+BK.BRIC,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.398533,,0.142063,482,-2.80533,,0.0124481,0.0733381,EN EZ NZ
+BK.BRIC,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.111041,,0.142063,482,-0.781635,,0.118257,0.0733381,EN EZ NZ
+BK.BRIC,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.155689,,0.142063,482,-1.09592,,0.0788382,0.0733381,EN EZ NZ
 BK.BRIC,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.244974,0.385907,0.191701,456,-1.27789,-0.6348,0.0614035,0.128984,EN EZ NZ
 BK.BRIC,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.117955,0.186859,0.191701,456,0.615305,0.631249,0.809211,0.128984,EN EZ NZ
 BK.BRIC,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.697088,0.403779,0.191701,456,3.63633,1.72641,1,0.128984,EN EZ NZ
@@ -727,6 +912,9 @@ BK.BRIC,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 BK.BRIC,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.196477,0.131041,0.212432,467,-0.924894,-1.49935,0.124197,0.15897,EN EZ NZ
 BK.BRIC,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.270058,0.06619,0.212432,467,1.27127,4.08004,0.907923,0.15897,EN EZ NZ
 BK.BRIC,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.048552,0.243005,0.212432,467,-0.228553,-0.199798,0.379015,0.15897,EN EZ NZ
+BK.BRIC,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.244974,,0.20657,479,-1.18591,,0.0709812,0.133937,EN EZ NZ
+BK.BRIC,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.117955,,0.20657,479,0.571014,,0.797495,0.133937,EN EZ NZ
+BK.BRIC,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.697088,,0.20657,479,3.37458,,0.997912,0.133937,EN EZ NZ
 BK.BRIC,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.406706,0.0330174,0.0485971,484,-8.36894,-12.3179,0,0.0415385,EN EZ NZ
 BK.BRIC,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-1.1553,0.152001,0.108817,484,-10.6169,-7.60061,0,0.078085,EN EZ NZ
 BK.BRIC,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.134837,0.0148665,0.0485971,484,-2.77459,-9.06985,0,0.0415385,EN EZ NZ
@@ -751,6 +939,12 @@ BK.BRIC,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 BK.BRIC,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.996348,0.167761,0.0977736,484,-10.1904,-5.93908,0,0.0705544,EN EZ NZ
 BK.BRIC,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.288075,0.0317494,0.0977736,484,-2.94635,-9.07341,0.018595,0.0705544,EN EZ NZ
 BK.BRIC,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0191129,0.0724781,0.0977736,484,0.195481,0.263706,0.516529,0.0705544,EN EZ NZ
+BK.BRIC,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.406706,,0.0485971,484,-8.36894,,0,0.0415385,EN EZ NZ
+BK.BRIC,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.134837,,0.0485971,484,-2.77459,,0,0.0415385,EN EZ NZ
+BK.BRIC,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0517192,,0.0485971,484,-1.06425,,0.107438,0.0415385,EN EZ NZ
+BK.BRIC,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-1.1553,,0.108817,484,-10.6169,,0,0.078085,EN EZ NZ
+BK.BRIC,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.251264,,0.108817,484,-2.30905,,0.0227273,0.078085,EN EZ NZ
+BK.BRIC,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.202588,,0.108817,484,1.86174,,0.960744,0.078085,EN EZ NZ
 BK.RVIT,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.291342,0.593215,0.228777,409,-1.27347,-0.491123,0.105134,0.146308,EN EZ NZ
 BK.RVIT,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0574186,0.155155,0.228777,409,-0.250981,-0.370072,0.298289,0.146308,EN EZ NZ
 BK.RVIT,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.240246,0.285789,0.242745,406,-0.989705,-0.84064,0.142857,0.207969,EN EZ NZ
@@ -759,6 +953,9 @@ BK.RVIT,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 o
 BK.RVIT,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.246479,0.195418,0.257244,413,-0.958154,-1.2613,0.135593,0.181153,EN EZ NZ
 BK.RVIT,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.352998,0.245944,0.235693,414,-1.4977,-1.43527,0.0676329,0.16438,EN EZ NZ
 BK.RVIT,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.293851,0.164123,0.235693,414,-1.24675,-1.79043,0.0990338,0.16438,EN EZ NZ
+BK.RVIT,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.291342,,0.233714,419,-1.24657,,0.109785,0.141836,EN EZ NZ
+BK.RVIT,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.79015,,0.233714,419,-3.38084,,0.00238663,0.141836,EN EZ NZ
+BK.RVIT,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0574186,,0.233714,419,-0.245679,,0.300716,0.141836,EN EZ NZ
 BK.RVIT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.333041,0.199181,0.297843,409,-1.11818,-1.67205,0.0488998,0.135503,EN EZ NZ
 BK.RVIT,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",1.6472,0.284529,0.297843,409,5.53045,5.78922,0.997555,0.135503,EN EZ NZ
 BK.RVIT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.280018,0.154747,0.19929,405,-1.40508,-1.80952,0.0765432,0.166918,EN EZ NZ
@@ -767,6 +964,9 @@ BK.RVIT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..
 BK.RVIT,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.653749,0.161097,0.215204,413,3.03781,4.05812,0.985472,0.160281,EN EZ NZ
 BK.RVIT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.122782,0.100929,0.248021,414,-0.495046,-1.21651,0.23913,0.16218,EN EZ NZ
 BK.RVIT,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.652709,0.144513,0.248021,414,2.63167,4.51659,0.980676,0.16218,EN EZ NZ
+BK.RVIT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.333041,,0.331166,419,-1.00566,,0.0501193,0.138374,EN EZ NZ
+BK.RVIT,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.357709,,0.331166,419,1.08015,,0.949881,0.138374,EN EZ NZ
+BK.RVIT,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),1.6472,,0.331166,419,4.97395,,0.995227,0.138374,EN EZ NZ
 BK.RVIT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.108454,0.387528,0.115933,409,-0.935488,-0.27986,0.122249,0.0941853,EN EZ NZ
 BK.RVIT,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.325482,0.18166,0.115933,409,-2.80751,-1.79171,0.00977995,0.0941853,EN EZ NZ
 BK.RVIT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0801678,0.131222,0.127966,405,-0.626477,-0.610933,0.244444,0.113341,EN EZ NZ
@@ -775,9 +975,13 @@ BK.RVIT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..
 BK.RVIT,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.417032,0.162418,0.131931,413,-3.16098,-2.56765,0,0.0918639,EN EZ NZ
 BK.RVIT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0818061,0.133696,0.116333,414,0.703208,0.61188,0.830918,0.0814672,EN EZ NZ
 BK.RVIT,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.441641,0.129208,0.116333,414,-3.79636,-3.41806,0,0.0814672,EN EZ NZ
+BK.RVIT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.108454,,0.121889,419,-0.889776,,0.128878,0.0958195,EN EZ NZ
+BK.RVIT,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.238793,,0.121889,419,-1.9591,,0.026253,0.0958195,EN EZ NZ
+BK.RVIT,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.325482,,0.121889,419,-2.67032,,0.0143198,0.0958195,EN EZ NZ
 BK.RVIT,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",,0.517807,0.359753,341,,,0,0.2211,EN
 BK.RVIT,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-2.68539,0.995165,0.359753,341,-7.46454,-2.69844,0,0.2211,EN
 BK.RVIT,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.858315,0.206419,0.327413,371,-2.62151,-4.15812,0.0107817,0.294109,EN
+BK.RVIT,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-2.68539,,0.402131,352,-6.67791,,0,0.235615,EN
 BK.RVIT,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.116725,0.0769405,0.173022,409,-0.674626,-1.51708,0.0806846,0.0350757,EN EZ NZ
 BK.RVIT,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.565919,0.674305,0.236288,408,2.39504,0.839263,0.970588,0.16188,EN EZ NZ
 BK.RVIT,day,1-3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.87153,0.121074,0.173022,409,5.03711,7.1983,1,0.0350757,EN EZ NZ
@@ -794,22 +998,32 @@ BK.RVIT,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of
 BK.RVIT,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.550918,0.237725,0.146722,415,3.75484,2.31746,1,0.0368085,EN EZ NZ
 BK.RVIT,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.106702,0.135601,0.216584,415,-0.492658,-0.786879,0.2,0.138972,EN EZ NZ
 BK.RVIT,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.542245,0.14376,0.216584,415,-2.50362,-3.77187,0.00722892,0.138972,EN EZ NZ
+BK.RVIT,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.116725,,0.171982,419,-0.678706,,0.0787589,0.0366329,EN EZ NZ
+BK.RVIT,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.451516,,0.171982,419,-2.62537,,0.0357995,0.0366329,EN EZ NZ
+BK.RVIT,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.87153,,0.171982,419,5.06757,,1,0.0366329,EN EZ NZ
+BK.RVIT,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.565919,,0.235357,418,2.40451,,0.971292,0.164979,EN EZ NZ
+BK.RVIT,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.310774,,0.235357,418,-1.32043,,0.0645933,0.164979,EN EZ NZ
+BK.RVIT,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.788396,,0.235357,418,-3.34978,,0,0.164979,EN EZ NZ
 BK.HALS,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.307554,0.144805,0.149586,190,-2.05604,-2.12392,0.00526316,0.157977,EN EZ NZ
 BK.HALS,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.192389,0.151958,0.208229,190,-0.923929,-1.26607,0.194737,0.200545,EN EZ NZ
 BK.HALS,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.127108,0.113239,0.200645,190,-0.633495,-1.12247,0.263158,0.169984,EN EZ NZ
 BK.HALS,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.097891,0.0898963,0.169512,190,-0.577487,-1.08893,0.273684,0.14279,EN EZ NZ
+BK.HALS,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.307554,,0.149586,190,-2.05604,,0.00526316,0.157977,EN EZ NZ
 BK.HALS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0678474,0.0578085,0.112291,190,-0.604209,-1.17366,0.273684,0.107122,EN EZ NZ
 BK.HALS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.134778,0.0551141,0.143715,190,-0.937812,-2.44543,0.168421,0.137823,EN EZ NZ
 BK.HALS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0643238,0.035775,0.135659,190,-0.474158,-1.79801,0.289474,0.128878,EN EZ NZ
 BK.HALS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0197071,0.0382009,0.121621,190,0.162037,0.51588,0.573684,0.10957,EN EZ NZ
+BK.HALS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0678474,,0.112291,190,-0.604209,,0.273684,0.107122,EN EZ NZ
 BK.HALS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0331593,0.100224,0.0982468,190,0.33751,0.33085,0.626316,0.0968084,EN EZ NZ
 BK.HALS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0744995,0.107233,0.139222,190,-0.535114,-0.694747,0.247368,0.11192,EN EZ NZ
 BK.HALS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.0520501,0.0861955,0.124909,190,0.416703,0.603861,0.715789,0.0988837,EN EZ NZ
 BK.HALS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0904575,0.0366907,0.102987,190,0.87834,2.46541,0.815789,0.0938706,EN EZ NZ
+BK.HALS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0331593,,0.0982468,190,0.33751,,0.626316,0.0968084,EN EZ NZ
 BK.HALS,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.205932,0.241674,0.127785,190,1.61156,0.852107,0.947368,0.124313,EN EZ NZ
 BK.HALS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.278399,0.147438,0.17058,190,1.63207,1.88825,0.931579,0.170363,EN EZ NZ
 BK.HALS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.318754,0.154426,0.154697,190,2.0605,2.06412,0.984211,0.18073,EN EZ NZ
 BK.HALS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.400879,0.102834,0.139927,190,2.86491,3.89833,1,0.154821,EN EZ NZ
+BK.HALS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.205932,,0.127785,190,1.61156,,0.947368,0.124313,EN EZ NZ
 BK.HALS,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.120926,0.023972,0.0257107,196,-4.70331,-5.04444,0,0.0240364,EN EZ NZ
 BK.HALS,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.488143,0.112593,0.192718,196,-2.53294,-4.33548,0,0.206124,EN EZ NZ
 BK.HALS,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0823028,0.0279865,0.0308072,196,-2.67154,-2.9408,0.00510204,0.0332242,EN EZ NZ
@@ -818,6 +1032,8 @@ BK.HALS,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.HALS,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.434436,0.127912,0.192943,196,-2.25162,-3.39637,0.00510204,0.174033,EN EZ NZ
 BK.HALS,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.029868,0.0271622,0.0271384,196,-1.10058,-1.09962,0.0867347,0.028181,EN EZ NZ
 BK.HALS,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.497787,0.0939139,0.180449,196,-2.7586,-5.30046,0,0.188875,EN EZ NZ
+BK.HALS,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.120926,,0.0256731,197,-4.7102,,0,0.0242796,EN EZ NZ
+BK.HALS,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.488143,,0.192317,197,-2.53822,,0,0.207071,EN EZ NZ
 BK.RBOW,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.380383,0.184949,0.148349,391,-2.5641,-2.05669,0.00511509,0.148329,EN EZ NZ
 BK.RBOW,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0724527,0.0924775,0.148349,391,-0.488394,-0.783464,0.29156,0.148329,EN EZ NZ
 BK.RBOW,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.23471,0.104745,0.148349,391,-1.58215,-2.24079,0.0639386,0.148329,EN EZ NZ
@@ -830,6 +1046,9 @@ BK.RBOW,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 BK.RBOW,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.407254,0.0992143,0.159828,391,-2.54808,-4.10479,0.00511509,0.160821,EN EZ NZ
 BK.RBOW,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.00923495,0.046075,0.159828,391,-0.0577806,-0.200433,0.44757,0.160821,EN EZ NZ
 BK.RBOW,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.231443,0.0739289,0.159828,391,1.44808,3.13061,0.923274,0.160821,EN EZ NZ
+BK.RBOW,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.380383,,0.148349,391,-2.5641,,0.00511509,0.148329,EN EZ NZ
+BK.RBOW,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0724527,,0.148349,391,-0.488394,,0.29156,0.148329,EN EZ NZ
+BK.RBOW,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.23471,,0.148349,391,-1.58215,,0.0639386,0.148329,EN EZ NZ
 BK.RBOW,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0367542,0.0436839,0.078544,391,0.467945,0.841369,0.680307,0.0748056,EN EZ NZ
 BK.RBOW,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0399333,0.0313903,0.078544,391,-0.50842,-1.27216,0.286445,0.0748056,EN EZ NZ
 BK.RBOW,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.00204992,0.0433321,0.078544,391,0.026099,0.0473072,0.511509,0.0748056,EN EZ NZ
@@ -842,6 +1061,9 @@ BK.RBOW,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 BK.RBOW,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0296543,0.0299792,0.0854872,391,0.346886,0.989164,0.649616,0.079529,EN EZ NZ
 BK.RBOW,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.059718,0.0230844,0.0854872,391,-0.698561,-2.58694,0.222506,0.079529,EN EZ NZ
 BK.RBOW,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0917891,0.0248987,0.0854872,391,1.07372,3.6865,0.856777,0.079529,EN EZ NZ
+BK.RBOW,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0367542,,0.078544,391,0.467945,,0.680307,0.0748056,EN EZ NZ
+BK.RBOW,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0399333,,0.078544,391,-0.50842,,0.286445,0.0748056,EN EZ NZ
+BK.RBOW,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.00204992,,0.078544,391,0.026099,,0.511509,0.0748056,EN EZ NZ
 BK.RBOW,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.160897,0.108496,0.0905282,391,-1.77731,-1.48298,0.0332481,0.0929141,EN EZ NZ
 BK.RBOW,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.166819,0.0715272,0.0905282,391,-1.84273,-2.33225,0.028133,0.0929141,EN EZ NZ
 BK.RBOW,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0856733,0.101386,0.0905282,391,-0.946371,-0.84502,0.179028,0.0929141,EN EZ NZ
@@ -854,6 +1076,9 @@ BK.RBOW,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 BK.RBOW,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.278429,0.0641117,0.104829,391,-2.65602,-4.34287,0.00511509,0.105555,EN EZ NZ
 BK.RBOW,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0596226,0.0657645,0.104829,391,-0.568759,-0.906607,0.296675,0.105555,EN EZ NZ
 BK.RBOW,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.26487,0.104634,0.104829,391,-2.52668,-2.5314,0.0127877,0.105555,EN EZ NZ
+BK.RBOW,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.160897,,0.0905282,391,-1.77731,,0.0332481,0.0929141,EN EZ NZ
+BK.RBOW,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.166819,,0.0905282,391,-1.84273,,0.028133,0.0929141,EN EZ NZ
+BK.RBOW,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0856733,,0.0905282,391,-0.946371,,0.179028,0.0929141,EN EZ NZ
 BK.RBOW,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0249635,0.190391,0.17283,391,-0.14444,-0.131117,0.419437,0.144048,EN EZ NZ
 BK.RBOW,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.288316,0.278185,0.17283,391,-1.66821,-1.03642,0.0409207,0.144048,EN EZ NZ
 BK.RBOW,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.14935,0.406259,0.17283,391,0.864145,0.367622,0.836317,0.144048,EN EZ NZ
@@ -866,6 +1091,9 @@ BK.RBOW,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 BK.RBOW,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.118933,0.0801812,0.19683,391,-0.604241,-1.4833,0.248082,0.170699,EN EZ NZ
 BK.RBOW,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.040996,0.114884,0.19683,391,-0.208282,-0.356846,0.375959,0.170699,EN EZ NZ
 BK.RBOW,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.303949,0.232216,0.19683,391,-1.54422,-1.30891,0.0434783,0.170699,EN EZ NZ
+BK.RBOW,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0249635,,0.17283,391,-0.14444,,0.419437,0.144048,EN EZ NZ
+BK.RBOW,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.288316,,0.17283,391,-1.66821,,0.0409207,0.144048,EN EZ NZ
+BK.RBOW,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.14935,,0.17283,391,0.864145,,0.836317,0.144048,EN EZ NZ
 BK.RBOW,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.150041,0.0197505,0.0301155,391,-4.98217,-7.59682,0,0.025813,EN EZ NZ
 BK.RBOW,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.166311,0.0546128,0.113525,391,-1.46498,-3.04527,0.0664962,0.117476,EN EZ NZ
 BK.RBOW,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0655311,0.0221153,0.0301155,391,-2.17599,-2.96316,0.0255754,0.025813,EN EZ NZ
@@ -890,6 +1118,12 @@ BK.RBOW,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 BK.RBOW,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0823376,0.0472598,0.10687,391,-0.770448,-1.74223,0.196931,0.108894,EN EZ NZ
 BK.RBOW,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.230082,0.0359269,0.10687,391,-2.15292,-6.40419,0.0204604,0.108894,EN EZ NZ
 BK.RBOW,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.353453,0.0755372,0.10687,391,-3.30732,-4.67918,0,0.108894,EN EZ NZ
+BK.RBOW,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.150041,,0.0301155,391,-4.98217,,0,0.025813,EN EZ NZ
+BK.RBOW,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0655311,,0.0301155,391,-2.17599,,0.0255754,0.025813,EN EZ NZ
+BK.RBOW,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.214251,,0.0301155,391,-7.11433,,0,0.025813,EN EZ NZ
+BK.RBOW,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.166311,,0.113525,391,-1.46498,,0.0664962,0.117476,EN EZ NZ
+BK.RBOW,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.21765,,0.113525,391,-1.9172,,0.0204604,0.117476,EN EZ NZ
+BK.RBOW,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.385142,,0.113525,391,-3.39258,,0,0.117476,EN EZ NZ
 BK.HAYF,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.374658,0.241565,0.225693,423,-1.66003,-1.55096,0.0449173,0.208337,EN EZ NZ
 BK.HAYF,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0562178,0.162511,0.225693,423,0.24909,0.345933,0.617021,0.208337,EN EZ NZ
 BK.HAYF,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.147557,0.222636,0.225693,423,-0.653795,-0.662773,0.234043,0.208337,EN EZ NZ
@@ -902,6 +1136,9 @@ BK.HAYF,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30
 BK.HAYF,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.244934,0.076339,0.240157,423,-1.01989,-3.20851,0.137116,0.222025,EN EZ NZ
 BK.HAYF,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.126563,0.0846924,0.240157,423,0.527002,1.49439,0.713948,0.222025,EN EZ NZ
 BK.HAYF,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.367792,0.14732,0.240157,423,1.53146,2.49655,0.938534,0.222025,EN EZ NZ
+BK.HAYF,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.374658,,0.225859,425,-1.65881,,0.0447059,0.208396,EN EZ NZ
+BK.HAYF,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0562178,,0.225859,425,0.248907,,0.614118,0.208396,EN EZ NZ
+BK.HAYF,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.147557,,0.225859,425,-0.653315,,0.232941,0.208396,EN EZ NZ
 BK.HAYF,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0752196,0.0639841,0.0988085,423,-0.761266,-1.1756,0.238771,0.102392,EN EZ NZ
 BK.HAYF,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0583293,0.0682151,0.0988085,423,0.590327,0.855078,0.706856,0.102392,EN EZ NZ
 BK.HAYF,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0237324,0.0827762,0.0988085,423,0.240186,0.286705,0.579196,0.102392,EN EZ NZ
@@ -914,6 +1151,9 @@ BK.HAYF,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 BK.HAYF,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0396589,0.03257,0.102363,423,-0.387432,-1.21765,0.326241,0.104658,EN EZ NZ
 BK.HAYF,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0850903,0.037134,0.102363,423,0.831256,2.29144,0.787234,0.104658,EN EZ NZ
 BK.HAYF,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.020578,0.0502314,0.102363,423,-0.201029,-0.409665,0.416076,0.104658,EN EZ NZ
+BK.HAYF,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0752196,,0.0986496,425,-0.762493,,0.24,0.102283,EN EZ NZ
+BK.HAYF,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0583293,,0.0986496,425,0.591277,,0.708235,0.102283,EN EZ NZ
+BK.HAYF,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0237324,,0.0986496,425,0.240573,,0.581176,0.102283,EN EZ NZ
 BK.HAYF,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0254888,0.130144,0.0857715,423,0.297171,0.195851,0.638298,0.0810189,EN EZ NZ
 BK.HAYF,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0930047,0.154428,0.0857715,423,1.08433,0.602252,0.87234,0.0810189,EN EZ NZ
 BK.HAYF,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.033588,0.115395,0.0857715,423,0.391599,0.29107,0.685579,0.0810189,EN EZ NZ
@@ -926,6 +1166,9 @@ BK.HAYF,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 BK.HAYF,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0598257,0.063691,0.0958369,423,0.624244,0.939311,0.754137,0.0866838,EN EZ NZ
 BK.HAYF,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0357597,0.0835414,0.0958369,423,0.37313,0.428048,0.669031,0.0866838,EN EZ NZ
 BK.HAYF,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.198036,0.0968056,0.0958369,423,2.06639,2.04571,0.976359,0.0866838,EN EZ NZ
+BK.HAYF,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0254888,,0.0862021,425,0.295686,,0.635294,0.0813465,EN EZ NZ
+BK.HAYF,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0930047,,0.0862021,425,1.07891,,0.870588,0.0813465,EN EZ NZ
+BK.HAYF,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.033588,,0.0862021,425,0.389642,,0.682353,0.0813465,EN EZ NZ
 BK.HAYF,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.461486,0.278191,0.176995,423,-2.60734,-1.65888,0.0165485,0.138187,EN EZ NZ
 BK.HAYF,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.213363,0.201871,0.176995,423,1.20547,1.05693,0.903073,0.138187,EN EZ NZ
 BK.HAYF,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.103547,0.326935,0.176995,423,-0.585026,-0.316719,0.234043,0.138187,EN EZ NZ
@@ -938,6 +1181,9 @@ BK.HAYF,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-
 BK.HAYF,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.344394,0.0907225,0.17423,423,-1.97666,-3.79612,0.0307329,0.139008,EN EZ NZ
 BK.HAYF,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.233933,0.103782,0.17423,423,1.34267,2.25407,0.91253,0.139008,EN EZ NZ
 BK.HAYF,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0382605,0.208696,0.17423,423,0.219598,0.183332,0.626478,0.139008,EN EZ NZ
+BK.HAYF,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.461486,,0.176969,425,-2.60772,,0.0164706,0.136372,EN EZ NZ
+BK.HAYF,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.213363,,0.176969,425,1.20565,,0.903529,0.136372,EN EZ NZ
+BK.HAYF,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.103547,,0.176969,425,-0.585112,,0.232941,0.136372,EN EZ NZ
 BK.HAYF,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0852078,0.0236214,0.0318283,423,-2.67711,-3.60723,0.00236407,0.032028,EN EZ NZ
 BK.HAYF,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.244963,0.0612774,0.191788,423,-1.27725,-3.9976,0.0591017,0.165046,EN EZ NZ
 BK.HAYF,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0177794,0.0153033,0.0318283,423,-0.558603,-1.1618,0.288416,0.032028,EN EZ NZ
@@ -962,6 +1208,12 @@ BK.HAYF,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 BK.HAYF,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.158708,0.061283,0.172786,423,-0.91852,-2.58975,0.1513,0.160306,EN EZ NZ
 BK.HAYF,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.403352,0.0600841,0.172786,423,-2.3344,-6.71312,0.00472813,0.160306,EN EZ NZ
 BK.HAYF,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0741024,0.0475722,0.172786,423,-0.428867,-1.55768,0.314421,0.160306,EN EZ NZ
+BK.HAYF,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0852078,,0.0321689,425,-2.64876,,0.00470588,0.0317708,EN EZ NZ
+BK.HAYF,day,1-3Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0177794,,0.0321689,425,-0.552689,,0.291765,0.0317708,EN EZ NZ
+BK.HAYF,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0565957,,0.0321689,425,-1.75933,,0.0376471,0.0317708,EN EZ NZ
+BK.HAYF,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.244963,,0.194005,425,-1.26266,,0.0588235,0.165602,EN EZ NZ
+BK.HAYF,day,3-5Hz,SC,Petrolia,2021-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.333216,,0.194005,425,-1.71757,,0.0164706,0.165602,EN EZ NZ
+BK.HAYF,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.286081,,0.194005,425,-1.47461,,0.0329412,0.165602,EN EZ NZ
 BK.BJES,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0481503,0.0932832,0.365637,215,-0.131689,-0.516174,0.367442,0.131796,EN
 BK.BJES,low,0.1-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",,,0.365637,215,,,0,0.131796,EN
 BK.BJES,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",1.11223,0.859219,0.365637,215,3.04188,1.29446,0.986047,0.131796,EN
@@ -970,6 +1222,8 @@ BK.BJES,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,2day_back (mean d1..15 - mean d-30
 BK.BJES,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.228374,0.110996,0.371682,274,-0.614435,-2.05751,0.0985401,0.168037,EN
 BK.BJES,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.223938,0.0561756,0.427022,283,-0.524417,-3.98639,0.137809,0.157743,EN
 BK.BJES,low,0.1-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.270236,0.0156149,0.427022,283,0.632839,17.3063,0.893993,0.157743,EN
+BK.BJES,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0481503,,0.482707,278,-0.0997507,,0.399281,0.163568,EN
+BK.BJES,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),1.11223,,0.482707,278,2.30414,,0.978417,0.163568,EN
 BK.BJES,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0546301,0.0870508,0.328944,210,0.166077,0.627566,0.652381,0.134558,EN
 BK.BJES,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",,,0.328944,210,,,0,0.134558,EN
 BK.BJES,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.136553,1.16474,0.328944,210,0.415125,0.117239,0.809524,0.134558,EN
@@ -979,6 +1233,8 @@ BK.BJES,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean 
 BK.BJES,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.141424,0.032525,0.36027,265,0.392549,4.34815,0.815094,0.162797,EN
 BK.BJES,low_a,0.1-0.3Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.152499,0.026412,0.36027,265,-0.423292,-5.77386,0.230189,0.162797,EN
 BK.BJES,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),1.89387,0.371181,0.36027,265,5.2568,5.10227,1,0.162797,EN
+BK.BJES,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0546301,,0.435277,266,0.125507,,0.657895,0.154433,EN
+BK.BJES,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.136553,,0.435277,266,0.313715,,0.781955,0.154433,EN
 BK.BJES,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.229069,0.148914,0.448095,215,-0.511206,-1.53826,0.0372093,0.142446,EN
 BK.BJES,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",,,0.448095,215,,,0,0.142446,EN
 BK.BJES,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",,0.714411,0.448095,215,,,0,0.142446,EN
@@ -988,6 +1244,7 @@ BK.BJES,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..
 BK.BJES,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),1.29335,0.191997,0.385629,272,3.35386,6.73627,0.988971,0.220717,EN
 BK.BJES,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.443867,0.0668433,0.577912,292,-0.768053,-6.64041,0.0924658,0.210121,EN
 BK.BJES,low_b,0.3-0.6Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.229553,0.0377,0.577912,292,0.397211,6.08894,0.821918,0.210121,EN
+BK.BJES,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.229069,,0.654914,290,-0.349769,,0.113793,0.186115,EN
 BK.BJES,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.386239,0.306725,0.495164,226,-0.780023,-1.25923,0.0663717,0.192753,EN
 BK.BJES,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",,,0.495164,226,,,0,0.192753,EN
 BK.BJES,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-1.31744,0.612675,0.495164,226,-2.66062,-2.15031,0.0176991,0.192753,EN
@@ -996,6 +1253,8 @@ BK.BJES,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,2day_back (mean d1..15 - mean d-
 BK.BJES,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.691473,0.150395,0.488149,297,-1.41652,-4.59771,0.0505051,0.312585,EN
 BK.BJES,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.913733,0.115641,0.549862,306,-1.66175,-7.90147,0.0457516,0.274888,EN
 BK.BJES,low_c,0.5-1Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.258461,0.10327,0.549862,306,-0.470047,-2.50278,0.199346,0.274888,EN
+BK.BJES,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.386239,,0.655149,298,-0.589544,,0.124161,0.23491,EN
+BK.BJES,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-1.31744,,0.655149,298,-2.01091,,0.0369128,0.23491,EN
 BK.BJES,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.133673,0.061589,0.586467,239,-0.227929,-2.1704,0.100418,0.0631049,EN
 BK.BJES,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.00818302,0.175589,0.566599,236,-0.0144423,-0.0466032,0.504237,0.297686,EN
 BK.BJES,day,1-3Hz,SC,Petrolia,2021-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",,,0.586467,239,,,0,0.0631049,EN
@@ -1015,22 +1274,28 @@ BK.BJES,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30.
 BK.BJES,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.318294,0.112745,0.475954,308,-0.668748,-2.82314,0.191558,0.292813,EN
 BK.BJES,day,3-5Hz,SC,Petrolia,2021-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.109735,0.0394666,0.475954,308,-0.230558,-2.78045,0.344156,0.292813,EN
 BK.BJES,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.258979,0.241817,0.475954,308,-0.544126,-1.07097,0.220779,0.292813,EN
+BK.BJES,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.133673,,0.676534,291,-0.197585,,0.116838,0.0976125,EN
+BK.BJES,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.00818302,,0.617593,283,-0.0132498,,0.491166,0.311676,EN
 BK.SPRL,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.326887,0.124317,0.101697,167,-3.21433,-2.62947,0,0.082808,EN EZ NZ
 BK.SPRL,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.17617,0.126658,0.151903,187,-1.15975,-1.3909,0.128342,0.128969,EN EZ NZ
 BK.SPRL,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.167294,0.0943375,0.141312,191,-1.18386,-1.77335,0.13089,0.11728,EN EZ NZ
 BK.SPRL,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.178069,0.0600547,0.130487,191,-1.36465,-2.96511,0.0837696,0.100661,EN EZ NZ
+BK.SPRL,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.326887,,0.103567,191,-3.15627,,0,0.0860245,EN EZ NZ
 BK.SPRL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0823976,0.0618148,0.0710408,167,-1.15986,-1.33297,0.107784,0.0543184,EN EZ NZ
 BK.SPRL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.0443069,0.0457051,0.0958907,187,0.462056,0.969407,0.679144,0.0896496,EN EZ NZ
 BK.SPRL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.0173169,0.0355588,0.101024,191,0.171413,0.486994,0.565445,0.0899437,EN EZ NZ
 BK.SPRL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00435885,0.0187911,0.0919318,191,0.047414,0.231963,0.492147,0.0781132,EN EZ NZ
+BK.SPRL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0823976,,0.0821753,191,-1.0027,,0.13089,0.0592763,EN EZ NZ
 BK.SPRL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.243757,0.0759359,0.069,167,-3.53271,-3.21004,0,0.0601595,EN EZ NZ
 BK.SPRL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.353975,0.0647462,0.131787,187,-2.68595,-5.46712,0.0160428,0.101658,EN EZ NZ
 BK.SPRL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.198735,0.0473383,0.148787,191,-1.3357,-4.19819,0.0471204,0.0842827,EN EZ NZ
 BK.SPRL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.136788,0.0268206,0.132595,191,-1.03162,-5.1001,0.0575916,0.068711,EN EZ NZ
+BK.SPRL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.243757,,0.107963,191,-2.25778,,0.0314136,0.0661336,EN EZ NZ
 BK.SPRL,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.279021,0.106002,0.0981485,167,-2.84284,-2.63221,0.0179641,0.0863363,EN EZ NZ
 BK.SPRL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0212331,0.124527,0.226514,187,-0.0937385,-0.17051,0.42246,0.127099,EN EZ NZ
 BK.SPRL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0827145,0.0739848,0.232437,191,-0.355857,-1.11799,0.308901,0.128213,EN EZ NZ
 BK.SPRL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0539241,0.030189,0.234289,191,-0.23016,-1.78622,0.324607,0.116146,EN EZ NZ
+BK.SPRL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.279021,,0.144664,191,-1.92876,,0.0418848,0.0997397,EN EZ NZ
 BK.SPRL,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.25521,0.0227185,0.0327021,169,-7.80408,-11.2336,0,0.028559,EN EZ NZ
 BK.SPRL,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.417041,0.06215,0.121638,169,-3.42855,-6.71023,0,0.106759,EN EZ NZ
 BK.SPRL,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.242163,0.0329287,0.0419632,187,-5.77085,-7.35416,0,0.0336535,EN EZ NZ
@@ -1039,22 +1304,28 @@ BK.SPRL,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.SPRL,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.262335,0.0813047,0.135106,191,-1.94169,-3.22656,0.0314136,0.115027,EN EZ NZ
 BK.SPRL,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.18509,0.0289878,0.0379825,191,-4.87304,-6.38509,0,0.0346014,EN EZ NZ
 BK.SPRL,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.191716,0.0961345,0.131749,191,-1.45517,-1.99425,0.0628272,0.10952,EN EZ NZ
+BK.SPRL,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.25521,,0.0350782,191,-7.27547,,0,0.0310327,EN EZ NZ
+BK.SPRL,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.417041,,0.129489,191,-3.22066,,0,0.115398,EN EZ NZ
 BK.USAL,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.234737,0.108892,0.0868354,153,-2.70325,-2.15569,0,0.0866212,EN EZ NZ
 BK.USAL,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.157873,0.0861713,0.118493,153,-1.33234,-1.83209,0.0980392,0.112219,EN EZ NZ
 BK.USAL,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.137605,0.0886337,0.104226,153,-1.32026,-1.55251,0.117647,0.0902955,EN EZ NZ
 BK.USAL,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.11559,0.0574721,0.0920263,153,-1.25605,-2.01123,0.117647,0.0863607,EN EZ NZ
+BK.USAL,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.234737,,0.0868354,153,-2.70325,,0,0.0866212,EN EZ NZ
 BK.USAL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.128389,0.0485683,0.0763873,153,-1.68077,-2.64348,0.0392157,0.0809363,EN EZ NZ
 BK.USAL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.185729,0.0489375,0.0924914,153,-2.00807,-3.79523,0.0196078,0.0955419,EN EZ NZ
 BK.USAL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.165253,0.0356247,0.085299,153,-1.93734,-4.63872,0.0261438,0.0860685,EN EZ NZ
 BK.USAL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.140973,0.0230206,0.0808494,153,-1.74365,-6.12377,0.0326797,0.094381,EN EZ NZ
+BK.USAL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.128389,,0.0763873,153,-1.68077,,0.0392157,0.0809363,EN EZ NZ
 BK.USAL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.155696,0.0742147,0.053599,153,-2.90484,-2.09792,0,0.0552754,EN EZ NZ
 BK.USAL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0992348,0.0734261,0.0781284,153,-1.27015,-1.35149,0.0849673,0.0744003,EN EZ NZ
 BK.USAL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.122149,0.0540218,0.0743172,153,-1.64361,-2.2611,0.0457516,0.0648843,EN EZ NZ
 BK.USAL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.091744,0.020466,0.0627609,153,-1.4618,-4.48274,0.0457516,0.0578447,EN EZ NZ
+BK.USAL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.155696,,0.053599,153,-2.90484,,0,0.0552754,EN EZ NZ
 BK.USAL,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0117666,0.113023,0.0974325,153,0.120767,0.104108,0.555556,0.091747,EN EZ NZ
 BK.USAL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.10288,0.111248,0.142598,153,-0.721469,-0.924778,0.202614,0.133275,EN EZ NZ
 BK.USAL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0546248,0.0816027,0.130765,153,-0.417734,-0.669399,0.392157,0.144125,EN EZ NZ
 BK.USAL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0229464,0.070124,0.117254,153,0.195698,0.327226,0.594771,0.129175,EN EZ NZ
+BK.USAL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0117666,,0.0974325,153,0.120767,,0.555556,0.091747,EN EZ NZ
 BK.USAL,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.223837,0.0391155,0.0364837,153,-6.13526,-5.72247,0,0.0292915,EN EZ NZ
 BK.USAL,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.19663,0.102475,0.135894,153,-1.44693,-1.9188,0.0849673,0.115379,EN EZ NZ
 BK.USAL,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.171762,0.0509196,0.0375819,153,-4.57034,-3.3732,0,0.0327086,EN EZ NZ
@@ -1063,22 +1334,28 @@ BK.USAL,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.USAL,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.190517,0.0784586,0.132667,153,-1.43605,-2.42825,0.0588235,0.108733,EN EZ NZ
 BK.USAL,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0974643,0.0418404,0.0351189,153,-2.77527,-2.32943,0.0196078,0.0272548,EN EZ NZ
 BK.USAL,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.218588,0.0586252,0.128237,153,-1.70456,-3.72857,0.0522876,0.0994582,EN EZ NZ
+BK.USAL,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.223837,,0.0364837,153,-6.13526,,0,0.0292915,EN EZ NZ
+BK.USAL,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.19663,,0.135894,153,-1.44693,,0.0849673,0.115379,EN EZ NZ
 BK.BLAS,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.829615,0.292131,0.322199,251,-2.57485,-2.83987,0.00398406,0.336167,EN EZ NZ
 BK.BLAS,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.333564,0.14243,0.318498,250,-1.04731,-2.34196,0.152,0.373095,EN EZ NZ
 BK.BLAS,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.268815,0.193614,0.352462,253,-0.762679,-1.3884,0.221344,0.399278,EN EZ NZ
 BK.BLAS,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.30767,0.156865,0.348167,258,-0.883685,-1.96137,0.197674,0.399832,EN EZ NZ
+BK.BLAS,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.829615,,0.334736,260,-2.47841,,0.00769231,0.347608,EN EZ NZ
 BK.BLAS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.107249,0.0480082,0.0910318,251,-1.17815,-2.23397,0.0956175,0.091451,EN EZ NZ
 BK.BLAS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0146088,0.0464119,0.12139,250,-0.120345,-0.314763,0.372,0.108946,EN EZ NZ
 BK.BLAS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0428833,0.0359998,0.108533,252,-0.395117,-1.19121,0.305556,0.113671,EN EZ NZ
 BK.BLAS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0732326,0.0228698,0.0977428,257,-0.749238,-3.20216,0.229572,0.0926084,EN EZ NZ
+BK.BLAS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.107249,,0.0954789,259,-1.12327,,0.111969,0.091543,EN EZ NZ
 BK.BLAS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.242074,0.175901,0.111516,251,-2.17076,-1.37619,0.0358566,0.0968323,EN EZ NZ
 BK.BLAS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0705795,0.177054,0.165205,250,-0.427224,-0.398633,0.316,0.148139,EN EZ NZ
 BK.BLAS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.068755,0.194718,0.18527,253,-0.371106,-0.353101,0.312253,0.15772,EN EZ NZ
 BK.BLAS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0600095,0.166803,0.188258,258,0.318762,0.359763,0.658915,0.136298,EN EZ NZ
+BK.BLAS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.242074,,0.183235,260,-1.32111,,0.0423077,0.100944,EN EZ NZ
 BK.BLAS,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.126419,0.536383,0.396337,251,-0.318969,-0.235688,0.354582,0.352813,EN EZ NZ
 BK.BLAS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.08154,0.351618,0.25845,250,-0.315496,-0.2319,0.388,0.245853,EN EZ NZ
 BK.BLAS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.170957,0.223222,0.307564,252,-0.555842,-0.76586,0.289683,0.290479,EN EZ NZ
 BK.BLAS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.431081,0.255612,0.35146,258,-1.22654,-1.68646,0.108527,0.339545,EN EZ NZ
+BK.BLAS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.126419,,0.399713,260,-0.316275,,0.369231,0.354849,EN EZ NZ
 BK.BLAS,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0573455,0.0323979,0.04509,251,-1.2718,-1.77003,0.103586,0.0419624,EN EZ NZ
 BK.BLAS,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.195645,0.145715,0.176601,251,-1.10784,-1.34266,0.0876494,0.189234,EN EZ NZ
 BK.BLAS,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.06275,0.0719165,0.0582825,250,-1.07665,-0.872541,0.124,0.0605914,EN EZ NZ
@@ -1087,22 +1364,28 @@ BK.BLAS,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.BLAS,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.248508,0.143556,0.200037,253,-1.24231,-1.73109,0.0909091,0.209299,EN EZ NZ
 BK.BLAS,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.132933,0.0330152,0.05153,258,-2.57972,-4.02642,0.00775194,0.0509255,EN EZ NZ
 BK.BLAS,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.373769,0.127354,0.194574,258,-1.92096,-2.93489,0.0232558,0.195252,EN EZ NZ
+BK.BLAS,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0573455,,0.0460143,260,-1.24625,,0.107692,0.0428282,EN EZ NZ
+BK.BLAS,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.195645,,0.196973,260,-0.993257,,0.107692,0.193085,EN EZ NZ
 BK.GHOP,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.242385,0.108691,0.141376,263,-1.71447,-2.23005,0.0494297,0.155625,EN EZ NZ
 BK.GHOP,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.204945,0.122044,0.182557,261,-1.12264,-1.67927,0.141762,0.177669,EN EZ NZ
 BK.GHOP,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.111002,0.0883293,0.170277,264,-0.651893,-1.25669,0.25,0.164341,EN EZ NZ
 BK.GHOP,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0352649,0.0880068,0.152447,269,-0.231325,-0.400706,0.375465,0.150436,EN EZ NZ
+BK.GHOP,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.242385,,0.146445,271,-1.65512,,0.0627306,0.157815,EN EZ NZ
 BK.GHOP,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0959747,0.0410377,0.0877422,263,-1.09383,-2.3387,0.13308,0.0869066,EN EZ NZ
 BK.GHOP,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.116103,0.0516981,0.108765,261,-1.06746,-2.24578,0.137931,0.105773,EN EZ NZ
 BK.GHOP,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.124237,0.0408104,0.11841,264,-1.04921,-3.04425,0.113636,0.1032,EN EZ NZ
 BK.GHOP,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0633274,0.0240845,0.112462,269,-0.563102,-2.62939,0.271375,0.101845,EN EZ NZ
+BK.GHOP,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0959747,,0.103856,271,-0.924112,,0.132841,0.0890092,EN EZ NZ
 BK.GHOP,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0308335,0.152467,0.116639,263,-0.264349,-0.20223,0.414449,0.109145,EN EZ NZ
 BK.GHOP,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.259215,0.0928879,0.163954,261,-1.58102,-2.79062,0.0651341,0.156228,EN EZ NZ
 BK.GHOP,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0469888,0.0908264,0.15683,264,-0.299617,-0.517348,0.363636,0.138919,EN EZ NZ
 BK.GHOP,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0829811,0.106243,0.134822,269,0.615487,0.781052,0.747212,0.120295,EN EZ NZ
+BK.GHOP,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0308335,,0.122537,271,-0.251627,,0.420664,0.110558,EN EZ NZ
 BK.GHOP,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.38893,0.464752,0.189337,263,-2.05417,-0.836855,0.0304183,0.161798,EN EZ NZ
 BK.GHOP,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.212054,0.269009,0.211504,261,1.0026,0.788277,0.854406,0.206412,EN EZ NZ
 BK.GHOP,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.180802,0.314437,0.221833,264,0.815036,0.575002,0.814394,0.200251,EN EZ NZ
 BK.GHOP,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0553487,0.22048,0.204075,269,-0.271218,-0.251037,0.35316,0.163174,EN EZ NZ
+BK.GHOP,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.38893,,0.194608,271,-1.99853,,0.0369004,0.166331,EN EZ NZ
 BK.GHOP,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.208943,0.0204073,0.0373958,263,-5.58733,-10.2386,0,0.0295224,EN EZ NZ
 BK.GHOP,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0736744,0.0442344,0.061413,263,-1.19966,-1.66555,0.0722433,0.0648904,EN EZ NZ
 BK.GHOP,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.181623,0.0221368,0.0353527,261,-5.13746,-8.20457,0,0.0301563,EN EZ NZ
@@ -1111,22 +1394,28 @@ BK.GHOP,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.GHOP,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0865785,0.0302403,0.0662696,264,-1.30646,-2.86301,0.0643939,0.0615231,EN EZ NZ
 BK.GHOP,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.157614,0.0316536,0.0335531,269,-4.69745,-4.97933,0,0.0268042,EN EZ NZ
 BK.GHOP,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.104799,0.00933514,0.0673967,269,-1.55495,-11.2263,0.0297398,0.0583142,EN EZ NZ
+BK.GHOP,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.208943,,0.0373188,271,-5.59885,,0,0.0294967,EN EZ NZ
+BK.GHOP,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0736744,,0.0692424,271,-1.06401,,0.0774908,0.0673519,EN EZ NZ
 BK.HUNT,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-1.12063,0.390897,0.380719,204,-2.94345,-2.86681,0.00490196,0.338985,EN EZ NZ
 BK.HUNT,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.438132,0.172974,0.348286,207,-1.25797,-2.53294,0.111111,0.384559,EN EZ NZ
 BK.HUNT,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.293475,0.243655,0.390936,209,-0.750697,-1.20447,0.248804,0.443303,EN EZ NZ
 BK.HUNT,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.29944,0.145557,0.379584,214,-0.788862,-2.05719,0.224299,0.407647,EN EZ NZ
+BK.HUNT,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-1.12063,,0.383018,219,-2.92578,,0.00456621,0.334246,EN EZ NZ
 BK.HUNT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0873071,0.0636967,0.102622,204,-0.850762,-1.37067,0.22549,0.115865,EN EZ NZ
 BK.HUNT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.09581,0.0573533,0.131236,207,-0.730061,-1.67052,0.236715,0.125398,EN EZ NZ
 BK.HUNT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.179209,0.0436603,0.13642,209,-1.31365,-4.10463,0.0717703,0.121282,EN EZ NZ
 BK.HUNT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.164959,0.0374833,0.130063,214,-1.2683,-4.40085,0.0794393,0.129901,EN EZ NZ
+BK.HUNT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0873071,,0.158734,219,-0.55002,,0.251142,0.121442,EN EZ NZ
 BK.HUNT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.106091,0.264668,0.130583,204,-0.812444,-0.400847,0.25,0.130769,EN EZ NZ
 BK.HUNT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0860677,0.18592,0.168439,207,-0.510973,-0.462928,0.289855,0.16059,EN EZ NZ
 BK.HUNT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.187135,0.24234,0.166372,209,1.1248,0.772198,0.904306,0.151362,EN EZ NZ
 BK.HUNT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.280444,0.107362,0.149868,214,1.87128,2.61213,0.976636,0.146824,EN EZ NZ
+BK.HUNT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.106091,,0.160616,219,-0.660527,,0.251142,0.132347,EN EZ NZ
 BK.HUNT,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.722302,0.645108,0.336113,204,-2.14899,-1.11966,0.00980392,0.247718,EN EZ NZ
 BK.HUNT,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0744763,0.315004,0.304507,207,-0.24458,-0.23643,0.386473,0.315936,EN EZ NZ
 BK.HUNT,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.145845,0.337945,0.310998,209,-0.468957,-0.431564,0.30622,0.275148,EN EZ NZ
 BK.HUNT,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.221889,0.287359,0.308511,214,0.719226,0.772166,0.82243,0.246545,EN EZ NZ
+BK.HUNT,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.722302,,0.335581,219,-2.15239,,0.00913242,0.2691,EN EZ NZ
 BK.HUNT,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0701194,0.0258473,0.0256341,206,-2.7354,-2.71283,0,0.0303158,EN EZ NZ
 BK.HUNT,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0240512,0.0561328,0.11659,206,-0.206288,-0.428469,0.354369,0.115003,EN EZ NZ
 BK.HUNT,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.13098,0.0527156,0.0326132,207,-4.01616,-2.48465,0,0.0312019,EN EZ NZ
@@ -1135,6 +1424,8 @@ BK.HUNT,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.HUNT,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0791786,0.0323118,0.139188,210,-0.568862,-2.45045,0.2,0.103131,EN EZ NZ
 BK.HUNT,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.118306,0.0126345,0.0310697,215,-3.80775,-9.36371,0.00465116,0.0296146,EN EZ NZ
 BK.HUNT,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0730321,0.0298656,0.131984,215,-0.55334,-2.44536,0.209302,0.094609,EN EZ NZ
+BK.HUNT,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0701194,,0.0278646,219,-2.51643,,0.00456621,0.0315053,EN EZ NZ
+BK.HUNT,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0240512,,0.128687,219,-0.186896,,0.356164,0.116387,EN EZ NZ
 BK.PRDS,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.396501,0.130233,0.132567,246,-2.99095,-3.04455,0,0.117458,EN EZ NZ
 BK.PRDS,low,0.1-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.159645,0.107867,0.132567,246,-1.20426,-1.48002,0.0934959,0.117458,EN EZ NZ
 BK.PRDS,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.128989,0.124164,0.17564,246,-0.734392,-1.03886,0.219512,0.148705,EN EZ NZ
@@ -1143,6 +1434,8 @@ BK.PRDS,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 o
 BK.PRDS,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.0432734,0.0880873,0.162048,246,0.267041,0.491256,0.577236,0.140126,EN EZ NZ
 BK.PRDS,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.225641,0.0496219,0.145498,246,-1.55082,-4.54721,0.0447154,0.127395,EN EZ NZ
 BK.PRDS,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.0194484,0.0467962,0.145498,246,0.133668,0.415598,0.520325,0.127395,EN EZ NZ
+BK.PRDS,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.396501,,0.132567,246,-2.99095,,0,0.117458,EN EZ NZ
+BK.PRDS,low,0.1-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.159645,,0.132567,246,-1.20426,,0.0934959,0.117458,EN EZ NZ
 BK.PRDS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.00808069,0.0774762,0.0768977,246,0.105084,0.104299,0.487805,0.0751252,EN EZ NZ
 BK.PRDS,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0637989,0.0706264,0.0768977,246,0.829659,0.903329,0.796748,0.0751252,EN EZ NZ
 BK.PRDS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.0120322,0.0803504,0.0990581,246,0.121467,0.149747,0.544715,0.0975609,EN EZ NZ
@@ -1151,6 +1444,8 @@ BK.PRDS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..
 BK.PRDS,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0401668,0.0486998,0.0922476,246,-0.435423,-0.824783,0.329268,0.0936605,EN EZ NZ
 BK.PRDS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.123752,0.0581944,0.085045,246,-1.45514,-2.12653,0.0853659,0.0870909,EN EZ NZ
 BK.PRDS,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0644768,0.0281964,0.085045,246,-0.758149,-2.2867,0.203252,0.0870909,EN EZ NZ
+BK.PRDS,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.00808069,,0.0768977,246,0.105084,,0.487805,0.0751252,EN EZ NZ
+BK.PRDS,low_a,0.1-0.3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0637989,,0.0768977,246,0.829659,,0.796748,0.0751252,EN EZ NZ
 BK.PRDS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.174981,0.0907606,0.0577394,246,-3.03053,-1.92795,0.00813008,0.0497308,EN EZ NZ
 BK.PRDS,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.00229708,0.0800928,0.0577394,246,-0.0397836,-0.0286802,0.45935,0.0497308,EN EZ NZ
 BK.PRDS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.191183,0.117383,0.091187,246,-2.09661,-1.62871,0.0121951,0.0840836,EN EZ NZ
@@ -1159,6 +1454,8 @@ BK.PRDS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..
 BK.PRDS,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0619169,0.0853409,0.0760201,246,-0.814481,-0.725525,0.162602,0.0722543,EN EZ NZ
 BK.PRDS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.152201,0.0812161,0.0669762,246,-2.27247,-1.87403,0.0162602,0.0596051,EN EZ NZ
 BK.PRDS,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.117028,0.0496985,0.0669762,246,-1.74731,-2.35476,0.0243902,0.0596051,EN EZ NZ
+BK.PRDS,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.174981,,0.0577394,246,-3.03053,,0.00813008,0.0497308,EN EZ NZ
+BK.PRDS,low_b,0.3-0.6Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.00229708,,0.0577394,246,-0.0397836,,0.45935,0.0497308,EN EZ NZ
 BK.PRDS,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.339162,0.178831,0.106843,246,-3.17439,-1.89655,0.00813008,0.0842811,EN EZ NZ
 BK.PRDS,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.180182,0.0869456,0.106843,246,-1.68642,-2.07235,0.0406504,0.0842811,EN EZ NZ
 BK.PRDS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.164333,0.217158,0.146396,246,-1.12252,-0.756745,0.109756,0.13015,EN EZ NZ
@@ -1167,6 +1464,8 @@ BK.PRDS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1
 BK.PRDS,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0967965,0.0578336,0.13338,246,-0.725718,-1.67371,0.178862,0.117502,EN EZ NZ
 BK.PRDS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.210019,0.163306,0.119492,246,-1.7576,-1.28605,0.0325203,0.1016,EN EZ NZ
 BK.PRDS,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0820403,0.0259528,0.119492,246,-0.686576,-3.16114,0.162602,0.1016,EN EZ NZ
+BK.PRDS,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.339162,,0.106843,246,-3.17439,,0.00813008,0.0842811,EN EZ NZ
+BK.PRDS,low_c,0.5-1Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.180182,,0.106843,246,-1.68642,,0.0406504,0.0842811,EN EZ NZ
 BK.PRDS,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.458086,0.0487556,0.0685487,246,-6.68264,-9.39556,0,0.0538133,EN EZ NZ
 BK.PRDS,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.736562,0.138903,0.173184,246,-4.25307,-5.30271,0,0.181603,EN EZ NZ
 BK.PRDS,day,1-3Hz,SC,Ferndale,2022-12-20,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.329326,0.0525257,0.0685487,246,-4.80427,-6.26981,0,0.0538133,EN EZ NZ
@@ -1183,22 +1482,30 @@ BK.PRDS,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of
 BK.PRDS,day,1-3Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.133978,0.0456031,0.0570891,246,-2.34682,-2.93791,0.0365854,0.0401708,EN EZ NZ
 BK.PRDS,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.585225,0.103503,0.170859,246,-3.42518,-5.65418,0.00406504,0.152622,EN EZ NZ
 BK.PRDS,day,3-5Hz,SC,Ferndale,2022-12-20,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.453684,0.0469285,0.170859,246,-2.65531,-9.66756,0.0121951,0.152622,EN EZ NZ
+BK.PRDS,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.458086,,0.0685487,246,-6.68264,,0,0.0538133,EN EZ NZ
+BK.PRDS,day,1-3Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.329326,,0.0685487,246,-4.80427,,0,0.0538133,EN EZ NZ
+BK.PRDS,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.736562,,0.173184,246,-4.25307,,0,0.181603,EN EZ NZ
+BK.PRDS,day,3-5Hz,SC,Ferndale,2022-12-20,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.559294,,0.173184,246,-3.22948,,0,0.181603,EN EZ NZ
 BK.SHWD,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.348282,0.182759,0.215115,225,-1.61905,-1.90569,0.0444444,0.20982,EN EZ NZ
 BK.SHWD,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.262247,0.14116,0.251654,225,-1.04209,-1.85781,0.133333,0.243584,EN EZ NZ
 BK.SHWD,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.325278,0.125863,0.243958,226,-1.33334,-2.58437,0.0663717,0.234534,EN EZ NZ
 BK.SHWD,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.322133,0.098127,0.226495,228,-1.42225,-3.28282,0.0657895,0.218742,EN EZ NZ
+BK.SHWD,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.348282,,0.220695,234,-1.57811,,0.0470085,0.211816,EN EZ NZ
 BK.SHWD,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.0619673,0.0449992,0.0546735,225,1.13341,1.37708,0.871111,0.0525584,EN EZ NZ
 BK.SHWD,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.0297162,0.034554,0.0734788,225,0.404419,0.859992,0.64,0.0787747,EN EZ NZ
 BK.SHWD,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.027862,0.021964,0.0704491,226,0.395491,1.26853,0.628319,0.0713158,EN EZ NZ
 BK.SHWD,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.047362,0.0131001,0.0629915,228,0.75188,3.61538,0.754386,0.0645339,EN EZ NZ
+BK.SHWD,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.0619673,,0.0565429,234,1.09594,,0.863248,0.0545686,EN EZ NZ
 BK.SHWD,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.10969,0.1233,0.0906534,225,1.20999,0.889617,0.897778,0.086758,EN EZ NZ
 BK.SHWD,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.200546,0.146663,0.158247,225,1.2673,1.36739,0.915556,0.145006,EN EZ NZ
 BK.SHWD,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.208842,0.119819,0.132926,226,1.57111,1.74298,0.938053,0.105221,EN EZ NZ
 BK.SHWD,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.152204,0.0510836,0.112408,228,1.35402,2.9795,0.921053,0.0891045,EN EZ NZ
+BK.SHWD,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.10969,,0.0936418,234,1.17138,,0.893162,0.0890833,EN EZ NZ
 BK.SHWD,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",0.152497,0.293152,0.165666,225,0.920513,0.520198,0.813333,0.146354,EN EZ NZ
 BK.SHWD,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.091912,0.240206,0.204902,225,0.448565,0.382639,0.662222,0.213865,EN EZ NZ
 BK.SHWD,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),0.281398,0.188034,0.207215,226,1.358,1.49653,0.884956,0.215527,EN EZ NZ
 BK.SHWD,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.385543,0.107407,0.189199,228,2.03777,3.58954,0.964912,0.179288,EN EZ NZ
+BK.SHWD,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),0.152497,,0.180746,234,0.84371,,0.807692,0.152395,EN EZ NZ
 BK.SHWD,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.071463,0.0253183,0.0296494,225,-2.41027,-2.82259,0.0222222,0.029191,EN EZ NZ
 BK.SHWD,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.238819,0.0720969,0.123812,225,-1.92889,-3.31247,0.0177778,0.138523,EN EZ NZ
 BK.SHWD,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0692251,0.0303051,0.0308172,225,-2.24631,-2.28427,0.0266667,0.0290274,EN EZ NZ
@@ -1207,22 +1514,28 @@ BK.SHWD,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.SHWD,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.187274,0.071936,0.130585,226,-1.43412,-2.60334,0.0663717,0.119062,EN EZ NZ
 BK.SHWD,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0615736,0.0178186,0.0285724,228,-2.155,-3.45558,0.0350877,0.0258419,EN EZ NZ
 BK.SHWD,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.205609,0.0599131,0.120815,228,-1.70185,-3.43179,0.0438596,0.119933,EN EZ NZ
+BK.SHWD,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.071463,,0.0298976,233,-2.39026,,0.0214592,0.0296995,EN EZ NZ
+BK.SHWD,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.238819,,0.124964,233,-1.9111,,0.0171674,0.140232,EN EZ NZ
 BK.ETSL,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.532638,0.189853,0.127193,36,-4.18764,-2.80552,0,0.122809,EN EZ NZ
 BK.ETSL,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.168665,0.16312,0.204589,36,-0.824408,-1.03399,0.25,0.246583,EN EZ NZ
 BK.ETSL,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.238832,0.120072,0.175752,36,-1.35892,-1.98906,0.138889,0.202657,EN EZ NZ
 BK.ETSL,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.214606,0.0740102,0.14962,36,-1.43433,-2.89968,0.0833333,0.161177,EN EZ NZ
+BK.ETSL,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.532638,,0.127193,36,-4.18764,,0,0.122809,EN EZ NZ
 BK.ETSL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0822989,0.0854864,0.0854409,36,-0.963226,-0.962714,0.222222,0.0813065,EN EZ NZ
 BK.ETSL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0689186,0.0958445,0.125053,36,-0.551116,-0.719067,0.277778,0.137278,EN EZ NZ
 BK.ETSL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0335264,0.084677,0.119265,36,-0.281109,-0.395933,0.388889,0.148193,EN EZ NZ
 BK.ETSL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0116746,0.0617745,0.105513,36,-0.110646,-0.188988,0.416667,0.115916,EN EZ NZ
+BK.ETSL,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0822989,,0.0854409,36,-0.963226,,0.222222,0.0813065,EN EZ NZ
 BK.ETSL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.170098,0.201831,0.0835368,36,-2.0362,-0.842776,0.0277778,0.0829284,EN EZ NZ
 BK.ETSL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0973105,0.135202,0.0856102,36,-1.13667,-0.71974,0.194444,0.0974703,EN EZ NZ
 BK.ETSL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.102881,0.100295,0.0812617,36,-1.26605,-1.02579,0.166667,0.0630633,EN EZ NZ
 BK.ETSL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.263625,0.0608718,0.0763877,36,-3.45114,-4.33082,0,0.0739241,EN EZ NZ
+BK.ETSL,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.170098,,0.0835368,36,-2.0362,,0.0277778,0.0829284,EN EZ NZ
 BK.ETSL,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0695375,0.540257,0.198557,36,-0.350215,-0.128712,0.583333,0.185898,EN EZ NZ
 BK.ETSL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.556448,0.137257,0.21084,36,-2.63919,-4.05406,0,0.200854,EN EZ NZ
 BK.ETSL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.138803,0.214168,0.271821,36,-0.51064,-0.648102,0.333333,0.365397,EN EZ NZ
 BK.ETSL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.189532,0.151488,0.198468,36,-0.954975,-1.25113,0.166667,0.178904,EN EZ NZ
+BK.ETSL,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0695375,,0.198557,36,-0.350215,,0.583333,0.185898,EN EZ NZ
 BK.ETSL,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0249697,0.0172343,0.0225696,38,-1.10634,-1.44884,0,0.02261,EN EZ NZ
 BK.ETSL,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.289218,0.373213,0.37303,38,-0.775322,-0.774942,0.263158,0.220729,EN EZ NZ
 BK.ETSL,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),0.0129306,0.0347719,0.0236065,38,0.547756,0.371869,0.657895,0.0226006,EN EZ NZ
@@ -1231,22 +1544,28 @@ BK.ETSL,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.ETSL,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.69476,0.145563,0.231577,38,-3.00013,-4.77292,0,0.202407,EN EZ NZ
 BK.ETSL,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.000428617,0.00963769,0.023049,38,0.0185959,0.0444729,0.473684,0.025019,EN EZ NZ
 BK.ETSL,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),0.00698237,0.132881,0.257986,38,0.0270649,0.0525459,0.578947,0.19078,EN EZ NZ
+BK.ETSL,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0249697,,0.0225696,38,-1.10634,,0,0.02261,EN EZ NZ
+BK.ETSL,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.289218,,0.37303,38,-0.775322,,0.263158,0.220729,EN EZ NZ
 BK.JEWT,low,0.1-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.60721,0.160213,0.240475,196,-2.52504,-3.79002,0.00510204,0.261017,EN EZ NZ
 BK.JEWT,low,0.1-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.260222,0.111005,0.282439,196,-0.921337,-2.34424,0.168367,0.293412,EN EZ NZ
 BK.JEWT,low,0.1-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.266025,0.118387,0.270747,196,-0.98256,-2.24708,0.142857,0.278797,EN EZ NZ
 BK.JEWT,low,0.1-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.237837,0.108927,0.247426,196,-0.961248,-2.18346,0.153061,0.249207,EN EZ NZ
+BK.JEWT,low,0.1-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.60721,,0.240475,196,-2.52504,,0.00510204,0.261017,EN EZ NZ
 BK.JEWT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.17672,0.074915,0.112061,196,-1.577,-2.35894,0.0510204,0.103206,EN EZ NZ
 BK.JEWT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.216948,0.0643923,0.140699,196,-1.54193,-3.36916,0.0510204,0.134567,EN EZ NZ
 BK.JEWT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.200521,0.0492117,0.136608,196,-1.46786,-4.07466,0.0663265,0.12774,EN EZ NZ
 BK.JEWT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.100708,0.052014,0.12278,196,-0.820227,-1.93616,0.188776,0.115463,EN EZ NZ
+BK.JEWT,low_a,0.1-0.3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.17672,,0.112061,196,-1.577,,0.0510204,0.103206,EN EZ NZ
 BK.JEWT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.223118,0.10701,0.132451,196,-1.68453,-2.08503,0.0663265,0.122487,EN EZ NZ
 BK.JEWT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.172364,0.13884,0.17102,196,-1.00786,-1.24146,0.147959,0.152712,EN EZ NZ
 BK.JEWT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.205538,0.0565141,0.162964,196,-1.26125,-3.63693,0.102041,0.1312,EN EZ NZ
 BK.JEWT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.255571,0.0571173,0.148625,196,-1.71957,-4.4745,0.0765306,0.116879,EN EZ NZ
+BK.JEWT,low_b,0.3-0.6Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.223118,,0.132451,196,-1.68453,,0.0663265,0.122487,EN EZ NZ
 BK.JEWT,low_c,0.5-1Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.701496,0.308713,0.279774,196,-2.50736,-2.27233,0.00510204,0.202866,EN EZ NZ
 BK.JEWT,low_c,0.5-1Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.158888,0.187765,0.254648,196,-0.623951,-0.846205,0.219388,0.247354,EN EZ NZ
 BK.JEWT,low_c,0.5-1Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.02031,0.2002,0.254221,196,-0.0798913,-0.101449,0.469388,0.235126,EN EZ NZ
 BK.JEWT,low_c,0.5-1Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.284776,0.14148,0.249708,196,-1.14043,-2.01284,0.107143,0.228574,EN EZ NZ
+BK.JEWT,low_c,0.5-1Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.701496,,0.279774,196,-2.50736,,0.00510204,0.202866,EN EZ NZ
 BK.JEWT,day,1-3Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0762703,0.0267617,0.0336408,196,-2.2672,-2.84998,0.0306122,0.023926,EN EZ NZ
 BK.JEWT,day,3-5Hz,SC,M7,2024-12-05,30,"30d_stacks (30-d pre/post CCF stacks, MBB of days)",-0.0939642,0.0926808,0.164914,196,-0.569777,-1.01385,0.316327,0.159431,EN EZ NZ
 BK.JEWT,day,1-3Hz,SC,M7,2024-12-05,15,2day_back (mean d1..15 - mean d-30..-1 of the 2-day backward series),-0.0711226,0.022891,0.0549895,196,-1.29338,-3.10701,0.0663265,0.0361196,EN EZ NZ
@@ -1255,3 +1574,5 @@ BK.JEWT,day,1-3Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of 
 BK.JEWT,day,3-5Hz,SC,M7,2024-12-05,15,5day_back (mean d1..15 - mean d-30..-1 of the 5-day backward series),-0.0759488,0.0678806,0.168114,195,-0.451771,-1.11886,0.328205,0.162713,EN EZ NZ
 BK.JEWT,day,1-3Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.0920594,0.0184698,0.0314206,196,-2.9299,-4.98433,0,0.0293221,EN EZ NZ
 BK.JEWT,day,3-5Hz,SC,M7,2024-12-05,15,10day_back (mean d1..15 - mean d-30..-1 of the 10-day backward series),-0.138821,0.0721651,0.184482,196,-0.752488,-1.92366,0.214286,0.151693,EN EZ NZ
+BK.JEWT,day,1-3Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0762703,,0.0336408,196,-2.2672,,0.0306122,0.023926,EN EZ NZ
+BK.JEWT,day,3-5Hz,SC,M7,2024-12-05,15,30day_back (value at d+30 minus d-1 of the 30-day backward series),-0.0939642,,0.164914,196,-0.569777,,0.316327,0.159431,EN EZ NZ

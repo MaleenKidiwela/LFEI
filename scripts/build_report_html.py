@@ -284,11 +284,11 @@ LFEs during the silence (Vp/Vs and amplitude ratios tested on family 23; the rev
 </ul></section>''')
 # ---------------- depth summary (2026-11-25)
 for _k, _src in {'depthsum': 'figures/sci_depth_summary.png', 'lpdepth': 'figures/sci_noise_lp_depth.png',
-                 'lpts': 'figures/sci_noise_lp_timeseries.png', 'scall': 'figures/sci_noise_dvv_sc_full_all.png', 'sc5all': 'figures/sci_noise_dvv_sc_5back_all.png', 'sc5m7': 'figures/sci_noise_dvv_sc_5back_m7.png', 'sc10all': 'figures/sci_noise_dvv_sc_10back_all.png', 'sc10m7': 'figures/sci_noise_dvv_sc_10back_m7.png',
+                 'lpts': 'figures/sci_noise_lp_timeseries.png', 'scall': 'figures/sci_noise_dvv_sc_full_all.png', 'sc5all': 'figures/sci_noise_dvv_sc_5back_all.png', 'sc5m7': 'figures/sci_noise_dvv_sc_5back_m7.png', 'sc10all': 'figures/sci_noise_dvv_sc_10back_all.png', 'sc10m7': 'figures/sci_noise_dvv_sc_10back_m7.png', 'sc30all': 'figures/sci_noise_dvv_sc_30back_all.png', 'sc30m7': 'figures/sci_noise_dvv_sc_30back_m7.png',
                  'eqabove': 'figures/sci_eq_above_lapse.png', 'rflvz': 'figures/sci_rf_lvz_contrasts.png',
                  'lfeatten': 'figures/sci_lfe_phases_atten.png', 'restartpol': 'figures/sci_restart_polarity.png',
                  'codaq': 'figures/sci_extras_codaq_timeseries.png', 'ducell': 'figures/sci_ducellier_tremor_sea_ccf_tides.png'}.items():
-    fig(_src, _k, width=1600 if _k in ('scall', 'sc5all', 'sc5m7', 'sc10all', 'sc10m7') else 1400)
+    fig(_src, _k, width=1600 if _k in ('scall', 'sc5all', 'sc5m7', 'sc10all', 'sc10m7', 'sc30all', 'sc30m7') else 1400)
 _DS = pd.read_csv('data/sci/depth_summary.csv')
 _rows = ''.join(
     f'<tr><td style="white-space:normal;min-width:16em">{html.escape(r.observable)}</td><td>{int(r.z0_km)}–{int(r.z1_km)} km</td>'
@@ -314,7 +314,7 @@ gives a shallow −0.040 ± 0.006% and a deep −0.07 ± 0.07%. A change confine
 trend is −0.0003 ± 0.0055%/yr. An apparent −0.1% dip after 2021 in the network curve is −0.05% on the same 57 pairs before and after, appears on one
 side of the correlation only (−0.11% vs −0.01%), so it is a noise-source change, not the ground.</p></div>
 <div class="finding"><span class="eyebrow">New · single-station noise</span><h3>Five bands at 27 stations: the M7 drop and the decline grow toward high frequency</h3>
-<p>Full-record cross-component dv/v (2-, 5- and 10-day backward stacks, 82,974 station-days; all three give the same picture: 10-day M7 medians −0.08, −0.09, −0.13, −0.10, −0.14% with 0, 3, 2, 13, 3 stations |z| &gt; 3). The M7 step (median over stations, 2-day) is −0.07% at 0.1–0.3 Hz (no station
+<p>Full-record cross-component dv/v (2-, 5-, 10- and 30-day backward stacks, 82,974 station-days; all give the same picture: 10-day M7 medians −0.08, −0.09, −0.13, −0.10, −0.14% with 0, 3, 2, 13, 3 stations |z| &gt; 3). The M7 step (median over stations, 2-day) is −0.07% at 0.1–0.3 Hz (no station
 |z| &gt; 3), −0.10% at 0.3–0.6 Hz, −0.09% at 0.5–1 Hz, −0.13% at 1–3 Hz (11 stations |z| &gt; 3) and −0.17% at 3–5 Hz. The borehole decline since 2021
 is present at 0.3–5 Hz and weak or absent at 0.1–0.3 Hz, i.e. in the upper ~1–2 km at most. The full 0.1–1 Hz band follows ocean-microseism power;
 the narrower sub-bands do much less.</p></div>
@@ -342,6 +342,8 @@ H.append(img('lpts', 'Long-period inter-station noise dv/v 2008-2026 in 0.05-0.1
 H.append(img('scall', 'Single-station cross-component noise dv/v at all 27 stations in five bands (0.1-0.3 to 3-5 Hz), trailing 30-day median of 2-day backward stacks, ordered by distance from the LFEs; red = M7.'))
 H.append(img('sc5m7', 'M7 zoom: single-station cross-component noise dv/v, 5-day backward moving stacks (day d = days d-4..d), all stations relative to the 30 days before the M7, five bands; black = network median; shaded = LFE silence. Unclipped. A clear step appears only at 1-3 Hz (~-0.12%, persisting).'))
 H.append(img('sc5all', 'Single-station cross-component noise dv/v at all 27 stations, 5-day backward moving stacks (thin) and trailing 30-day median (thick), 2008-2026, five bands, ordered by distance from the LFEs. Unclipped (traces may overlap).'))
+H.append(img('sc30m7', 'M7 zoom with 30-day backward moving stacks, 1-day step (day d = days d-29..d): all stations relative to the 30 days before the M7; black = network median; shaded = LFE silence. Unclipped. Step (value at day +30 minus day -1, fully post vs fully pre): median -0.09% at 0.1-0.3 Hz (0 stations |z|>3), -0.17% at 0.3-0.6, -0.15% at 0.5-1, -0.12% at 1-3 (13 stations), -0.19% at 3-5 Hz.'))
+H.append(img('sc30all', 'Single-station cross-component noise dv/v at all 27 stations, 30-day backward moving stacks with a 1-day step, 2008-2026, five bands. Unclipped.'))
 H.append(img('sc10m7', 'M7 zoom with 10-day backward moving stacks (day d = days d-9..d): all stations relative to the 30 days before the M7; black = network median; shaded = LFE silence. Unclipped. The 1-3 Hz median steps down ~0.1% and stays down; the slide from mid-November predates the M7 (backward stacks contain no later data), i.e. seasonal.'))
 H.append(img('sc10all', 'Single-station cross-component noise dv/v at all 27 stations, 10-day backward moving stacks (thin) and trailing 30-day median (thick), 2008-2026, five bands. Unclipped.'))
 H.append(img('eqabove', 'Earthquakes above the LFEs: LFE-minus-earthquake differential travel times isolate the 22-31 km layer.'))
