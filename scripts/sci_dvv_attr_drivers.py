@@ -75,7 +75,7 @@ def stage_quakes():
             areal = eps[:, 0, 0] + eps[:, 1, 1]
             srcflag = 'finite/rect'
         else:
-            rjb = repi
+            rjb = np.sqrt(repi ** 2 + max(q.depth, 0.0) ** 2)     # point source: hypocentral distance (review M6)
             vol = np.zeros(len(S)); areal = np.zeros(len(S))
             if q.mag >= 4.5:        # generic strike-slip rectangle (MFZ style) for unmodelled M>=4.5 events
                 rr = dr.wc_rect(q.latitude, q.longitude, max(q.depth, 5.0), (290, 85, 180), q.mag, 'SS')
@@ -112,6 +112,27 @@ def stage_quakes():
         if k.any():
             i = Q[k].mag.idxmax()
             Q.loc[i, 'pgv_meas_cms'] = m.pgv_gm_cms
+    # station site factor = median(measured / BSSA14) over the big-three events with measured PGV (review M6);
+    # stations without measurements get the network median.  pgv_site_cms = BSSA14 x factor (measured where available).
+    loc = Q[(Q.kind == 'local') & Q.pgv_meas_cms.notna()]
+    # station term after removing each event's median (log) residual (event/source misfit of the GMPE), plus the
+    # overall median event term as the global bias (code re-check item 6)
+    lr = np.log10(loc.pgv_meas_cms / loc.pgv_cms)
+    ev = lr.groupby(loc.qid).transform('median')
+    sf = 10 ** ((lr - ev).groupby(loc.sta).median() + float(lr.groupby(loc.qid).median().median()))
+    sf_med = float(sf.median()) if len(sf) else 1.0
+    isbh = lambda x: x.str.startswith('PB.')
+    med_bh = float(sf[isbh(pd.Series(sf.index, index=sf.index))].median())
+    med_sf = float(sf[~isbh(pd.Series(sf.index, index=sf.index))].median())
+    Q['site_factor'] = Q.sta.map(sf)
+    Q.loc[Q.site_factor.isna() & isbh(Q.sta), 'site_factor'] = med_bh
+    Q.loc[Q.site_factor.isna(), 'site_factor'] = med_sf
+    Q['site_factor_src'] = np.where(Q.sta.isin(sf.index), 'measured big-3', 'class median (borehole/surface)')
+    print('class medians borehole', round(med_bh, 2), 'surface', round(med_sf, 2))
+    Q['pgv_site_cms'] = np.where(Q.kind == 'local', Q.pgv_cms * Q.site_factor, Q.pgv_cms)
+    Q['pgv_site_cms'] = np.where(Q.pgv_meas_cms.notna(), Q.pgv_meas_cms, Q.pgv_site_cms)
+    Q['modelled'] = Q.src.eq('finite/rect')
+    print('site factors:', sf.round(2).to_dict(), 'network median', round(sf_med, 2))
     Q.to_csv(f'{DRV}/quakes_station.csv.gz', index=False)
     big = Q[(Q.kind == 'local') & (Q.pgv_cms > 0.5)]
     print('station-quake pairs with BSSA PGV > 0.5 cm/s:', len(big), 'quakes:', big.qid.nunique())
@@ -140,6 +161,20 @@ def load_openmeteo(sta, lat, lon):
         d[f'site_{tag}'] = site
         out.append(d)
     return pd.concat(out, axis=1) if out else None
+
+
+def load_power(sta):
+    cells = pd.read_csv(f'{RAW}/power/station_cells.csv').set_index('ns')
+    cell = cells.loc[sta, 'cell']
+    j = json.load(open(f'{RAW}/power/cell_{cell}.json'))
+    P = j['properties']['parameter']
+    D = pd.DataFrame({k: pd.Series(v) for k, v in P.items()})
+    D.index = pd.to_datetime(D.index, format='%Y%m%d')
+    D = D.replace(-999.0, np.nan).reindex(DAYS)
+    out = pd.DataFrame({'pw_prcp': D.PRECTOTCORR, 'pw_t2m': D.T2M, 'pw_ps_hpa': D.PS * 10.0,
+                        'pw_gwettop': D.GWETTOP, 'pw_gwetroot': D.GWETROOT, 'pw_gwetprof': D.GWETPROF}, index=DAYS)
+    out.attrs['cell'] = cell
+    return out
 
 
 def ghcn_table():
@@ -183,9 +218,15 @@ def stage_climate():
     meta = []
     for _, r in S.iterrows():
         om = load_openmeteo(r.ns, r.lat, r.lon)
-        if om is None:
-            print('no openmeteo', r.ns); continue
-        D = om.reindex(DAYS)
+        D = pd.DataFrame(index=DAYS)
+        if om is not None:       # only ERA5-Land soil layers are used (Open-Meteo 'best_match' is inhomogeneous)
+            om = om.reindex(DAYS)
+            for c in om.columns:
+                if c.startswith('el_') or c == 'site_era5land':
+                    D[c] = om[c]
+        pw = load_power(r.ns)
+        for c in pw.columns:
+            D[c] = pw[c]
         d = hav(r.lat, r.lon, good.lat.values, good.lon.values)
         o = np.argsort(d)
         # nearest GHCN precipitation; gaps filled from next-nearest stations scaled by ratio of means
@@ -203,7 +244,17 @@ def stage_climate():
                 fill = p.isna() & g.notna()
                 p[fill] = g[fill] * sc
                 used.append(good.id[k])
-        D['ghcn_prcp'] = p
+        D['ghcn_prcp_raw'] = p
+        # gap-fill with POWER precipitation scaled by the LOCAL gauge/POWER ratio (2-yr centred window)
+        e = D['pw_prcp']
+        both = p.notna() & e.notna()
+        gs = p.where(both, 0.0).rolling(731, center=True, min_periods=1).sum()
+        es = e.where(both, 0.0).rolling(731, center=True, min_periods=1).sum()
+        nb = both.astype(float).rolling(731, center=True, min_periods=1).sum()
+        glob_ratio = p[both].sum() / max(e[both].sum(), 1e-3)
+        ratio = (gs / es.where(es > 0)).where(nb >= 180).fillna(glob_ratio)
+        D['ghcn_prcp'] = p.where(p.notna(), e * ratio)
+        D['prcp_ratio_local'] = ratio
         # nearest GHCN temperature
         for k in o[:6]:
             g = G[good.id[k]]
@@ -213,9 +264,11 @@ def stage_climate():
             D['sealevel_m'] = SL.reindex(SL.index.union(DAYS)).interpolate('time').reindex(DAYS).values
         D.index.name = 't'
         D.to_parquet(f'{DRV}/climate_{r.ns}.parquet')
-        meta.append(dict(sta=r.ns, om_site=D.get('site_best', pd.Series([''])).iloc[0], el_site=D.get('site_era5land', pd.Series([''])).iloc[0], ghcn_prcp=';'.join(used), ghcn_dist_km=float(d[o[0]]),
-                         r_om_vs_ghcn_10d=float(D.om_precipitation_sum.rolling(10).sum().corr(D.ghcn_prcp.rolling(10).sum())),
-                         prcp_om_mm_yr=float(D.om_precipitation_sum.loc['2008':'2025'].mean() * 365.25),
+        rr = (p[both].groupby(p[both].index.year).sum() / e[both].groupby(e[both].index.year).sum()).round(2)
+        meta.append(dict(sta=r.ns, power_cell=pw.attrs.get('cell', ''), el_site=D['site_era5land'].iloc[0] if 'site_era5land' in D else '', ghcn_prcp=';'.join(used), ghcn_dist_km=float(d[o[0]]),
+                         r_power_vs_ghcn_10d=float(D.pw_prcp.rolling(10).sum().corr(D.ghcn_prcp_raw.rolling(10).sum())),
+                         gauge_over_power_by_year=json.dumps(rr.to_dict()), frac_gapfilled=float(p.loc['2008':'2026-10'].isna().mean()),
+                         prcp_power_mm_yr=float(D.pw_prcp.loc['2008':'2025'].mean() * 365.25),
                          prcp_ghcn_mm_yr=float(D.ghcn_prcp.loc['2008':'2025'].mean() * 365.25)))
         print(meta[-1], flush=True)
     pd.DataFrame(meta).to_csv(f'{OUT}/climate_station_meta.csv', index=False)

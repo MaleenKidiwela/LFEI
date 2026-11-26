@@ -88,11 +88,10 @@ def fig_selection():
             if not len(r):
                 continue
             sel = [x for x in str(r.selected.iloc[0]).split(';') if x and x != 'nan']
-            pr = [x for x in str(r.pruned_core.iloc[0]).split(';') if x and x != 'nan']
             for k, g in enumerate(sel):
-                ax.add_patch(plt.Rectangle((j + 0.05 + 0.3 * k, i + 0.1), 0.28, 0.8, color=col.get(g, '#999'), lw=0))
-            ax.text(j + 0.95, i + 0.5, ('Q' if 'big3' not in pr else '') + ('L' if not {'trend', 'ramp21'} <= set(pr) else ''),
-                    ha='right', va='center', fontsize=7, color=INK2)
+                ax.add_patch(plt.Rectangle((j + 0.05 + 0.25 * k, i + 0.1), 0.23, 0.8, color=col.get(g, '#999'), lw=0))
+                pv = r.get(f'p_wy_perm_{g}', pd.Series([np.nan])).iloc[0]
+                ax.text(j + 0.165 + 0.25 * k, i + 0.5, '' if pv <= 0.05 else '?', ha='center', va='center', fontsize=7, color=INK)
     ax.set_xlim(0, len(BANDS)); ax.set_ylim(len(stas), 0)
     ax.set_xticks(np.arange(len(BANDS)) + 0.5); ax.set_xticklabels(BANDS)
     ax.set_yticks(np.arange(len(stas)) + 0.5); ax.set_yticklabels(stas, fontsize=7)
@@ -100,7 +99,7 @@ def fig_selection():
     h = [plt.Rectangle((0, 0), 1, 1, color=col[g]) for g in ('hyd_exp', 'thermal', 'gnss_up', 'micro', 'pressure', 'bstrain', 'sealevel', 'gnss_dil')]
     ax.legend(h, ['hydrology (any form)', 'thermal', 'GNSS vertical', 'microseism power', 'pressure', 'borehole strain', 'sea level', 'GNSS areal strain'],
               ncol=4, fontsize=7, loc='upper center', bbox_to_anchor=(0.5, -0.04))
-    ax.set_title('Selected environmental drivers per station x band (Q = big-3 quake terms kept, L = long-term kept)', loc='left', fontsize=9)
+    ax.set_title('Selected environmental drivers per station x band (? = water-year permutation p > 0.05: seasonal, cause unresolved)', loc='left', fontsize=9)
     fig.tight_layout()
     fig.savefig(f'{FIG}/sci_dvv_attr_selection.png', dpi=130)
     plt.close(fig)
@@ -111,11 +110,13 @@ def fig_bands():
     sc = C[C.dataset == 'SC10']
     items = [('annual_amp[ENV]', 'annual amplitude of environmental model (%)'), ('annual_amp[TOTAL]', 'annual amplitude, total model (%)'),
              ('drop0_M7', 'M7 coseismic drop (%)'), ('level1yr_M7', 'M7 level after 1 yr (%)'),
-             ('chg_2125[TOTAL]', '2025-2021 change, total model (%)'), ('chg_2125[QUAKES]', '2025-2021 change from quake terms (%)'),
+             ('chg_2125[TOTAL]', '2025-2021 change, total model (%)'), ('chg_2125[POST21]', '2025-2021 change, quake terms + ramp (%)'),
              ('chg_2125[LONGTERM]', '2025-2021 change from trend/ramp (%)'), ('chg_2125[ENV]', '2025-2021 change from environment (%)')]
     fig, axs = plt.subplots(2, 4, figsize=(13, 6))
     for ax, (k, lab) in zip(axs.ravel(), items):
         d = sc[sc.component == k]
+        if k.startswith('chg_2125'):
+            d = d[d.chg_identifiable.astype(bool)]          # free instrument offset inside 2021-2025 -> excluded
         for ci, cls in enumerate(('borehole', 'surface')):
             dd = d[d.cls == cls]
             x = dd.chan_band.map(FC) * (1.06 if ci else 0.94)
@@ -123,6 +124,7 @@ def fig_bands():
             med = dd.groupby('chan_band').amp.median().reindex(BANDS)
             ax.plot([FC[b] for b in BANDS], med.values, '-o', ms=4, color=CAT[ci], lw=2, label=cls)
         ax.set_xscale('log'); ax.set_xticks([FC[b] for b in BANDS]); ax.set_xticklabels([b.replace('Hz', '') for b in BANDS], fontsize=7)
+        ax.minorticks_off()
         ax.axhline(0, color=INK2, lw=0.6)
         ax.set_title(lab, fontsize=8, loc='left')
         lo, hi = np.nanpercentile(d.amp, [3, 97]) if len(d) else (0, 1)
@@ -141,11 +143,16 @@ def fig_decline():
     for (ds, band) in [('SC10', b) for b in BANDS] + [('LFE', None), ('REP', None), ('LP10', None)]:
         d = C[(C.dataset == ds) & ((C.chan_band == band) if band else True)]
         for (sta, ch), g in d.groupby(['sta', 'chan_band']):
+            if not g.chg_identifiable.astype(bool).all():
+                continue                       # free instrument offset inside 2021-2025: decline not identifiable
             v = g.set_index('component').amp
+            rg = g.set_index('component')
             if 'obs_chg_2125' not in v or 'chg_2125[TOTAL]' not in v:
                 continue
             rows.append(dict(ds=ds, band=band or ch, sta=sta, obs=v['obs_chg_2125'], tot=v['chg_2125[TOTAL]'],
-                             Q=v.get('chg_2125[QUAKES]', 0.0), Lt=v.get('chg_2125[LONGTERM]', 0.0), E=v.get('chg_2125[ENV]', 0.0)))
+                             Q=v.get('chg_2125[QUAKES]', 0.0), Lt=v.get('chg_2125[LONGTERM]', 0.0), E=v.get('chg_2125[ENV]', 0.0),
+                             Qlo=rg.range_lo.get('chg_2125[QUAKES]', np.nan), Qhi=rg.range_hi.get('chg_2125[QUAKES]', np.nan),
+                             Llo=rg.range_lo.get('chg_2125[LONGTERM]', np.nan), Lhi=rg.range_hi.get('chg_2125[LONGTERM]', np.nan)))
     R = pd.DataFrame(rows)
     if R.empty:
         return
@@ -160,6 +167,8 @@ def fig_decline():
         ax.bar(x - wdt, d.Q, wdt * 0.92, color=CAT[7], label='quake terms')
         ax.bar(x, d.Lt, wdt * 0.92, color=CAT[6], label='trend / ramp')
         ax.bar(x + wdt, d.E, wdt * 0.92, color=CAT[0], label='environment')
+        ax.vlines(x - wdt, d.Qlo, d.Qhi, color=INK2, lw=1.0)
+        ax.vlines(x, d.Llo, d.Lhi, color=INK2, lw=1.0, label='range over core-model subsets (dBIC<6)')
         ax.plot(x, d.obs, 'D', ms=5, color=INK, label='observed 2025-2021')
         ax.plot(x, d.tot, '_', ms=12, mew=2, color=CAT[1], label='model total')
         ax.set_xticks(x); ax.set_xticklabels([f'{a}\n{b}' if t.startswith('LFE') else a for a, b, t in zip(d.sta, d.band, [title] * len(d))], fontsize=6, rotation=90)
@@ -200,7 +209,7 @@ def fig_geodesy():
         d = C[(C.component == nm) & (C.dataset == 'SC10')]
         x = d.chan_band.map(FC) * (0.94 if k == 0 else 1.06)
         ax.errorbar(x, d.amp, d.sd, fmt='o', ms=3, color=col, alpha=0.6, lw=0.8, label=nm.replace('eta_', 'eta: '))
-    ax.set_xscale('log'); ax.set_yscale('symlog', linthresh=100); ax.axhline(0, color=INK2, lw=0.6)
+    ax.set_xscale('log'); ax.set_yscale('symlog', linthresh=100); ax.axhline(0, color=INK2, lw=0.6); ax.minorticks_off()
     ax.set_xticks([FC[b] for b in BANDS]); ax.set_xticklabels([b.replace('Hz', '') for b in BANDS], fontsize=7)
     ax.set_title('strain sensitivity eta = (dv/v)/strain, single-driver fits', fontsize=8, loc='left'); ax.legend(fontsize=7)
     ax = axs[1]
@@ -218,9 +227,12 @@ def fig_geodesy():
         A = json.load(open(js))
         for form, col in (('log', CAT[2]), ('exp', CAT[3])):
             p = np.array(A[form]['sse']); ax.plot(A['taus'], (p - p.min()) / (p.max() - p.min() + 1e-12), '-o', ms=3, color=col, label=f'GNSS afterslip ({form})')
-    tm = C[(C.component == 'drop0_M7') & (C.dataset == 'SC10')].param.str.extract(r'tau_M7_best=(\d+)d')[0].astype(float)
-    ax2y = np.linspace(0.05, 0.95, len(tm))
-    ax.scatter(tm.values, ax2y, s=8, color=CAT[7], alpha=0.5, label='dv/v M7 best tau (SC series)')
+    pr = C[(C.component == 'drop0_M7')].param.fillna('')
+    iv = pr.str.extract(r'95% (\d+)-(\d+) d').astype(float).dropna()
+    ylev = np.linspace(0.05, 0.95, max(len(iv), 1))
+    for yv, (_, (a_, b_)) in zip(ylev, iv.iterrows()):
+        ax.plot([a_, b_], [yv, yv], color=CAT[7], lw=1.5, alpha=0.7)
+    ax.plot([], [], color=CAT[7], label=f'dv/v M7 recovery tau, 95% interval (constrained: {len(iv)} of {len(pr)} series)')
     ax.set_xscale('log'); ax.set_xlabel('time constant (days)'); ax.legend(fontsize=7)
     ax.set_title('M7 recovery time constants: GNSS afterslip vs dv/v', fontsize=8, loc='left')
     fig.tight_layout()
@@ -237,7 +249,8 @@ def fig_oos():
     fig, axs = plt.subplots(1, 2, figsize=(10, 4.2))
     for k, v in enumerate(('env_only', 'pgv_dose+env')):
         d = O[O.variant == v]
-        axs[0].scatter(d.obs_chg, d.pred_chg, s=14, color=CAT[k], label=v, alpha=0.7)
+        if 'obs_chg' in d:
+            axs[0].scatter(d.obs_chg, d.pred_chg, s=14, color=CAT[k], label=v, alpha=0.7)
     lim = np.nanpercentile(np.abs(O[['obs_chg', 'pred_chg']].values), 97) if 'obs_chg' in O else 0.5
     axs[0].plot([-lim, lim], [-lim, lim], color=INK2, lw=0.8); axs[0].set_xlim(-lim, lim); axs[0].set_ylim(-lim, lim)
     axs[0].set_xlabel('observed 2025 - 2021H1 (%)'); axs[0].set_ylabel('predicted from pre-2021-07 fit (%)'); axs[0].legend(fontsize=7)

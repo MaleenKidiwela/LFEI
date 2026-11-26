@@ -68,3 +68,10 @@ cp "$SRC"/figures/sci_depth_summary.png "$SRC"/figures/sci_noise_lp_*.png "$SRC"
    "$SRC"/figures/sci_rf_lvz_*.png "$SRC"/figures/sci_eq_above_*.png "$SRC"/figures/sci_lfe_phases_*.png "$SRC"/figures/sci_extras_*.png \
    "$SRC"/figures/sci_ducellier_*.png "$DST/docs/figures/" 2>/dev/null || true
 echo "added deep-change tests"; du -sh "$DST" --exclude=.git
+# 2026-11-25 joint 3-D inversion + attribution: small CSV/JSON and figures (no pickles)
+for n in dvv_3d dvv_attr noise_lp/check2022; do
+  [ -d "$SRC/data/sci/$n" ] || continue
+  mkdir -p "$DST/results/$n"
+  find "$SRC/data/sci/$n" -maxdepth 1 -type f \( -name '*.csv' -o -name '*.json' -o -name '*.md' \) -size -5M -exec cp {} "$DST/results/$n/" \;
+done
+cp "$SRC"/figures/sci_dvv_3d_*.png "$SRC"/figures/sci_dvv_attr_*.png "$DST/docs/figures/" 2>/dev/null || true

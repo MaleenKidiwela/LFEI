@@ -66,13 +66,32 @@ def stage_openmeteo():
     v1 = 'precipitation_sum,rain_sum,snowfall_sum,temperature_2m_mean,temperature_2m_max,temperature_2m_min,surface_pressure_mean,et0_fao_evapotranspiration,soil_moisture_0_to_100cm_mean'
     v2 = 'soil_moisture_0_to_7cm_mean,soil_moisture_7_to_28cm_mean,soil_moisture_28_to_100cm_mean,soil_moisture_100_to_255cm_mean,soil_temperature_0_to_100cm_mean,snow_depth_mean'
     for _, r in S.iterrows():
-        for tag, v, extra in (('best', v1, {}), ('era5land', v2, {'models': 'era5_land'})):
+        # 'best_match' mixes model systems over time (inhomogeneous precipitation, code review M1): only the
+        # ERA5-Land soil layers are fetched now; precipitation/temperature/pressure come from NASA POWER (MERRA-2).
+        for tag, v, extra in (('era5land', v2, {'models': 'era5_land'}),):
             fn = f'{d}/{r.ns}_{tag}.json'
             p = dict(latitude=round(r.lat, 4), longitude=round(r.lon, 4), start_date='2007-01-01', end_date='2026-11-20',
                      daily=v, timezone='GMT', **extra)
             ok = get('https://archive-api.open-meteo.com/v1/archive', fn, params=p)
             print(r.ns, tag, 'ok' if ok else 'FAIL', flush=True)
             time.sleep(75)
+
+
+def stage_power():
+    """NASA POWER daily point data (MERRA-2 based; single frozen reanalysis system), one request per
+    0.5 x 0.625 deg cell containing a seismic station.  No key."""
+    d = f'{RAW}/power'; os.makedirs(d, exist_ok=True)
+    S = seis_stations()
+    S['cell'] = [f'{round(la * 2) / 2:.1f}_{round(lo / 0.625) * 0.625:.3f}' for la, lo in zip(S.lat, S.lon)]
+    for cell, g in S.groupby('cell'):
+        la, lo = g.lat.mean(), g.lon.mean()
+        fn = f'{d}/cell_{cell}.json'
+        ok = get('https://power.larc.nasa.gov/api/temporal/daily/point', fn,
+                 params=dict(parameters='PRECTOTCORR,T2M,PS,GWETROOT,GWETPROF,GWETTOP', community='AG', longitude=round(lo, 4),
+                             latitude=round(la, 4), start='20070101', end='20261124', format='JSON'))
+        print(cell, list(g.ns), 'ok' if ok else 'FAIL', flush=True)
+        time.sleep(2)
+    S[['ns', 'lat', 'lon', 'cell']].to_csv(f'{d}/station_cells.csv', index=False)
 
 
 def stage_usgs():

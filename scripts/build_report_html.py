@@ -198,7 +198,12 @@ H.append('''<section><h2>What we learned</h2>
 <p class="lede">The M7.0 acted as a natural clamp-and-hold experiment on a very weak, deep strike-slip fault. These are the results
 that survived null tests and controls, grouped by how new they are.</p>
 <h3>New</h3><ul>
-<li><b>Nothing measurable changed at depth in 18 years.</b> Some 20 independent observables reach the low-velocity layer and the LFEs: travel times, S−P, earthquake-minus-LFE differentials, long-period noise, receiver functions, reflections, attenuation, coda Q, source polarity and spectra, tides, stress, GNSS. None shows a credible change at any quake or over 2008–2026. <b>Correction (25 Nov, code review):</b> the tight ±0.01–0.02% deep travel-time bounds quoted earlier are withdrawn: the LFE-minus-earthquake layer kernels exceeded the total travel time on ~20% of paths, and the direct-S fit tied station terms to the coda. With free station terms the travel-time bound on a 20–31 km change is ~±0.25–0.35% (95%; revised joint fit in progress). All observed velocity changes are in the top ~0.1–0.8 km beneath the stations (see “Did anything change at depth?”).</li>
+<li><b>Nothing measurable changed at depth in 18 years, and everything we do see is explained near the surface.</b> A joint model of
+234 dv/v series (noise in 5 bands at 27 stations, LFE coda, repeaters, long-period noise) attributes the signals to rain/groundwater (the annual cycle),
+the 2021–2024 quakes (drops of 0.1–0.25% at 0.3–3 Hz with little recovery) and a residual decline the environment does not explain; a joint travel-time
+inversion of all LFE and earthquake delays (with free station terms) detects no change at depth: 95% limits ~0.2% in a 5-km slab along the LFE fault,
+~0.3% in a 20-km box at 20–31 km, ~0.5–1% for the 20–31 km layer relative to the crust above. These limits are honest but much weaker than the
+±0.01–0.02% stated before 25 Nov (withdrawn after code review); a −0.1% deep change cannot be tested with these data (see “What controls dv/v”).</li>
 <li><b>Only the M7 lowered pore pressure at the LFE fault, and only the M7 silenced it.</b> Of 12 nearby quake dates, Coulomb stress and
 clamping do not single out the M7 (Ferndale was larger on both); the undrained pore-pressure drop does, in every model variant.</li>
 <li><b>The fault's frictional state did not change.</b> Tidal sensitivity (±28% for M2) stayed the same across all three quakes (a drop of
@@ -282,6 +287,49 @@ LFEs during the silence (Vp/Vs and amplitude ratios tested on family 23; the rev
 <li>Patch “breathing” (size changes with tide, season or the M7) is inconclusive: too few events are well located in both station halves.</li>
 
 </ul></section>''')
+
+for _k, _src in {'attrex': 'figures/sci_dvv_attr_examples.png', 'attrbands': 'figures/sci_dvv_attr_bands.png', 'attrdecl': 'figures/sci_dvv_attr_decline.png',
+                 'j3deep': 'figures/sci_dvv_3d_deep.png', 'j3shal': 'figures/sci_dvv_3d_shallow.png', 'j3val': 'figures/sci_dvv_3d_validation.png'}.items():
+    fig(_src, _k, width=1600)
+H.append('''<section id="attribution"><h2>What controls dv/v: one model for quakes, weather and depth (25 Nov 2026)</h2>
+<p class="lede">Every dv/v series we have (234: single-station noise in 5 bands at 27 stations, 58 LFE-coda channels, 9 repeater stations, 5 long-period
+network bands) was fitted with the same model: free drops and bounded recovery at the three big quakes, transient responses to every local M≥3.5 scaled by
+measured shaking, rain/groundwater (gauges gap-filled from NASA POWER, soil moisture, streamflow), temperature, pressure, GNSS loading and strain, borehole
+strain, a trend and a post-2021 ramp, and ocean-microseism power. Drivers were kept only if they improved year-by-year cross-validation and BIC, and tested
+against 200 water-year permutations. The component amplitudes were then mapped into depth with sensitivity kernels, and all LFE and earthquake travel
+times were inverted jointly for deep changes with free station, origin and location terms. Plans and code were reviewed independently before running.</p>
+<div class="findings">
+<div class="finding"><span class="eyebrow">Weather</span><h3>Rain and groundwater make the annual cycle, in the top ~100 m</h3>
+<p>Hydrology is selected in 68 of 162 noise series, 35 of 58 LFE-coda channels and 6 of 9 repeater stations (permutation p = 0.005, the floor). It is
+selected in all borehole series at 1–3 Hz and rarely below 0.5 Hz. Wetter means slower (80% of coefficients). Where selected it carries 71–92% of the
+annual amplitude; temperature adds a little (17 series), microseism power is not supported. Mapped to depth the annual amplitude is 0.11% at 0–0.1 km,
+0.06% at 0.1–1 km and 0.01% at 1–3 km. The specific hydrology form (rain storage, lags, soil moisture, streamflow) cannot be told apart.</p></div>
+<div class="finding"><span class="eyebrow">Earthquakes</span><h3>The 2021–2024 quakes left drops that have barely healed, seen at 0.3–3 Hz but not at 0.1–0.3 Hz</h3>
+<p>M7 drop (median): boreholes −0.13 to −0.23%, surface −0.14 to −0.24%; significant at 0.3–3 Hz (boreholes 4 of 6 per band, surface 11 of 18 at 1–3 Hz)
+and at no station at 0.1–0.3 Hz. Petrolia and Ferndale drops are smaller and mostly at surface stations and high frequency. Recovery is mostly
+unconstrained; where it can be measured the M7 recovery time is ~50–150 days, shorter than the GNSS afterslip time (~640 days). Small quakes add nothing
+(a shaking-dose term is not needed), and static strain and peak shaking explain the drops equally well. Mapped to depth the M7 drop spreads over the top
+~3 km, but this split is uncertain because the coda needs 2.5–10× more near-surface sensitivity than the kernels give.</p></div>
+<div class="finding"><span class="eyebrow">Decline</span><h3>The post-2021 decline is quake-related and not weather</h3>
+<p>2021→2025 change (series without instrument resets in that period): boreholes −0.04% at 0.1–0.3 Hz and −0.07 to −0.10% at 0.3–5 Hz; long-period network
+−0.04%. The environment explains only 2–10% of it below 1 Hz, 23% at 1–3 Hz and 53% at 3–5 Hz (wet 2023–25 years). The rest is carried by the quake drops
+with little healing; an independent trend or ramp is not needed in most series (no-trend model preferred in 76%). Fitted before 2021 alone, the weather
+model predicts no decline (+0.004% vs −0.06% observed).</p></div>
+<div class="finding"><span class="eyebrow">Depth</span><h3>Joint travel-time inversion: no deep change, with honest limits</h3>
+<p>All LFE and earthquake S and P delays (18.8k clean rays), with free station terms and per-source origin and location: M7 in a 5-km slab along the LFE fault
++0.02 ± 0.11%, 20-km box at 20–31 km +0.10 ± 0.16%, 10-km spheres around the families −0.05 ± 0.19%, 20–31 km relative to the crust above −0.13 ± 0.27%;
+2021→2025 likewise null. 5 of 360 deep tests reach p &lt; 0.05 (18 expected by chance). A shallow-only model fits every dataset. The station terms absorb
+most of the information (50–100× variance inflation), so a −0.1% deep change is not testable; 1–20 km is unconstrained. An apparent Petrolia step on the
+deep layer and in long-period noise failed its checks (geometry-dependent, sign flips with S-only data; one-sided and azimuth-dependent noise).</p></div>
+</div>
+''')
+H.append(img('attrex', 'Attribution examples: data (grey), full model (black), quake terms (red), long-term trend/ramp (purple) and environment (blue) for B045, KMPB and BRIC at 1-3 Hz, B049 at 0.1-0.3 Hz (nothing selected), KMPB LFE coda and the long-period network.'))
+H.append(img('attrbands', 'Attribution by band (higher frequency = shallower), borehole vs surface: annual amplitude of the environmental and total models, M7 drop and level after 1 yr, and the 2021-2025 change split into total, quakes+ramp, trend/ramp and environment.'))
+H.append(img('attrdecl', 'The 2021-2025 change per series: observed vs model components (series with instrument resets in the period excluded).'))
+H.append(img('j3deep', 'Joint travel-time inversion, deep terms for the M7, Petrolia, Ferndale and 2021-2025 change: blue = clean primary rays (1-D and 3-D geometry, many variants), grey = all rays (amplitude uncertain x2-3), orange = season-matched placebo values. All consistent with zero.'))
+H.append(img('j3shal', 'Shallow station terms from the joint fit (0-0.1, 0.1-1, 1-3 km) for the M7 and the 2021-2025 change; conditional on the coda kernels.'))
+H.append(img('j3val', 'Validation of the joint inversion: injected deep and shallow changes passed through the real estimators, cross-geometry recovery and leakage.'))
+H.append('</section>')
 # ---------------- depth summary (2026-11-25)
 for _k, _src in {'depthsum': 'figures/sci_depth_summary.png', 'lpdepth': 'figures/sci_noise_lp_depth.png',
                  'lpts': 'figures/sci_noise_lp_timeseries.png', 'scall': 'figures/sci_noise_dvv_sc_full_all.png', 'sc5all': 'figures/sci_noise_dvv_sc_5back_all.png', 'sc5m7': 'figures/sci_noise_dvv_sc_5back_m7.png', 'sc10all': 'figures/sci_noise_dvv_sc_10back_all.png', 'sc10m7': 'figures/sci_noise_dvv_sc_10back_m7.png', 'sc30all': 'figures/sci_noise_dvv_sc_30back_all.png', 'sc30m7': 'figures/sci_noise_dvv_sc_30back_m7.png',
@@ -296,14 +344,13 @@ _rows = ''.join(
     f'<td style="white-space:normal;text-align:left">{html.escape(str(r.limit95))}</td><td style="text-align:left">{html.escape(r.verdict)}</td></tr>'
     for r in _DS.itertuples())
 H.append(f'''<section id="depth"><h2>Did anything change at depth? Every observable, 2008–2026 (25 Nov 2026)</h2>
-<p class="lede">No. Every observable that reaches the LFE region, from the top of the low-velocity layer (~20 km) down to and around the
-LFEs (~28–31 km), is unchanged through 18 years and the 2010, 2014, 2021, 2022 and 2024 earthquakes, and so are the LFE sources themselves. All the velocity changes we
-do see sit in the top ~0.1–0.8 km beneath the stations, and they get larger at higher frequency and at shallower sensitivity. The deep bounds
-are well above the ~0.0004–0.004% expected from the M7’s static strain, so a null is what physics predicts. These are bounds,
-not proof of zero. <b>Correction (25 Nov 2026, independent code review):</b> the tight ±0.01–0.02% deep travel-time bounds shown earlier
-(LFE−earthquake differential and direct S) are withdrawn. The differential used layer kernels longer than the whole travel time on ~20% of
-paths (near-horizontal rays), and the direct-S fit tied the station terms to the coda. With free station terms and placebo errors the
-travel-time limit on a uniform 20–31 km change is ~±0.25–0.35% (95%); a revised joint fit with 3-D ray kernels is running and will replace these numbers.</p>
+<p class="lede">No change is detected at depth by any observable that reaches the LFE region (top of the low-velocity layer ~20 km
+down to and around the LFEs at ~28–31 km), through 18 years and the 2010, 2014, 2021, 2022 and 2024 earthquakes, and the LFE sources themselves
+are unchanged. The limits are now from a joint travel-time inversion with free station terms (25 Nov, after independent code review): about ±0.2%
+in a 5-km slab along the LFE fault, ±0.3% in a 20-km box at 20–31 km, ±0.4% in 10-km spheres around the families, ±0.3–0.4% from S−P near the
+sources, and ±0.5–1% for the 20–31 km layer relative to the crust above (95%). The tighter ±0.01–0.02% stated earlier is withdrawn. All observed
+velocity changes are explained near the surface (see “What controls dv/v”). The M7’s static strain predicts only ~0.0004–0.004%, far below any limit,
+so a null is expected; these are bounds, not proof of zero.</p>
 <figure><img src="figs/depthsum.jpg" alt="95% limits on a velocity change against the depth range each observable samples" loading="lazy"><figcaption>95% (2σ) limit
 on a velocity change against the depth range each method samples (blue: dv/v; green: Vs of the low-velocity layer). Grey: change expected from the
 M7 static strain. Pink: the LFEs. Pale blue at top: where the observed changes are.</figcaption></figure>
