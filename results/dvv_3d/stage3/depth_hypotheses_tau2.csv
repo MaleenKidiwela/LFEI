@@ -1,0 +1,1621 @@
+run,sta,amp,tot_H0,tot_top0.3,tot_uniform0_3,tot_ge1km,tot_below3,tot_free,v
+k1|x1,BK.BJES,ENV_cos,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BJES,ENV_sin,4554,4546,4542,4539,4538,4538,not resolved
+k1|x1,BK.BJES,drop0_Petrolia,4548,4547,4547,4547,4547,4547,no significant signal
+k1|x1,BK.BJES,level_Petrolia,4548,4548,4548,4547,4543,4547,no significant signal
+k1|x1,BK.BJES,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BJES,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BJES,drop0_M7,4548,4548,4548,4547,4547,4547,no significant signal
+k1|x1,BK.BJES,level_M7,4549,4545,4546,4547,4543,4545,no significant signal
+k1|x1,BK.BJES,ramp21,4548,4547,4547,4548,4547,4547,no significant signal
+k1|x1,BK.BJES,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BLAS,ENV_cos,4549,4549,4548,4547,4535,4545,>=1 km (lower limit only)
+k1|x1,BK.BLAS,ENV_sin,4601,4540,4556,4581,4594,4534,not resolved
+k1|x1,BK.BLAS,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BLAS,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.BLAS,drop0_Ferndale,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,BK.BLAS,level_Ferndale,4549,4547,4547,4547,4549,4547,no significant signal
+k1|x1,BK.BLAS,drop0_M7,4550,4547,4548,4548,4550,4547,no significant signal
+k1|x1,BK.BLAS,level_M7,4550,4547,4547,4547,4549,4547,no significant signal
+k1|x1,BK.BLAS,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BLAS,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BRIC,ENV_cos,4621,4546,4552,4574,4579,4546,top ~0.3 km
+k1|x1,BK.BRIC,ENV_sin,4844,4546,4608,4762,4784,4532,not resolved
+k1|x1,BK.BRIC,drop0_Petrolia,4560,4548,4545,4545,4556,4544,not resolved
+k1|x1,BK.BRIC,level_Petrolia,4593,4552,4530,4534,4581,4508,not resolved
+k1|x1,BK.BRIC,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BRIC,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.BRIC,drop0_M7,4670,4542,4557,4601,4644,4538,top ~0.3 km
+k1|x1,BK.BRIC,level_M7,4634,4520,4540,4590,4546,4519,top ~0.3 km
+k1|x1,BK.BRIC,ramp21,4552,4546,4543,4545,4543,4542,no significant signal
+k1|x1,BK.BRIC,trend,4549,4547,4545,4546,4549,4544,no significant signal
+k1|x1,BK.ETSL,ENV_cos,4555,4551,4546,4534,4533,4529,not resolved
+k1|x1,BK.ETSL,ENV_sin,4556,4548,4551,4556,4555,4539,no significant signal
+k1|x1,BK.ETSL,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.ETSL,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.ETSL,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.ETSL,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.ETSL,drop0_M7,4558,4548,4547,4550,4547,4547,not resolved
+k1|x1,BK.ETSL,level_M7,4549,4549,4547,4541,4542,4539,no significant signal
+k1|x1,BK.ETSL,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.ETSL,trend,4548,4548,4544,4534,4537,4532,>=1 km (lower limit only)
+k1|x1,BK.GHOP,ENV_cos,4617,4575,4552,4532,4455,4504,>=1 km (lower limit only)
+k1|x1,BK.GHOP,ENV_sin,4779,4573,4535,4588,4417,4522,>=1 km (lower limit only)
+k1|x1,BK.GHOP,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.GHOP,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.GHOP,drop0_Ferndale,4558,4546,4549,4552,4548,4544,not resolved
+k1|x1,BK.GHOP,level_Ferndale,4555,4548,4547,4551,4540,4546,>=1 km (lower limit only)
+k1|x1,BK.GHOP,drop0_M7,4553,4552,4550,4550,4538,4542,>=1 km (lower limit only)
+k1|x1,BK.GHOP,level_M7,4560,4548,4545,4547,4553,4544,not resolved
+k1|x1,BK.GHOP,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.GHOP,trend,4548,4548,4548,4548,4543,4544,no significant signal
+k1|x1,BK.HALS,ENV_cos,4550,4548,4549,4549,4550,4546,no significant signal
+k1|x1,BK.HALS,ENV_sin,4623,4547,4566,4591,4575,4533,not resolved
+k1|x1,BK.HALS,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.HALS,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.HALS,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.HALS,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.HALS,drop0_M7,4551,4551,4549,4548,4548,4546,no significant signal
+k1|x1,BK.HALS,level_M7,4553,4547,4548,4551,4552,4547,no significant signal
+k1|x1,BK.HALS,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.HALS,trend,4550,4539,4543,4548,4549,4538,not resolved
+k1|x1,BK.HAYF,ENV_cos,4555,4550,4552,4554,4551,4545,no significant signal
+k1|x1,BK.HAYF,ENV_sin,4551,4551,4550,4549,4549,4546,no significant signal
+k1|x1,BK.HAYF,drop0_Petrolia,4550,4548,4547,4548,4546,4547,no significant signal
+k1|x1,BK.HAYF,level_Petrolia,4549,4548,4549,4549,4549,4547,no significant signal
+k1|x1,BK.HAYF,drop0_Ferndale,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,BK.HAYF,level_Ferndale,4551,4547,4549,4551,4550,4547,no significant signal
+k1|x1,BK.HAYF,drop0_M7,4549,4548,4548,4548,4549,4548,no significant signal
+k1|x1,BK.HAYF,level_M7,4552,4547,4547,4547,4548,4547,no significant signal
+k1|x1,BK.HAYF,ramp21,4548,4548,4548,4547,4547,4546,no significant signal
+k1|x1,BK.HAYF,trend,4548,4548,4548,4547,4548,4546,no significant signal
+k1|x1,BK.HUNT,ENV_cos,4548,4548,4548,4548,4547,4545,no significant signal
+k1|x1,BK.HUNT,ENV_sin,4553,4547,4548,4549,4549,4547,no significant signal
+k1|x1,BK.HUNT,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.HUNT,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.HUNT,drop0_Ferndale,4549,4547,4548,4549,4548,4545,no significant signal
+k1|x1,BK.HUNT,level_Ferndale,4548,4548,4548,4548,4546,4544,no significant signal
+k1|x1,BK.HUNT,drop0_M7,4549,4548,4547,4546,4547,4547,no significant signal
+k1|x1,BK.HUNT,level_M7,4549,4548,4547,4544,4545,4546,no significant signal
+k1|x1,BK.HUNT,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.HUNT,trend,4548,4548,4548,4546,4546,4546,no significant signal
+k1|x1,BK.JEWT,ENV_cos,4548,4548,4548,4548,4544,4548,no significant signal
+k1|x1,BK.JEWT,ENV_sin,4620,4546,4548,4573,4563,4546,not resolved
+k1|x1,BK.JEWT,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.JEWT,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.JEWT,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.JEWT,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.JEWT,drop0_M7,4548,4548,4548,4547,4546,4547,no significant signal
+k1|x1,BK.JEWT,level_M7,4550,4548,4549,4550,4550,4546,no significant signal
+k1|x1,BK.JEWT,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.JEWT,trend,4548,4547,4548,4548,4548,4545,no significant signal
+k1|x1,BK.PRDS,ENV_cos,4601,4546,4548,4580,4577,4544,not resolved
+k1|x1,BK.PRDS,ENV_sin,5086,4519,4714,4995,5013,4505,not resolved
+k1|x1,BK.PRDS,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.PRDS,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.PRDS,drop0_Ferndale,4555,4547,4548,4553,4554,4547,no significant signal
+k1|x1,BK.PRDS,level_Ferndale,4578,4540,4546,4563,4573,4540,top ~0.3 km
+k1|x1,BK.PRDS,drop0_M7,4600,4560,4541,4555,4595,4539,uniform 0-3 km
+k1|x1,BK.PRDS,level_M7,4569,4553,4540,4537,4551,4535,not resolved
+k1|x1,BK.PRDS,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.PRDS,trend,4549,4547,4548,4546,4546,4541,no significant signal
+k1|x1,BK.RBOW,ENV_cos,4556,4553,4555,4553,4554,4544,no significant signal
+k1|x1,BK.RBOW,ENV_sin,4656,4554,4583,4635,4626,4539,not resolved
+k1|x1,BK.RBOW,drop0_Petrolia,4554,4549,4547,4544,4538,4546,>=1 km (lower limit only)
+k1|x1,BK.RBOW,level_Petrolia,4554,4548,4551,4553,4553,4545,no significant signal
+k1|x1,BK.RBOW,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.RBOW,level_Ferndale,4549,4548,4549,4547,4548,4547,no significant signal
+k1|x1,BK.RBOW,drop0_M7,4581,4546,4547,4556,4558,4546,not resolved
+k1|x1,BK.RBOW,level_M7,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.RBOW,ramp21,4550,4547,4548,4549,4546,4546,no significant signal
+k1|x1,BK.RBOW,trend,4548,4547,4548,4548,4547,4547,no significant signal
+k1|x1,BK.RVIT,ENV_cos,4582,4549,4545,4539,4536,4540,>=1 km (lower limit only)
+k1|x1,BK.RVIT,ENV_sin,4704,4539,4551,4593,4620,4535,top ~0.3 km
+k1|x1,BK.RVIT,drop0_Petrolia,4553,4545,4545,4547,4548,4545,no significant signal
+k1|x1,BK.RVIT,level_Petrolia,4555,4545,4548,4553,4553,4542,not resolved
+k1|x1,BK.RVIT,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.RVIT,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.RVIT,drop0_M7,4549,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.RVIT,level_M7,4549,4547,4547,4548,4548,4547,no significant signal
+k1|x1,BK.RVIT,ramp21,4548,4547,4548,4548,4548,4547,no significant signal
+k1|x1,BK.RVIT,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SHWD,ENV_cos,4550,4548,4548,4545,4549,4548,no significant signal
+k1|x1,BK.SHWD,ENV_sin,4714,4545,4575,4647,4688,4533,not resolved
+k1|x1,BK.SHWD,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SHWD,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.SHWD,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SHWD,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SHWD,drop0_M7,4560,4559,4555,4547,4545,4540,not resolved
+k1|x1,BK.SHWD,level_M7,4549,4548,4548,4549,4549,4548,no significant signal
+k1|x1,BK.SHWD,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SHWD,trend,4549,4546,4548,4549,4548,4545,no significant signal
+k1|x1,BK.SPRL,ENV_cos,4549,4549,4549,4549,4541,4547,no significant signal
+k1|x1,BK.SPRL,ENV_sin,4549,4549,4548,4546,4540,4548,>=1 km (lower limit only)
+k1|x1,BK.SPRL,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SPRL,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.SPRL,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SPRL,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SPRL,drop0_M7,4579,4546,4548,4564,4564,4546,not resolved
+k1|x1,BK.SPRL,level_M7,4568,4543,4551,4562,4547,4543,top ~0.3 km
+k1|x1,BK.SPRL,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.SPRL,trend,4549,4544,4548,4549,4547,4543,no significant signal
+k1|x1,BK.USAL,ENV_cos,4552,4548,4548,4552,4543,4548,>=1 km (lower limit only)
+k1|x1,BK.USAL,ENV_sin,4604,4545,4550,4577,4573,4545,top ~0.3 km
+k1|x1,BK.USAL,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.USAL,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,BK.USAL,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.USAL,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.USAL,drop0_M7,4557,4548,4548,4553,4542,4547,>=1 km (lower limit only)
+k1|x1,BK.USAL,level_M7,4556,4548,4546,4547,4555,4546,not resolved
+k1|x1,BK.USAL,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,BK.USAL,trend,4548,4548,4548,4547,4547,4548,no significant signal
+k1|x1,NC.KCPB,ENV_cos,4553,4549,4551,4553,4553,4546,no significant signal
+k1|x1,NC.KCPB,ENV_sin,4576,4547,4548,4559,4564,4547,not resolved
+k1|x1,NC.KCPB,drop0_Petrolia,4551,4548,4547,4547,4548,4547,no significant signal
+k1|x1,NC.KCPB,level_Petrolia,4551,4547,4546,4548,4551,4546,no significant signal
+k1|x1,NC.KCPB,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPB,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPB,drop0_M7,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPB,level_M7,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPB,ramp21,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,NC.KCPB,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPC,ENV_cos,4587,4566,4552,4537,4536,4531,not resolved
+k1|x1,NC.KCPC,ENV_sin,4677,4548,4543,4616,4575,4543,uniform 0-3 km
+k1|x1,NC.KCPC,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPC,level_Petrolia,4548,4546,4547,4547,4548,4546,no significant signal
+k1|x1,NC.KCPC,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPC,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPC,drop0_M7,4564,4555,4548,4543,4562,4546,>=1 km (lower limit only)
+k1|x1,NC.KCPC,level_M7,4553,4550,4552,4553,4547,4543,no significant signal
+k1|x1,NC.KCPC,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KCPC,trend,4548,4548,4548,4548,4548,4543,no significant signal
+k1|x1,NC.KMPB,ENV_cos,4558,4548,4548,4549,4545,4548,not resolved
+k1|x1,NC.KMPB,ENV_sin,4592,4547,4551,4550,4498,4546,>=1 km (lower limit only)
+k1|x1,NC.KMPB,drop0_Petrolia,4548,4548,4548,4547,4539,4548,>=1 km (lower limit only)
+k1|x1,NC.KMPB,level_Petrolia,4551,4548,4547,4545,4538,4546,>=1 km (lower limit only)
+k1|x1,NC.KMPB,drop0_Ferndale,4550,4548,4548,4548,4549,4548,no significant signal
+k1|x1,NC.KMPB,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,NC.KMPB,drop0_M7,4557,4548,4547,4544,4536,4547,>=1 km (lower limit only)
+k1|x1,NC.KMPB,level_M7,4558,4546,4545,4551,4556,4545,not resolved
+k1|x1,NC.KMPB,ramp21,4557,4545,4543,4545,4545,4542,not resolved
+k1|x1,NC.KMPB,trend,4550,4547,4547,4548,4550,4547,no significant signal
+k1|x1,NC.KMR,ENV_cos,4554,4548,4548,4545,4547,4548,no significant signal
+k1|x1,NC.KMR,ENV_sin,4556,4549,4548,4546,4550,4547,not resolved
+k1|x1,NC.KMR,drop0_Petrolia,4549,4549,4548,4547,4547,4546,no significant signal
+k1|x1,NC.KMR,level_Petrolia,4553,4549,4546,4547,4551,4544,no significant signal
+k1|x1,NC.KMR,drop0_Ferndale,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,NC.KMR,level_Ferndale,4548,4548,4548,4548,4547,4548,no significant signal
+k1|x1,NC.KMR,drop0_M7,4549,4548,4549,4549,4549,4546,no significant signal
+k1|x1,NC.KMR,level_M7,4549,4548,4548,4549,4549,4546,no significant signal
+k1|x1,NC.KMR,ramp21,4549,4548,4548,4548,4546,4548,no significant signal
+k1|x1,NC.KMR,trend,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B045,ENV_cos,4602,4602,4578,4572,4594,4519,not resolved
+k1|x1,PB.B045,ENV_sin,4643,4527,4580,4610,4540,4521,not resolved
+k1|x1,PB.B045,drop0_Petrolia,4549,4549,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B045,level_Petrolia,4551,4550,4548,4548,4550,4543,no significant signal
+k1|x1,PB.B045,drop0_Ferndale,4560,4544,4544,4544,4551,4543,not resolved
+k1|x1,PB.B045,level_Ferndale,4562,4536,4544,4553,4554,4536,top ~0.3 km
+k1|x1,PB.B045,drop0_M7,4566,4535,4550,4557,4552,4527,not resolved
+k1|x1,PB.B045,level_M7,4550,4547,4550,4549,4549,4529,no significant signal
+k1|x1,PB.B045,ramp21,4554,4537,4548,4552,4549,4530,not resolved
+k1|x1,PB.B045,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B046,ENV_cos,4584,4545,4573,4572,4571,4525,not resolved
+k1|x1,PB.B046,ENV_sin,4579,4543,4562,4573,4579,4539,top ~0.3 km
+k1|x1,PB.B046,drop0_Petrolia,4549,4547,4548,4548,4549,4547,no significant signal
+k1|x1,PB.B046,level_Petrolia,4551,4549,4546,4545,4549,4545,no significant signal
+k1|x1,PB.B046,drop0_Ferndale,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B046,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B046,drop0_M7,4560,4546,4545,4546,4550,4544,not resolved
+k1|x1,PB.B046,level_M7,4549,4548,4548,4548,4549,4546,no significant signal
+k1|x1,PB.B046,ramp21,4548,4548,4548,4548,4548,4546,no significant signal
+k1|x1,PB.B046,trend,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B047,ENV_cos,4561,4560,4553,4554,4559,4544,no significant signal
+k1|x1,PB.B047,ENV_sin,4571,4550,4548,4558,4571,4547,not resolved
+k1|x1,PB.B047,drop0_Petrolia,4551,4546,4549,4550,4549,4544,no significant signal
+k1|x1,PB.B047,level_Petrolia,4555,4544,4549,4551,4550,4543,top ~0.3 km
+k1|x1,PB.B047,drop0_Ferndale,4549,4548,4548,4548,4549,4547,no significant signal
+k1|x1,PB.B047,level_Ferndale,4548,4548,4548,4548,4547,4548,no significant signal
+k1|x1,PB.B047,drop0_M7,4562,4548,4546,4550,4558,4546,not resolved
+k1|x1,PB.B047,level_M7,4550,4550,4549,4548,4550,4539,no significant signal
+k1|x1,PB.B047,ramp21,4548,4547,4548,4548,4547,4547,no significant signal
+k1|x1,PB.B047,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B049,ENV_cos,4579,4547,4544,4547,4559,4543,not resolved
+k1|x1,PB.B049,ENV_sin,4549,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B049,drop0_Petrolia,4549,4547,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B049,level_Petrolia,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B049,drop0_Ferndale,4549,4547,4547,4548,4547,4546,no significant signal
+k1|x1,PB.B049,level_Ferndale,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B049,drop0_M7,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B049,level_M7,4549,4548,4547,4548,4549,4546,no significant signal
+k1|x1,PB.B049,ramp21,4548,4548,4548,4548,4547,4548,no significant signal
+k1|x1,PB.B049,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B932,ENV_cos,4551,4547,4550,4550,4536,4541,>=1 km (lower limit only)
+k1|x1,PB.B932,ENV_sin,4559,4546,4548,4549,4555,4546,not resolved
+k1|x1,PB.B932,drop0_Petrolia,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B932,level_Petrolia,4549,4548,4547,4548,4548,4547,no significant signal
+k1|x1,PB.B932,drop0_Ferndale,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B932,level_Ferndale,4548,4548,4548,4548,4547,4547,no significant signal
+k1|x1,PB.B932,drop0_M7,4549,4548,4548,4548,4547,4547,no significant signal
+k1|x1,PB.B932,level_M7,4549,4549,4548,4547,4548,4536,no significant signal
+k1|x1,PB.B932,ramp21,4549,4548,4548,4548,4549,4539,no significant signal
+k1|x1,PB.B932,trend,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B933,ENV_cos,4556,4556,4552,4548,4548,4541,no significant signal
+k1|x1,PB.B933,ENV_sin,4586,4548,4544,4554,4561,4543,uniform 0-3 km
+k1|x1,PB.B933,drop0_Petrolia,4548,4548,4548,4547,4547,4546,no significant signal
+k1|x1,PB.B933,level_Petrolia,4549,4547,4544,4544,4544,4544,no significant signal
+k1|x1,PB.B933,drop0_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B933,level_Ferndale,4550,4550,4545,4542,4543,4525,no significant signal
+k1|x1,PB.B933,drop0_M7,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B933,level_M7,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B933,ramp21,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B933,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B934,ENV_cos,4609,4538,4539,4544,4541,4537,not resolved
+k1|x1,PB.B934,ENV_sin,4570,4560,4548,4545,4570,4532,not resolved
+k1|x1,PB.B934,drop0_Petrolia,4549,4547,4547,4547,4545,4546,no significant signal
+k1|x1,PB.B934,level_Petrolia,4552,4549,4546,4546,4551,4540,no significant signal
+k1|x1,PB.B934,drop0_Ferndale,4552,4544,4545,4545,4545,4544,no significant signal
+k1|x1,PB.B934,level_Ferndale,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B934,drop0_M7,4549,4547,4548,4548,4542,4544,no significant signal
+k1|x1,PB.B934,level_M7,4549,4547,4547,4547,4548,4547,no significant signal
+k1|x1,PB.B934,ramp21,4548,4548,4548,4548,4548,4546,no significant signal
+k1|x1,PB.B934,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B935,ENV_cos,4582,4543,4550,4564,4562,4543,top ~0.3 km
+k1|x1,PB.B935,ENV_sin,4557,4557,4554,4550,4557,4544,no significant signal
+k1|x1,PB.B935,drop0_Petrolia,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B935,level_Petrolia,4548,4548,4548,4548,4547,4548,no significant signal
+k1|x1,PB.B935,drop0_Ferndale,4548,4548,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B935,level_Ferndale,4549,4547,4548,4549,4549,4547,no significant signal
+k1|x1,PB.B935,drop0_M7,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B935,level_M7,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x1,PB.B935,ramp21,4548,4547,4548,4548,4548,4547,no significant signal
+k1|x1,PB.B935,trend,4548,4548,4548,4548,4548,4548,no significant signal
+k1|x0.3,BK.BJES,ENV_cos,6322,6321,6321,6322,6322,6321,no significant signal
+k1|x0.3,BK.BJES,ENV_sin,6323,6317,6313,6309,6308,6309,>=1 km (lower limit only)
+k1|x0.3,BK.BJES,drop0_Petrolia,6322,6321,6320,6320,6321,6319,no significant signal
+k1|x0.3,BK.BJES,level_Petrolia,6322,6321,6321,6321,6314,6321,no significant signal
+k1|x0.3,BK.BJES,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.BJES,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.BJES,drop0_M7,6322,6322,6322,6321,6322,6321,no significant signal
+k1|x0.3,BK.BJES,level_M7,6322,6319,6319,6319,6316,6319,no significant signal
+k1|x0.3,BK.BJES,ramp21,6322,6321,6321,6321,6320,6321,no significant signal
+k1|x0.3,BK.BJES,trend,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.BLAS,ENV_cos,6322,6322,6322,6322,6313,6321,no significant signal
+k1|x0.3,BK.BLAS,ENV_sin,6341,6295,6305,6321,6332,6292,top ~0.3 km
+k1|x0.3,BK.BLAS,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.BLAS,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.BLAS,drop0_Ferndale,6322,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,BK.BLAS,level_Ferndale,6323,6319,6319,6319,6321,6318,no significant signal
+k1|x0.3,BK.BLAS,drop0_M7,6324,6318,6319,6321,6324,6318,no significant signal
+k1|x0.3,BK.BLAS,level_M7,6323,6318,6318,6320,6322,6318,no significant signal
+k1|x0.3,BK.BLAS,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.BLAS,trend,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.BRIC,ENV_cos,6422,6294,6300,6330,6343,6294,top ~0.3 km
+k1|x0.3,BK.BRIC,ENV_sin,6623,6244,6319,6499,6537,6222,not resolved
+k1|x0.3,BK.BRIC,drop0_Petrolia,6326,6319,6316,6314,6324,6314,not resolved
+k1|x0.3,BK.BRIC,level_Petrolia,6337,6306,6286,6279,6321,6253,not resolved
+k1|x0.3,BK.BRIC,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.BRIC,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.BRIC,drop0_M7,6413,6281,6304,6354,6399,6265,not resolved
+k1|x0.3,BK.BRIC,level_M7,6376,6220,6237,6296,6264,6220,top ~0.3 km
+k1|x0.3,BK.BRIC,ramp21,6340,6250,6244,6276,6286,6244,uniform 0-3 km
+k1|x0.3,BK.BRIC,trend,6325,6300,6293,6298,6313,6290,uniform 0-3 km
+k1|x0.3,BK.ETSL,ENV_cos,6329,6315,6308,6296,6295,6293,>=1 km (lower limit only)
+k1|x0.3,BK.ETSL,ENV_sin,6323,6322,6323,6320,6319,6311,no significant signal
+k1|x0.3,BK.ETSL,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.ETSL,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.ETSL,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.ETSL,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.ETSL,drop0_M7,6338,6318,6317,6318,6316,6317,not resolved
+k1|x0.3,BK.ETSL,level_M7,6323,6321,6320,6316,6316,6315,no significant signal
+k1|x0.3,BK.ETSL,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.ETSL,trend,6322,6314,6308,6298,6301,6297,>=1 km (lower limit only)
+k1|x0.3,BK.GHOP,ENV_cos,6374,6314,6290,6270,6192,6244,>=1 km (lower limit only)
+k1|x0.3,BK.GHOP,ENV_sin,6507,6291,6264,6310,6156,6256,>=1 km (lower limit only)
+k1|x0.3,BK.GHOP,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.GHOP,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.GHOP,drop0_Ferndale,6329,6313,6315,6318,6314,6311,not resolved
+k1|x0.3,BK.GHOP,level_Ferndale,6323,6322,6321,6322,6316,6321,no significant signal
+k1|x0.3,BK.GHOP,drop0_M7,6325,6323,6320,6320,6309,6308,>=1 km (lower limit only)
+k1|x0.3,BK.GHOP,level_M7,6327,6317,6317,6319,6323,6317,not resolved
+k1|x0.3,BK.GHOP,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.GHOP,trend,6322,6322,6320,6320,6315,6316,no significant signal
+k1|x0.3,BK.HALS,ENV_cos,6323,6321,6323,6323,6323,6316,no significant signal
+k1|x0.3,BK.HALS,ENV_sin,6357,6301,6318,6337,6327,6281,not resolved
+k1|x0.3,BK.HALS,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.HALS,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.HALS,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.HALS,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.HALS,drop0_M7,6323,6323,6321,6319,6319,6317,no significant signal
+k1|x0.3,BK.HALS,level_M7,6327,6313,6313,6319,6327,6313,not resolved
+k1|x0.3,BK.HALS,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.HALS,trend,6323,6305,6309,6317,6323,6305,top ~0.3 km
+k1|x0.3,BK.HAYF,ENV_cos,6331,6319,6322,6326,6330,6317,not resolved
+k1|x0.3,BK.HAYF,ENV_sin,6328,6324,6320,6316,6319,6311,not resolved
+k1|x0.3,BK.HAYF,drop0_Petrolia,6323,6321,6320,6320,6319,6320,no significant signal
+k1|x0.3,BK.HAYF,level_Petrolia,6323,6321,6322,6322,6323,6320,no significant signal
+k1|x0.3,BK.HAYF,drop0_Ferndale,6322,6322,6322,6321,6322,6320,no significant signal
+k1|x0.3,BK.HAYF,level_Ferndale,6324,6320,6322,6324,6324,6317,no significant signal
+k1|x0.3,BK.HAYF,drop0_M7,6323,6322,6321,6322,6323,6321,no significant signal
+k1|x0.3,BK.HAYF,level_M7,6325,6318,6318,6319,6319,6318,no significant signal
+k1|x0.3,BK.HAYF,ramp21,6323,6322,6321,6319,6320,6318,no significant signal
+k1|x0.3,BK.HAYF,trend,6322,6322,6321,6320,6321,6318,no significant signal
+k1|x0.3,BK.HUNT,ENV_cos,6323,6322,6322,6320,6320,6318,no significant signal
+k1|x0.3,BK.HUNT,ENV_sin,6323,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,BK.HUNT,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.HUNT,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.HUNT,drop0_Ferndale,6322,6320,6321,6322,6322,6319,no significant signal
+k1|x0.3,BK.HUNT,level_Ferndale,6322,6322,6322,6322,6321,6315,no significant signal
+k1|x0.3,BK.HUNT,drop0_M7,6323,6321,6321,6319,6320,6320,no significant signal
+k1|x0.3,BK.HUNT,level_M7,6323,6320,6319,6316,6318,6318,no significant signal
+k1|x0.3,BK.HUNT,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.HUNT,trend,6322,6322,6322,6321,6320,6319,no significant signal
+k1|x0.3,BK.JEWT,ENV_cos,6322,6322,6322,6322,6319,6322,no significant signal
+k1|x0.3,BK.JEWT,ENV_sin,6349,6315,6317,6326,6316,6315,not resolved
+k1|x0.3,BK.JEWT,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.JEWT,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.JEWT,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.JEWT,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.JEWT,drop0_M7,6322,6322,6322,6322,6321,6321,no significant signal
+k1|x0.3,BK.JEWT,level_M7,6323,6321,6322,6323,6323,6318,no significant signal
+k1|x0.3,BK.JEWT,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.JEWT,trend,6322,6321,6322,6322,6322,6318,no significant signal
+k1|x0.3,BK.PRDS,ENV_cos,6358,6305,6293,6318,6316,6293,uniform 0-3 km
+k1|x0.3,BK.PRDS,ENV_sin,6778,6079,6300,6623,6642,6063,not resolved
+k1|x0.3,BK.PRDS,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.PRDS,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.PRDS,drop0_Ferndale,6325,6319,6321,6325,6325,6319,no significant signal
+k1|x0.3,BK.PRDS,level_Ferndale,6337,6290,6306,6326,6331,6290,top ~0.3 km
+k1|x0.3,BK.PRDS,drop0_M7,6389,6293,6269,6301,6360,6269,uniform 0-3 km
+k1|x0.3,BK.PRDS,level_M7,6329,6318,6301,6289,6305,6286,>=1 km (lower limit only)
+k1|x0.3,BK.PRDS,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.PRDS,trend,6323,6316,6302,6294,6318,6292,>=1 km (lower limit only)
+k1|x0.3,BK.RBOW,ENV_cos,6329,6321,6323,6317,6321,6318,not resolved
+k1|x0.3,BK.RBOW,ENV_sin,6396,6308,6335,6377,6373,6285,not resolved
+k1|x0.3,BK.RBOW,drop0_Petrolia,6325,6320,6317,6314,6307,6316,>=1 km (lower limit only)
+k1|x0.3,BK.RBOW,level_Petrolia,6324,6320,6323,6324,6322,6315,no significant signal
+k1|x0.3,BK.RBOW,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.RBOW,level_Ferndale,6323,6322,6323,6320,6321,6315,no significant signal
+k1|x0.3,BK.RBOW,drop0_M7,6344,6311,6312,6317,6320,6311,not resolved
+k1|x0.3,BK.RBOW,level_M7,6323,6320,6321,6322,6323,6320,no significant signal
+k1|x0.3,BK.RBOW,ramp21,6323,6320,6320,6322,6317,6320,no significant signal
+k1|x0.3,BK.RBOW,trend,6322,6321,6321,6322,6320,6321,no significant signal
+k1|x0.3,BK.RVIT,ENV_cos,6354,6309,6304,6297,6294,6298,>=1 km (lower limit only)
+k1|x0.3,BK.RVIT,ENV_sin,6443,6269,6280,6316,6343,6264,not resolved
+k1|x0.3,BK.RVIT,drop0_Petrolia,6327,6298,6298,6308,6311,6298,not resolved
+k1|x0.3,BK.RVIT,level_Petrolia,6327,6310,6313,6320,6320,6307,not resolved
+k1|x0.3,BK.RVIT,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.RVIT,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.RVIT,drop0_M7,6325,6317,6318,6318,6319,6317,no significant signal
+k1|x0.3,BK.RVIT,level_M7,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.RVIT,ramp21,6323,6317,6318,6320,6319,6317,no significant signal
+k1|x0.3,BK.RVIT,trend,6322,6319,6320,6321,6321,6319,no significant signal
+k1|x0.3,BK.SHWD,ENV_cos,6323,6322,6322,6320,6323,6322,no significant signal
+k1|x0.3,BK.SHWD,ENV_sin,6408,6293,6316,6363,6391,6275,not resolved
+k1|x0.3,BK.SHWD,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.SHWD,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.SHWD,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.SHWD,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.SHWD,drop0_M7,6328,6326,6321,6311,6308,6299,not resolved
+k1|x0.3,BK.SHWD,level_M7,6323,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,BK.SHWD,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.SHWD,trend,6322,6322,6322,6320,6317,6314,no significant signal
+k1|x0.3,BK.SPRL,ENV_cos,6323,6323,6322,6320,6310,6318,>=1 km (lower limit only)
+k1|x0.3,BK.SPRL,ENV_sin,6322,6322,6322,6322,6319,6322,no significant signal
+k1|x0.3,BK.SPRL,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.SPRL,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.SPRL,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.SPRL,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.SPRL,drop0_M7,6343,6309,6307,6322,6326,6307,not resolved
+k1|x0.3,BK.SPRL,level_M7,6335,6301,6309,6324,6312,6301,top ~0.3 km
+k1|x0.3,BK.SPRL,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.SPRL,trend,6323,6299,6308,6320,6315,6299,top ~0.3 km
+k1|x0.3,BK.USAL,ENV_cos,6326,6319,6319,6324,6313,6319,>=1 km (lower limit only)
+k1|x0.3,BK.USAL,ENV_sin,6357,6303,6305,6328,6327,6302,not resolved
+k1|x0.3,BK.USAL,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.USAL,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,BK.USAL,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.USAL,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,BK.USAL,drop0_M7,6327,6319,6321,6326,6315,6319,not resolved
+k1|x0.3,BK.USAL,level_M7,6327,6318,6313,6312,6324,6312,not resolved
+k1|x0.3,BK.USAL,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,BK.USAL,trend,6322,6318,6316,6317,6317,6316,no significant signal
+k1|x0.3,NC.KCPB,ENV_cos,6324,6322,6323,6322,6323,6316,no significant signal
+k1|x0.3,NC.KCPB,ENV_sin,6337,6317,6318,6326,6330,6317,not resolved
+k1|x0.3,NC.KCPB,drop0_Petrolia,6324,6320,6318,6318,6321,6318,no significant signal
+k1|x0.3,NC.KCPB,level_Petrolia,6324,6318,6317,6319,6323,6317,no significant signal
+k1|x0.3,NC.KCPB,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,NC.KCPB,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,NC.KCPB,drop0_M7,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,NC.KCPB,level_M7,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,NC.KCPB,ramp21,6322,6321,6319,6319,6322,6319,no significant signal
+k1|x0.3,NC.KCPB,trend,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,NC.KCPC,ENV_cos,6345,6323,6307,6287,6290,6282,not resolved
+k1|x0.3,NC.KCPC,ENV_sin,6376,6306,6311,6359,6327,6306,top ~0.3 km
+k1|x0.3,NC.KCPC,drop0_Petrolia,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,NC.KCPC,level_Petrolia,6322,6315,6315,6315,6322,6314,no significant signal
+k1|x0.3,NC.KCPC,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,NC.KCPC,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,NC.KCPC,drop0_M7,6334,6322,6317,6315,6331,6317,not resolved
+k1|x0.3,NC.KCPC,level_M7,6323,6322,6323,6323,6319,6316,no significant signal
+k1|x0.3,NC.KCPC,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,NC.KCPC,trend,6322,6321,6322,6321,6321,6312,no significant signal
+k1|x0.3,NC.KMPB,ENV_cos,6343,6319,6319,6320,6317,6319,not resolved
+k1|x0.3,NC.KMPB,ENV_sin,6351,6317,6321,6321,6281,6314,>=1 km (lower limit only)
+k1|x0.3,NC.KMPB,drop0_Petrolia,6322,6322,6322,6322,6314,6322,no significant signal
+k1|x0.3,NC.KMPB,level_Petrolia,6324,6319,6318,6316,6310,6318,>=1 km (lower limit only)
+k1|x0.3,NC.KMPB,drop0_Ferndale,6325,6320,6320,6321,6322,6320,no significant signal
+k1|x0.3,NC.KMPB,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,NC.KMPB,drop0_M7,6330,6320,6319,6316,6309,6318,>=1 km (lower limit only)
+k1|x0.3,NC.KMPB,level_M7,6333,6305,6303,6313,6323,6303,not resolved
+k1|x0.3,NC.KMPB,ramp21,6332,6296,6294,6299,6305,6293,not resolved
+k1|x0.3,NC.KMPB,trend,6323,6321,6321,6322,6322,6321,no significant signal
+k1|x0.3,NC.KMR,ENV_cos,6324,6322,6322,6320,6321,6322,no significant signal
+k1|x0.3,NC.KMR,ENV_sin,6323,6322,6322,6321,6323,6322,no significant signal
+k1|x0.3,NC.KMR,drop0_Petrolia,6322,6322,6322,6320,6321,6320,no significant signal
+k1|x0.3,NC.KMR,level_Petrolia,6324,6321,6319,6319,6323,6316,no significant signal
+k1|x0.3,NC.KMR,drop0_Ferndale,6322,6322,6322,6321,6322,6321,no significant signal
+k1|x0.3,NC.KMR,level_Ferndale,6322,6322,6322,6322,6321,6322,no significant signal
+k1|x0.3,NC.KMR,drop0_M7,6322,6322,6322,6322,6322,6320,no significant signal
+k1|x0.3,NC.KMR,level_M7,6322,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,NC.KMR,ramp21,6322,6322,6322,6322,6320,6322,no significant signal
+k1|x0.3,NC.KMR,trend,6322,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,PB.B045,ENV_cos,6335,6335,6325,6321,6330,6263,not resolved
+k1|x0.3,PB.B045,ENV_sin,6402,6270,6304,6327,6271,6266,not resolved
+k1|x0.3,PB.B045,drop0_Petrolia,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B045,level_Petrolia,6328,6319,6310,6310,6323,6301,not resolved
+k1|x0.3,PB.B045,drop0_Ferndale,6328,6306,6306,6307,6316,6305,not resolved
+k1|x0.3,PB.B045,level_Ferndale,6332,6288,6297,6309,6314,6287,top ~0.3 km
+k1|x0.3,PB.B045,drop0_M7,6330,6296,6310,6317,6313,6288,not resolved
+k1|x0.3,PB.B045,level_M7,6322,6321,6322,6322,6322,6303,no significant signal
+k1|x0.3,PB.B045,ramp21,6327,6292,6305,6313,6313,6289,top ~0.3 km
+k1|x0.3,PB.B045,trend,6322,6322,6321,6321,6322,6321,no significant signal
+k1|x0.3,PB.B046,ENV_cos,6330,6309,6327,6327,6323,6269,not resolved
+k1|x0.3,PB.B046,ENV_sin,6330,6314,6322,6327,6330,6310,top ~0.3 km
+k1|x0.3,PB.B046,drop0_Petrolia,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B046,level_Petrolia,6323,6322,6321,6320,6322,6319,no significant signal
+k1|x0.3,PB.B046,drop0_Ferndale,6322,6322,6322,6322,6322,6320,no significant signal
+k1|x0.3,PB.B046,level_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B046,drop0_M7,6326,6315,6314,6315,6318,6314,not resolved
+k1|x0.3,PB.B046,level_M7,6322,6322,6321,6321,6322,6319,no significant signal
+k1|x0.3,PB.B046,ramp21,6323,6322,6321,6320,6322,6317,no significant signal
+k1|x0.3,PB.B046,trend,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B047,ENV_cos,6324,6324,6323,6323,6323,6317,no significant signal
+k1|x0.3,PB.B047,ENV_sin,6330,6324,6320,6322,6329,6319,not resolved
+k1|x0.3,PB.B047,drop0_Petrolia,6324,6318,6320,6321,6320,6316,no significant signal
+k1|x0.3,PB.B047,level_Petrolia,6323,6319,6322,6322,6322,6316,no significant signal
+k1|x0.3,PB.B047,drop0_Ferndale,6323,6322,6321,6322,6322,6320,no significant signal
+k1|x0.3,PB.B047,level_Ferndale,6322,6322,6322,6322,6321,6322,no significant signal
+k1|x0.3,PB.B047,drop0_M7,6330,6317,6312,6315,6325,6311,not resolved
+k1|x0.3,PB.B047,level_M7,6323,6322,6322,6322,6322,6303,no significant signal
+k1|x0.3,PB.B047,ramp21,6322,6322,6322,6322,6322,6320,no significant signal
+k1|x0.3,PB.B047,trend,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B049,ENV_cos,6341,6311,6311,6311,6315,6310,not resolved
+k1|x0.3,PB.B049,ENV_sin,6344,6304,6311,6312,6321,6304,top ~0.3 km
+k1|x0.3,PB.B049,drop0_Petrolia,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B049,level_Petrolia,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B049,drop0_Ferndale,6323,6320,6321,6321,6321,6320,no significant signal
+k1|x0.3,PB.B049,level_Ferndale,6322,6322,6322,6322,6321,6321,no significant signal
+k1|x0.3,PB.B049,drop0_M7,6323,6321,6321,6321,6320,6321,no significant signal
+k1|x0.3,PB.B049,level_M7,6323,6321,6320,6321,6321,6319,no significant signal
+k1|x0.3,PB.B049,ramp21,6323,6320,6320,6321,6317,6320,no significant signal
+k1|x0.3,PB.B049,trend,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,PB.B932,ENV_cos,6338,6307,6313,6323,6337,6305,top ~0.3 km
+k1|x0.3,PB.B932,ENV_sin,6323,6323,6322,6322,6323,6320,no significant signal
+k1|x0.3,PB.B932,drop0_Petrolia,6322,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,PB.B932,level_Petrolia,6322,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,PB.B932,drop0_Ferndale,6322,6322,6322,6321,6322,6321,no significant signal
+k1|x0.3,PB.B932,level_Ferndale,6323,6322,6321,6321,6321,6320,no significant signal
+k1|x0.3,PB.B932,drop0_M7,6322,6322,6322,6322,6322,6320,no significant signal
+k1|x0.3,PB.B932,level_M7,6323,6322,6321,6321,6322,6306,no significant signal
+k1|x0.3,PB.B932,ramp21,6323,6323,6321,6321,6322,6308,no significant signal
+k1|x0.3,PB.B932,trend,6322,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,PB.B933,ENV_cos,6328,6325,6314,6309,6310,6303,not resolved
+k1|x0.3,PB.B933,ENV_sin,6336,6311,6306,6311,6319,6306,uniform 0-3 km
+k1|x0.3,PB.B933,drop0_Petrolia,6322,6322,6321,6321,6320,6319,no significant signal
+k1|x0.3,PB.B933,level_Petrolia,6323,6319,6315,6314,6315,6314,no significant signal
+k1|x0.3,PB.B933,drop0_Ferndale,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B933,level_Ferndale,6323,6323,6316,6313,6314,6294,not resolved
+k1|x0.3,PB.B933,drop0_M7,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,PB.B933,level_M7,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B933,ramp21,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,PB.B933,trend,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B934,ENV_cos,6370,6286,6289,6292,6277,6286,>=1 km (lower limit only)
+k1|x0.3,PB.B934,ENV_sin,6329,6327,6319,6318,6326,6279,not resolved
+k1|x0.3,PB.B934,drop0_Petrolia,6322,6321,6321,6321,6320,6320,no significant signal
+k1|x0.3,PB.B934,level_Petrolia,6325,6316,6314,6314,6318,6311,not resolved
+k1|x0.3,PB.B934,drop0_Ferndale,6324,6311,6313,6313,6312,6311,not resolved
+k1|x0.3,PB.B934,level_Ferndale,6323,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,PB.B934,drop0_M7,6323,6319,6321,6320,6310,6313,>=1 km (lower limit only)
+k1|x0.3,PB.B934,level_M7,6323,6320,6320,6320,6321,6320,no significant signal
+k1|x0.3,PB.B934,ramp21,6323,6321,6320,6320,6321,6319,no significant signal
+k1|x0.3,PB.B934,trend,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B935,ENV_cos,6336,6307,6315,6324,6320,6306,top ~0.3 km
+k1|x0.3,PB.B935,ENV_sin,6325,6321,6325,6324,6320,6309,no significant signal
+k1|x0.3,PB.B935,drop0_Petrolia,6322,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,PB.B935,level_Petrolia,6323,6321,6321,6320,6319,6321,no significant signal
+k1|x0.3,PB.B935,drop0_Ferndale,6322,6322,6322,6322,6322,6321,no significant signal
+k1|x0.3,PB.B935,level_Ferndale,6323,6317,6318,6320,6322,6317,no significant signal
+k1|x0.3,PB.B935,drop0_M7,6322,6321,6321,6321,6322,6321,no significant signal
+k1|x0.3,PB.B935,level_M7,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x0.3,PB.B935,ramp21,6323,6319,6319,6319,6319,6319,no significant signal
+k1|x0.3,PB.B935,trend,6322,6322,6322,6322,6322,6322,no significant signal
+k1|x3,BK.BJES,ENV_cos,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.BJES,ENV_sin,3877,3869,3865,3863,3861,3862,not resolved
+k1|x3,BK.BJES,drop0_Petrolia,3867,3867,3867,3866,3867,3866,no significant signal
+k1|x3,BK.BJES,level_Petrolia,3867,3867,3867,3866,3864,3867,no significant signal
+k1|x3,BK.BJES,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.BJES,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.BJES,drop0_M7,3867,3867,3866,3866,3866,3866,no significant signal
+k1|x3,BK.BJES,level_M7,3869,3866,3867,3868,3864,3865,no significant signal
+k1|x3,BK.BJES,ramp21,3867,3866,3867,3867,3866,3866,no significant signal
+k1|x3,BK.BJES,trend,3867,3867,3867,3867,3866,3867,no significant signal
+k1|x3,BK.BLAS,ENV_cos,3873,3873,3871,3868,3850,3864,>=1 km (lower limit only)
+k1|x3,BK.BLAS,ENV_sin,3931,3869,3887,3913,3926,3863,not resolved
+k1|x3,BK.BLAS,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.BLAS,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.BLAS,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.BLAS,level_Ferndale,3869,3867,3866,3864,3868,3866,no significant signal
+k1|x3,BK.BLAS,drop0_M7,3869,3867,3867,3866,3869,3867,no significant signal
+k1|x3,BK.BLAS,level_M7,3868,3867,3866,3866,3867,3866,no significant signal
+k1|x3,BK.BLAS,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.BLAS,trend,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.BRIC,ENV_cos,3899,3867,3872,3886,3886,3866,top ~0.3 km
+k1|x3,BK.BRIC,ENV_sin,4115,3870,3917,4064,4080,3865,not resolved
+k1|x3,BK.BRIC,drop0_Petrolia,3881,3868,3866,3868,3877,3866,not resolved
+k1|x3,BK.BRIC,level_Petrolia,3928,3890,3870,3880,3921,3852,not resolved
+k1|x3,BK.BRIC,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.BRIC,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.BRIC,drop0_M7,3976,3866,3876,3921,3961,3865,top ~0.3 km
+k1|x3,BK.BRIC,level_M7,3953,3862,3876,3917,3866,3861,top ~0.3 km
+k1|x3,BK.BRIC,ramp21,3867,3867,3867,3867,3864,3865,no significant signal
+k1|x3,BK.BRIC,trend,3868,3866,3866,3868,3868,3866,no significant signal
+k1|x3,BK.ETSL,ENV_cos,3874,3874,3872,3866,3864,3860,not resolved
+k1|x3,BK.ETSL,ENV_sin,3882,3869,3873,3882,3882,3864,not resolved
+k1|x3,BK.ETSL,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.ETSL,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.ETSL,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.ETSL,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.ETSL,drop0_M7,3869,3867,3867,3868,3867,3867,no significant signal
+k1|x3,BK.ETSL,level_M7,3868,3868,3867,3865,3865,3864,no significant signal
+k1|x3,BK.ETSL,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.ETSL,trend,3867,3867,3866,3863,3864,3862,no significant signal
+k1|x3,BK.GHOP,ENV_cos,3928,3918,3904,3887,3814,3856,>=1 km (lower limit only)
+k1|x3,BK.GHOP,ENV_sin,4061,3921,3880,3929,3750,3860,>=1 km (lower limit only)
+k1|x3,BK.GHOP,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.GHOP,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.GHOP,drop0_Ferndale,3880,3869,3872,3877,3873,3863,not resolved
+k1|x3,BK.GHOP,level_Ferndale,3877,3866,3868,3876,3865,3866,not resolved
+k1|x3,BK.GHOP,drop0_M7,3873,3870,3868,3871,3857,3866,>=1 km (lower limit only)
+k1|x3,BK.GHOP,level_M7,3880,3872,3867,3868,3874,3864,not resolved
+k1|x3,BK.GHOP,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.GHOP,trend,3867,3867,3867,3867,3865,3866,no significant signal
+k1|x3,BK.HALS,ENV_cos,3871,3867,3868,3867,3870,3866,no significant signal
+k1|x3,BK.HALS,ENV_sin,3957,3872,3890,3921,3900,3864,not resolved
+k1|x3,BK.HALS,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.HALS,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.HALS,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.HALS,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.HALS,drop0_M7,3868,3868,3867,3867,3867,3867,no significant signal
+k1|x3,BK.HALS,level_M7,3867,3867,3867,3867,3864,3867,no significant signal
+k1|x3,BK.HALS,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.HALS,trend,3871,3863,3865,3868,3871,3863,no significant signal
+k1|x3,BK.HAYF,ENV_cos,3875,3874,3874,3872,3855,3866,>=1 km (lower limit only)
+k1|x3,BK.HAYF,ENV_sin,3871,3868,3869,3870,3870,3867,no significant signal
+k1|x3,BK.HAYF,drop0_Petrolia,3869,3867,3867,3866,3865,3866,no significant signal
+k1|x3,BK.HAYF,level_Petrolia,3869,3867,3867,3868,3869,3866,no significant signal
+k1|x3,BK.HAYF,drop0_Ferndale,3868,3868,3868,3867,3868,3866,no significant signal
+k1|x3,BK.HAYF,level_Ferndale,3871,3867,3867,3870,3871,3866,no significant signal
+k1|x3,BK.HAYF,drop0_M7,3867,3867,3867,3867,3866,3867,no significant signal
+k1|x3,BK.HAYF,level_M7,3869,3867,3867,3865,3867,3866,no significant signal
+k1|x3,BK.HAYF,ramp21,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.HAYF,trend,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.HUNT,ENV_cos,3869,3867,3868,3869,3869,3866,no significant signal
+k1|x3,BK.HUNT,ENV_sin,3875,3866,3867,3869,3869,3866,no significant signal
+k1|x3,BK.HUNT,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.HUNT,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.HUNT,drop0_Ferndale,3868,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.HUNT,level_Ferndale,3867,3867,3867,3867,3866,3865,no significant signal
+k1|x3,BK.HUNT,drop0_M7,3870,3867,3867,3865,3866,3866,no significant signal
+k1|x3,BK.HUNT,level_M7,3867,3867,3867,3864,3865,3866,no significant signal
+k1|x3,BK.HUNT,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.HUNT,trend,3867,3867,3867,3866,3865,3865,no significant signal
+k1|x3,BK.JEWT,ENV_cos,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.JEWT,ENV_sin,3946,3867,3869,3904,3894,3866,not resolved
+k1|x3,BK.JEWT,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.JEWT,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.JEWT,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.JEWT,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.JEWT,drop0_M7,3869,3868,3867,3864,3863,3866,no significant signal
+k1|x3,BK.JEWT,level_M7,3869,3867,3868,3869,3868,3866,no significant signal
+k1|x3,BK.JEWT,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.JEWT,trend,3867,3867,3867,3866,3867,3865,no significant signal
+k1|x3,BK.PRDS,ENV_cos,3902,3867,3877,3900,3898,3866,top ~0.3 km
+k1|x3,BK.PRDS,ENV_sin,4363,3869,4036,4316,4329,3861,not resolved
+k1|x3,BK.PRDS,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.PRDS,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.PRDS,drop0_Ferndale,3875,3867,3867,3873,3874,3866,no significant signal
+k1|x3,BK.PRDS,level_Ferndale,3906,3868,3867,3884,3901,3865,not resolved
+k1|x3,BK.PRDS,drop0_M7,3913,3883,3866,3886,3913,3865,uniform 0-3 km
+k1|x3,BK.PRDS,level_M7,3892,3874,3865,3871,3882,3864,uniform 0-3 km
+k1|x3,BK.PRDS,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.PRDS,trend,3870,3865,3867,3869,3859,3864,>=1 km (lower limit only)
+k1|x3,BK.RBOW,ENV_cos,3883,3883,3882,3883,3883,3865,no significant signal
+k1|x3,BK.RBOW,ENV_sin,3984,3874,3903,3970,3959,3865,not resolved
+k1|x3,BK.RBOW,drop0_Petrolia,3872,3868,3867,3865,3860,3866,>=1 km (lower limit only)
+k1|x3,BK.RBOW,level_Petrolia,3874,3867,3869,3873,3874,3866,no significant signal
+k1|x3,BK.RBOW,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.RBOW,level_Ferndale,3868,3867,3867,3868,3868,3867,no significant signal
+k1|x3,BK.RBOW,drop0_M7,3903,3867,3868,3882,3883,3866,not resolved
+k1|x3,BK.RBOW,level_M7,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.RBOW,ramp21,3868,3867,3868,3868,3867,3865,no significant signal
+k1|x3,BK.RBOW,trend,3867,3867,3867,3867,3866,3866,no significant signal
+k1|x3,BK.RVIT,ENV_cos,3881,3870,3868,3864,3861,3865,>=1 km (lower limit only)
+k1|x3,BK.RVIT,ENV_sin,4009,3867,3879,3923,3950,3864,top ~0.3 km
+k1|x3,BK.RVIT,drop0_Petrolia,3871,3866,3866,3868,3868,3866,no significant signal
+k1|x3,BK.RVIT,level_Petrolia,3873,3867,3869,3873,3872,3865,no significant signal
+k1|x3,BK.RVIT,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.RVIT,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.RVIT,drop0_M7,3868,3867,3867,3866,3867,3867,no significant signal
+k1|x3,BK.RVIT,level_M7,3869,3867,3866,3868,3867,3866,no significant signal
+k1|x3,BK.RVIT,ramp21,3867,3867,3867,3867,3866,3867,no significant signal
+k1|x3,BK.RVIT,trend,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SHWD,ENV_cos,3867,3867,3867,3867,3866,3867,no significant signal
+k1|x3,BK.SHWD,ENV_sin,4046,3872,3901,3990,4031,3864,not resolved
+k1|x3,BK.SHWD,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SHWD,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.SHWD,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SHWD,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SHWD,drop0_M7,3874,3873,3873,3870,3869,3866,no significant signal
+k1|x3,BK.SHWD,level_M7,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SHWD,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SHWD,trend,3868,3866,3866,3867,3868,3866,no significant signal
+k1|x3,BK.SPRL,ENV_cos,3870,3867,3867,3869,3867,3867,no significant signal
+k1|x3,BK.SPRL,ENV_sin,3871,3869,3867,3863,3854,3866,>=1 km (lower limit only)
+k1|x3,BK.SPRL,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SPRL,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.SPRL,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SPRL,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SPRL,drop0_M7,3897,3867,3869,3887,3888,3866,not resolved
+k1|x3,BK.SPRL,level_M7,3877,3866,3870,3874,3860,3866,>=1 km (lower limit only)
+k1|x3,BK.SPRL,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.SPRL,trend,3867,3866,3867,3867,3865,3865,no significant signal
+k1|x3,BK.USAL,ENV_cos,3868,3868,3868,3866,3866,3866,no significant signal
+k1|x3,BK.USAL,ENV_sin,3928,3866,3872,3904,3900,3866,top ~0.3 km
+k1|x3,BK.USAL,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.USAL,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,BK.USAL,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.USAL,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.USAL,drop0_M7,3878,3868,3867,3875,3860,3866,>=1 km (lower limit only)
+k1|x3,BK.USAL,level_M7,3873,3867,3866,3868,3873,3866,no significant signal
+k1|x3,BK.USAL,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,BK.USAL,trend,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPB,ENV_cos,3878,3867,3869,3878,3878,3867,not resolved
+k1|x3,NC.KCPB,ENV_sin,3900,3868,3867,3883,3888,3866,not resolved
+k1|x3,NC.KCPB,drop0_Petrolia,3869,3867,3866,3867,3868,3866,no significant signal
+k1|x3,NC.KCPB,level_Petrolia,3871,3868,3866,3869,3871,3866,no significant signal
+k1|x3,NC.KCPB,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPB,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPB,drop0_M7,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPB,level_M7,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPB,ramp21,3867,3866,3867,3867,3865,3866,no significant signal
+k1|x3,NC.KCPB,trend,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,NC.KCPC,ENV_cos,3891,3887,3881,3871,3869,3864,not resolved
+k1|x3,NC.KCPC,ENV_sin,4000,3879,3865,3941,3904,3865,uniform 0-3 km
+k1|x3,NC.KCPC,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPC,level_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,NC.KCPC,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPC,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPC,drop0_M7,3871,3871,3870,3861,3870,3866,>=1 km (lower limit only)
+k1|x3,NC.KCPC,level_M7,3872,3869,3871,3872,3868,3866,no significant signal
+k1|x3,NC.KCPC,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KCPC,trend,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,NC.KMPB,ENV_cos,3868,3868,3868,3868,3866,3866,no significant signal
+k1|x3,NC.KMPB,ENV_sin,3915,3867,3870,3871,3805,3866,>=1 km (lower limit only)
+k1|x3,NC.KMPB,drop0_Petrolia,3867,3867,3867,3866,3855,3866,>=1 km (lower limit only)
+k1|x3,NC.KMPB,level_Petrolia,3871,3868,3867,3864,3855,3865,>=1 km (lower limit only)
+k1|x3,NC.KMPB,drop0_Ferndale,3868,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KMPB,level_Ferndale,3867,3867,3867,3867,3866,3866,no significant signal
+k1|x3,NC.KMPB,drop0_M7,3879,3868,3867,3863,3854,3866,>=1 km (lower limit only)
+k1|x3,NC.KMPB,level_M7,3876,3867,3866,3872,3875,3866,not resolved
+k1|x3,NC.KMPB,ramp21,3875,3867,3866,3867,3865,3865,not resolved
+k1|x3,NC.KMPB,trend,3870,3866,3867,3867,3870,3866,no significant signal
+k1|x3,NC.KMR,ENV_cos,3881,3869,3867,3863,3867,3866,not resolved
+k1|x3,NC.KMR,ENV_sin,3881,3869,3867,3866,3872,3866,not resolved
+k1|x3,NC.KMR,drop0_Petrolia,3868,3868,3868,3867,3867,3866,no significant signal
+k1|x3,NC.KMR,level_Petrolia,3874,3869,3867,3869,3872,3865,no significant signal
+k1|x3,NC.KMR,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KMR,level_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,NC.KMR,drop0_M7,3871,3867,3868,3869,3870,3866,no significant signal
+k1|x3,NC.KMR,level_M7,3870,3867,3868,3870,3870,3865,no significant signal
+k1|x3,NC.KMR,ramp21,3867,3867,3867,3867,3866,3867,no significant signal
+k1|x3,NC.KMR,trend,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B045,ENV_cos,3937,3936,3910,3904,3934,3861,not resolved
+k1|x3,PB.B045,ENV_sin,3966,3863,3929,3961,3893,3861,top ~0.3 km
+k1|x3,PB.B045,drop0_Petrolia,3868,3868,3868,3868,3868,3865,no significant signal
+k1|x3,PB.B045,level_Petrolia,3873,3873,3871,3870,3873,3863,no significant signal
+k1|x3,PB.B045,drop0_Ferndale,3874,3866,3867,3868,3870,3866,no significant signal
+k1|x3,PB.B045,level_Ferndale,3881,3865,3867,3875,3877,3864,not resolved
+k1|x3,PB.B045,drop0_M7,3891,3863,3877,3885,3882,3861,top ~0.3 km
+k1|x3,PB.B045,level_M7,3872,3867,3871,3872,3871,3859,no significant signal
+k1|x3,PB.B045,ramp21,3873,3864,3870,3872,3870,3862,top ~0.3 km
+k1|x3,PB.B045,trend,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B046,ENV_cos,3922,3866,3901,3898,3908,3863,top ~0.3 km
+k1|x3,PB.B046,ENV_sin,3910,3865,3892,3908,3909,3865,top ~0.3 km
+k1|x3,PB.B046,drop0_Petrolia,3868,3867,3867,3868,3868,3866,no significant signal
+k1|x3,PB.B046,level_Petrolia,3872,3870,3866,3864,3870,3866,no significant signal
+k1|x3,PB.B046,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B046,level_Ferndale,3867,3867,3867,3866,3866,3867,no significant signal
+k1|x3,PB.B046,drop0_M7,3883,3868,3866,3869,3875,3865,not resolved
+k1|x3,PB.B046,level_M7,3869,3868,3867,3867,3869,3866,no significant signal
+k1|x3,PB.B046,ramp21,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B046,trend,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B047,ENV_cos,3891,3890,3875,3879,3889,3866,not resolved
+k1|x3,PB.B047,ENV_sin,3891,3871,3869,3887,3883,3866,not resolved
+k1|x3,PB.B047,drop0_Petrolia,3871,3867,3870,3871,3870,3866,no significant signal
+k1|x3,PB.B047,level_Petrolia,3875,3866,3869,3871,3870,3866,not resolved
+k1|x3,PB.B047,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B047,level_Ferndale,3868,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B047,drop0_M7,3882,3868,3867,3874,3881,3866,not resolved
+k1|x3,PB.B047,level_M7,3873,3872,3868,3868,3872,3864,no significant signal
+k1|x3,PB.B047,ramp21,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B047,trend,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B049,ENV_cos,3898,3876,3865,3874,3890,3865,uniform 0-3 km
+k1|x3,PB.B049,ENV_sin,3869,3868,3867,3867,3860,3867,no significant signal
+k1|x3,PB.B049,drop0_Petrolia,3867,3866,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B049,level_Petrolia,3867,3866,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B049,drop0_Ferndale,3868,3866,3867,3867,3866,3866,no significant signal
+k1|x3,PB.B049,level_Ferndale,3869,3868,3867,3866,3868,3866,no significant signal
+k1|x3,PB.B049,drop0_M7,3868,3867,3867,3867,3868,3866,no significant signal
+k1|x3,PB.B049,level_M7,3867,3867,3867,3867,3867,3864,no significant signal
+k1|x3,PB.B049,ramp21,3868,3867,3866,3866,3868,3866,no significant signal
+k1|x3,PB.B049,trend,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B932,ENV_cos,3878,3878,3872,3855,3838,3864,>=1 km (lower limit only)
+k1|x3,PB.B932,ENV_sin,3884,3865,3873,3877,3882,3864,top ~0.3 km
+k1|x3,PB.B932,drop0_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B932,level_Petrolia,3870,3866,3866,3867,3867,3866,no significant signal
+k1|x3,PB.B932,drop0_Ferndale,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B932,level_Ferndale,3869,3868,3867,3865,3866,3866,no significant signal
+k1|x3,PB.B932,drop0_M7,3871,3867,3866,3867,3868,3866,no significant signal
+k1|x3,PB.B932,level_M7,3871,3871,3868,3866,3869,3860,no significant signal
+k1|x3,PB.B932,ramp21,3869,3868,3868,3868,3868,3862,no significant signal
+k1|x3,PB.B932,trend,3867,3866,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B933,ENV_cos,3875,3870,3874,3875,3874,3866,no significant signal
+k1|x3,PB.B933,ENV_sin,3905,3871,3868,3883,3888,3866,not resolved
+k1|x3,PB.B933,drop0_Petrolia,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B933,level_Petrolia,3869,3867,3866,3866,3865,3865,no significant signal
+k1|x3,PB.B933,drop0_Ferndale,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B933,level_Ferndale,3876,3876,3871,3868,3868,3850,no significant signal
+k1|x3,PB.B933,drop0_M7,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B933,level_M7,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B933,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B933,trend,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B934,ENV_cos,3916,3867,3865,3874,3882,3863,not resolved
+k1|x3,PB.B934,ENV_sin,3891,3884,3870,3864,3887,3863,>=1 km (lower limit only)
+k1|x3,PB.B934,drop0_Petrolia,3868,3866,3866,3866,3865,3866,no significant signal
+k1|x3,PB.B934,level_Petrolia,3869,3869,3868,3868,3867,3858,no significant signal
+k1|x3,PB.B934,drop0_Ferndale,3869,3866,3866,3866,3867,3866,no significant signal
+k1|x3,PB.B934,level_Ferndale,3867,3867,3867,3867,3866,3867,no significant signal
+k1|x3,PB.B934,drop0_M7,3868,3868,3867,3867,3865,3864,no significant signal
+k1|x3,PB.B934,level_M7,3867,3866,3866,3867,3867,3866,no significant signal
+k1|x3,PB.B934,ramp21,3869,3865,3866,3867,3866,3864,no significant signal
+k1|x3,PB.B934,trend,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B935,ENV_cos,3908,3869,3871,3892,3894,3865,not resolved
+k1|x3,PB.B935,ENV_sin,3879,3878,3871,3866,3878,3866,>=1 km (lower limit only)
+k1|x3,PB.B935,drop0_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B935,level_Petrolia,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B935,drop0_Ferndale,3867,3867,3867,3867,3867,3866,no significant signal
+k1|x3,PB.B935,level_Ferndale,3867,3867,3867,3867,3865,3866,no significant signal
+k1|x3,PB.B935,drop0_M7,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B935,level_M7,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B935,ramp21,3867,3867,3867,3867,3867,3867,no significant signal
+k1|x3,PB.B935,trend,3867,3867,3867,3867,3867,3867,no significant signal
+kprof|x1,BK.BJES,ENV_cos,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.BJES,ENV_sin,4497,4492,4489,4487,4484,4486,>=1 km (lower limit only)
+kprof|x1,BK.BJES,drop0_Petrolia,4493,4492,4492,4491,4492,4491,no significant signal
+kprof|x1,BK.BJES,level_Petrolia,4493,4493,4493,4493,4490,4493,no significant signal
+kprof|x1,BK.BJES,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.BJES,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.BJES,drop0_M7,4493,4493,4493,4493,4493,4492,no significant signal
+kprof|x1,BK.BJES,level_M7,4493,4492,4493,4493,4490,4492,no significant signal
+kprof|x1,BK.BJES,ramp21,4493,4493,4493,4493,4492,4492,no significant signal
+kprof|x1,BK.BJES,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.BLAS,ENV_cos,4494,4494,4493,4492,4480,4490,>=1 km (lower limit only)
+kprof|x1,BK.BLAS,ENV_sin,4550,4488,4506,4532,4545,4481,not resolved
+kprof|x1,BK.BLAS,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.BLAS,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.BLAS,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.BLAS,level_Ferndale,4495,4492,4492,4492,4494,4492,no significant signal
+kprof|x1,BK.BLAS,drop0_M7,4495,4493,4493,4493,4495,4493,no significant signal
+kprof|x1,BK.BLAS,level_M7,4495,4493,4492,4493,4494,4492,no significant signal
+kprof|x1,BK.BLAS,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.BLAS,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.BRIC,ENV_cos,4545,4491,4497,4516,4514,4491,top ~0.3 km
+kprof|x1,BK.BRIC,ENV_sin,4745,4494,4554,4697,4701,4482,not resolved
+kprof|x1,BK.BRIC,drop0_Petrolia,4504,4494,4491,4490,4497,4490,not resolved
+kprof|x1,BK.BRIC,level_Petrolia,4536,4500,4467,4468,4497,4439,not resolved
+kprof|x1,BK.BRIC,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.BRIC,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.BRIC,drop0_M7,4627,4485,4497,4557,4593,4485,top ~0.3 km
+kprof|x1,BK.BRIC,level_M7,4521,4481,4499,4518,4496,4479,top ~0.3 km
+kprof|x1,BK.BRIC,ramp21,4500,4491,4486,4492,4474,4486,>=1 km (lower limit only)
+kprof|x1,BK.BRIC,trend,4494,4492,4490,4491,4490,4489,no significant signal
+kprof|x1,BK.ETSL,ENV_cos,4500,4497,4493,4481,4480,4475,not resolved
+kprof|x1,BK.ETSL,ENV_sin,4503,4494,4498,4503,4503,4484,not resolved
+kprof|x1,BK.ETSL,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.ETSL,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.ETSL,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.ETSL,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.ETSL,drop0_M7,4501,4493,4493,4495,4492,4493,not resolved
+kprof|x1,BK.ETSL,level_M7,4495,4494,4493,4487,4488,4485,no significant signal
+kprof|x1,BK.ETSL,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.ETSL,trend,4493,4493,4490,4481,4483,4478,>=1 km (lower limit only)
+kprof|x1,BK.GHOP,ENV_cos,4546,4522,4504,4489,4410,4458,>=1 km (lower limit only)
+kprof|x1,BK.GHOP,ENV_sin,4656,4520,4489,4541,4386,4477,>=1 km (lower limit only)
+kprof|x1,BK.GHOP,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.GHOP,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.GHOP,drop0_Ferndale,4503,4492,4495,4499,4496,4490,not resolved
+kprof|x1,BK.GHOP,level_Ferndale,4503,4493,4492,4499,4491,4492,not resolved
+kprof|x1,BK.GHOP,drop0_M7,4499,4497,4495,4496,4484,4489,>=1 km (lower limit only)
+kprof|x1,BK.GHOP,level_M7,4504,4494,4490,4493,4497,4489,not resolved
+kprof|x1,BK.GHOP,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.GHOP,trend,4494,4492,4493,4494,4492,4489,no significant signal
+kprof|x1,BK.HALS,ENV_cos,4499,4493,4495,4496,4497,4491,no significant signal
+kprof|x1,BK.HALS,ENV_sin,4542,4493,4514,4534,4520,4482,not resolved
+kprof|x1,BK.HALS,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.HALS,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.HALS,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.HALS,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.HALS,drop0_M7,4496,4495,4494,4493,4491,4492,no significant signal
+kprof|x1,BK.HALS,level_M7,4498,4492,4493,4496,4498,4492,no significant signal
+kprof|x1,BK.HALS,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.HALS,trend,4495,4486,4489,4493,4494,4486,no significant signal
+kprof|x1,BK.HAYF,ENV_cos,4508,4497,4501,4506,4508,4489,not resolved
+kprof|x1,BK.HAYF,ENV_sin,4496,4496,4496,4495,4495,4492,no significant signal
+kprof|x1,BK.HAYF,drop0_Petrolia,4493,4493,4493,4493,4491,4493,no significant signal
+kprof|x1,BK.HAYF,level_Petrolia,4494,4493,4494,4494,4494,4492,no significant signal
+kprof|x1,BK.HAYF,drop0_Ferndale,4494,4493,4494,4494,4494,4492,no significant signal
+kprof|x1,BK.HAYF,level_Ferndale,4500,4492,4495,4499,4500,4491,no significant signal
+kprof|x1,BK.HAYF,drop0_M7,4495,4493,4493,4494,4494,4493,no significant signal
+kprof|x1,BK.HAYF,level_M7,4495,4493,4492,4491,4490,4492,no significant signal
+kprof|x1,BK.HAYF,ramp21,4494,4493,4493,4492,4489,4491,no significant signal
+kprof|x1,BK.HAYF,trend,4493,4493,4492,4492,4491,4491,no significant signal
+kprof|x1,BK.HUNT,ENV_cos,4493,4493,4493,4493,4493,4490,no significant signal
+kprof|x1,BK.HUNT,ENV_sin,4499,4493,4493,4494,4494,4493,no significant signal
+kprof|x1,BK.HUNT,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.HUNT,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.HUNT,drop0_Ferndale,4494,4492,4493,4494,4493,4491,no significant signal
+kprof|x1,BK.HUNT,level_Ferndale,4493,4493,4493,4493,4492,4489,no significant signal
+kprof|x1,BK.HUNT,drop0_M7,4494,4493,4493,4491,4492,4492,no significant signal
+kprof|x1,BK.HUNT,level_M7,4494,4493,4493,4490,4491,4491,no significant signal
+kprof|x1,BK.HUNT,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.HUNT,trend,4493,4493,4493,4492,4491,4491,no significant signal
+kprof|x1,BK.JEWT,ENV_cos,4493,4493,4493,4493,4490,4493,no significant signal
+kprof|x1,BK.JEWT,ENV_sin,4558,4492,4494,4520,4515,4492,not resolved
+kprof|x1,BK.JEWT,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.JEWT,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.JEWT,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.JEWT,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.JEWT,drop0_M7,4494,4494,4493,4492,4491,4492,no significant signal
+kprof|x1,BK.JEWT,level_M7,4495,4493,4495,4495,4495,4491,no significant signal
+kprof|x1,BK.JEWT,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.JEWT,trend,4493,4493,4493,4493,4493,4491,no significant signal
+kprof|x1,BK.PRDS,ENV_cos,4560,4489,4499,4539,4526,4488,top ~0.3 km
+kprof|x1,BK.PRDS,ENV_sin,5040,4472,4711,4980,4984,4454,not resolved
+kprof|x1,BK.PRDS,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.PRDS,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.PRDS,drop0_Ferndale,4499,4492,4493,4497,4498,4492,no significant signal
+kprof|x1,BK.PRDS,level_Ferndale,4519,4489,4493,4506,4514,4488,top ~0.3 km
+kprof|x1,BK.PRDS,drop0_M7,4542,4505,4488,4502,4527,4487,uniform 0-3 km
+kprof|x1,BK.PRDS,level_M7,4511,4499,4487,4487,4497,4485,not resolved
+kprof|x1,BK.PRDS,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.PRDS,trend,4493,4493,4492,4490,4493,4489,no significant signal
+kprof|x1,BK.RBOW,ENV_cos,4501,4500,4501,4500,4501,4489,no significant signal
+kprof|x1,BK.RBOW,ENV_sin,4591,4501,4530,4580,4575,4487,not resolved
+kprof|x1,BK.RBOW,drop0_Petrolia,4498,4494,4492,4490,4485,4491,>=1 km (lower limit only)
+kprof|x1,BK.RBOW,level_Petrolia,4499,4492,4496,4498,4498,4491,no significant signal
+kprof|x1,BK.RBOW,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.RBOW,level_Ferndale,4494,4494,4493,4492,4493,4492,no significant signal
+kprof|x1,BK.RBOW,drop0_M7,4522,4492,4493,4502,4503,4492,not resolved
+kprof|x1,BK.RBOW,level_M7,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.RBOW,ramp21,4494,4493,4493,4494,4492,4492,no significant signal
+kprof|x1,BK.RBOW,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.RVIT,ENV_cos,4525,4495,4491,4485,4476,4486,>=1 km (lower limit only)
+kprof|x1,BK.RVIT,ENV_sin,4645,4487,4500,4542,4561,4483,not resolved
+kprof|x1,BK.RVIT,drop0_Petrolia,4498,4491,4491,4493,4494,4491,no significant signal
+kprof|x1,BK.RVIT,level_Petrolia,4499,4490,4493,4498,4498,4488,no significant signal
+kprof|x1,BK.RVIT,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.RVIT,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.RVIT,drop0_M7,4494,4493,4493,4492,4493,4493,no significant signal
+kprof|x1,BK.RVIT,level_M7,4494,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.RVIT,ramp21,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.RVIT,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.SHWD,ENV_cos,4495,4493,4493,4491,4494,4493,no significant signal
+kprof|x1,BK.SHWD,ENV_sin,4668,4494,4524,4602,4644,4482,not resolved
+kprof|x1,BK.SHWD,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.SHWD,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.SHWD,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.SHWD,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.SHWD,drop0_M7,4505,4504,4500,4493,4492,4488,not resolved
+kprof|x1,BK.SHWD,level_M7,4494,4493,4493,4494,4494,4493,no significant signal
+kprof|x1,BK.SHWD,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.SHWD,trend,4494,4492,4493,4494,4494,4491,no significant signal
+kprof|x1,BK.SPRL,ENV_cos,4496,4494,4495,4496,4494,4492,no significant signal
+kprof|x1,BK.SPRL,ENV_sin,4494,4493,4494,4492,4491,4493,no significant signal
+kprof|x1,BK.SPRL,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.SPRL,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.SPRL,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.SPRL,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.SPRL,drop0_M7,4519,4492,4495,4510,4514,4491,not resolved
+kprof|x1,BK.SPRL,level_M7,4502,4491,4496,4500,4495,4491,not resolved
+kprof|x1,BK.SPRL,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.SPRL,trend,4494,4490,4493,4494,4494,4489,no significant signal
+kprof|x1,BK.USAL,ENV_cos,4497,4493,4493,4496,4488,4493,no significant signal
+kprof|x1,BK.USAL,ENV_sin,4541,4491,4497,4522,4520,4491,top ~0.3 km
+kprof|x1,BK.USAL,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,BK.USAL,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,BK.USAL,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.USAL,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,BK.USAL,drop0_M7,4501,4493,4493,4498,4487,4493,>=1 km (lower limit only)
+kprof|x1,BK.USAL,level_M7,4502,4493,4491,4494,4500,4491,not resolved
+kprof|x1,BK.USAL,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,BK.USAL,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,NC.KCPB,ENV_cos,4499,4494,4496,4499,4499,4492,no significant signal
+kprof|x1,NC.KCPB,ENV_sin,4522,4493,4493,4505,4510,4492,not resolved
+kprof|x1,NC.KCPB,drop0_Petrolia,4496,4493,4492,4493,4494,4492,no significant signal
+kprof|x1,NC.KCPB,level_Petrolia,4495,4493,4491,4493,4495,4491,no significant signal
+kprof|x1,NC.KCPB,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,NC.KCPB,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,NC.KCPB,drop0_M7,4493,4490,4490,4490,4493,4490,no significant signal
+kprof|x1,NC.KCPB,level_M7,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,NC.KCPB,ramp21,4493,4493,4493,4493,4493,4492,no significant signal
+kprof|x1,NC.KCPB,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,NC.KCPC,ENV_cos,4532,4512,4499,4486,4483,4479,>=1 km (lower limit only)
+kprof|x1,NC.KCPC,ENV_sin,4629,4495,4490,4566,4515,4489,uniform 0-3 km
+kprof|x1,NC.KCPC,drop0_Petrolia,4493,4491,4491,4491,4493,4491,no significant signal
+kprof|x1,NC.KCPC,level_Petrolia,4493,4483,4483,4483,4493,4483,not resolved
+kprof|x1,NC.KCPC,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,NC.KCPC,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,NC.KCPC,drop0_M7,4508,4501,4494,4488,4506,4492,>=1 km (lower limit only)
+kprof|x1,NC.KCPC,level_M7,4499,4495,4499,4499,4495,4489,no significant signal
+kprof|x1,NC.KCPC,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,NC.KCPC,trend,4493,4493,4493,4493,4493,4490,no significant signal
+kprof|x1,NC.KMPB,ENV_cos,4500,4493,4494,4495,4491,4493,no significant signal
+kprof|x1,NC.KMPB,ENV_sin,4513,4493,4495,4498,4467,4492,>=1 km (lower limit only)
+kprof|x1,NC.KMPB,drop0_Petrolia,4493,4493,4493,4493,4488,4493,no significant signal
+kprof|x1,NC.KMPB,level_Petrolia,4494,4493,4492,4491,4482,4492,>=1 km (lower limit only)
+kprof|x1,NC.KMPB,drop0_Ferndale,4494,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,NC.KMPB,level_Ferndale,4493,4493,4493,4493,4492,4493,no significant signal
+kprof|x1,NC.KMPB,drop0_M7,4496,4493,4493,4491,4488,4492,no significant signal
+kprof|x1,NC.KMPB,level_M7,4503,4491,4490,4497,4496,4490,not resolved
+kprof|x1,NC.KMPB,ramp21,4499,4492,4490,4491,4480,4490,>=1 km (lower limit only)
+kprof|x1,NC.KMPB,trend,4496,4492,4492,4493,4496,4492,no significant signal
+kprof|x1,NC.KMR,ENV_cos,4497,4493,4493,4490,4491,4493,no significant signal
+kprof|x1,NC.KMR,ENV_sin,4500,4494,4493,4491,4496,4492,no significant signal
+kprof|x1,NC.KMR,drop0_Petrolia,4494,4494,4493,4491,4491,4491,no significant signal
+kprof|x1,NC.KMR,level_Petrolia,4497,4493,4491,4493,4496,4490,no significant signal
+kprof|x1,NC.KMR,drop0_Ferndale,4493,4493,4493,4493,4492,4492,no significant signal
+kprof|x1,NC.KMR,level_Ferndale,4493,4493,4493,4493,4491,4493,no significant signal
+kprof|x1,NC.KMR,drop0_M7,4494,4494,4494,4494,4493,4491,no significant signal
+kprof|x1,NC.KMR,level_M7,4494,4493,4494,4494,4494,4491,no significant signal
+kprof|x1,NC.KMR,ramp21,4493,4493,4493,4493,4491,4493,no significant signal
+kprof|x1,NC.KMR,trend,4494,4492,4493,4494,4494,4492,no significant signal
+kprof|x1,PB.B045,ENV_cos,4550,4550,4526,4519,4534,4468,not resolved
+kprof|x1,PB.B045,ENV_sin,4560,4481,4521,4546,4506,4478,top ~0.3 km
+kprof|x1,PB.B045,drop0_Petrolia,4494,4494,4493,4493,4493,4492,no significant signal
+kprof|x1,PB.B045,level_Petrolia,4494,4494,4493,4493,4494,4489,no significant signal
+kprof|x1,PB.B045,drop0_Ferndale,4504,4489,4490,4491,4493,4489,not resolved
+kprof|x1,PB.B045,level_Ferndale,4508,4483,4491,4500,4496,4483,top ~0.3 km
+kprof|x1,PB.B045,drop0_M7,4509,4482,4497,4503,4498,4473,not resolved
+kprof|x1,PB.B045,level_M7,4495,4492,4495,4495,4495,4476,no significant signal
+kprof|x1,PB.B045,ramp21,4499,4485,4497,4499,4495,4478,not resolved
+kprof|x1,PB.B045,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B046,ENV_cos,4537,4489,4523,4523,4509,4470,not resolved
+kprof|x1,PB.B046,ENV_sin,4537,4488,4518,4532,4535,4483,not resolved
+kprof|x1,PB.B046,drop0_Petrolia,4494,4492,4493,4494,4494,4492,no significant signal
+kprof|x1,PB.B046,level_Petrolia,4494,4494,4492,4491,4494,4491,no significant signal
+kprof|x1,PB.B046,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B046,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B046,drop0_M7,4504,4490,4490,4493,4490,4489,not resolved
+kprof|x1,PB.B046,level_M7,4494,4494,4492,4493,4493,4492,no significant signal
+kprof|x1,PB.B046,ramp21,4494,4494,4493,4493,4493,4492,no significant signal
+kprof|x1,PB.B046,trend,4493,4493,4493,4493,4493,4492,no significant signal
+kprof|x1,PB.B047,ENV_cos,4507,4507,4499,4500,4506,4490,no significant signal
+kprof|x1,PB.B047,ENV_sin,4519,4495,4494,4506,4519,4492,not resolved
+kprof|x1,PB.B047,drop0_Petrolia,4496,4492,4494,4495,4494,4491,no significant signal
+kprof|x1,PB.B047,level_Petrolia,4497,4490,4495,4496,4496,4489,no significant signal
+kprof|x1,PB.B047,drop0_Ferndale,4494,4494,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B047,level_Ferndale,4493,4493,4493,4493,4492,4493,no significant signal
+kprof|x1,PB.B047,drop0_M7,4506,4493,4491,4496,4501,4491,not resolved
+kprof|x1,PB.B047,level_M7,4496,4496,4494,4493,4496,4486,no significant signal
+kprof|x1,PB.B047,ramp21,4493,4493,4493,4493,4492,4493,no significant signal
+kprof|x1,PB.B047,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B049,ENV_cos,4520,4487,4490,4494,4501,4487,not resolved
+kprof|x1,PB.B049,ENV_sin,4497,4491,4497,4497,4497,4479,no significant signal
+kprof|x1,PB.B049,drop0_Petrolia,4493,4493,4493,4493,4493,4492,no significant signal
+kprof|x1,PB.B049,level_Petrolia,4493,4493,4493,4493,4491,4493,no significant signal
+kprof|x1,PB.B049,drop0_Ferndale,4494,4492,4493,4493,4493,4491,no significant signal
+kprof|x1,PB.B049,level_Ferndale,4493,4493,4493,4493,4490,4489,no significant signal
+kprof|x1,PB.B049,drop0_M7,4493,4492,4493,4493,4490,4491,no significant signal
+kprof|x1,PB.B049,level_M7,4494,4493,4492,4493,4493,4492,no significant signal
+kprof|x1,PB.B049,ramp21,4493,4493,4493,4493,4490,4492,no significant signal
+kprof|x1,PB.B049,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B932,ENV_cos,4501,4493,4500,4499,4488,4469,not resolved
+kprof|x1,PB.B932,ENV_sin,4502,4491,4493,4494,4501,4491,not resolved
+kprof|x1,PB.B932,drop0_Petrolia,4493,4493,4493,4493,4493,4491,no significant signal
+kprof|x1,PB.B932,level_Petrolia,4494,4493,4493,4493,4493,4492,no significant signal
+kprof|x1,PB.B932,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B932,level_Ferndale,4493,4493,4493,4492,4491,4492,no significant signal
+kprof|x1,PB.B932,drop0_M7,4493,4493,4493,4493,4493,4490,no significant signal
+kprof|x1,PB.B932,level_M7,4495,4495,4492,4491,4492,4483,no significant signal
+kprof|x1,PB.B932,ramp21,4494,4493,4494,4493,4494,4485,no significant signal
+kprof|x1,PB.B932,trend,4493,4493,4493,4493,4493,4492,no significant signal
+kprof|x1,PB.B933,ENV_cos,4500,4500,4498,4495,4492,4488,no significant signal
+kprof|x1,PB.B933,ENV_sin,4530,4494,4491,4502,4503,4489,not resolved
+kprof|x1,PB.B933,drop0_Petrolia,4493,4493,4493,4493,4492,4492,no significant signal
+kprof|x1,PB.B933,level_Petrolia,4494,4492,4490,4490,4490,4490,no significant signal
+kprof|x1,PB.B933,drop0_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B933,level_Ferndale,4497,4497,4492,4489,4487,4472,not resolved
+kprof|x1,PB.B933,drop0_M7,4493,4490,4490,4490,4493,4490,no significant signal
+kprof|x1,PB.B933,level_M7,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B933,ramp21,4493,4491,4491,4491,4493,4490,no significant signal
+kprof|x1,PB.B933,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B934,ENV_cos,4550,4479,4486,4492,4476,4479,not resolved
+kprof|x1,PB.B934,ENV_sin,4514,4506,4494,4490,4512,4478,not resolved
+kprof|x1,PB.B934,drop0_Petrolia,4495,4492,4492,4492,4490,4491,no significant signal
+kprof|x1,PB.B934,level_Petrolia,4498,4493,4491,4491,4495,4488,no significant signal
+kprof|x1,PB.B934,drop0_Ferndale,4497,4490,4491,4491,4491,4489,no significant signal
+kprof|x1,PB.B934,level_Ferndale,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B934,drop0_M7,4494,4492,4493,4493,4485,4485,no significant signal
+kprof|x1,PB.B934,level_M7,4494,4492,4492,4492,4494,4492,no significant signal
+kprof|x1,PB.B934,ramp21,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B934,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B935,ENV_cos,4526,4489,4495,4510,4507,4489,top ~0.3 km
+kprof|x1,PB.B935,ENV_sin,4502,4502,4498,4493,4502,4491,>=1 km (lower limit only)
+kprof|x1,PB.B935,drop0_Petrolia,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B935,level_Petrolia,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B935,drop0_Ferndale,4493,4493,4493,4493,4493,4492,no significant signal
+kprof|x1,PB.B935,level_Ferndale,4494,4492,4493,4494,4494,4492,no significant signal
+kprof|x1,PB.B935,drop0_M7,4493,4490,4490,4490,4493,4490,no significant signal
+kprof|x1,PB.B935,level_M7,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B935,ramp21,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x1,PB.B935,trend,4493,4493,4493,4493,4493,4493,no significant signal
+kprof|x0.3,BK.BJES,ENV_cos,6134,6133,6133,6133,6134,6133,no significant signal
+kprof|x0.3,BK.BJES,ENV_sin,6135,6132,6128,6125,6122,6125,>=1 km (lower limit only)
+kprof|x0.3,BK.BJES,drop0_Petrolia,6134,6132,6132,6132,6132,6132,no significant signal
+kprof|x0.3,BK.BJES,level_Petrolia,6134,6134,6134,6134,6130,6134,no significant signal
+kprof|x0.3,BK.BJES,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.BJES,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.BJES,drop0_M7,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.BJES,level_M7,6134,6133,6133,6133,6130,6133,no significant signal
+kprof|x0.3,BK.BJES,ramp21,6134,6134,6134,6134,6133,6134,no significant signal
+kprof|x0.3,BK.BJES,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.BLAS,ENV_cos,6134,6134,6134,6134,6125,6133,>=1 km (lower limit only)
+kprof|x0.3,BK.BLAS,ENV_sin,6160,6109,6121,6140,6152,6106,top ~0.3 km
+kprof|x0.3,BK.BLAS,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.BLAS,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.BLAS,drop0_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.BLAS,level_Ferndale,6135,6131,6131,6132,6134,6131,no significant signal
+kprof|x0.3,BK.BLAS,drop0_M7,6137,6131,6132,6133,6136,6131,no significant signal
+kprof|x0.3,BK.BLAS,level_M7,6136,6131,6131,6132,6134,6131,no significant signal
+kprof|x0.3,BK.BLAS,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.BLAS,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.BRIC,ENV_cos,6205,6117,6121,6145,6148,6117,not resolved
+kprof|x0.3,BK.BRIC,ENV_sin,6405,6080,6152,6321,6339,6063,not resolved
+kprof|x0.3,BK.BRIC,drop0_Petrolia,6140,6130,6126,6125,6134,6125,not resolved
+kprof|x0.3,BK.BRIC,level_Petrolia,6153,6110,6078,6069,6096,6041,not resolved
+kprof|x0.3,BK.BRIC,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.BRIC,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.BRIC,drop0_M7,6266,6062,6088,6178,6227,6061,top ~0.3 km
+kprof|x0.3,BK.BRIC,level_M7,6162,6086,6103,6141,6120,6085,top ~0.3 km
+kprof|x0.3,BK.BRIC,ramp21,6160,6066,6059,6105,6089,6058,uniform 0-3 km
+kprof|x0.3,BK.BRIC,trend,6137,6109,6098,6109,6113,6097,uniform 0-3 km
+kprof|x0.3,BK.ETSL,ENV_cos,6141,6129,6122,6109,6109,6106,>=1 km (lower limit only)
+kprof|x0.3,BK.ETSL,ENV_sin,6136,6133,6135,6134,6133,6122,no significant signal
+kprof|x0.3,BK.ETSL,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.ETSL,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.ETSL,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.ETSL,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.ETSL,drop0_M7,6150,6131,6130,6132,6130,6130,not resolved
+kprof|x0.3,BK.ETSL,level_M7,6135,6133,6132,6127,6128,6126,no significant signal
+kprof|x0.3,BK.ETSL,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.ETSL,trend,6134,6128,6122,6111,6115,6109,>=1 km (lower limit only)
+kprof|x0.3,BK.GHOP,ENV_cos,6171,6133,6113,6098,6019,6069,>=1 km (lower limit only)
+kprof|x0.3,BK.GHOP,ENV_sin,6274,6122,6097,6144,6003,6090,>=1 km (lower limit only)
+kprof|x0.3,BK.GHOP,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.GHOP,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.GHOP,drop0_Ferndale,6141,6127,6130,6133,6130,6126,not resolved
+kprof|x0.3,BK.GHOP,level_Ferndale,6137,6133,6132,6134,6128,6132,no significant signal
+kprof|x0.3,BK.GHOP,drop0_M7,6137,6135,6132,6132,6118,6120,>=1 km (lower limit only)
+kprof|x0.3,BK.GHOP,level_M7,6140,6131,6130,6132,6135,6130,not resolved
+kprof|x0.3,BK.GHOP,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.GHOP,trend,6134,6134,6134,6133,6128,6129,no significant signal
+kprof|x0.3,BK.HALS,ENV_cos,6137,6130,6134,6135,6136,6126,no significant signal
+kprof|x0.3,BK.HALS,ENV_sin,6158,6114,6135,6152,6142,6097,not resolved
+kprof|x0.3,BK.HALS,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.HALS,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.HALS,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.HALS,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.HALS,drop0_M7,6135,6135,6133,6132,6130,6130,no significant signal
+kprof|x0.3,BK.HALS,level_M7,6143,6122,6124,6132,6142,6122,not resolved
+kprof|x0.3,BK.HALS,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.HALS,trend,6135,6117,6121,6130,6135,6117,top ~0.3 km
+kprof|x0.3,BK.HAYF,ENV_cos,6151,6129,6135,6143,6150,6125,not resolved
+kprof|x0.3,BK.HAYF,ENV_sin,6138,6136,6133,6131,6131,6126,no significant signal
+kprof|x0.3,BK.HAYF,drop0_Petrolia,6134,6134,6133,6133,6132,6133,no significant signal
+kprof|x0.3,BK.HAYF,level_Petrolia,6135,6133,6134,6134,6135,6131,no significant signal
+kprof|x0.3,BK.HAYF,drop0_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.HAYF,level_Ferndale,6139,6129,6133,6138,6138,6127,not resolved
+kprof|x0.3,BK.HAYF,drop0_M7,6136,6133,6133,6134,6134,6133,no significant signal
+kprof|x0.3,BK.HAYF,level_M7,6137,6132,6131,6132,6131,6131,no significant signal
+kprof|x0.3,BK.HAYF,ramp21,6135,6134,6132,6130,6128,6130,no significant signal
+kprof|x0.3,BK.HAYF,trend,6134,6134,6132,6131,6131,6130,no significant signal
+kprof|x0.3,BK.HUNT,ENV_cos,6134,6134,6134,6132,6132,6130,no significant signal
+kprof|x0.3,BK.HUNT,ENV_sin,6135,6133,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.HUNT,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.HUNT,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.HUNT,drop0_Ferndale,6135,6132,6133,6134,6134,6131,no significant signal
+kprof|x0.3,BK.HUNT,level_Ferndale,6134,6134,6134,6134,6133,6128,no significant signal
+kprof|x0.3,BK.HUNT,drop0_M7,6135,6133,6133,6131,6132,6133,no significant signal
+kprof|x0.3,BK.HUNT,level_M7,6135,6133,6132,6129,6130,6131,no significant signal
+kprof|x0.3,BK.HUNT,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.HUNT,trend,6134,6134,6134,6133,6132,6132,no significant signal
+kprof|x0.3,BK.JEWT,ENV_cos,6134,6134,6134,6134,6132,6134,no significant signal
+kprof|x0.3,BK.JEWT,ENV_sin,6163,6129,6130,6142,6135,6129,not resolved
+kprof|x0.3,BK.JEWT,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.JEWT,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.JEWT,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.JEWT,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.JEWT,drop0_M7,6134,6134,6134,6133,6133,6133,no significant signal
+kprof|x0.3,BK.JEWT,level_M7,6136,6133,6135,6135,6135,6130,no significant signal
+kprof|x0.3,BK.JEWT,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.JEWT,trend,6134,6133,6134,6134,6134,6130,no significant signal
+kprof|x0.3,BK.PRDS,ENV_cos,6179,6111,6101,6136,6119,6100,uniform 0-3 km
+kprof|x0.3,BK.PRDS,ENV_sin,6624,5905,6186,6507,6507,5885,not resolved
+kprof|x0.3,BK.PRDS,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.PRDS,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.PRDS,drop0_Ferndale,6139,6131,6133,6138,6138,6130,no significant signal
+kprof|x0.3,BK.PRDS,level_Ferndale,6151,6111,6125,6143,6146,6111,top ~0.3 km
+kprof|x0.3,BK.PRDS,drop0_M7,6213,6106,6087,6129,6162,6086,uniform 0-3 km
+kprof|x0.3,BK.PRDS,level_M7,6143,6132,6114,6105,6117,6104,>=1 km (lower limit only)
+kprof|x0.3,BK.PRDS,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.PRDS,trend,6136,6124,6108,6106,6123,6104,not resolved
+kprof|x0.3,BK.RBOW,ENV_cos,6138,6134,6136,6131,6136,6130,no significant signal
+kprof|x0.3,BK.RBOW,ENV_sin,6204,6126,6152,6192,6190,6106,not resolved
+kprof|x0.3,BK.RBOW,drop0_Petrolia,6137,6133,6131,6128,6123,6130,>=1 km (lower limit only)
+kprof|x0.3,BK.RBOW,level_Petrolia,6136,6131,6135,6136,6135,6127,no significant signal
+kprof|x0.3,BK.RBOW,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.RBOW,level_Ferndale,6135,6135,6134,6132,6131,6129,no significant signal
+kprof|x0.3,BK.RBOW,drop0_M7,6156,6126,6127,6133,6134,6126,not resolved
+kprof|x0.3,BK.RBOW,level_M7,6135,6132,6133,6134,6135,6132,no significant signal
+kprof|x0.3,BK.RBOW,ramp21,6134,6133,6134,6134,6131,6133,no significant signal
+kprof|x0.3,BK.RBOW,trend,6134,6134,6134,6134,6133,6134,no significant signal
+kprof|x0.3,BK.RVIT,ENV_cos,6169,6124,6119,6111,6102,6113,>=1 km (lower limit only)
+kprof|x0.3,BK.RVIT,ENV_sin,6271,6094,6106,6143,6162,6089,not resolved
+kprof|x0.3,BK.RVIT,drop0_Petrolia,6139,6116,6117,6125,6126,6116,not resolved
+kprof|x0.3,BK.RVIT,level_Petrolia,6139,6124,6126,6134,6134,6120,not resolved
+kprof|x0.3,BK.RVIT,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.RVIT,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.RVIT,drop0_M7,6137,6131,6132,6132,6132,6131,no significant signal
+kprof|x0.3,BK.RVIT,level_M7,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.RVIT,ramp21,6135,6130,6131,6133,6132,6130,no significant signal
+kprof|x0.3,BK.RVIT,trend,6134,6132,6132,6134,6134,6132,no significant signal
+kprof|x0.3,BK.SHWD,ENV_cos,6136,6134,6134,6131,6135,6134,no significant signal
+kprof|x0.3,BK.SHWD,ENV_sin,6241,6111,6136,6189,6221,6094,not resolved
+kprof|x0.3,BK.SHWD,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.SHWD,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.SHWD,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.SHWD,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.SHWD,drop0_M7,6141,6139,6134,6124,6121,6113,not resolved
+kprof|x0.3,BK.SHWD,level_M7,6135,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.SHWD,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.SHWD,trend,6134,6133,6134,6133,6131,6126,no significant signal
+kprof|x0.3,BK.SPRL,ENV_cos,6135,6134,6135,6134,6130,6130,no significant signal
+kprof|x0.3,BK.SPRL,ENV_sin,6136,6134,6134,6136,6136,6133,no significant signal
+kprof|x0.3,BK.SPRL,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.SPRL,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.SPRL,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.SPRL,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.SPRL,drop0_M7,6155,6124,6124,6139,6145,6122,not resolved
+kprof|x0.3,BK.SPRL,level_M7,6144,6123,6130,6139,6133,6122,top ~0.3 km
+kprof|x0.3,BK.SPRL,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.SPRL,trend,6135,6119,6127,6134,6133,6118,top ~0.3 km
+kprof|x0.3,BK.USAL,ENV_cos,6139,6132,6131,6137,6124,6131,>=1 km (lower limit only)
+kprof|x0.3,BK.USAL,ENV_sin,6169,6121,6124,6146,6145,6120,not resolved
+kprof|x0.3,BK.USAL,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,BK.USAL,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,BK.USAL,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,BK.USAL,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,BK.USAL,drop0_M7,6139,6132,6133,6138,6128,6132,>=1 km (lower limit only)
+kprof|x0.3,BK.USAL,level_M7,6141,6130,6125,6126,6136,6125,not resolved
+kprof|x0.3,BK.USAL,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,BK.USAL,trend,6134,6132,6131,6131,6131,6131,no significant signal
+kprof|x0.3,NC.KCPB,ENV_cos,6136,6134,6136,6135,6135,6129,no significant signal
+kprof|x0.3,NC.KCPB,ENV_sin,6152,6130,6132,6139,6144,6130,not resolved
+kprof|x0.3,NC.KCPB,drop0_Petrolia,6136,6132,6131,6131,6133,6131,no significant signal
+kprof|x0.3,NC.KCPB,level_Petrolia,6136,6131,6130,6132,6135,6130,no significant signal
+kprof|x0.3,NC.KCPB,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,NC.KCPB,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,NC.KCPB,drop0_M7,6134,6128,6128,6129,6134,6127,no significant signal
+kprof|x0.3,NC.KCPB,level_M7,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,NC.KCPB,ramp21,6134,6133,6132,6132,6134,6132,no significant signal
+kprof|x0.3,NC.KCPB,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,NC.KCPC,ENV_cos,6161,6137,6120,6101,6102,6096,not resolved
+kprof|x0.3,NC.KCPC,ENV_sin,6207,6120,6125,6182,6140,6120,top ~0.3 km
+kprof|x0.3,NC.KCPC,drop0_Petrolia,6134,6132,6132,6132,6134,6132,no significant signal
+kprof|x0.3,NC.KCPC,level_Petrolia,6134,6125,6125,6125,6134,6125,not resolved
+kprof|x0.3,NC.KCPC,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,NC.KCPC,level_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,NC.KCPC,drop0_M7,6150,6136,6130,6129,6145,6129,not resolved
+kprof|x0.3,NC.KCPC,level_M7,6137,6133,6136,6137,6134,6126,no significant signal
+kprof|x0.3,NC.KCPC,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,NC.KCPC,trend,6134,6133,6134,6133,6133,6124,no significant signal
+kprof|x0.3,NC.KMPB,ENV_cos,6151,6132,6132,6134,6129,6132,not resolved
+kprof|x0.3,NC.KMPB,ENV_sin,6146,6133,6135,6136,6114,6130,>=1 km (lower limit only)
+kprof|x0.3,NC.KMPB,drop0_Petrolia,6134,6134,6134,6134,6131,6134,no significant signal
+kprof|x0.3,NC.KMPB,level_Petrolia,6135,6133,6132,6131,6123,6132,>=1 km (lower limit only)
+kprof|x0.3,NC.KMPB,drop0_Ferndale,6137,6133,6133,6133,6133,6133,no significant signal
+kprof|x0.3,NC.KMPB,level_Ferndale,6134,6134,6134,6134,6132,6134,no significant signal
+kprof|x0.3,NC.KMPB,drop0_M7,6136,6134,6133,6132,6128,6132,no significant signal
+kprof|x0.3,NC.KMPB,level_M7,6147,6115,6114,6125,6125,6114,not resolved
+kprof|x0.3,NC.KMPB,ramp21,6145,6115,6113,6117,6105,6112,>=1 km (lower limit only)
+kprof|x0.3,NC.KMPB,trend,6135,6132,6132,6133,6135,6132,no significant signal
+kprof|x0.3,NC.KMR,ENV_cos,6135,6134,6134,6132,6132,6134,no significant signal
+kprof|x0.3,NC.KMR,ENV_sin,6137,6134,6133,6132,6135,6133,no significant signal
+kprof|x0.3,NC.KMR,drop0_Petrolia,6134,6134,6134,6132,6132,6132,no significant signal
+kprof|x0.3,NC.KMR,level_Petrolia,6136,6131,6129,6130,6133,6127,no significant signal
+kprof|x0.3,NC.KMR,drop0_Ferndale,6134,6134,6133,6133,6133,6132,no significant signal
+kprof|x0.3,NC.KMR,level_Ferndale,6134,6134,6134,6134,6132,6134,no significant signal
+kprof|x0.3,NC.KMR,drop0_M7,6134,6134,6134,6134,6132,6132,no significant signal
+kprof|x0.3,NC.KMR,level_M7,6134,6134,6134,6134,6134,6132,no significant signal
+kprof|x0.3,NC.KMR,ramp21,6134,6134,6134,6134,6133,6134,no significant signal
+kprof|x0.3,NC.KMR,trend,6134,6133,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B045,ENV_cos,6151,6151,6139,6134,6139,6075,not resolved
+kprof|x0.3,PB.B045,ENV_sin,6200,6100,6125,6147,6109,6098,top ~0.3 km
+kprof|x0.3,PB.B045,drop0_Petrolia,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B045,level_Petrolia,6138,6131,6125,6125,6130,6121,not resolved
+kprof|x0.3,PB.B045,drop0_Ferndale,6142,6117,6119,6120,6123,6117,not resolved
+kprof|x0.3,PB.B045,level_Ferndale,6147,6102,6116,6127,6123,6100,top ~0.3 km
+kprof|x0.3,PB.B045,drop0_M7,6142,6110,6127,6133,6126,6097,not resolved
+kprof|x0.3,PB.B045,level_M7,6135,6133,6134,6133,6134,6110,no significant signal
+kprof|x0.3,PB.B045,ramp21,6139,6110,6126,6133,6128,6102,not resolved
+kprof|x0.3,PB.B045,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B046,ENV_cos,6144,6119,6141,6141,6131,6073,not resolved
+kprof|x0.3,PB.B046,ENV_sin,6154,6117,6136,6145,6150,6110,not resolved
+kprof|x0.3,PB.B046,drop0_Petrolia,6134,6133,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B046,level_Petrolia,6134,6134,6133,6132,6134,6131,no significant signal
+kprof|x0.3,PB.B046,drop0_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B046,level_Ferndale,6134,6133,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B046,drop0_M7,6138,6126,6126,6127,6123,6125,not resolved
+kprof|x0.3,PB.B046,level_M7,6135,6134,6132,6132,6132,6131,no significant signal
+kprof|x0.3,PB.B046,ramp21,6135,6134,6132,6131,6133,6130,no significant signal
+kprof|x0.3,PB.B046,trend,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B047,ENV_cos,6136,6136,6135,6136,6136,6129,no significant signal
+kprof|x0.3,PB.B047,ENV_sin,6152,6136,6131,6134,6149,6131,not resolved
+kprof|x0.3,PB.B047,drop0_Petrolia,6135,6131,6134,6134,6133,6129,no significant signal
+kprof|x0.3,PB.B047,level_Petrolia,6135,6131,6134,6135,6134,6128,no significant signal
+kprof|x0.3,PB.B047,drop0_Ferndale,6135,6134,6133,6133,6134,6132,no significant signal
+kprof|x0.3,PB.B047,level_Ferndale,6134,6134,6134,6134,6133,6134,no significant signal
+kprof|x0.3,PB.B047,drop0_M7,6143,6130,6126,6129,6134,6125,not resolved
+kprof|x0.3,PB.B047,level_M7,6135,6134,6134,6133,6135,6118,no significant signal
+kprof|x0.3,PB.B047,ramp21,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B047,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B049,ENV_cos,6150,6125,6125,6126,6129,6124,not resolved
+kprof|x0.3,PB.B049,ENV_sin,6152,6112,6127,6129,6130,6098,not resolved
+kprof|x0.3,PB.B049,drop0_Petrolia,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B049,level_Petrolia,6134,6134,6134,6134,6132,6134,no significant signal
+kprof|x0.3,PB.B049,drop0_Ferndale,6135,6133,6133,6133,6133,6132,no significant signal
+kprof|x0.3,PB.B049,level_Ferndale,6134,6134,6134,6134,6131,6129,no significant signal
+kprof|x0.3,PB.B049,drop0_M7,6135,6131,6132,6132,6128,6129,no significant signal
+kprof|x0.3,PB.B049,level_M7,6135,6132,6131,6132,6132,6131,no significant signal
+kprof|x0.3,PB.B049,ramp21,6135,6131,6132,6133,6125,6130,>=1 km (lower limit only)
+kprof|x0.3,PB.B049,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B932,ENV_cos,6153,6110,6125,6137,6152,6093,not resolved
+kprof|x0.3,PB.B932,ENV_sin,6137,6135,6134,6134,6137,6132,no significant signal
+kprof|x0.3,PB.B932,drop0_Petrolia,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B932,level_Petrolia,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B932,drop0_Ferndale,6134,6134,6134,6133,6133,6134,no significant signal
+kprof|x0.3,PB.B932,level_Ferndale,6135,6134,6134,6133,6132,6132,no significant signal
+kprof|x0.3,PB.B932,drop0_M7,6134,6133,6134,6134,6134,6128,no significant signal
+kprof|x0.3,PB.B932,level_M7,6135,6134,6132,6132,6131,6122,no significant signal
+kprof|x0.3,PB.B932,ramp21,6135,6135,6133,6133,6134,6122,no significant signal
+kprof|x0.3,PB.B932,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B933,ENV_cos,6141,6138,6128,6123,6120,6116,not resolved
+kprof|x0.3,PB.B933,ENV_sin,6154,6124,6119,6126,6129,6119,uniform 0-3 km
+kprof|x0.3,PB.B933,drop0_Petrolia,6134,6134,6133,6133,6132,6131,no significant signal
+kprof|x0.3,PB.B933,level_Petrolia,6134,6131,6128,6128,6128,6127,no significant signal
+kprof|x0.3,PB.B933,drop0_Ferndale,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B933,level_Ferndale,6135,6135,6128,6125,6123,6106,not resolved
+kprof|x0.3,PB.B933,drop0_M7,6134,6128,6128,6129,6134,6127,no significant signal
+kprof|x0.3,PB.B933,level_M7,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B933,ramp21,6134,6131,6131,6131,6134,6130,no significant signal
+kprof|x0.3,PB.B933,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B934,ENV_cos,6184,6100,6107,6110,6084,6099,>=1 km (lower limit only)
+kprof|x0.3,PB.B934,ENV_sin,6145,6139,6131,6130,6143,6093,not resolved
+kprof|x0.3,PB.B934,drop0_Petrolia,6135,6132,6133,6133,6131,6131,no significant signal
+kprof|x0.3,PB.B934,level_Petrolia,6137,6127,6126,6125,6127,6125,not resolved
+kprof|x0.3,PB.B934,drop0_Ferndale,6136,6125,6126,6126,6125,6124,not resolved
+kprof|x0.3,PB.B934,level_Ferndale,6135,6133,6133,6133,6134,6133,no significant signal
+kprof|x0.3,PB.B934,drop0_M7,6135,6131,6133,6132,6121,6122,>=1 km (lower limit only)
+kprof|x0.3,PB.B934,level_M7,6135,6132,6132,6132,6134,6131,no significant signal
+kprof|x0.3,PB.B934,ramp21,6135,6132,6132,6132,6131,6132,no significant signal
+kprof|x0.3,PB.B934,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B935,ENV_cos,6149,6121,6129,6138,6133,6121,top ~0.3 km
+kprof|x0.3,PB.B935,ENV_sin,6137,6136,6137,6135,6137,6124,no significant signal
+kprof|x0.3,PB.B935,drop0_Petrolia,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B935,level_Petrolia,6134,6133,6134,6133,6133,6133,no significant signal
+kprof|x0.3,PB.B935,drop0_Ferndale,6134,6134,6134,6134,6134,6133,no significant signal
+kprof|x0.3,PB.B935,level_Ferndale,6136,6130,6132,6133,6135,6130,no significant signal
+kprof|x0.3,PB.B935,drop0_M7,6134,6128,6128,6129,6134,6127,no significant signal
+kprof|x0.3,PB.B935,level_M7,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x0.3,PB.B935,ramp21,6135,6132,6133,6133,6133,6132,no significant signal
+kprof|x0.3,PB.B935,trend,6134,6134,6134,6134,6134,6134,no significant signal
+kprof|x3,BK.BJES,ENV_cos,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.BJES,ENV_sin,3853,3850,3846,3845,3842,3844,>=1 km (lower limit only)
+kprof|x3,BK.BJES,drop0_Petrolia,3848,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.BJES,level_Petrolia,3847,3847,3847,3847,3846,3847,no significant signal
+kprof|x3,BK.BJES,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.BJES,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.BJES,drop0_M7,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,BK.BJES,level_M7,3848,3846,3847,3848,3845,3846,no significant signal
+kprof|x3,BK.BJES,ramp21,3847,3847,3847,3847,3846,3846,no significant signal
+kprof|x3,BK.BJES,trend,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.BLAS,ENV_cos,3856,3855,3852,3848,3828,3844,>=1 km (lower limit only)
+kprof|x3,BK.BLAS,ENV_sin,3906,3853,3871,3894,3904,3844,not resolved
+kprof|x3,BK.BLAS,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.BLAS,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.BLAS,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.BLAS,level_Ferndale,3849,3848,3846,3844,3848,3846,no significant signal
+kprof|x3,BK.BLAS,drop0_M7,3849,3847,3847,3847,3849,3847,no significant signal
+kprof|x3,BK.BLAS,level_M7,3847,3847,3847,3846,3847,3847,no significant signal
+kprof|x3,BK.BLAS,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.BLAS,trend,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.BRIC,ENV_cos,3870,3848,3854,3865,3861,3847,top ~0.3 km
+kprof|x3,BK.BRIC,ENV_sin,4036,3853,3900,4021,4017,3845,not resolved
+kprof|x3,BK.BRIC,drop0_Petrolia,3858,3848,3846,3848,3854,3846,not resolved
+kprof|x3,BK.BRIC,level_Petrolia,3905,3878,3849,3858,3881,3828,not resolved
+kprof|x3,BK.BRIC,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.BRIC,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.BRIC,drop0_M7,3951,3846,3853,3906,3931,3846,top ~0.3 km
+kprof|x3,BK.BRIC,level_M7,3876,3845,3857,3872,3839,3844,>=1 km (lower limit only)
+kprof|x3,BK.BRIC,ramp21,3848,3848,3847,3847,3831,3846,>=1 km (lower limit only)
+kprof|x3,BK.BRIC,trend,3848,3847,3847,3848,3847,3847,no significant signal
+kprof|x3,BK.ETSL,ENV_cos,3853,3853,3853,3848,3846,3842,no significant signal
+kprof|x3,BK.ETSL,ENV_sin,3860,3850,3854,3860,3860,3845,not resolved
+kprof|x3,BK.ETSL,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.ETSL,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.ETSL,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.ETSL,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.ETSL,drop0_M7,3848,3847,3847,3848,3846,3847,no significant signal
+kprof|x3,BK.ETSL,level_M7,3848,3848,3847,3846,3846,3845,no significant signal
+kprof|x3,BK.ETSL,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.ETSL,trend,3847,3847,3847,3845,3845,3844,no significant signal
+kprof|x3,BK.GHOP,ENV_cos,3893,3891,3883,3873,3801,3840,>=1 km (lower limit only)
+kprof|x3,BK.GHOP,ENV_sin,3951,3887,3860,3901,3745,3843,>=1 km (lower limit only)
+kprof|x3,BK.GHOP,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.GHOP,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.GHOP,drop0_Ferndale,3860,3850,3853,3858,3857,3844,not resolved
+kprof|x3,BK.GHOP,level_Ferndale,3861,3847,3849,3860,3852,3847,not resolved
+kprof|x3,BK.GHOP,drop0_M7,3854,3850,3848,3852,3840,3846,>=1 km (lower limit only)
+kprof|x3,BK.GHOP,level_M7,3860,3852,3848,3850,3855,3845,not resolved
+kprof|x3,BK.GHOP,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.GHOP,trend,3849,3846,3847,3845,3848,3846,no significant signal
+kprof|x3,BK.HALS,ENV_cos,3857,3847,3848,3847,3851,3847,not resolved
+kprof|x3,BK.HALS,ENV_sin,3898,3854,3872,3892,3877,3845,not resolved
+kprof|x3,BK.HALS,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.HALS,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.HALS,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.HALS,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.HALS,drop0_M7,3848,3847,3847,3847,3846,3847,no significant signal
+kprof|x3,BK.HALS,level_M7,3847,3847,3847,3847,3845,3847,no significant signal
+kprof|x3,BK.HALS,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.HALS,trend,3850,3844,3846,3849,3850,3844,no significant signal
+kprof|x3,BK.HAYF,ENV_cos,3862,3859,3862,3860,3850,3845,not resolved
+kprof|x3,BK.HAYF,ENV_sin,3850,3849,3850,3850,3849,3847,no significant signal
+kprof|x3,BK.HAYF,drop0_Petrolia,3848,3847,3847,3847,3845,3847,no significant signal
+kprof|x3,BK.HAYF,level_Petrolia,3848,3847,3848,3848,3848,3846,no significant signal
+kprof|x3,BK.HAYF,drop0_Ferndale,3848,3848,3848,3848,3848,3846,no significant signal
+kprof|x3,BK.HAYF,level_Ferndale,3856,3847,3848,3853,3856,3846,not resolved
+kprof|x3,BK.HAYF,drop0_M7,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.HAYF,level_M7,3848,3847,3847,3844,3844,3847,no significant signal
+kprof|x3,BK.HAYF,ramp21,3847,3847,3847,3847,3846,3847,no significant signal
+kprof|x3,BK.HAYF,trend,3847,3847,3847,3847,3846,3847,no significant signal
+kprof|x3,BK.HUNT,ENV_cos,3850,3847,3848,3850,3850,3846,no significant signal
+kprof|x3,BK.HUNT,ENV_sin,3852,3847,3847,3849,3849,3847,no significant signal
+kprof|x3,BK.HUNT,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.HUNT,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.HUNT,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.HUNT,level_Ferndale,3848,3848,3848,3848,3847,3845,no significant signal
+kprof|x3,BK.HUNT,drop0_M7,3850,3847,3847,3845,3846,3846,no significant signal
+kprof|x3,BK.HUNT,level_M7,3847,3847,3847,3845,3845,3846,no significant signal
+kprof|x3,BK.HUNT,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.HUNT,trend,3847,3847,3847,3846,3846,3846,no significant signal
+kprof|x3,BK.JEWT,ENV_cos,3849,3847,3847,3847,3848,3847,no significant signal
+kprof|x3,BK.JEWT,ENV_sin,3895,3847,3849,3878,3872,3847,not resolved
+kprof|x3,BK.JEWT,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.JEWT,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.JEWT,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.JEWT,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.JEWT,drop0_M7,3849,3848,3847,3845,3845,3847,no significant signal
+kprof|x3,BK.JEWT,level_M7,3849,3847,3848,3849,3848,3846,no significant signal
+kprof|x3,BK.JEWT,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.JEWT,trend,3847,3847,3847,3846,3847,3846,no significant signal
+kprof|x3,BK.PRDS,ENV_cos,3895,3848,3868,3894,3887,3846,top ~0.3 km
+kprof|x3,BK.PRDS,ENV_sin,4333,3856,4065,4318,4318,3842,not resolved
+kprof|x3,BK.PRDS,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.PRDS,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.PRDS,drop0_Ferndale,3852,3847,3847,3850,3851,3847,no significant signal
+kprof|x3,BK.PRDS,level_Ferndale,3872,3849,3847,3858,3870,3846,not resolved
+kprof|x3,BK.PRDS,drop0_M7,3881,3861,3847,3861,3879,3846,uniform 0-3 km
+kprof|x3,BK.PRDS,level_M7,3861,3852,3846,3850,3856,3845,uniform 0-3 km
+kprof|x3,BK.PRDS,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.PRDS,trend,3847,3847,3847,3847,3844,3847,no significant signal
+kprof|x3,BK.RBOW,ENV_cos,3867,3867,3864,3866,3864,3845,no significant signal
+kprof|x3,BK.RBOW,ENV_sin,3937,3857,3885,3935,3932,3846,not resolved
+kprof|x3,BK.RBOW,drop0_Petrolia,3850,3848,3847,3846,3842,3847,no significant signal
+kprof|x3,BK.RBOW,level_Petrolia,3852,3847,3849,3851,3852,3847,no significant signal
+kprof|x3,BK.RBOW,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.RBOW,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.RBOW,drop0_M7,3874,3847,3848,3861,3862,3847,not resolved
+kprof|x3,BK.RBOW,level_M7,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.RBOW,ramp21,3848,3848,3848,3846,3848,3846,no significant signal
+kprof|x3,BK.RBOW,trend,3847,3847,3847,3847,3846,3847,no significant signal
+kprof|x3,BK.RVIT,ENV_cos,3856,3850,3848,3845,3838,3846,>=1 km (lower limit only)
+kprof|x3,BK.RVIT,ENV_sin,3959,3849,3861,3900,3916,3845,not resolved
+kprof|x3,BK.RVIT,drop0_Petrolia,3851,3847,3847,3848,3848,3847,no significant signal
+kprof|x3,BK.RVIT,level_Petrolia,3853,3847,3849,3852,3852,3845,no significant signal
+kprof|x3,BK.RVIT,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.RVIT,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.RVIT,drop0_M7,3849,3847,3847,3846,3846,3847,no significant signal
+kprof|x3,BK.RVIT,level_M7,3849,3847,3846,3848,3847,3846,no significant signal
+kprof|x3,BK.RVIT,ramp21,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.RVIT,trend,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.SHWD,ENV_cos,3848,3848,3848,3848,3846,3847,no significant signal
+kprof|x3,BK.SHWD,ENV_sin,3996,3855,3885,3965,3993,3845,not resolved
+kprof|x3,BK.SHWD,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.SHWD,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.SHWD,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.SHWD,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.SHWD,drop0_M7,3852,3851,3852,3850,3849,3846,no significant signal
+kprof|x3,BK.SHWD,level_M7,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.SHWD,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.SHWD,trend,3848,3847,3847,3847,3848,3847,no significant signal
+kprof|x3,BK.SPRL,ENV_cos,3855,3847,3847,3850,3855,3847,no significant signal
+kprof|x3,BK.SPRL,ENV_sin,3847,3847,3847,3846,3844,3847,no significant signal
+kprof|x3,BK.SPRL,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.SPRL,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.SPRL,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.SPRL,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.SPRL,drop0_M7,3871,3847,3849,3866,3869,3846,not resolved
+kprof|x3,BK.SPRL,level_M7,3850,3847,3848,3849,3843,3847,no significant signal
+kprof|x3,BK.SPRL,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.SPRL,trend,3848,3846,3848,3848,3848,3845,no significant signal
+kprof|x3,BK.USAL,ENV_cos,3849,3849,3849,3844,3848,3846,no significant signal
+kprof|x3,BK.USAL,ENV_sin,3886,3847,3854,3878,3876,3846,top ~0.3 km
+kprof|x3,BK.USAL,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.USAL,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,BK.USAL,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.USAL,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,BK.USAL,drop0_M7,3857,3848,3847,3855,3840,3847,>=1 km (lower limit only)
+kprof|x3,BK.USAL,level_M7,3853,3848,3847,3849,3853,3846,no significant signal
+kprof|x3,BK.USAL,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,BK.USAL,trend,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,NC.KCPB,ENV_cos,3861,3847,3848,3860,3860,3847,not resolved
+kprof|x3,NC.KCPB,ENV_sin,3866,3847,3848,3859,3862,3847,not resolved
+kprof|x3,NC.KCPB,drop0_Petrolia,3849,3847,3847,3847,3848,3847,no significant signal
+kprof|x3,NC.KCPB,level_Petrolia,3851,3848,3846,3848,3851,3846,no significant signal
+kprof|x3,NC.KCPB,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,NC.KCPB,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,NC.KCPB,drop0_M7,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,NC.KCPB,level_M7,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,NC.KCPB,ramp21,3848,3846,3847,3848,3846,3846,no significant signal
+kprof|x3,NC.KCPB,trend,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,NC.KCPC,ENV_cos,3864,3863,3859,3852,3848,3845,>=1 km (lower limit only)
+kprof|x3,NC.KCPC,ENV_sin,3942,3855,3846,3912,3869,3846,uniform 0-3 km
+kprof|x3,NC.KCPC,drop0_Petrolia,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,NC.KCPC,level_Petrolia,3847,3840,3840,3840,3847,3839,no significant signal
+kprof|x3,NC.KCPC,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,NC.KCPC,level_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,NC.KCPC,drop0_M7,3850,3850,3849,3842,3848,3847,no significant signal
+kprof|x3,NC.KCPC,level_M7,3853,3849,3851,3852,3850,3846,no significant signal
+kprof|x3,NC.KCPC,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,NC.KCPC,trend,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,NC.KMPB,ENV_cos,3849,3849,3849,3848,3849,3846,no significant signal
+kprof|x3,NC.KMPB,ENV_sin,3862,3848,3850,3854,3819,3847,>=1 km (lower limit only)
+kprof|x3,NC.KMPB,drop0_Petrolia,3848,3848,3847,3847,3840,3846,no significant signal
+kprof|x3,NC.KMPB,level_Petrolia,3849,3848,3847,3845,3834,3846,>=1 km (lower limit only)
+kprof|x3,NC.KMPB,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,NC.KMPB,level_Ferndale,3847,3847,3847,3847,3845,3847,no significant signal
+kprof|x3,NC.KMPB,drop0_M7,3853,3849,3847,3845,3841,3846,>=1 km (lower limit only)
+kprof|x3,NC.KMPB,level_M7,3855,3847,3846,3851,3850,3846,not resolved
+kprof|x3,NC.KMPB,ramp21,3851,3847,3846,3847,3835,3846,>=1 km (lower limit only)
+kprof|x3,NC.KMPB,trend,3851,3847,3847,3847,3850,3847,no significant signal
+kprof|x3,NC.KMR,ENV_cos,3860,3850,3847,3843,3846,3846,>=1 km (lower limit only)
+kprof|x3,NC.KMR,ENV_sin,3852,3848,3847,3846,3850,3847,no significant signal
+kprof|x3,NC.KMR,drop0_Petrolia,3849,3849,3848,3846,3846,3846,no significant signal
+kprof|x3,NC.KMR,level_Petrolia,3852,3848,3847,3849,3851,3846,no significant signal
+kprof|x3,NC.KMR,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,NC.KMR,level_Ferndale,3847,3847,3847,3847,3846,3847,no significant signal
+kprof|x3,NC.KMR,drop0_M7,3849,3847,3848,3849,3849,3847,no significant signal
+kprof|x3,NC.KMR,level_M7,3850,3848,3849,3850,3850,3846,no significant signal
+kprof|x3,NC.KMR,ramp21,3847,3847,3847,3847,3846,3847,no significant signal
+kprof|x3,NC.KMR,trend,3848,3847,3848,3848,3848,3846,no significant signal
+kprof|x3,PB.B045,ENV_cos,3921,3918,3891,3886,3911,3842,not resolved
+kprof|x3,PB.B045,ENV_sin,3898,3848,3889,3897,3875,3844,top ~0.3 km
+kprof|x3,PB.B045,drop0_Petrolia,3849,3848,3848,3848,3848,3846,no significant signal
+kprof|x3,PB.B045,level_Petrolia,3852,3850,3851,3851,3851,3842,no significant signal
+kprof|x3,PB.B045,drop0_Ferndale,3852,3846,3848,3849,3849,3846,no significant signal
+kprof|x3,PB.B045,level_Ferndale,3858,3846,3847,3854,3852,3845,not resolved
+kprof|x3,PB.B045,drop0_M7,3868,3844,3858,3865,3860,3842,top ~0.3 km
+kprof|x3,PB.B045,level_M7,3850,3847,3850,3850,3850,3842,no significant signal
+kprof|x3,PB.B045,ramp21,3852,3845,3849,3851,3847,3844,no significant signal
+kprof|x3,PB.B045,trend,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B046,ENV_cos,3911,3844,3885,3881,3872,3843,top ~0.3 km
+kprof|x3,PB.B046,ENV_sin,3886,3849,3880,3886,3886,3845,top ~0.3 km
+kprof|x3,PB.B046,drop0_Petrolia,3848,3847,3848,3848,3848,3846,no significant signal
+kprof|x3,PB.B046,level_Petrolia,3849,3849,3847,3845,3849,3846,no significant signal
+kprof|x3,PB.B046,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B046,level_Ferndale,3847,3847,3847,3846,3847,3847,no significant signal
+kprof|x3,PB.B046,drop0_M7,3861,3847,3847,3850,3849,3846,not resolved
+kprof|x3,PB.B046,level_M7,3849,3848,3847,3847,3848,3846,no significant signal
+kprof|x3,PB.B046,ramp21,3848,3848,3847,3847,3848,3846,no significant signal
+kprof|x3,PB.B046,trend,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B047,ENV_cos,3875,3875,3858,3862,3874,3846,not resolved
+kprof|x3,PB.B047,ENV_sin,3859,3847,3851,3859,3849,3847,not resolved
+kprof|x3,PB.B047,drop0_Petrolia,3850,3847,3850,3850,3850,3846,no significant signal
+kprof|x3,PB.B047,level_Petrolia,3850,3846,3849,3850,3849,3846,no significant signal
+kprof|x3,PB.B047,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B047,level_Ferndale,3848,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B047,drop0_M7,3859,3848,3847,3853,3858,3846,not resolved
+kprof|x3,PB.B047,level_M7,3852,3851,3848,3848,3852,3845,no significant signal
+kprof|x3,PB.B047,ramp21,3848,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B047,trend,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B049,ENV_cos,3878,3848,3848,3860,3870,3842,not resolved
+kprof|x3,PB.B049,ENV_sin,3855,3849,3855,3855,3855,3843,no significant signal
+kprof|x3,PB.B049,drop0_Petrolia,3847,3846,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B049,level_Petrolia,3847,3847,3847,3847,3845,3847,no significant signal
+kprof|x3,PB.B049,drop0_Ferndale,3847,3846,3847,3847,3847,3845,no significant signal
+kprof|x3,PB.B049,level_Ferndale,3849,3849,3847,3846,3845,3845,no significant signal
+kprof|x3,PB.B049,drop0_M7,3848,3847,3847,3847,3846,3846,no significant signal
+kprof|x3,PB.B049,level_M7,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B049,ramp21,3849,3848,3846,3846,3846,3846,no significant signal
+kprof|x3,PB.B049,trend,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B932,ENV_cos,3873,3873,3863,3838,3828,3840,>=1 km (lower limit only)
+kprof|x3,PB.B932,ENV_sin,3852,3846,3851,3852,3852,3846,no significant signal
+kprof|x3,PB.B932,drop0_Petrolia,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B932,level_Petrolia,3848,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B932,drop0_Ferndale,3847,3847,3847,3846,3847,3847,no significant signal
+kprof|x3,PB.B932,level_Ferndale,3849,3847,3847,3845,3844,3847,no significant signal
+kprof|x3,PB.B932,drop0_M7,3850,3849,3847,3847,3850,3846,no significant signal
+kprof|x3,PB.B932,level_M7,3851,3851,3847,3846,3848,3842,no significant signal
+kprof|x3,PB.B932,ramp21,3850,3849,3849,3848,3849,3843,no significant signal
+kprof|x3,PB.B932,trend,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B933,ENV_cos,3856,3847,3853,3856,3856,3846,no significant signal
+kprof|x3,PB.B933,ENV_sin,3867,3848,3850,3860,3859,3846,not resolved
+kprof|x3,PB.B933,drop0_Petrolia,3847,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B933,level_Petrolia,3849,3847,3846,3847,3846,3846,no significant signal
+kprof|x3,PB.B933,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B933,level_Ferndale,3859,3859,3854,3851,3849,3832,not resolved
+kprof|x3,PB.B933,drop0_M7,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,PB.B933,level_M7,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B933,ramp21,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,PB.B933,trend,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B934,ENV_cos,3895,3840,3848,3860,3855,3839,top ~0.3 km
+kprof|x3,PB.B934,ENV_sin,3861,3860,3852,3847,3841,3843,>=1 km (lower limit only)
+kprof|x3,PB.B934,drop0_Petrolia,3848,3846,3847,3847,3844,3846,no significant signal
+kprof|x3,PB.B934,level_Petrolia,3850,3849,3847,3847,3850,3842,no significant signal
+kprof|x3,PB.B934,drop0_Ferndale,3848,3846,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B934,level_Ferndale,3848,3847,3847,3847,3847,3846,no significant signal
+kprof|x3,PB.B934,drop0_M7,3849,3848,3848,3848,3842,3842,no significant signal
+kprof|x3,PB.B934,level_M7,3848,3847,3847,3847,3848,3847,no significant signal
+kprof|x3,PB.B934,ramp21,3849,3846,3846,3847,3848,3846,no significant signal
+kprof|x3,PB.B934,trend,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B935,ENV_cos,3888,3852,3850,3873,3874,3846,not resolved
+kprof|x3,PB.B935,ENV_sin,3852,3851,3850,3846,3849,3847,no significant signal
+kprof|x3,PB.B935,drop0_Petrolia,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B935,level_Petrolia,3847,3847,3847,3846,3847,3847,no significant signal
+kprof|x3,PB.B935,drop0_Ferndale,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B935,level_Ferndale,3848,3847,3848,3848,3844,3846,no significant signal
+kprof|x3,PB.B935,drop0_M7,3847,3846,3846,3846,3847,3846,no significant signal
+kprof|x3,PB.B935,level_M7,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B935,ramp21,3847,3847,3847,3847,3847,3847,no significant signal
+kprof|x3,PB.B935,trend,3847,3847,3847,3847,3847,3847,no significant signal

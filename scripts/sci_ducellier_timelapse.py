@@ -80,14 +80,17 @@ def xcorr_delay(a, b, i0, i1, maxlag=10):
 def stretch_dvv(ref, cur, i0, i1, eps_max=0.01, n=81):
     t = np.arange(len(ref)) * DT
     seg_t = t[i0:i1]
-    best = (-2, 0.0)
-    for e in np.linspace(-eps_max, eps_max, n):
+    E = np.linspace(-eps_max, eps_max, n); C = np.empty(n)
+    for k, e in enumerate(E):
         # cur(t*(1+e)) compared with ref(t): dv/v = e (positive = faster)
         c = np.interp(seg_t * (1 + e), t, cur)
-        cc = np.dot(ref[i0:i1], c) / (np.linalg.norm(ref[i0:i1]) * np.linalg.norm(c) + 1e-20)
-        if cc > best[0]:
-            best = (cc, e)
-    return best[1], best[0]
+        C[k] = np.dot(ref[i0:i1], c) / (np.linalg.norm(ref[i0:i1]) * np.linalg.norm(c) + 1e-20)
+    j = int(np.argmax(C))
+    if 0 < j < n - 1:   # parabolic refinement (grid step 2*eps_max/(n-1) = 0.025% otherwise quantises the estimates)
+        den = C[j - 1] - 2 * C[j] + C[j + 1]
+        off = 0.5 * (C[j - 1] - C[j + 1]) / den if den < 0 else 0.0
+        return float(E[j] + np.clip(off, -1, 1) * (E[1] - E[0])), float(C[j] - 0.25 * (C[j - 1] - C[j + 1]) * off)
+    return float(E[j]), float(C[j])
 
 
 REPO = f"{DUC}/gh_catalog/catalog-master"

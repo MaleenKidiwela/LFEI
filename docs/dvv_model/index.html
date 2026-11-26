@@ -1,0 +1,197 @@
+<title>MTJ dv/v Model</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+/* layout: control rail | station map; below: station detail (depth test + time series) and deep bound. Blue = faster, red = slower. */
+:root{
+  --bg:#f5f6f7; --surface:#ffffff; --fg:#1a1f24; --muted:#5c6670; --line:#d6dbe0;
+  --accent:#1f5f8b; --accent-soft:#e2edf5; --coast:#4a5560; --lfe:#a3321f; --obs:#8a949e; --model:#1a1f24;
+  --display:"IBM Plex Serif", Georgia, serif; --body:"IBM Plex Sans", system-ui, sans-serif; --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111518; --surface:#1a2025; --fg:#e3e7eb; --muted:#97a2ad; --line:#2c353d;
+  --accent:#7fb6dc; --accent-soft:#1c2c38; --coast:#aab4be; --lfe:#f08a74; --obs:#6c7782; --model:#e3e7eb; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111518; --surface:#1a2025; --fg:#e3e7eb; --muted:#97a2ad; --line:#2c353d;
+  --accent:#7fb6dc; --accent-soft:#1c2c38; --coast:#aab4be; --lfe:#f08a74; --obs:#6c7782; --model:#e3e7eb; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+main{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font:600 1.9rem/1.15 var(--display);margin:0;text-wrap:balance}
+h2{font:600 1.02rem var(--display);margin:0 0 6px}
+.lede{color:var(--muted);max-width:78ch;margin:0}
+.eyebrow{font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.banner{font-size:.88rem;border:1px solid var(--line);border-radius:8px;padding:8px 12px;background:var(--accent-soft)}
+.app{display:grid;grid-template-columns:270px minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.app{grid-template-columns:1fr}}
+.rail{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;min-width:0}
+.lab{font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+select{width:100%;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:500 .8rem var(--mono);padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.desc{font-size:.85rem;color:var(--muted);margin:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}
+canvas{display:block;width:100%;height:auto}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px}
+@media (max-width:860px){.row{grid-template-columns:1fr}}
+.kv{font:400 .82rem var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;font:400 .82rem var(--mono);font-variant-numeric:tabular-nums}
+td,th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:right}
+td:first-child,th:first-child{text-align:left}
+th{color:var(--muted);font-weight:500}
+.chip{font:500 .72rem var(--mono);padding:2px 6px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.legend{display:flex;align-items:center;gap:8px;font:400 .78rem var(--mono);color:var(--muted);flex-wrap:wrap}
+.legend canvas{width:180px;height:12px;border-radius:3px}
+.key{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
+.deep{border-left:4px solid var(--muted);padding-left:10px}
+.deep table{font-size:.74rem}.deep td,.deep th{padding:3px 4px;white-space:normal}
+.note{font-size:.82rem;color:var(--muted);margin:0}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+<main>
+  <header style="display:flex;flex-direction:column;gap:8px">
+    <span class="eyebrow">Mendocino triple junction · ambient noise, LFE coda, repeaters, travel times · 2008–2026</span>
+    <h1>MTJ dv/v model</h1>
+    <p class="lede">One joint model for every measured seismic velocity change: dv/v at each station = Σ amplitude × driver(t), with drivers for
+    rain and groundwater, the 2021, 2022 and 2024 earthquakes and the post-2021 change, fitted to all data at once. The data resolve changes
+    beneath each station in the top few kilometres, so the map shows dv/v interpolated over a correlation length estimated from the data, faded where the data constrain it poorly, with each station's own value on top; below about 3 km the model gives a bound, not a map.
+    Amplitudes are apparent: the coda coupling is uncertain by a factor of 2.5–10, so both calibrations are shown. Blue is faster, red is slower.</p>
+    <div class="banner" id="banner" hidden></div>
+  </header>
+  <div class="app">
+    <aside class="rail" aria-label="Controls">
+      <div><span class="lab">View</span><div class="seg" id="mode" role="group" aria-label="View"><button data-m="field" aria-pressed="true">Cause</button><button data-m="date" aria-pressed="false">Date</button></div></div>
+      <div><label class="lab" for="sel">Cause or date</label><select id="sel"></select></div>
+      <p class="desc" id="seldesc"></p>
+      <div><span class="lab">Map depth</span><p class="desc" style="margin:0 0 4px">“As seen” is the 0–3 km change a 1–3 Hz measurement responds to; the split into two depth bins is shown only where the data support it.</p><div class="seg" id="mdep" role="group" aria-label="Map depth"><button data-d="apparent" aria-pressed="true">0–3 km (as seen)</button><button data-d="0-0.3" aria-pressed="false">0–0.3 km</button><button data-d="0.3-3" aria-pressed="false">0.3–3 km</button></div></div>
+      <div><span class="lab">Map shows</span><div class="seg" id="mq" role="group" aria-label="Map quantity"><button data-q="mean" aria-pressed="true">dv/v</button><button data-q="sd" aria-pressed="false">uncertainty</button><button data-q="none" aria-pressed="false">stations only</button></div></div>
+      <p class="desc" id="corrlen"></p>
+      <div id="kbox"><span class="lab">Coda calibration</span><div class="seg" id="kap" role="group" aria-label="Coda calibration"><button data-k="k1" aria-pressed="true">nominal</button><button data-k="kprof" aria-pressed="false">fitted</button></div></div>
+      <div class="legend"><canvas id="cbar" width="360" height="24" aria-hidden="true"></canvas><span id="cbarlab"></span></div>
+      <div class="key"><span>● borehole</span><span>▲ surface</span><span style="color:var(--lfe)">★ LFE family</span><span>size ∝ significance</span><span>◉ epicentre, dashed = rupture</span></div>
+      <div class="panel deep"><h2>Below ~3 km</h2><p class="note" id="deeptxt"></p></div>
+    </aside>
+    <section style="display:flex;flex-direction:column;gap:12px;min-width:0">
+      <div class="panel"><canvas id="map" width="1400" height="1050" aria-label="Station map of the selected cause or date"></canvas></div>
+      <div class="row">
+        <div class="panel"><h2 id="sttitle">Select a station</h2><div id="depthbox" class="kv">Click a station on the map.</div></div>
+        <div class="panel"><h2>Observed and modelled dv/v</h2><canvas id="ts" width="900" height="380" aria-label="Station time series"></canvas><div class="kv" id="tskv"></div></div>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="coast.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let D=null, mode='field', key=null, kap='k1', pick=null, mdep='apparent', mq='mean';
+function isDark(){const t=document.documentElement.dataset.theme;return t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches)}
+function div(v,m){const t=Math.max(-1,Math.min(1,v/m)),mid=isDark()?[40,46,52]:[240,240,240],c=t>=0?[33,102,172]:[178,24,43],a=Math.abs(t);
+  return `rgb(${mid.map((x,i)=>Math.round(x+(c[i]-x)*a)).join(',')})`}
+function seqc(v,m){const t=Math.max(0,Math.min(1,Math.abs(v)/m)),a=isDark()?[40,46,52]:[240,240,240],b=[35,120,90];return `rgb(${a.map((x,i)=>Math.round(x+(b[i]-x)*t)).join(',')})`}
+function signed(){return mode==='date'||D.components[key].signed!==false}
+function vals(){ // {sta:[v,sd]}
+  if(mode==='date')return (kap==='kprof'&&D.dates_kprof?D.dates_kprof:D.dates)[key];
+  const r=D.components[key].kappa_runs[kap],o={}; Object.entries(r).forEach(([s,x])=>o[s]=[x.amp,x.amp_sd]); return o}
+function getMap(){if(mode==='field'){const r=D.components[key].kappa_runs[kap];return r&&r.map||D.components[key].map&&D.components[key].map[kap]||null}
+  const M=D.date_maps&&D.date_maps[kap]; return M?M[key]:null}
+function bounds(){const g=[...D.stations,...D.lfe,...(D.quakes?Object.values(D.quakes).filter(q=>q&&q.lon!=null):[])];let lo=Math.min(-124.45,...g.map(s=>s.lon)),hi=Math.max(-123.0,...g.map(s=>s.lon)),la=Math.min(39.45,...g.map(s=>s.lat)),lb=Math.max(40.6,...g.map(s=>s.lat));
+  return [lo-.08,hi+.08,la-.06,lb+.06]}
+function proj(lon,lat,W,H){const [lo0,lo1,la0,la1]=bounds(),k=Math.cos((la0+la1)/2*Math.PI/180),s=Math.min((W-80)/((lo1-lo0)*k),(H-60)/(la1-la0));
+  return [40+(lon-lo0)*k*s,H-30-(lat-la0)*s]}
+function draw(){
+  const c=$('#map'),x=c.getContext('2d'),W=c.width,H=c.height; x.fillStyle=css('--surface'); x.fillRect(0,0,W,H);
+  const MP=getMap(); let mm=null;
+  if(MP&&mq!=='none'&&MP.layers&&MP.layers[mdep]){const L=MP.layers[mdep], A=mq==='mean'?L.mean:L.sd;
+    const fl=[]; A.forEach((r,i)=>r.forEach((v,j)=>{if(v!=null&&!(L.mask&&L.mask[i][j]))fl.push(Math.abs(v))})); fl.sort((p,q)=>p-q); mm=Math.max(1e-4,fl[Math.floor(.97*(fl.length-1))]||1e-4);
+    const dlo=MP.lon[1]-MP.lon[0], dla=MP.lat[1]-MP.lat[0];
+    MP.lat.forEach((la,i)=>MP.lon.forEach((lo,j)=>{const v=A[i][j]; if(v==null)return; const msk=L.mask&&L.mask[i][j];
+      const [p0x,p0y]=proj(lo-dlo/2,la+dla/2,W,H),[p1x,p1y]=proj(lo+dlo/2,la-dla/2,W,H);
+      const sd=L.sd?L.sd[i][j]:0, conf=mq==='mean'?Math.max(0,Math.min(1,1-(sd||0)/Math.max(mm,1e-6))):1;
+      x.globalAlpha=(msk?0.25:0.35)+0.55*conf; x.fillStyle=mq==='mean'?(signed()?div(v,mm):seqc(v,mm)):seqc(v,mm); x.fillRect(p0x,p0y,p1x-p0x+1,p1y-p0y+1)}));
+    x.globalAlpha=1;
+    const extra=(MP.net_mean!=null?`Network mean ${fmt(MP.net_mean)} ± ${fmt(MP.net_se)} %. `:'')+(MP.text?MP.text+' ':'')+(MP.omitted&&MP.omitted.length?`Left out (no coherent field): ${MP.omitted.join(', ')}. `:'');
+    $('#corrlen').textContent=extra+(MP.verdict?`Map: ${MP.verdict}${MP.perm_p!=null?` (coherence test p = ${fmt(MP.perm_p,2)})`:''}. `:'')+(MP.corr_len_km!=null?`Correlation length from the data: ${fmt(MP.corr_len_km,1)} km${MP.corr_len_ci?` (95% ${fmt(MP.corr_len_ci[0],1)}–${fmt(MP.corr_len_ci[1],1)})`:''}. `:'')+'Faded = uncertain (far from stations or poorly constrained).';
+  } else {$('#corrlen').textContent=MP?((MP.net_mean!=null?`Network mean ${fmt(MP.net_mean)} ± ${fmt(MP.net_se)} %. `:'')+(MP.text||MP.verdict||'No map for this depth.')):'No map for this selection: station values only.'}
+  x.strokeStyle=css('--coast'); x.lineWidth=2.5; x.beginPath(); COAST.forEach(([lo,la],k)=>{const [px,py]=proj(lo,la,W,H); k?x.lineTo(px,py):x.moveTo(px,py)}); x.stroke();
+  x.font='22px "IBM Plex Mono", monospace'; x.fillStyle=css('--muted'); x.fillText('Pacific Ocean',proj(-124.38,39.75,W,H)[0],proj(-124.38,39.75,W,H)[1]);
+  x.fillStyle=css('--lfe'); D.lfe.forEach(f=>{const [px,py]=proj(f.lon,f.lat,W,H); star(x,px,py,9)});
+  if(D.quakes){const ks=Object.keys(D.quakes), sel=(key||'').toLowerCase();
+    ks.forEach(q=>{const Q=D.quakes[q]; const show=mode==='date'||sel.includes(q.toLowerCase()); if(!show)return;
+      x.strokeStyle=css('--fg'); x.lineWidth=3; x.setLineDash([10,6]);
+      if(Q.rupture&&Q.rupture.length){x.beginPath();Q.rupture.forEach(([lo,la],k)=>{const [px,py]=proj(lo,la,W,H);k?x.lineTo(px,py):x.moveTo(px,py)});x.closePath();x.stroke()}
+      x.setLineDash([]); const [px,py]=proj(Q.lon,Q.lat,W,H); x.fillStyle=css('--fg'); x.beginPath(); x.arc(px,py,10,0,7); x.fill();
+      x.fillStyle=css('--surface'); x.beginPath(); x.arc(px,py,4,0,7); x.fill(); x.fillStyle=css('--fg'); x.font='22px "IBM Plex Sans", sans-serif'; x.fillText(`${q} M${Q.mag}`,px+14,py+14)})}
+  const V=vals(); let arr0=Object.values(V||{}).filter(v=>v&&v[0]!=null).map(v=>Math.abs(v[0])).sort((a,b)=>a-b);
+  const arr=arr0; let m=Math.max(1e-4,arr[Math.floor(.95*(arr.length-1))]||1); if(mm&&mq==='mean')m=Math.max(m,mm);
+  D.stations.forEach(s=>{const v=V?V[s.sta]:null; const [px,py]=proj(s.lon,s.lat,W,H);
+    const z=v&&v[1]>0?Math.abs(v[0])/v[1]:0, r=8+Math.min(18,z*3);
+    x.fillStyle=v&&v[0]!=null?(signed()?div(v[0],m):seqc(v[0],m)):css('--line'); x.strokeStyle=css('--fg'); x.lineWidth=pick===s.sta?4:1.5;
+    x.beginPath(); if(s.kind==='borehole'){x.arc(px,py,r,0,7)}else{x.moveTo(px,py-r*1.15);x.lineTo(px+r,py+r*.75);x.lineTo(px-r,py+r*.75);x.closePath()} x.fill(); x.stroke();
+    x.fillStyle=css('--fg'); x.textBaseline='middle'; x.fillText(s.sta.split('.').pop(),px+r+4,py-r*.6)});
+  const cb=$('#cbar'),cx=cb.getContext('2d'); for(let i=0;i<cb.width;i++){cx.fillStyle=signed()?div(((i/(cb.width-1))*2-1)*m,m):seqc((i/(cb.width-1))*m,m);cx.fillRect(i,0,1,cb.height)}
+  $('#cbarlab').textContent=signed()?`−${m.toFixed(3)} … +${m.toFixed(3)} %`:`0 … ${m.toFixed(3)} % (amplitude)`;
+  if(pick)detail();
+}
+function star(x,cx,cy,r){x.beginPath();for(let k=0;k<10;k++){const a=Math.PI/5*k-Math.PI/2,rr=k%2?r*.45:r;x.lineTo(cx+rr*Math.cos(a),cy+rr*Math.sin(a))}x.closePath();x.fill()}
+function fmt(v,d=3){return v==null?'–':(+v).toFixed(d)}
+function detail(){
+  const s=D.stations.find(q=>q.sta===pick); $('#sttitle').textContent=`${s.sta} · ${s.kind}${s.kind==='borehole'?` (sensor ${Math.round(s.sensor_depth_m)} m)`:''}`;
+  let h='';
+  if(mode==='field'){const C=D.components[key]; h+=`<table><tr><th>${C.label}</th><th>nominal</th><th>fitted</th></tr>`;
+    const a=C.kappa_runs.k1[pick]||{},b=C.kappa_runs.kprof[pick]||{};
+    h+=`<tr><td>amplitude (%)</td><td>${fmt(a.amp)} ± ${fmt(a.amp_sd)}</td><td>${fmt(b.amp)} ± ${fmt(b.amp_sd)}</td></tr>`;
+    const dp=(o,k)=>{const v=(o.depth_param||{})[k];return v?`${fmt(v[0])} ± ${fmt(v[1])}`:'–'};
+    h+=`<tr><td>0–0.3 km term</td><td>${dp(a,'bin0_0.3')}</td><td>${dp(b,'bin0_0.3')}</td></tr>`;
+    h+=`<tr><td>0.3–3 km term</td><td>${dp(a,'bin0.3_3')}</td><td>${dp(b,'bin0.3_3')}</td></tr>`;
+    h+=`<tr><td>correlation of the two</td><td>${fmt((a.depth_param||{}).corr,2)}</td><td>${fmt((b.depth_param||{}).corr,2)}</td></tr>`;
+    const hy=(a.depth_hyp_dchi2)||{}; Object.entries(hy).forEach(([k,v])=>h+=`<tr><td>Δχ² ${k.replace('top0.3','top 0.3 km only').replace('uniform0_3','uniform 0–3 km').replace('deep1_3','1–3 km only').replace('deep_ge1km','≥1 km').replace('H0','no change')}</td><td>${fmt(v,1)}</td><td>${fmt(((b.depth_hyp_dchi2)||{})[k],1)}</td></tr>`);
+    h+=`</table><p class="note" style="margin-top:6px">Depth verdict (passes all variants or not): <span class="chip">${a.verdict||'–'}</span> · ${a.n_series||0} series (${Array.isArray(a.bands)?a.bands.join(', '):(a.bands||'')})</p>`;
+  } else {const v=D.dates[key][pick]; h=`<p class="kv">Predicted dv/v on ${key}: ${v?fmt(v[0])+' ± '+fmt(v[1]):'–'} %</p><p class="note">Prediction at the station only; between stations the model makes no claim.</p>`}
+  $('#depthbox').innerHTML=h; series();
+}
+function series(){
+  const T=D.timeseries[pick], c=$('#ts'), x=c.getContext('2d'), W=c.width, H=c.height; x.fillStyle=css('--surface'); x.fillRect(0,0,W,H);
+  if(!T){$('#tskv').textContent='No series for this station.';return}
+  const t=T.t.map(d=>Date.parse(d)), all=[...T.obs,...T.model].filter(v=>v!=null), lo=Math.min(...all), hi=Math.max(...all), pad=(hi-lo)*.08||.01;
+  const X=v=>50+(v-t[0])/(t[t.length-1]-t[0])*(W-70), Y=v=>H-30-(v-(lo-pad))/((hi+pad)-(lo-pad))*(H-50);
+  x.strokeStyle=css('--line'); x.lineWidth=1; x.font='18px "IBM Plex Mono", monospace'; x.fillStyle=css('--muted');
+  for(let yr=new Date(t[0]).getFullYear()+1;yr<=new Date(t[t.length-1]).getFullYear();yr++){const px=X(Date.UTC(yr,0,1));x.beginPath();x.moveTo(px,10);x.lineTo(px,H-30);x.stroke();if(yr%2===0)x.fillText(yr,px-20,H-10)}
+  [lo,0,hi].forEach(v=>{x.fillText(v.toFixed(2),2,Y(v))});
+  x.strokeStyle=css('--lfe'); x.setLineDash([6,4]); [Date.parse('2021-12-20'),Date.parse('2022-12-20'),Date.parse('2024-12-05')].forEach(q=>{if(q>t[0]){x.beginPath();x.moveTo(X(q),10);x.lineTo(X(q),H-30);x.stroke()}}); x.setLineDash([]);
+  x.fillStyle=css('--obs'); T.obs.forEach((v,i)=>{if(v!=null)x.fillRect(X(t[i])-1.5,Y(v)-1.5,3,3)});
+  x.strokeStyle=css('--model'); x.lineWidth=2; x.beginPath(); let st=false; T.model.forEach((v,i)=>{if(v==null){st=false;return} st?x.lineTo(X(t[i]),Y(v)):x.moveTo(X(t[i]),Y(v)); st=true}); x.stroke();
+  $('#tskv').textContent=`${T.label||'1–3 Hz single-station noise'} · grey = observed, line = model · dashed = Petrolia, Ferndale, M7`;
+}
+$('#map').addEventListener('click',e=>{const c=$('#map'),r=c.getBoundingClientRect(),W=c.width,H=c.height,px=(e.clientX-r.left)*W/r.width,py=(e.clientY-r.top)*H/r.height;
+  let b=null,bd=1e9; D.stations.forEach(s=>{const [qx,qy]=proj(s.lon,s.lat,W,H),d=(qx-px)**2+(qy-py)**2; if(d<bd){bd=d;b=s.sta}}); if(bd<60*60){pick=b;draw()}});
+function fill(){const sel=$('#sel'); sel.innerHTML='';
+  const items=mode==='field'?Object.entries(D.components).map(([k,v])=>[k,v.label]):Object.keys(D.dates).map(k=>[k,k]);
+  items.forEach(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=l;sel.appendChild(o)});
+  key=sel.value; $('#kbox').hidden=false; desc()}
+function desc(){$('#seldesc').textContent=mode==='field'?(D.components[key].time_desc||''):'Model-predicted dv/v at each station on this date.'}
+function setup(){
+  $('#sel').onchange=()=>{key=$('#sel').value;desc();draw()};
+  document.querySelectorAll('#mode button').forEach(b=>b.onclick=()=>{mode=b.dataset.m;document.querySelectorAll('#mode button').forEach(c=>c.setAttribute('aria-pressed',c===b));fill();draw()});
+  document.querySelectorAll('#mdep button').forEach(b=>b.onclick=()=>{mdep=b.dataset.d;document.querySelectorAll('#mdep button').forEach(c=>c.setAttribute('aria-pressed',c===b));draw()});
+  document.querySelectorAll('#mq button').forEach(b=>b.onclick=()=>{mq=b.dataset.q;document.querySelectorAll('#mq button').forEach(c=>c.setAttribute('aria-pressed',c===b));draw()});
+  document.querySelectorAll('#kap button').forEach(b=>b.onclick=()=>{kap=b.dataset.k;document.querySelectorAll('#kap button').forEach(c=>c.setAttribute('aria-pressed',c===b));draw()});
+  const dd=Array.isArray(D.deep)?D.deep:(D.deep?[D.deep]:[]);
+  const want=['5-km fault slab','20-31 km, 20-km box at the LFEs','10-km spheres around the LFE families','20-31 km layer contrast (3-D rays)'];
+  const qn={m7:'M7',pet:'Petrolia',fer:'Ferndale',D:'2021→25'};
+  let t='<p class="note">No change detected. Travel-time estimates (± 1σ, %):</p><table><tr><th>target</th><th>M7</th><th>2021→25</th></tr>';
+  want.forEach(w=>{const g=q=>dd.find(e=>e.target===w&&e.quantity===q); const a=g('m7'),b=g('D'); if(a||b)t+=`<tr><td>${w.replace('20-31 km, ','').replace(' at the LFEs','').replace(' around the LFE families','').replace(' (3-D rays)',' vs crust above')}</td><td>${a?fmt(a.est,2)+'±'+fmt(a.se,2):'–'}</td><td>${b?fmt(b.est,2)+'±'+fmt(b.se,2):'–'}</td></tr>`});
+  t+='</table><p class="note" style="margin-top:6px">A −0.1% change at depth is not testable with these data.</p>';
+  $('#deeptxt').outerHTML='<div id="deeptxt" style="overflow-x:auto;font-size:.74rem">'+t+'</div>';
+  if(D.meta.mock){$('#banner').hidden=false;$('#banner').textContent='Preview with placeholder data: the model is still being computed.'}
+  else if(D.meta.description){$('#banner').hidden=false;$('#banner').textContent=D.meta.description}
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+  fill(); pick=D.stations.find(s=>s.sta.endsWith('B045'))?.sta||D.stations[0].sta; draw();
+}
+fetch('viewer.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(j=>{D=j;setup()})
+  .catch(e=>{$('#banner').hidden=false;$('#banner').textContent='The model data could not be loaded ('+e.message+').'});
+</script>

@@ -1,0 +1,156 @@
+{
+ "scale": {
+  "LFE|drop0_Ferndale": {
+   "raw": 1.3459205478980463,
+   "applied": 1.3459205478980463,
+   "n": 112
+  },
+  "LFE|drop0_M7": {
+   "raw": 1.7899648796638232,
+   "applied": 1.7899648796638232,
+   "n": 92
+  },
+  "LFE|drop0_Petrolia": {
+   "raw": 1.1551158673794402,
+   "applied": 1.1551158673794402,
+   "n": 106
+  },
+  "LFE|level_Ferndale": {
+   "raw": 1.2696795443177487,
+   "applied": 1.2696795443177487,
+   "n": 112
+  },
+  "LFE|level_M7": {
+   "raw": 0.8658954722620485,
+   "applied": 1.0,
+   "n": 92
+  },
+  "LFE|level_Petrolia": {
+   "raw": 0.8312477508649346,
+   "applied": 1.0,
+   "n": 106
+  },
+  "LFE|ramp21": {
+   "raw": 1.1585764391166895,
+   "applied": 1.1585764391166895,
+   "n": 92
+  },
+  "LFE|trend": {
+   "raw": 1.7893372457192482,
+   "applied": 1.7893372457192482,
+   "n": 112
+  },
+  "LP10|drop0_Ferndale": {
+   "raw": 0.6849726449684169,
+   "applied": 1.0,
+   "n": 20
+  },
+  "LP10|drop0_M7": {
+   "raw": 0.8772987707342511,
+   "applied": 1.0,
+   "n": 20
+  },
+  "LP10|drop0_Petrolia": {
+   "raw": 0.6925596534743096,
+   "applied": 1.0,
+   "n": 20
+  },
+  "LP10|level_Ferndale": {
+   "raw": 0.49542082413287925,
+   "applied": 1.0,
+   "n": 20
+  },
+  "LP10|level_M7": {
+   "raw": 0.24537138029002475,
+   "applied": 1.0,
+   "n": 20
+  },
+  "LP10|level_Petrolia": {
+   "raw": 0.08324913297711359,
+   "applied": 1.0,
+   "n": 20
+  },
+  "LP10|ramp21": {
+   "raw": 0.9301257593557638,
+   "applied": 1.0,
+   "n": 20
+  },
+  "LP10|trend": {
+   "raw": 1.0373862941002325,
+   "applied": 1.0373862941002325,
+   "n": 20
+  },
+  "REP|drop0_Ferndale": {
+   "raw": NaN,
+   "applied": 1.0,
+   "n": 7
+  },
+  "REP|drop0_M7": {
+   "raw": 0.7214246388208078,
+   "applied": 1.0,
+   "n": 14
+  },
+  "REP|level_Ferndale": {
+   "raw": NaN,
+   "applied": 1.0,
+   "n": 7
+  },
+  "REP|level_M7": {
+   "raw": 0.09603454740515067,
+   "applied": 1.0,
+   "n": 14
+  },
+  "REP|trend": {
+   "raw": 0.5108810538674797,
+   "applied": 1.0,
+   "n": 20
+  },
+  "SC10|drop0_Ferndale": {
+   "raw": 1.3921305018665648,
+   "applied": 1.3921305018665648,
+   "n": 160
+  },
+  "SC10|drop0_M7": {
+   "raw": 1.7281084136111837,
+   "applied": 1.7281084136111837,
+   "n": 130
+  },
+  "SC10|drop0_Petrolia": {
+   "raw": 1.3141466531319121,
+   "applied": 1.3141466531319121,
+   "n": 155
+  },
+  "SC10|level_Ferndale": {
+   "raw": 0.9028275470722498,
+   "applied": 1.0,
+   "n": 160
+  },
+  "SC10|level_M7": {
+   "raw": 1.1737701173810842,
+   "applied": 1.1737701173810842,
+   "n": 130
+  },
+  "SC10|level_Petrolia": {
+   "raw": 0.9120879166358273,
+   "applied": 1.0,
+   "n": 155
+  },
+  "SC10|ramp21": {
+   "raw": 1.669591280169871,
+   "applied": 1.669591280169871,
+   "n": 140
+  },
+  "SC10|trend": {
+   "raw": 1.9898733326657467,
+   "applied": 1.9898733326657467,
+   "n": 190
+  }
+ },
+ "shifts": [
+  7,
+  9,
+  10,
+  11
+ ],
+ "note": "robust z-RMS (median z^2 / 0.455) of whole-model placebo amplitudes divided by their own bootstrap SD; per dataset x amplitude type; ENV not placebo-scaled"
+}

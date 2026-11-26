@@ -1,0 +1,13 @@
+kappa,comp,band,n,corr,chi2_pred,chi2_zero
+k1,level_Ferndale,0.1-0.2,42,-0.08532,1245,1261
+k1,level_Ferndale,0.2-0.3,41,-0.02976,1265,1282
+k1,level_M7,0.1-0.2,311,0.2265,336.4,366.4
+k1,level_M7,0.2-0.3,311,0.07599,374.7,432.2
+k1,level_Petrolia,0.1-0.2,152,0.1194,704.1,695.5
+k1,level_Petrolia,0.2-0.3,152,0.0831,519.4,525.1
+kprof,level_Ferndale,0.1-0.2,42,-0.07517,1259,1261
+kprof,level_Ferndale,0.2-0.3,41,-0.03678,1280,1282
+kprof,level_M7,0.1-0.2,311,0.2225,363.4,366.4
+kprof,level_M7,0.2-0.3,311,0.07977,425.8,432.2
+kprof,level_Petrolia,0.1-0.2,152,0.1126,696,695.5
+kprof,level_Petrolia,0.2-0.3,152,0.1403,522.5,525.1

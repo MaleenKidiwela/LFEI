@@ -1,0 +1,203 @@
+{
+ "tau_q": {
+  "Petrolia": 40,
+  "Ferndale": 40,
+  "M7": 120
+ },
+ "tau_h": 60,
+ "score": 206.6612397097439,
+ "history": [
+  {
+   "it": 0,
+   "param": "Petrolia",
+   "value": 5,
+   "score": 207.13493871811406
+  },
+  {
+   "it": 0,
+   "param": "Petrolia",
+   "value": 15,
+   "score": 207.08095870859214
+  },
+  {
+   "it": 0,
+   "param": "Petrolia",
+   "value": 40,
+   "score": 207.0
+  },
+  {
+   "it": 0,
+   "param": "Petrolia",
+   "value": 120,
+   "score": 207.035593739745
+  },
+  {
+   "it": 0,
+   "param": "Ferndale",
+   "value": 5,
+   "score": 207.4560111862831
+  },
+  {
+   "it": 0,
+   "param": "Ferndale",
+   "value": 15,
+   "score": 207.3443850785598
+  },
+  {
+   "it": 0,
+   "param": "Ferndale",
+   "value": 40,
+   "score": 207.0
+  },
+  {
+   "it": 0,
+   "param": "Ferndale",
+   "value": 120,
+   "score": 207.08476213231552
+  },
+  {
+   "it": 0,
+   "param": "M7",
+   "value": 5,
+   "score": 209.40847277182306
+  },
+  {
+   "it": 0,
+   "param": "M7",
+   "value": 15,
+   "score": 208.53217910018117
+  },
+  {
+   "it": 0,
+   "param": "M7",
+   "value": 40,
+   "score": 207.0
+  },
+  {
+   "it": 0,
+   "param": "M7",
+   "value": 120,
+   "score": 207.19923198533297
+  },
+  {
+   "it": 0,
+   "param": "tau_h",
+   "value": 30,
+   "score": 207.35861472597918
+  },
+  {
+   "it": 0,
+   "param": "tau_h",
+   "value": 60,
+   "score": 206.9202693272448
+  },
+  {
+   "it": 0,
+   "param": "tau_h",
+   "value": 120,
+   "score": 207.0
+  },
+  {
+   "it": 0,
+   "param": "tau_h",
+   "value": 240,
+   "score": 207.39152619705285
+  },
+  {
+   "it": 1,
+   "param": "Petrolia",
+   "value": 5,
+   "score": 207.1218306617565
+  },
+  {
+   "it": 1,
+   "param": "Petrolia",
+   "value": 15,
+   "score": 207.0648733958798
+  },
+  {
+   "it": 1,
+   "param": "Petrolia",
+   "value": 40,
+   "score": 206.9202693272448
+  },
+  {
+   "it": 1,
+   "param": "Petrolia",
+   "value": 120,
+   "score": 206.97165846526445
+  },
+  {
+   "it": 1,
+   "param": "Ferndale",
+   "value": 5,
+   "score": 207.37374017018598
+  },
+  {
+   "it": 1,
+   "param": "Ferndale",
+   "value": 15,
+   "score": 207.3018443828898
+  },
+  {
+   "it": 1,
+   "param": "Ferndale",
+   "value": 40,
+   "score": 206.9202693272448
+  },
+  {
+   "it": 1,
+   "param": "Ferndale",
+   "value": 120,
+   "score": 206.97212915089221
+  },
+  {
+   "it": 1,
+   "param": "M7",
+   "value": 5,
+   "score": 209.11356064689153
+  },
+  {
+   "it": 1,
+   "param": "M7",
+   "value": 15,
+   "score": 208.39543249999448
+  },
+  {
+   "it": 1,
+   "param": "M7",
+   "value": 40,
+   "score": 206.9202693272448
+  },
+  {
+   "it": 1,
+   "param": "M7",
+   "value": 120,
+   "score": 206.6612397097439
+  },
+  {
+   "it": 1,
+   "param": "tau_h",
+   "value": 30,
+   "score": 206.79918339012164
+  },
+  {
+   "it": 1,
+   "param": "tau_h",
+   "value": 60,
+   "score": 206.6612397097439
+  },
+  {
+   "it": 1,
+   "param": "tau_h",
+   "value": 120,
+   "score": 207.19923198533297
+  },
+  {
+   "it": 1,
+   "param": "tau_h",
+   "value": 240,
+   "score": 207.8484841611042
+  }
+ ]
+}

@@ -289,7 +289,7 @@ LFEs during the silence (Vp/Vs and amplitude ratios tested on family 23; the rev
 </ul></section>''')
 
 for _k, _src in {'attrex': 'figures/sci_dvv_attr_examples.png', 'attrbands': 'figures/sci_dvv_attr_bands.png', 'attrdecl': 'figures/sci_dvv_attr_decline.png',
-                 'j3deep': 'figures/sci_dvv_3d_deep.png', 'j3shal': 'figures/sci_dvv_3d_shallow.png', 'j3val': 'figures/sci_dvv_3d_validation.png'}.items():
+                 'j3deep': 'figures/sci_dvv_3d_deep.png', 'j3shal': 'figures/sci_dvv_3d_shallow.png', 'j3val': 'figures/sci_dvv_3d_validation.png', 's3maps': 'figures/sci_dvv_3d_s3_maps_k1.png', 's3sta': 'figures/sci_dvv_3d_s3_stations.png', 'lfenoise': 'figures/sci_lfe_vs_noise_steps_monthly.png'}.items():
     fig(_src, _k, width=1600)
 H.append('''<section id="attribution"><h2>What controls dv/v: one model for quakes, weather and depth (25 Nov 2026)</h2>
 <p class="lede">Every dv/v series we have (234: single-station noise in 5 bands at 27 stations, 58 LFE-coda channels, 9 repeater stations, 5 long-period
@@ -302,14 +302,15 @@ times were inverted jointly for deep changes with free station, origin and locat
 <div class="finding"><span class="eyebrow">Weather</span><h3>Rain and groundwater make the annual cycle, in the top ~100 m</h3>
 <p>Hydrology is selected in 68 of 162 noise series, 35 of 58 LFE-coda channels and 6 of 9 repeater stations (permutation p = 0.005, the floor). It is
 selected in all borehole series at 1–3 Hz and rarely below 0.5 Hz. Wetter means slower (80% of coefficients). Where selected it carries 71–92% of the
-annual amplitude; temperature adds a little (17 series), microseism power is not supported. Mapped to depth the annual amplitude is 0.11% at 0–0.1 km,
-0.06% at 0.1–1 km and 0.01% at 1–3 km. The specific hydrology form (rain storage, lags, soil moisture, streamflow) cannot be told apart.</p></div>
+annual amplitude; temperature adds a little (17 series), microseism power is not supported. Mapped to depth, the network-average annual amplitude decreases from the top 100 m downward (median 0.23% at 0–0.1 km vs
+0.02% at 0.1–1 km), but per-station depth splits are unstable (35% alternate in sign between depth bins), so only this network trend is meaningful. The specific hydrology form (rain storage, lags, soil moisture, streamflow) cannot be told apart.</p></div>
 <div class="finding"><span class="eyebrow">Earthquakes</span><h3>The 2021–2024 quakes left drops that have barely healed, seen at 0.3–3 Hz but not at 0.1–0.3 Hz</h3>
 <p>M7 drop (median): boreholes −0.13 to −0.23%, surface −0.14 to −0.24%; significant at 0.3–3 Hz (boreholes 4 of 6 per band, surface 11 of 18 at 1–3 Hz)
 and at no station at 0.1–0.3 Hz. Petrolia and Ferndale drops are smaller and mostly at surface stations and high frequency. Recovery is mostly
 unconstrained; where it can be measured the M7 recovery time is ~50–150 days, shorter than the GNSS afterslip time (~640 days). Small quakes add nothing
-(a shaking-dose term is not needed), and static strain and peak shaking explain the drops equally well. Mapped to depth the M7 drop spreads over the top
-~3 km, but this split is uncertain because the coda needs 2.5–10× more near-surface sensitivity than the kernels give.</p></div>
+(a shaking-dose term is not needed), and static strain and peak shaking explain the drops equally well. How the M7 drop is split between 0–0.1, 0.1–1 and 1–3 km
+is not resolved: per-station depth splits are unstable, and the coda needs 2.5–10× more near-surface sensitivity than the kernels give. What is robust is
+that it appears at 0.3–3 Hz and not at 0.1–0.3 Hz.</p></div>
 <div class="finding"><span class="eyebrow">Decline</span><h3>The post-2021 decline is quake-related and not weather</h3>
 <p>2021→2025 change (series without instrument resets in that period): boreholes −0.04% at 0.1–0.3 Hz and −0.07 to −0.10% at 0.3–5 Hz; long-period network
 −0.04%. The environment explains only 2–10% of it below 1 Hz, 23% at 1–3 Hz and 53% at 3–5 Hz (wet 2023–25 years). The rest is carried by the quake drops
@@ -321,8 +322,21 @@ model predicts no decline (+0.004% vs −0.06% observed).</p></div>
 2021→2025 likewise null. 5 of 360 deep tests reach p &lt; 0.05 (18 expected by chance). A shallow-only model fits every dataset. The station terms absorb
 most of the information (50–100× variance inflation), so a −0.1% deep change is not testable; 1–20 km is unconstrained. An apparent Petrolia step on the
 deep layer and in long-period noise failed its checks (geometry-dependent, sign flips with S-only data; one-sided and azimuth-dependent noise).</p></div>
+<div class="finding"><span class="eyebrow">Unified model</span><h3>One model for all dv/v: quake damage is mostly site by site, with a hint of a coastal pattern</h3>
+<p>All 234 series fitted together (one recovery time per quake, full cross-series covariance, calibrated by placebo dates), mapped with a
+lateral correlation length estimated from the data. Network-mean apparent dv/v (1–3 Hz, top 3 km): M7 −0.08 ± 0.04% at the quake and −0.03% a year
+later; Petrolia −0.08% and −0.04%; Ferndale −0.06% and −0.03%; annual cycle ~0.05%. No cause forms a demonstrably coherent spatial field
+(correlation length not bounded); the M7 drop is larger near the coast closest to the rupture (BRIC, PRDS, B045, B046) than inland, but only
+marginally (permutation p 0.03–0.05). Depth within the top 3 km is resolved at almost no station; no false shallow signal arises from a deep
+change. Interactive model: <a href="https://claude.ai/artifact/8HoEvd1EbyHGZ7r6xkit15">MTJ dv/v model viewer</a>.</p></div>
+<div class="finding"><span class="eyebrow">LFE coda vs noise</span><h3>Treated identically, ambient noise shows the same quake drops as LFE coda</h3>
+<p>Same stations, same step definition, unsmoothed monthly LFE coda: M7 LFE −0.10% (14 of 22 stations |z| &gt; 3) vs noise 1–3 Hz −0.12%
+(16 of 21), station pattern correlated (r 0.55); Ferndale −0.06% vs −0.07%. At 0.1–0.3 Hz (deepest-reaching band) the drop is small and
+uncorrelated with the station pattern. LFE dv/v only looked step-like because the pooled curves were smoothed everywhere except at the quakes.</p></div>
 </div>
 ''')
+H.append(img('s3maps', 'Unified model: network mean plus local variation of apparent 0-3 km dv/v for each cause (nominal coda calibration); stations on top.'))
+H.append(img('lfenoise', 'Same-station comparison of quake steps: unsmoothed monthly LFE coda vs single-station ambient noise in three bands.'))
 H.append(img('attrex', 'Attribution examples: data (grey), full model (black), quake terms (red), long-term trend/ramp (purple) and environment (blue) for B045, KMPB and BRIC at 1-3 Hz, B049 at 0.1-0.3 Hz (nothing selected), KMPB LFE coda and the long-period network.'))
 H.append(img('attrbands', 'Attribution by band (higher frequency = shallower), borehole vs surface: annual amplitude of the environmental and total models, M7 drop and level after 1 yr, and the 2021-2025 change split into total, quakes+ramp, trend/ramp and environment.'))
 H.append(img('attrdecl', 'The 2021-2025 change per series: observed vs model components (series with instrument resets in the period excluded).'))

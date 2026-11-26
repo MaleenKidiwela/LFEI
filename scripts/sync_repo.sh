@@ -75,3 +75,10 @@ for n in dvv_3d dvv_attr noise_lp/check2022; do
   find "$SRC/data/sci/$n" -maxdepth 1 -type f \( -name '*.csv' -o -name '*.json' -o -name '*.md' \) -size -5M -exec cp {} "$DST/results/$n/" \;
 done
 cp "$SRC"/figures/sci_dvv_3d_*.png "$SRC"/figures/sci_dvv_attr_*.png "$DST/docs/figures/" 2>/dev/null || true
+# 2026-11-25 stage 3 unified model + viewer, LFE-vs-noise, repeater tides, Ducellier tides
+for n in dvv_3d/stage3 lfe_vs_noise repeater_tides; do
+  [ -d "$SRC/data/sci/$n" ] || continue; mkdir -p "$DST/results/$n"
+  find "$SRC/data/sci/$n" -maxdepth 1 -type f \( -name '*.csv' -o -name '*.json' -o -name '*.md' \) ! -name '*_smoke*' -size -5M -exec cp {} "$DST/results/$n/" \;
+done
+mkdir -p "$DST/docs/dvv_model"; cp "$SRC"/report/dvv_model/* "$DST/docs/dvv_model/"
+cp "$SRC"/figures/sci_dvv_3d_s3_*.png "$SRC"/figures/sci_lfe_vs_noise_*.png "$SRC"/figures/sci_ducellier_tides_time.png "$DST/docs/figures/" 2>/dev/null || true

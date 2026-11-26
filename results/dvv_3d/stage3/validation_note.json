@@ -1,0 +1,4 @@
+{
+ "smallest_deep_amp_false_shallow_verdict": null,
+ "note": "verdicts rank shallow hypotheses only; a deep change >= X % below 3 km is indistinguishable from \">= 1 km\"; the deep crust is bounded by stage 1 only"
+}
