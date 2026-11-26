@@ -34,6 +34,8 @@ select{width:100%;font:inherit;padding:6px 8px;border:1px solid var(--line);bord
 .seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
 button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .desc{font-size:.85rem;color:var(--muted);margin:0}
+.pbtn{font:500 .9rem var(--mono);padding:3px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);cursor:pointer}
+input[type=range]{accent-color:var(--accent)}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}
 canvas{display:block;width:100%;height:auto}
 .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px}
@@ -64,8 +66,15 @@ th{color:var(--muted);font-weight:500}
   </header>
   <div class="app">
     <aside class="rail" aria-label="Controls">
-      <div><span class="lab">View</span><div class="seg" id="mode" role="group" aria-label="View"><button data-m="field" aria-pressed="true">Cause</button><button data-m="date" aria-pressed="false">Date</button></div></div>
-      <div><label class="lab" for="sel">Cause or date</label><select id="sel"></select></div>
+      <div><span class="lab">View</span><div class="seg" id="mode" role="group" aria-label="View"><button data-m="time" aria-pressed="true">Time</button><button data-m="field" aria-pressed="false">Cause</button><button data-m="date" aria-pressed="false">Date</button></div></div>
+      <div id="timebox">
+        <label class="lab" for="tslider">Date</label>
+        <div style="display:flex;gap:8px;align-items:center"><button id="play" class="pbtn" aria-label="Play">▶</button><input type="range" id="tslider" min="0" max="1" step="1" style="flex:1;min-width:0"></div>
+        <div class="kv" id="tlabel" style="font-size:1rem;color:var(--fg);margin-top:4px"></div>
+        <label class="lab" for="tref" style="margin-top:8px">Change relative to</label><select id="tref"><option value="2021-06-01">2021-06-01 (before the quakes)</option><option value="2024-11-30">2024-11-30 (just before the M7)</option><option value="2008-01-01">2008-01-01</option></select>
+        <label class="note" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" id="tseas" checked> include the seasonal (rain) cycle</label>
+      </div>
+      <div id="selbox"><label class="lab" for="sel">Cause or date</label><select id="sel"></select></div>
       <p class="desc" id="seldesc"></p>
       <div><span class="lab">Map depth</span><p class="desc" style="margin:0 0 4px">“As seen” is the 0–3 km change a 1–3 Hz measurement responds to; the split into two depth bins is shown only where the data support it.</p><div class="seg" id="mdep" role="group" aria-label="Map depth"><button data-d="apparent" aria-pressed="true">0–3 km (as seen)</button><button data-d="0-0.3" aria-pressed="false">0–0.3 km</button><button data-d="0.3-3" aria-pressed="false">0.3–3 km</button></div></div>
       <div><span class="lab">Map shows</span><div class="seg" id="mq" role="group" aria-label="Map quantity"><button data-q="mean" aria-pressed="true">dv/v</button><button data-q="sd" aria-pressed="false">uncertainty</button><button data-q="none" aria-pressed="false">stations only</button></div></div>
@@ -88,16 +97,45 @@ th{color:var(--muted);font-weight:500}
 <script>
 const $=s=>document.querySelector(s);
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-let D=null, mode='field', key=null, kap='k1', pick=null, mdep='apparent', mq='mean';
+let D=null, mode='time', tIdx=0, tDates=[], tRef='2021-06-01', tSeas=true, playTimer=null, key=null, kap='k1', pick=null, mdep='apparent', mq='mean';
 function isDark(){const t=document.documentElement.dataset.theme;return t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches)}
 function div(v,m){const t=Math.max(-1,Math.min(1,v/m)),mid=isDark()?[40,46,52]:[240,240,240],c=t>=0?[33,102,172]:[178,24,43],a=Math.abs(t);
   return `rgb(${mid.map((x,i)=>Math.round(x+(c[i]-x)*a)).join(',')})`}
 function seqc(v,m){const t=Math.max(0,Math.min(1,Math.abs(v)/m)),a=isDark()?[40,46,52]:[240,240,240],b=[35,120,90];return `rgb(${a.map((x,i)=>Math.round(x+(b[i]-x)*t)).join(',')})`}
-function signed(){return mode==='date'||D.components[key].signed!==false}
+function signed(){return mode!=='field'||D.components[key].signed!==false}
 function vals(){ // {sta:[v,sd]}
+  if(mode==='time')return timeVals();
   if(mode==='date')return (kap==='kprof'&&D.dates_kprof?D.dates_kprof:D.dates)[key];
   const r=D.components[key].kappa_runs[kap],o={}; Object.entries(r).forEach(([s,x])=>o[s]=[x.amp,x.amp_sd]); return o}
-function getMap(){if(mode==='field'){const r=D.components[key].kappa_runs[kap];return r&&r.map||D.components[key].map&&D.components[key].map[kap]||null}
+
+const DAY=86400000, Q0={Petrolia:'2021-12-20T20:10:00Z',Ferndale:'2022-12-20T10:34:00Z',M7:'2024-12-05T18:44:00Z'};
+function tfun(k,ms){ // driver time function of component k at time ms (UTC ms)
+  const d=new Date(ms), doy=(Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())-Date.UTC(d.getUTCFullYear(),0,0))/DAY;
+  if(k==='ENV_cos')return tSeas?Math.cos(2*Math.PI*doy/365.25):0;
+  if(k==='ENV_sin')return tSeas?Math.sin(2*Math.PI*doy/365.25):0;
+  if(k==='trend')return (ms-Date.parse('2018-01-01'))/(365.25*DAY);
+  if(k==='ramp21'){const x=(ms-Date.parse('2021-07-01'))/(365.25*DAY);return x>0?x:0}
+  const m=k.match(/^(drop0|level)_(\w+)$/); if(m){const tq=Date.parse(Q0[m[2]]), tau=((D.meta.tau_q_days||{})[m[2]]||60)*DAY;
+    if(ms<tq)return 0; const e=Math.exp(-(ms-tq)/tau); return m[1]==='drop0'?e:1-e}
+  return 0}
+const TCOMP=()=>Object.keys(D.components).filter(k=>k!=='ENV_amp');
+function timeMap(){ // returns pseudo map object for the current slider time
+  const ks=TCOMP(), t=tDates[tIdx], r=Date.parse(tRef); let base=null;
+  const out={lat:null,lon:null,layers:{}};
+  ['apparent','0-0.3','0.3-3'].forEach(L=>{let mean=null,v2=null,ok=true;
+    ks.forEach(k=>{const M=(D.components[k].map||{})[kap]; if(!M||!M.layers||!M.layers[L]){ok=false;return}
+      const w=tfun(k,t)-tfun(k,r); if(!base){base=M} const A=M.layers[L].mean,S=M.layers[L].sd;
+      if(!mean){mean=A.map(row=>row.map(()=>0));v2=A.map(row=>row.map(()=>0))}
+      A.forEach((row,i)=>row.forEach((v,j)=>{if(v==null||mean[i][j]==null){mean[i][j]=null;return} mean[i][j]+=w*v; const sd=S?S[i][j]:0; v2[i][j]+=(w*(sd||0))**2}))});
+    if(ok&&mean){const mk=base.layers[L].mask; out.layers[L]={mean,sd:v2.map(r=>r.map(x=>Math.sqrt(x))),mask:mk}}});
+  if(base){out.lat=base.lat;out.lon=base.lon;out.text='Model change from '+tRef+' (sum of all causes; SD ignores correlations between causes).'}
+  return base?out:null}
+function timeVals(){const ks=TCOMP(), t=tDates[tIdx], r=Date.parse(tRef), o={};
+  D.stations.forEach(st=>{let v=0,v2=0,any=false; ks.forEach(k=>{const x=((D.components[k].kappa_runs||{})[kap]||{})[st.sta]; if(!x||x.amp==null)return; any=true; const w=tfun(k,t)-tfun(k,r); v+=w*x.amp; v2+=(w*(x.amp_sd||0))**2});
+    o[st.sta]=any?[v,Math.sqrt(v2)]:null}); return o}
+
+function getMap(){if(mode==='time')return timeMap();
+  if(mode==='field'){const r=D.components[key].kappa_runs[kap];return r&&r.map||D.components[key].map&&D.components[key].map[kap]||null}
   const M=D.date_maps&&D.date_maps[kap]; return M?M[key]:null}
 function bounds(){const g=[...D.stations,...D.lfe,...(D.quakes?Object.values(D.quakes).filter(q=>q&&q.lon!=null):[])];let lo=Math.min(-124.45,...g.map(s=>s.lon)),hi=Math.max(-123.0,...g.map(s=>s.lon)),la=Math.min(39.45,...g.map(s=>s.lat)),lb=Math.max(40.6,...g.map(s=>s.lat));
   return [lo-.08,hi+.08,la-.06,lb+.06]}
@@ -121,7 +159,7 @@ function draw(){
   x.font='22px "IBM Plex Mono", monospace'; x.fillStyle=css('--muted'); x.fillText('Pacific Ocean',proj(-124.38,39.75,W,H)[0],proj(-124.38,39.75,W,H)[1]);
   x.fillStyle=css('--lfe'); D.lfe.forEach(f=>{const [px,py]=proj(f.lon,f.lat,W,H); star(x,px,py,9)});
   if(D.quakes){const ks=Object.keys(D.quakes), sel=(key||'').toLowerCase();
-    ks.forEach(q=>{const Q=D.quakes[q]; const show=mode==='date'||sel.includes(q.toLowerCase()); if(!show)return;
+    ks.forEach(q=>{const Q=D.quakes[q]; const show=mode==='date'||(mode==='time'?(tDates.length&&Date.parse(Q.time.replace(' ','T')+'Z')<=tDates[tIdx]):sel.includes(q.toLowerCase())); if(!show)return;
       x.strokeStyle=css('--fg'); x.lineWidth=3; x.setLineDash([10,6]);
       if(Q.rupture&&Q.rupture.length){x.beginPath();Q.rupture.forEach(([lo,la],k)=>{const [px,py]=proj(lo,la,W,H);k?x.lineTo(px,py):x.moveTo(px,py)});x.closePath();x.stroke()}
       x.setLineDash([]); const [px,py]=proj(Q.lon,Q.lat,W,H); x.fillStyle=css('--fg'); x.beginPath(); x.arc(px,py,10,0,7); x.fill();
@@ -151,6 +189,7 @@ function detail(){
     h+=`<tr><td>correlation of the two</td><td>${fmt((a.depth_param||{}).corr,2)}</td><td>${fmt((b.depth_param||{}).corr,2)}</td></tr>`;
     const hy=(a.depth_hyp_dchi2)||{}; Object.entries(hy).forEach(([k,v])=>h+=`<tr><td>Δχ² ${k.replace('top0.3','top 0.3 km only').replace('uniform0_3','uniform 0–3 km').replace('deep1_3','1–3 km only').replace('deep_ge1km','≥1 km').replace('H0','no change')}</td><td>${fmt(v,1)}</td><td>${fmt(((b.depth_hyp_dchi2)||{})[k],1)}</td></tr>`);
     h+=`</table><p class="note" style="margin-top:6px">Depth verdict (passes all variants or not): <span class="chip">${a.verdict||'–'}</span> · ${a.n_series||0} series (${Array.isArray(a.bands)?a.bands.join(', '):(a.bands||'')})</p>`;
+  } else if(mode==='time'){const v=timeVals()[pick]; h=`<p class="kv">Model change at ${new Date(tDates[tIdx]).toISOString().slice(0,10)} relative to ${tRef}: ${v?fmt(v[0])+' ± '+fmt(v[1]):'–'} % (apparent, top ~3 km)</p><p class="note">Sum of all causes for this station; the time series shows the measured data.</p>`;
   } else {const v=D.dates[key][pick]; h=`<p class="kv">Predicted dv/v on ${key}: ${v?fmt(v[0])+' ± '+fmt(v[1]):'–'} %</p><p class="note">Prediction at the station only; between stations the model makes no claim.</p>`}
   $('#depthbox').innerHTML=h; series();
 }
@@ -165,15 +204,17 @@ function series(){
   x.strokeStyle=css('--lfe'); x.setLineDash([6,4]); [Date.parse('2021-12-20'),Date.parse('2022-12-20'),Date.parse('2024-12-05')].forEach(q=>{if(q>t[0]){x.beginPath();x.moveTo(X(q),10);x.lineTo(X(q),H-30);x.stroke()}}); x.setLineDash([]);
   x.fillStyle=css('--obs'); T.obs.forEach((v,i)=>{if(v!=null)x.fillRect(X(t[i])-1.5,Y(v)-1.5,3,3)});
   x.strokeStyle=css('--model'); x.lineWidth=2; x.beginPath(); let st=false; T.model.forEach((v,i)=>{if(v==null){st=false;return} st?x.lineTo(X(t[i]),Y(v)):x.moveTo(X(t[i]),Y(v)); st=true}); x.stroke();
+  if(mode==='time'&&tDates.length){const px=X(tDates[tIdx]); x.strokeStyle=css('--accent'); x.lineWidth=3; x.beginPath(); x.moveTo(px,10); x.lineTo(px,H-30); x.stroke()}
   $('#tskv').textContent=`${T.label||'1–3 Hz single-station noise'} · grey = observed, line = model · dashed = Petrolia, Ferndale, M7`;
 }
 $('#map').addEventListener('click',e=>{const c=$('#map'),r=c.getBoundingClientRect(),W=c.width,H=c.height,px=(e.clientX-r.left)*W/r.width,py=(e.clientY-r.top)*H/r.height;
   let b=null,bd=1e9; D.stations.forEach(s=>{const [qx,qy]=proj(s.lon,s.lat,W,H),d=(qx-px)**2+(qy-py)**2; if(d<bd){bd=d;b=s.sta}}); if(bd<60*60){pick=b;draw()}});
-function fill(){const sel=$('#sel'); sel.innerHTML='';
+function fill(){$('#timebox').hidden=mode!=='time'; $('#selbox').hidden=mode==='time'; if(mode==='time'){$('#seldesc').textContent='Modelled dv/v change at the chosen date, summed over all causes.';return}
+  const sel=$('#sel'); sel.innerHTML='';
   const items=mode==='field'?Object.entries(D.components).map(([k,v])=>[k,v.label]):Object.keys(D.dates).map(k=>[k,k]);
   items.forEach(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=l;sel.appendChild(o)});
   key=sel.value; $('#kbox').hidden=false; desc()}
-function desc(){$('#seldesc').textContent=mode==='field'?(D.components[key].time_desc||''):'Model-predicted dv/v at each station on this date.'}
+function desc(){if(mode==='time')return; $('#seldesc').textContent=mode==='field'?(D.components[key].time_desc||''):'Model-predicted dv/v at each station on this date.'}
 function setup(){
   $('#sel').onchange=()=>{key=$('#sel').value;desc();draw()};
   document.querySelectorAll('#mode button').forEach(b=>b.onclick=()=>{mode=b.dataset.m;document.querySelectorAll('#mode button').forEach(c=>c.setAttribute('aria-pressed',c===b));fill();draw()});
@@ -189,6 +230,14 @@ function setup(){
   $('#deeptxt').outerHTML='<div id="deeptxt" style="overflow-x:auto;font-size:.74rem">'+t+'</div>';
   if(D.meta.mock){$('#banner').hidden=false;$('#banner').textContent='Preview with placeholder data: the model is still being computed.'}
   else if(D.meta.description){$('#banner').hidden=false;$('#banner').textContent=D.meta.description}
+
+  for(let ms=Date.parse('2008-01-01');ms<=Date.parse('2026-11-01');ms+=5*DAY)tDates.push(ms);
+  const sl=$('#tslider'); sl.max=tDates.length-1; tIdx=tDates.findIndex(ms=>ms>=Date.parse('2025-01-01')); sl.value=tIdx;
+  const lab=()=>{$('#tlabel').textContent=new Date(tDates[tIdx]).toISOString().slice(0,10)};
+  sl.oninput=()=>{tIdx=+sl.value;lab();draw()}; lab();
+  $('#tref').onchange=()=>{tRef=$('#tref').value;draw()}; $('#tseas').onchange=()=>{tSeas=$('#tseas').checked;draw()};
+  $('#play').onclick=()=>{if(playTimer){clearInterval(playTimer);playTimer=null;$('#play').textContent='▶';return}
+    $('#play').textContent='❚❚'; playTimer=setInterval(()=>{tIdx=(tIdx+2)%tDates.length;sl.value=tIdx;lab();draw()},120)};
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
   fill(); pick=D.stations.find(s=>s.sta.endsWith('B045'))?.sta||D.stations[0].sta; draw();
 }
